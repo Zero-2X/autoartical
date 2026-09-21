@@ -1,0 +1,16 @@
+{
+  "table_role": "main_superiority",
+  "style_reference": "/home/wanguancheng/.AAAAAA/TemplateProjects/ICLR26_Prompt_SAM/tables/table1.tex",
+  "layout": "table_star_dense",
+  "benchmarks": [],
+  "baseline_systems": [],
+  "proposed_system": "",
+  "metrics": [],
+  "column_groups": [],
+  "highlight_rules": {
+    "best": "bold",
+    "second_best": "underline"
+  },
+  "caption_goal": "compact but informative",
+  "notes": "Main superiority table should be broad, dense, and paper-facing."
+}

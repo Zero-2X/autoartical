@@ -1,0 +1,26 @@
+{
+  "primary_metric": "",
+  "target_value": null,
+  "baseline_value": null,
+  "secondary_metrics": [],
+  "max_iterations": 5,
+  "budget_note": "",
+  "stop_conditions": [
+    {
+      "kind": "plateau_rounds",
+      "value": 3,
+      "note": "stop after three non-improving rounds"
+    },
+    {
+      "kind": "manual_review",
+      "value": true,
+      "note": "require human approval at major pivots"
+    }
+  ],
+  "review_points": [
+    "after_idea_selection",
+    "after_proposal",
+    "after_major_research_pivot",
+    "before_submission"
+  ]
+}

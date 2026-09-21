@@ -1,0 +1,17 @@
+{
+  "status": "not_started",
+  "current_round": 0,
+  "max_rounds": 2,
+  "last_review_summary": "",
+  "pending_fixes": {
+    "critical": [],
+    "major": [],
+    "minor": []
+  },
+  "artifacts": {
+    "round0_pdf": "",
+    "round1_pdf": "",
+    "round2_pdf": ""
+  },
+  "last_updated": ""
+}

@@ -1,0 +1,75 @@
+{
+  "preferred_backend": "builtin_image_gen",
+  "builtin_built-in image generation": {
+    "generation_owner": "Codex host image_gen tool",
+    "prepare_runner": "skill-packages/research-workflow-pipeline/scripts/run_direct_illustration.py",
+    "record_module": "autosearch/post-acceptance_document/builtin_built-in image generation_record.py",
+    "mode_priority": [
+      "builtin_image_gen"
+    ],
+    "builtin_built-in image generation_only": true,
+    "external_api_key_allowed": false,
+    "external_cli_allowed": false,
+    "local_command_allowed": false,
+    "mock_formal_output_allowed": false,
+    "fallback_allowed": false,
+    "on_block": "retry_builtin_or_stop",
+    "default_image_size": "4K",
+    "framework_aspect_ratio": "1.5:1",
+    "problem_aspect_ratio": "3:1-2.5:1",
+    "default_reference_images": [
+      "assets/autofigure-reference-images/framework-template/1.png",
+      "assets/autofigure-reference-images/framework-template/2.png",
+      "assets/autofigure-reference-images/framework-template/3.png",
+      "assets/autofigure-reference-images/framework-template/4.png"
+    ],
+    "job_root": "project/writing_1_illustration/builtin_built-in image generation_jobs"
+  },
+  "style_profile": {
+    "reference": "skill-packages/research-workflow-pipeline/references/illustration-style-profile.md",
+    "prompt_fusion_mode": "adaptive",
+    "traits": [
+      "flat vector infographic illustration",
+      "professional academic paper aesthetic",
+      "advanced Visio or Draw.io clarity",
+      "crisp 2D flat design",
+      "high information density",
+      "organized modular layout",
+      "rounded rectangular sections",
+      "clean white background",
+      "soft pastel modules",
+      "deep blue vibrant orange coral red accents",
+      "directional flowcharts and modern flat vector icons"
+    ]
+  },
+  "problem_illustration": {
+    "trigger_after": "research_introduction_writer",
+    "output_base": "project/writing_paper/figures/problem_illustration",
+    "insert_target": "project/writing_paper/sections/introduction.tex",
+    "preferred_aspect_ratio_range": [
+      "3:1",
+      "2.5:1"
+    ],
+    "default_reference_images": [],
+    "style_bias": [
+      "narrative failure chain",
+      "semantic mismatch",
+      "tool execution consequence"
+    ]
+  },
+  "framework_illustration": {
+    "trigger_after": "research_methodology_writer",
+    "output_base": "project/writing_paper/figures/framework_illustration",
+    "insert_target": "project/writing_paper/sections/methodology.tex",
+    "preferred_aspect_ratio_range": [
+      "2:1",
+      "1.7:1"
+    ],
+    "default_reference_images": [],
+    "style_bias": [
+      "modular pipeline",
+      "structured step grouping",
+      "high-density architecture diagram"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "figure_id": "bridge-risk-architecture",
+  "created_at": "2026-09-21T16:12:20+00:00",
+  "prompt": "用途：解释桥区船舶视频从检测到风险证据卡片的技术机制\n内容：固定岸基摄像机、桥墩遮挡、船舶检测框、轨迹重连、虚拟航道线、相对距离变化、可解释告警证据卡片\n风格：学术论文风格，克制配色，清晰留白\n比例：16:9\n约束：不生成未经提供的数据、数值、机构标志或虚构引用；图中文字只使用已给出的术语；输出适合放入正式研究文档。",
+  "route": "Codex built-in image_gen",
+  "status": "generated_and_reviewed",
+  "source_refs": [
+    "proposal.md §5"
+  ],
+  "asset_path": "workspace/document_assets/figures/bridge-risk-architecture.png",
+  "review": {
+    "text_accuracy": "no dense text",
+    "data_fabrication": "none",
+    "layout": "usable for mechanism overview"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "figure_id": "framework_illustration",
+  "title": "",
+  "purpose": "",
+  "source_section": "",
+  "aspect_ratio_target": "",
+  "reference_images": [],
+  "steps": [
+    {
+      "id": "step_1",
+      "title": "",
+      "subtitle": "",
+      "bullets": []
+    },
+    {
+      "id": "step_2",
+      "title": "",
+      "subtitle": "",
+      "bullets": []
+    },
+    {
+      "id": "step_3",
+      "title": "",
+      "subtitle": "",
+      "bullets": []
+    }
+  ],
+  "required_labels": [],
+  "forbidden_terms": [],
+  "notes": ""
+}

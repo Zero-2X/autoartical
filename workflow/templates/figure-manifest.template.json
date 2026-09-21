@@ -1,0 +1,22 @@
+{
+  "problem_illustration": {
+    "status": "pending",
+    "backend": "",
+    "source_section": "sections/introduction.tex",
+    "reference_images": [],
+    "aspect_ratio_target": "3:1-2.5:1",
+    "style_profile_used": "adaptive",
+    "output_files": [],
+    "caption_status": "pending"
+  },
+  "framework_illustration": {
+    "status": "pending",
+    "backend": "",
+    "source_section": "sections/methodology.tex",
+    "reference_images": [],
+    "aspect_ratio_target": "2:1-1.7:1",
+    "style_profile_used": "adaptive",
+    "output_files": [],
+    "caption_status": "pending"
+  }
+}

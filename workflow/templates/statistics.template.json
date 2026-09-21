@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "primary_metric": "",
+    "best_value": null,
+    "baseline_value": null,
+    "improvement": null
+  },
+  "tests": [],
+  "ablations": [],
+  "notes": ""
+}

@@ -1,0 +1,39 @@
+{
+  "document": "D:\\temp_autoartical_20260921\\examples\\bridge-risk\\proposal.md",
+  "generated_checks": {
+    "heading_count": 22,
+    "paragraph_count": 56,
+    "table_line_count": 19,
+    "citation_count": 5,
+    "has_mermaid": true,
+    "has_embedded_image": true,
+    "table_quality": {
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": true
+    },
+    "generic_phrase_counts": {},
+    "repeated_paragraphs": []
+  },
+  "rubric": {
+    "论文": {
+      "问题与贡献": true,
+      "方法与验证": true,
+      "引用可追溯": true
+    },
+    "竞赛说明书": {
+      "需求覆盖": true,
+      "方案闭环": true,
+      "评审友好": true
+    },
+    "基金申报书": {
+      "科学问题": true,
+      "技术路线": true,
+      "可行性与风险": true
+    }
+  },
+  "coverage_score": 1.0,
+  "ai_style_risks": {},
+  "verdict": "pass",
+  "missing_sections": []
+}
