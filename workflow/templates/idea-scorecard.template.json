@@ -1,0 +1,39 @@
+{
+  "ideas": [
+    {
+      "idea_id": "",
+      "project_name": "",
+      "problem": "",
+      "target_users": [],
+      "solution_summary": "",
+      "core_innovations": [],
+      "feasibility_notes": [],
+      "value_notes": [],
+      "risk_notes": [],
+      "evidence_refs": [],
+      "analysis_basis": {
+        "problem_basis": [],
+        "solution_basis": [],
+        "fit_basis": [],
+        "novelty_basis": [],
+        "communication_basis": []
+      },
+      "innovation_evidence_map": [],
+      "template_alignment": {
+        "opening_summary": "",
+        "blind_spots": [],
+        "innovation_blocks": [],
+        "closing_summary": ""
+      },
+      "inference_notes": [],
+      "similar_registry_hits": [],
+      "score": {
+        "novelty": 0,
+        "feasibility": 0,
+        "fit_to_rules": 0,
+        "communication_potential": 0
+      },
+      "matched_scoring_dimensions": []
+    }
+  ]
+}

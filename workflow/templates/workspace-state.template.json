@@ -1,0 +1,30 @@
+{
+  "topic_name": "",
+  "topic_root": "",
+  "current_step": "intake",
+  "current_workflow_status": "active",
+  "workflow_status": {
+    "intake": "pending",
+    "requirements": "pending",
+    "ideas": "pending",
+    "selection": "pending",
+    "concept": "pending",
+    "document_plan": "pending",
+    "document_writing": "pending",
+    "document_review": "pending",
+    "document_export": "pending"
+  },
+  "active_focus": "",
+  "latest_user_request": "",
+  "current_direction": "",
+  "selected_idea_id": "",
+  "next_action": "",
+  "next_actions": [],
+  "open_questions": [],
+  "blocking_reason": "",
+  "resume_entrypoint": "",
+  "required_inputs": [],
+  "last_completed_artifact": "",
+  "last_verified_at": "",
+  "last_updated": ""
+}

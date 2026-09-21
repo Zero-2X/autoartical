@@ -1,0 +1,39 @@
+{
+  "idea_id": "",
+  "project_name": "",
+  "slogan": "",
+  "problem": "",
+  "target_users": [],
+  "pain_points": [],
+  "solution_summary": "",
+  "core_innovations": [],
+  "technical_architecture": [],
+  "application_scenarios": [],
+  "competitive_advantages": [],
+  "implementation_feasibility": [],
+  "business_value": [],
+  "open_questions": [],
+  "evidence_refs": [],
+  "evidence_claim_map": {
+    "problem_basis": [],
+    "solution_basis": [],
+    "fit_basis": []
+  },
+  "innovation_evidence_map": [],
+  "validation_evidence_mode": "unspecified",
+  "validation_support_pack": {
+    "mode": "unspecified",
+    "status": "not_configured",
+    "disclosure": "",
+    "chapter_title": "",
+    "summary": "",
+    "metric_summary": [],
+    "comparison_experiments": [],
+    "case_replay": {
+      "title": "",
+      "timeline": []
+    },
+    "system_metrics": [],
+    "required_assets": []
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "workflow_mode": "real_llm_multi_agent",
+  "host_runtime": "codex_native_subagents",
+  "real_llm_required": true,
+  "default_backbone": {
+    "model": "gpt-5.4",
+    "reasoning_effort": "high"
+  },
+  "agents": {
+    "agent1": {
+      "role": "supervisor",
+      "responsibility": "总体监督、章节解锁、任务下派、进入下一章与总体验收裁决",
+      "backbone": {
+        "model": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "continuity_handle": "",
+      "runtime_agent_id": "",
+      "status": "ready"
+    },
+    "agent2": {
+      "role": "writer",
+      "responsibility": "按章撰写正文，并根据审计意见逐轮修订",
+      "backbone": {
+        "model": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "continuity_handle": "",
+      "runtime_agent_id": "",
+      "status": "ready"
+    },
+    "agent3": {
+      "role": "auditor",
+      "responsibility": "对每章做写后审计，必要时提出矫正，决定是否放行下一章",
+      "backbone": {
+        "model": "gpt-5.4",
+        "reasoning_effort": "high"
+      },
+      "continuity_handle": "",
+      "runtime_agent_id": "",
+      "status": "ready"
+    }
+  },
+  "workflow_rules": [
+    "只允许逐章写作，禁止一次性写完整本作品书。",
+    "每章必须经过 agent3 审计并在 decision.json 中批准，agent1 才能解锁下一章。",
+    "作品书草稿只能汇编已通过章节，未通过章节不得提前并入全书。",
+    "所有 agent 都必须是真实 LLM；禁止用固定模板文案冒充 agent 产出。",
+    "Step6 逐章写作与审计默认以 works_book_writing_skill.md 作为通用规范来源，但每章 brief 只抽取当前章所需规则。"
+  ],
+  "chapter_sequence": [],
+  "approved_chapters": [],
+  "current_chapter_id": "",
+  "current_chapter_heading": "",
+  "current_round": 0,
+  "max_rounds_per_chapter": 3,
+  "workflow_status": "initialized",
+  "latest_verdict": "pending",
+  "final_acceptance_ready": false,
+  "stale_state": {
+    "is_stale": false,
+    "reason": ""
+  },
+  "blocking_reason": "",
+  "next_action": "",
+  "next_action_owner": "agent1",
+  "required_inputs": [],
+  "resume_entrypoint": "workspace/writing_proposal_draft/agent-runtime.json",
+  "last_updated": "",
+  "notes": []
+}

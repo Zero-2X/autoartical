@@ -1,0 +1,12 @@
+{
+  "workflow_policy": {
+    "mode": "real_llm_multi_agent",
+    "default_backbone": "gpt-5.4/high",
+    "write_one_chapter_at_a_time": true,
+    "audit_before_next_chapter": true,
+    "assemble_only_approved_chapters": true,
+    "final_acceptance_required": true,
+    "max_rounds_per_chapter": 3
+  },
+  "chapters": []
+}

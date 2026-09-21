@@ -1,0 +1,108 @@
+{
+  "project_name": "",
+  "competition_name": "",
+  "work_type": "",
+  "work_type_reason": "",
+  "skill_reference": {
+    "path": "works_book_writing_skill.md",
+    "role": "planning_writing_shared_writing_spec"
+  },
+  "scoring_dimensions": [],
+  "reference_template": {
+    "reference_name": "",
+    "reference_source": "",
+    "notes": [],
+    "global_structure": [],
+    "chapter_logic": [],
+    "subsection_budget_rules": [],
+    "page_density_rules": []
+  },
+  "sections": [
+    {
+      "section_id": "",
+      "heading": "",
+      "title": "",
+      "goal": "",
+      "matched_scores": [],
+      "narrative_role": "",
+      "position_logic": "",
+      "chapter_weight_reason": "",
+      "predecessor_sections": [],
+      "successor_sections": [],
+      "suggested_page_span": "",
+      "suggested_word_budget": "",
+      "subsections": [],
+      "structure_contract": {
+        "required_second_level_count": 0,
+        "required_second_level_titles": [],
+        "required_third_level_total_min": 0,
+        "required_third_level_total_target": 0,
+        "second_level_contracts": [
+          {
+            "title": "",
+            "writing_purpose": "",
+            "required_third_level_count": 0,
+            "required_third_level_titles": []
+          }
+        ]
+      },
+      "body_priority": [],
+      "visual_priority": [],
+      "appendix_candidates": [],
+      "key_messages": [],
+      "must_include": [],
+      "linked_innovations": [],
+      "linked_architecture": [],
+      "innovation_loop_map": [
+        {
+          "innovation_title": "",
+          "problem_source": "",
+          "current_section_role": "",
+          "validation_anchor": "",
+          "expected_value_signal": "",
+          "practical_meaning": ""
+        }
+      ],
+      "supporting_evidence_ids": [],
+      "supporting_evidence": [
+        {
+          "evidence_id": "",
+          "source": "",
+          "claim": "",
+          "summary": "",
+          "reliability": "",
+          "tags": []
+        }
+      ],
+      "recommended_visuals": [],
+      "visual_specs": [
+        {
+          "visual_id": "",
+          "label": "",
+          "visual_type": "figure",
+          "title": "",
+          "purpose": "",
+          "placement_anchor": "",
+          "suggested_subsection": "",
+          "body_reference_hint": "",
+          "asset_candidates": [],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "common_errors": [],
+      "risks": [],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "",
+          "impacted_chapter": "",
+          "why_needed": "",
+          "priority": "",
+          "suggested_backtrack_step": "",
+          "minimum_acceptable_substitute": ""
+        }
+      ]
+    }
+  ]
+}

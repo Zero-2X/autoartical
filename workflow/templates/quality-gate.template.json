@@ -1,0 +1,30 @@
+{
+  "workflow_mode": "real_llm_multi_agent",
+  "verdict": "human_check",
+  "chapter_gate_summary": [],
+  "final_acceptance": {
+    "status": "not_started",
+    "issues": [],
+    "score": 0
+  },
+  "length_gate_summary": {
+    "per_chapter": [],
+    "total_actual": 0,
+    "total_required": 0,
+    "assembled_count": 0,
+    "passed": false
+  },
+  "evidence_gate_summary": {
+    "per_chapter": [],
+    "required_chapters": 0,
+    "missing_required": 0,
+    "weak_required": 0,
+    "passed": false
+  },
+  "coverage_score": 0,
+  "major_issues": [],
+  "minor_issues": [],
+  "pending_confirmations": [],
+  "next_action": "",
+  "next_action_owner": "agent1"
+}

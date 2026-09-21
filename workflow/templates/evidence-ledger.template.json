@@ -1,0 +1,24 @@
+{
+  "schema_version": "v2",
+  "topic_name": "",
+  "competition_name": "",
+  "seed_direction": "",
+  "source_overview": {
+    "rules": [],
+    "references": [],
+    "samples": []
+  },
+  "evidence_items": [],
+  "summary": {
+    "top_themes": [],
+    "scoring_focus": [],
+    "recommended_direction": [],
+    "open_gaps": []
+  },
+  "shared_registry_sync": {
+    "registry_schema_version": "v2",
+    "registry_path": "sample/databases/evidence/evidence-registry.json",
+    "created_ids": [],
+    "updated_ids": []
+  }
+}
