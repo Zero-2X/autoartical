@@ -41,6 +41,11 @@ python run_workflow.py ./my-topic --topic "主题名称"
 python workflow/scripts/run_selection.py ./my-topic
 python run_workflow.py ./my-topic --select-id idea_a --from-step run_selection
 
+# 自动研究首次运行会生成 research-plan.md 并在证据不足时停止；补充
+# workspace/research/research-brief.json 与 external_evidence 后重新运行
+python workflow/scripts/run_research.py ./my-topic
+python run_workflow.py ./my-topic --from-step run_research
+
 # 对已有文档做联合专业审查
 python workflow/scripts/evaluate_document.py examples/bridge-risk/proposal.md \
   --out examples/bridge-risk/review.json

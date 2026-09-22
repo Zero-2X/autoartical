@@ -152,7 +152,7 @@ def main() -> int:
     write_json(research_dir / "research-queries.json", {"topic": brief["topic"], "queries": build_query_plan(brief), "rule": "query plans are not evidence"})
     write_text(research_dir / "research-plan.md", render_plan(brief, research_gate)); update_state(topic_dir, research_gate)
     print(json.dumps({"verdict": research_gate["verdict"], "missing": research_gate["missing"]}, ensure_ascii=False, indent=2))
-    return 0
+    return 0 if research_gate["verdict"] == "pass" else 2
 
 
 if __name__ == "__main__": raise SystemExit(main())
