@@ -30,6 +30,8 @@ description: 将选题自动研究、文献证据、方法分类、科学问题�
 python workflow/scripts/run_research.py ./my-topic
 ```
 
+研究 brief 通过后仍不能直接视为长文完成。正文写作阶段必须运行 `evaluate_document.py` 的默认长文模式和 `content_depth_gate`；只有研究草案或选题卡可显式使用 `--allow-short`，并且该状态必须保留为短种子，不能进入最终交付。质量审查会同时检查有效正文量、段落密度、重复段落、引用数量和问题—机制—实验—边界四类语义覆盖。
+
 首次运行会生成研究问题、查询计划、证据缺口和研究 brief 骨架。补充来源或由研究代理完成 brief 后再次运行；已有 brief 默认保留，只有明确重置时使用 `--reset`。`research-gate.json` 为 `pass` 后才允许进入文档规划。
 
 ## 文献证据规则

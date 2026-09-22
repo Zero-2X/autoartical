@@ -1,0 +1,104 @@
+{
+  "contract": {
+    "target_pages": [
+      40,
+      50
+    ],
+    "body_units_min": 24000,
+    "body_units_target": 32000,
+    "page_scope": "正文；不含封面、目录、参考文献及附录",
+    "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
+    "visual_contract": {
+      "required_specs_min": 18,
+      "required_external_assets_min": 12,
+      "required_tables_min": 5,
+      "required_diagrams_min": 8,
+      "required_case_or_ui_visuals_min": 4,
+      "required_asset_ratio": 1.0,
+      "all_visuals_must_be_cited": true,
+      "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
+    },
+    "export_contract": {
+      "required_formats": [
+        "markdown",
+        "html",
+        "pdf_or_docx"
+      ],
+      "render_verification": "required_before_delivery",
+      "page_count_must_be_in_range": true,
+      "visual_qa_required": true
+    },
+    "render_verification": "required_before_delivery"
+  },
+  "checks": {
+    "pipeline_has_research": true,
+    "pipeline_has_visual_assets": true,
+    "pipeline_has_export_gate": true,
+    "content_contract_has_40_50": true,
+    "content_min_is_24000": true,
+    "visual_contract_is_explicit": true,
+    "review_checks_visual_gate": true,
+    "export_requires_render_report": true,
+    "evaluator_has_long_form_mode": true,
+    "planner_carries_content_contract": true,
+    "visual_script_writes_requests": true,
+    "writing_is_agent_orchestrated": true
+  },
+  "failed_checks": [],
+  "sample_docs": [
+    {
+      "path": "examples\\bridge-risk\\proposal.md",
+      "prose_units": 2444,
+      "short_against_default_contract": true
+    },
+    {
+      "path": "examples\\bridge-risk\\README.md",
+      "prose_units": 28,
+      "short_against_default_contract": true
+    },
+    {
+      "path": "examples\\ship-vision\\proposal.md",
+      "prose_units": 3870,
+      "short_against_default_contract": true
+    },
+    {
+      "path": "examples\\ship-vision\\README.md",
+      "prose_units": 443,
+      "short_against_default_contract": true
+    },
+    {
+      "path": "examples\\ship-vision\\topic-selection.md",
+      "prose_units": 4067,
+      "short_against_default_contract": true
+    }
+  ],
+  "findings": [
+    {
+      "severity": "fixed",
+      "area": "数量",
+      "finding": "旧评估器只按关键词和格式打分，短文可获得 pass；现在默认进入 long_form_required，低于 24000 有效正文单位直接 revise。"
+    },
+    {
+      "severity": "fixed",
+      "area": "视觉",
+      "finding": "视觉请求与真实素材曾经分离；现在由视觉台账、素材存在性、正文引用和数量门禁共同检查。"
+    },
+    {
+      "severity": "fixed",
+      "area": "导出",
+      "finding": "HTML 生成曾容易被误解为最终交付；现在必须提供 render-report.json，记录页数在 40–50、逐页 visual_qa=pass 和 verified=true。"
+    },
+    {
+      "severity": "known_limit",
+      "area": "写作执行",
+      "finding": "章节写作仍由真实 LLM agent/外部写作执行完成，CLI 负责状态、证据、章节门禁和汇编，不伪造正文。没有章节批准时不能称为完成。"
+    },
+    {
+      "severity": "known_limit",
+      "area": "数据真实性",
+      "finding": "素材请求文件不等于图像；实验指标和案例结果必须来自真实数据，自动化不会填入虚构结果。"
+    }
+  ],
+  "verdict": "pass",
+  "interpretation": "选题文本、摘要和章节种子不是完整长文；只有经过 document_plan、章节批准、content_depth、visual、render 和 export 门禁的文件才是最终交付。"
+}

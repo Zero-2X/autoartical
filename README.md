@@ -57,6 +57,10 @@ python run_workflow.py ./my-topic --from-step run_document_export --allow-html-o
 python workflow/scripts/evaluate_document.py examples/bridge-risk/proposal.md \
   --out examples/bridge-risk/review.json
 
+# 默认强制长文内容合同；只有选题卡等短种子才能显式放宽
+python workflow/scripts/evaluate_document.py examples/bridge-risk/proposal.md \
+  --allow-short --out examples/bridge-risk/seed-review.json
+
 # 记录每轮改进，并在下一轮读取历史
 python workflow/scripts/iteration_memory.py examples/bridge-risk/iteration-memory.sqlite show \
   --project bridge-risk
@@ -82,6 +86,8 @@ PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。需要�
 自动研究会先回答“领域是什么、为什么研究、子领域是什么、为什么选择、通用挑战及影响、Current methods 分类与优缺点、关键缺口、科学设计 rationale、case study、benchmark/baseline/metrics 与实验目的”，再允许进入正文规划。详见 [自动研究工作流](workflow/references/automatic-research.md)。
 
 长文默认要求 **40–50 页实质正文**，从选题开始即进入合同。规划器分配 24000–32000 个中文字符／英文词元的起始预算，并同时分配视觉规格、素材请求和导出要求；逐章和全书检查排除标题、表格、代码、图片及重复段落。交付前必须通过内容、视觉、引用和实际渲染门禁，核验内容密度和正文页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
+
+短选题卡不会被当作最终交付：`evaluate_document.py` 默认使用 `long_form_required`，有效正文不足 24000 个单位时直接退回修订，并同步检查段落密度、重复、引用及问题—机制—实验—边界语义覆盖。`--allow-short` 只用于显式标注的种子评审；`workflow/scripts/audit_workflow.py` 可检查仓库是否仍保留这些硬门禁。
 
 - **论文**：问题是否可检验，方法是否可复现，基线/消融/统计区间是否完整，引用是否真实存在。
 - **竞赛说明书**：需求、用户、方案、创新、实施、风险和展示证据是否形成闭环。
