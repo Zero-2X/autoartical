@@ -1,0 +1,23 @@
+{
+  "competition_name": "通用科技创新/人工智能应用类比赛（待替换为正式赛事）",
+  "version": "draft-1",
+  "status": "assumption",
+  "assumptions": [
+    "评审关注真实问题、技术创新、实验验证、落地价值和展示效果",
+    "正文允许包含研究方案、实验计划和阶段性成果，但不得把计划写成已完成结果",
+    "正式字数、页数、附件和格式要求尚未提供"
+  ],
+  "scoring_dimensions": [
+    {"name": "问题价值", "evidence_required": ["场景事实", "用户痛点", "影响后果"]},
+    {"name": "技术创新", "evidence_required": ["现有方法分类", "关键缺口", "可检验机制"]},
+    {"name": "技术可行性", "evidence_required": ["系统架构", "数据方案", "资源与风险"]},
+    {"name": "验证可信度", "evidence_required": ["benchmark", "baseline", "metrics", "消融与失败案例"]},
+    {"name": "应用与展示", "evidence_required": ["目标用户", "告警闭环", "部署约束", "演示脚本"]}
+  ],
+  "pending_confirmations": [
+    "赛事名称、组别和截止日期",
+    "正文页数/字数、模板和附件清单",
+    "是否要求已有成果、知识产权或现场演示",
+    "评审评分表和查重/引用规范"
+  ]
+}

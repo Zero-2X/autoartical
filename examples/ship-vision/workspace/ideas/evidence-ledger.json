@@ -1,0 +1,78 @@
+{
+  "topic": "视航守望：面向桥区复杂水域的船舶视觉感知与风险证据闭环系统",
+  "evidence_items": [
+    {
+      "id": "E1",
+      "source_role": "external_research",
+      "evidence_kind": "review",
+      "title": "Visual perception for autonomous surface vehicles in complex waterway environments: A review",
+      "source_url": "https://www.sciencedirect.com/science/article/pii/S0141118726003056",
+      "claim_scope": "复杂水道视觉感知的挑战、数据集、方法和部署约束",
+      "summary": "检索摘要将挑战归纳为动态水面扰动、复杂光照、恶劣天气和小目标等，并讨论多模态、域泛化和鲁棒感知方向。需要核验全文出版信息、具体分类和引用页码。",
+      "verification_status": "needs_fulltext_check",
+      "curation_status": "collected",
+      "supports": ["Q1", "Q3", "Q4"]
+    },
+    {
+      "id": "E2",
+      "source_role": "external_research",
+      "evidence_kind": "benchmark",
+      "title": "SeaDronesSee: A Maritime Benchmark for Detecting Humans in Open Water",
+      "source_url": "https://openaccess.thecvf.com/content/WACV2022/papers/Varga_SeaDronesSee_A_Maritime_Benchmark_for_Detecting_Humans_in_Open_Water_WACV_2022_paper.pdf",
+      "claim_scope": "海事视觉公开基准和开放水域小目标检测",
+      "summary": "WACV公开论文提供海事场景检测基准，可作为公开数据与评价协议的参考；其目标类别与本项目船舶类别不同，不能直接宣称等价，需要说明迁移边界。",
+      "verification_status": "reviewed",
+      "curation_status": "collected",
+      "supports": ["Q2", "Q7"]
+    },
+    {
+      "id": "E3",
+      "source_role": "external_research",
+      "evidence_kind": "benchmark",
+      "title": "MaCVi: Maritime Computer Vision Workshop and Challenge",
+      "source_url": "https://jyx.jyu.fi/bitstreams/e16fa3df-8b78-4bbe-b873-77a0b8ed5540/download",
+      "claim_scope": "海事目标检测、跟踪和分割任务的基准组织方式",
+      "summary": "公开材料覆盖海事视觉的检测、跟踪和分割挑战，可用于设计任务拆分和对照协议；数据许可、版本和具体指标需在实验前核验。",
+      "verification_status": "needs_fulltext_check",
+      "curation_status": "collected",
+      "supports": ["Q2", "Q4", "Q7"]
+    },
+    {
+      "id": "E4",
+      "source_role": "external_research",
+      "evidence_kind": "review",
+      "title": "Visual Perception Challenges in Adverse Weather for Autonomous Vehicles",
+      "source_url": "https://doi.org/10.1109/ITNEC60942.2024.10733168",
+      "claim_scope": "雨雾等恶劣天气对视觉感知的影响及鲁棒处理方向",
+      "summary": "综述讨论雨雾造成的可见性下降与检测性能退化，并整理去雨、去雾和检测方法；需要核验该结论在船舶水面场景中的适用边界。",
+      "verification_status": "needs_fulltext_check",
+      "curation_status": "collected",
+      "supports": ["Q3", "Q4"]
+    },
+    {
+      "id": "E5",
+      "source_role": "external_research",
+      "evidence_kind": "research_paper",
+      "title": "Robust Perception and Navigation of Autonomous Surface Vehicles in Challenging Environments",
+      "source_url": "https://arxiv.org/abs/2405.17657",
+      "claim_scope": "复杂海岸环境中的障碍感知、导航不确定性和鲁棒性",
+      "summary": "论文关注静态/动态障碍与复杂海岸环境下的感知导航问题，可用来界定感知输出对后续风险判断的影响；正式申报书需核验同行评审状态和实验设置。",
+      "verification_status": "needs_fulltext_check",
+      "curation_status": "collected",
+      "supports": ["Q3", "Q5", "Q6"]
+    },
+    {
+      "id": "E6",
+      "source_role": "rule",
+      "evidence_kind": "official_rule",
+      "title": "IMO Convention on the International Regulations for Preventing Collisions at Sea (COLREG)",
+      "source_url": "https://www.imo.org/en/about/conventions/pages/colreg.aspx",
+      "claim_scope": "通航规则和风险事件定义的权威边界",
+      "summary": "用于核对风险规则的表述边界；项目不把视觉模型输出直接等同于法律责任判断。需结合赛事要求和实际监管流程确定使用范围。",
+      "verification_status": "needs_scope_check",
+      "curation_status": "collected",
+      "supports": ["Q1", "Q7"]
+    }
+  ],
+  "rule": "搜索摘要、模型常识和项目假设不能直接写成研究结论；每条关键判断须回链到全文、官方数据说明或本地标注记录。"
+}
