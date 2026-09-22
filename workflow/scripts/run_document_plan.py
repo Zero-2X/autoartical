@@ -10,6 +10,7 @@ from typing import Any
 from proposal_workflow import ensure_state_scaffold, sync_workspace_state
 from topic_profiles import resolve_topic_profile
 from validation_support_builder import build_validation_support_pack
+from content_depth import DEFAULT_CONTRACT, allocate_budgets
 
 TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
 
@@ -1198,6 +1199,8 @@ def main() -> int:
     reference_template = load_json_template("proposal-reference.template.json")
     evidence_index = build_evidence_index(read_json(evidence_path)) if evidence_path.exists() else {}
     sections = build_sections(spec, idea_card, evidence_index, reference_template)
+    content_contract = dict(DEFAULT_CONTRACT)
+    allocate_budgets(sections, content_contract)
     coverage = build_score_coverage(spec, sections)
     outline = render_outline(spec, idea_card, sections)
     reference_text = render_reference_template(reference_template)
@@ -1222,6 +1225,7 @@ def main() -> int:
             "reference_template": reference_template,
             "outline_structure_gate": structure_gate,
             "sections": sections,
+            "content_contract": content_contract,
         },
     )
     write_json(step_dir / "score-coverage.json", coverage)

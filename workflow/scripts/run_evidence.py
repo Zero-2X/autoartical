@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 
 from topic_profiles import build_recommended_directions, collect_all_profile_keywords, resolve_topic_profile
+from source_ingestion import SUPPORTED_SUFFIXES, extract_source
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -500,7 +501,10 @@ def build_file_evidence(topic_dir: Path, rel_path: str, source_role: str) -> dic
         return None
     if should_skip_reference(rel_path):
         return None
-    raw_text = extract_text(path)
+    if path.suffix.lower() not in SUPPORTED_SUFFIXES:
+        return None
+    extraction = extract_source(path, topic_dir / "workspace" / "sources")
+    raw_text = extraction["text"]
     if not raw_text:
         return None
     source_role = infer_source_role(rel_path, raw_text, source_role)
@@ -525,7 +529,12 @@ def build_file_evidence(topic_dir: Path, rel_path: str, source_role: str) -> dic
         "excerpt": excerpt,
         "tags": tags,
         "reusable": source_role != "sample",
-        "reliability": "medium" if source_role == "sample" else "high",
+        "reliability": "low",
+        "verification_status": "unverified",
+        "source_sha256": extraction["source_sha256"],
+        "extraction_record": str(Path(extraction["cache_path"]).relative_to(topic_dir)),
+        "extraction_warnings": extraction["warnings"],
+        "source_positions": [segment["locator"] for segment in extraction["segments"] if segment["text"].strip()][:3],
         "supports": detect_tags(raw_text)[:3],
         "derived_insight": summary[:240],
         "source_origin": "topic_workspace_scan",

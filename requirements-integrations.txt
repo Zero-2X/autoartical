@@ -1,0 +1,4 @@
+# Optional adapters for evidence ingestion. The core workflow remains dependency-light.
+pypdf>=5.0
+trafilatura>=2.0
+markitdown[docx,pptx,xlsx]>=0.1.0

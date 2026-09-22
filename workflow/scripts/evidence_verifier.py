@@ -11,6 +11,8 @@ def verify_evidence_items(items: list[dict[str, Any]]) -> dict[str, Any]:
     issues = []
     for item in items:
         item_issues = []
+        if item.get("verification_status") == "unverified":
+            item_issues.append("source_claim_requires_verification")
         if not item.get("source_title"):
             item_issues.append("missing_source_title")
         if not item.get("claim"):

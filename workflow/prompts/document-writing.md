@@ -1,4 +1,6 @@
-# Step 6 Prompt: Proposal Draft
+# 正文撰写
+
+先读取 `workflow/references/content-depth.md` 与章节计划中的 `content_contract`。40–50 页必须由足量、精练、可核验的正文自然构成；按有效正文预算补足论证、机制、实现与验证，不得用排版、复述、背景套话或虚构事实扩充。逐段核对新增信息与证据，缺材料先补材料。字数达标后仍须完成实质审查和正式版式核验。
 
 目标：
 

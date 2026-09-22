@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from writing_quality_rules import load_writing_quality_rules
+from content_depth import content_metrics
 
 
 TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
@@ -386,7 +387,11 @@ def build_heading_structure_gate(chapter: dict[str, Any], draft_text: str) -> di
 def build_length_gate(chapter: dict[str, Any], draft_text: str) -> dict[str, Any]:
     budget = parse_word_budget_range(chapter.get("suggested_word_budget", ""))
     has_countable_text = _has_substantive_countable_text(draft_text)
-    actual_count = count_text_units(draft_text) if has_countable_text else 0
+    actual_count = (
+        content_metrics(draft_text)["prose_units"]
+        if chapter.get("chapter_type") == "body_section"
+        else count_text_units(draft_text)
+    ) if has_countable_text else 0
     min_required = int(budget["lower"] * WORD_BUDGET_MIN_RATIO) if budget["enforceable"] else 0
     passed = (not budget["enforceable"]) or actual_count >= min_required
     status = "not_applicable"
@@ -395,7 +400,7 @@ def build_length_gate(chapter: dict[str, Any], draft_text: str) -> dict[str, Any
         if not has_countable_text:
             status = "pending"
     return {
-        "count_rule": "Chinese CJK characters plus Latin word tokens after stripping markdown formatting.",
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
         "raw_budget": budget["raw"],
         "budget_lower": budget["lower"],
         "budget_upper": budget["upper"],
@@ -978,6 +983,11 @@ def render_chapter_brief(
         "",
         "## Section Dependencies",
     ]
+    lines.extend([
+        "- 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。",
+        "- 章节预算按有效正文计数；补充可核验事实、机制推导、设计取舍、实现细节、验证与边界。",
+        "- 缺少证据时列入材料缺口，不能捏造实验结果；字数达标不代表内容审查通过。",
+    ])
     lines.extend([f"- Previous: {item}" for item in chapter.get("predecessor_sections", []) if item] or ["- Previous: none"])
     lines.extend([f"- Next: {item}" for item in chapter.get("successor_sections", []) if item] or ["- Next: none"])
     lines.extend(["", "## Body Priorities"])

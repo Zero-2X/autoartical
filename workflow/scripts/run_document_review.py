@@ -17,6 +17,7 @@ from proposal_workflow import (
     write_text,
 )
 from writing_quality_rules import load_writing_quality_rules
+from content_depth import DEFAULT_CONTRACT, build_content_depth_gate
 
 PASSLIKE_DIMENSION_STATUSES = {"pass", "passed", "not_applicable", "n/a", "na"}
 WRITING_QUALITY_RULES = load_writing_quality_rules()
@@ -384,9 +385,15 @@ def main() -> int:
     coverage = read_json(coverage_path)
     idea_card = read_json(card_path)
     draft = draft_path.read_text(encoding="utf-8")
+    plan_path = topic_dir / "workspace" / "document_plan" / "section-plan.json"
+    plan = read_json(plan_path) if plan_path.exists() else {}
+    content_depth_gate = build_content_depth_gate(
+        draft, plan.get("sections", []), plan.get("content_contract", DEFAULT_CONTRACT)
+    )
 
     payload = load_json_template("quality-gate.template.json")
     chapter_summary, major_issues, blocked = build_chapter_summary(manifest)
+    major_issues.extend(content_depth_gate["failures"])
     length_gate_summary = build_length_gate_summary(manifest, draft)
     evidence_gate_summary = build_evidence_gate_summary(manifest)
     final_draft_gate_summary = build_final_draft_gate_summary(draft, manifest)
@@ -396,7 +403,7 @@ def main() -> int:
     if coverage.get("gaps"):
         major_issues.append("Step5 评分覆盖仍存在未承接项，不能进入最终交付。")
 
-    if runtime.get("workflow_status") != "ready_for_step7":
+    if runtime.get("workflow_status") != "ready_for_review":
         major_issues.append(f"Step6 尚未进入总体验收状态：{runtime.get('workflow_status', '')}")
 
     major_issues.extend(collect_audit_dimension_issues(manifest))
@@ -528,6 +535,7 @@ def main() -> int:
         "score": coverage_score,
     }
     payload["length_gate_summary"] = length_gate_summary
+    payload["content_depth_gate"] = content_depth_gate
     payload["evidence_gate_summary"] = evidence_gate_summary
     payload["final_draft_gate_summary"] = final_draft_gate_summary
     payload["coverage_score"] = coverage_score

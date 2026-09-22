@@ -3,6 +3,14 @@
   "competition_name": "",
   "work_type": "",
   "work_type_reason": "",
+  "content_contract": {
+    "target_pages": [40, 50],
+    "body_units_min": 24000,
+    "body_units_target": 32000,
+    "page_scope": "正文；不含封面、目录、参考文献及附录",
+    "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
+    "render_verification": "required_before_delivery"
+  },
   "skill_reference": {
     "path": "works_book_writing_skill.md",
     "role": "planning_writing_shared_writing_spec"
