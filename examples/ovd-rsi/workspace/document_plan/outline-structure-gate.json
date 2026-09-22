@@ -1,0 +1,400 @@
+{
+  "verdict": "pass",
+  "body_chapter_count": 7,
+  "required_second_level_total": 25,
+  "required_third_level_total_min": 67,
+  "chapter_checks": [
+    {
+      "section_id": "s1",
+      "heading": "一、作品概述与问题定义",
+      "required_second_level_count": 3,
+      "actual_second_level_count": 3,
+      "required_second_level_titles": [
+        "背景与赛题价值",
+        "目标用户与问题场景",
+        "业务痛点拆解"
+      ],
+      "actual_second_level_titles": [
+        "背景与赛题价值",
+        "目标用户与问题场景",
+        "业务痛点拆解"
+      ],
+      "required_third_level_total_min": 9,
+      "second_level_contracts": [
+        {
+          "title": "背景与赛题价值",
+          "writing_purpose": "交代问题为何成立、为何紧迫。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "现实背景",
+            "趋势与赛题牵引",
+            "问题演进"
+          ]
+        },
+        {
+          "title": "目标用户与问题场景",
+          "writing_purpose": "说明给谁用、在什么动作链里用。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "目标对象",
+            "典型动作",
+            "场景约束"
+          ]
+        },
+        {
+          "title": "业务痛点拆解",
+          "writing_purpose": "把现有流程的断点和代价拆开说清。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "现有不足",
+            "风险放大链路",
+            "直接代价"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "section_id": "s2",
+      "heading": "二、作品设计与总体架构",
+      "required_second_level_count": 3,
+      "actual_second_level_count": 3,
+      "required_second_level_titles": [
+        "总体目标与设计原则",
+        "系统总体架构",
+        "输入-处理-输出闭环"
+      ],
+      "actual_second_level_titles": [
+        "总体目标与设计原则",
+        "系统总体架构",
+        "输入-处理-输出闭环"
+      ],
+      "required_third_level_total_min": 9,
+      "second_level_contracts": [
+        {
+          "title": "总体目标与设计原则",
+          "writing_purpose": "先定义目标，再交代边界与原则。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "设计目标",
+            "方案边界",
+            "设计原则"
+          ]
+        },
+        {
+          "title": "系统总体架构",
+          "writing_purpose": "解释系统结构和模块分工。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "分层结构",
+            "模块职责",
+            "多端部署关系"
+          ]
+        },
+        {
+          "title": "输入-处理-输出闭环",
+          "writing_purpose": "讲清输入、处理、输出如何闭合。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "输入接入",
+            "分析与评分",
+            "输出与联动"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "section_id": "s3",
+      "heading": "三、核心创新与关键技术",
+      "required_second_level_count": 5,
+      "actual_second_level_count": 5,
+      "required_second_level_titles": [
+        "创新点总览",
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准",
+        "创新与技术层映射"
+      ],
+      "actual_second_level_titles": [
+        "创新点总览",
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准",
+        "创新与技术层映射"
+      ],
+      "required_third_level_total_min": 12,
+      "second_level_contracts": [
+        {
+          "title": "创新点总览",
+          "writing_purpose": "先总览创新对应关系，再说明协同逻辑。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "痛点映射",
+            "创新协同"
+          ]
+        },
+        {
+          "title": "创新一 · 遥感域词汇原型适配",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "创新二 · 多尺度旋转候选协同",
+          "writing_purpose": "技术创新章节要先解释方法机制，再说明为何有效。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "核心内容",
+            "实现方法",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "创新三 · 可靠语义校准",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "创新与技术层映射",
+          "writing_purpose": "把创新与系统结构重新对齐。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "技术落点",
+            "验证锚点",
+            "系统对应关系"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "section_id": "s4",
+      "heading": "四、作品实现与运行闭环",
+      "required_second_level_count": 3,
+      "actual_second_level_count": 3,
+      "required_second_level_titles": [
+        "模块实现说明",
+        "运行流程",
+        "案例回放与人工复核"
+      ],
+      "actual_second_level_titles": [
+        "模块实现说明",
+        "运行流程",
+        "案例回放与人工复核"
+      ],
+      "required_third_level_total_min": 9,
+      "second_level_contracts": [
+        {
+          "title": "模块实现说明",
+          "writing_purpose": "说明模块如何落地与协作。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "统一表征对象",
+            "模块实现",
+            "接口协同"
+          ]
+        },
+        {
+          "title": "运行流程",
+          "writing_purpose": "讲清输入、处理、输出如何闭合。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "输入接入",
+            "分析与评分",
+            "输出与联动"
+          ]
+        },
+        {
+          "title": "案例回放与人工复核",
+          "writing_purpose": "说明系统如何进入人工闭环。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "案例回放链路",
+            "复核证据面板",
+            "复核与留痕"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "section_id": "s_validation",
+      "heading": "五、测试与效果分析",
+      "required_second_level_count": 5,
+      "actual_second_level_count": 5,
+      "required_second_level_titles": [
+        "评测协议与数据划分",
+        "Current methods 基线对比",
+        "开放类别与旋转定位效果",
+        "可靠性校准与查询稳定性",
+        "系统延迟与案例证据"
+      ],
+      "actual_second_level_titles": [
+        "评测协议与数据划分",
+        "Current methods 基线对比",
+        "开放类别与旋转定位效果",
+        "可靠性校准与查询稳定性",
+        "系统延迟与案例证据"
+      ],
+      "required_third_level_total_min": 10,
+      "second_level_contracts": [
+        {
+          "title": "评测协议与数据划分",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "Current methods 基线对比",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "开放类别与旋转定位效果",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "可靠性校准与查询稳定性",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        },
+        {
+          "title": "系统延迟与案例证据",
+          "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+          "required_third_level_count": 2,
+          "required_third_level_titles": [
+            "核心内容",
+            "支撑说明"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "section_id": "s5",
+      "heading": "六、应用前景与落地价值",
+      "required_second_level_count": 3,
+      "actual_second_level_count": 3,
+      "required_second_level_titles": [
+        "目标用户与典型场景",
+        "业务收益与竞争优势",
+        "比赛展示价值"
+      ],
+      "actual_second_level_titles": [
+        "目标用户与典型场景",
+        "业务收益与竞争优势",
+        "比赛展示价值"
+      ],
+      "required_third_level_total_min": 9,
+      "second_level_contracts": [
+        {
+          "title": "目标用户与典型场景",
+          "writing_purpose": "说明给谁用、在什么动作链里用。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "目标对象",
+            "典型动作",
+            "场景约束"
+          ]
+        },
+        {
+          "title": "业务收益与竞争优势",
+          "writing_purpose": "把技术能力翻译为收益闭环。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "收益路径",
+            "资源效率",
+            "竞争优势"
+          ]
+        },
+        {
+          "title": "比赛展示价值",
+          "writing_purpose": "说明比赛展示逻辑而不是泛泛应用价值。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "展示主线",
+            "多端呈现",
+            "演示价值"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "section_id": "s6",
+      "heading": "七、总结与展望",
+      "required_second_level_count": 3,
+      "actual_second_level_count": 3,
+      "required_second_level_titles": [
+        "作品完成情况",
+        "系统特色与应用价值",
+        "不足与后续优化"
+      ],
+      "actual_second_level_titles": [
+        "作品完成情况",
+        "系统特色与应用价值",
+        "不足与后续优化"
+      ],
+      "required_third_level_total_min": 9,
+      "second_level_contracts": [
+        {
+          "title": "作品完成情况",
+          "writing_purpose": "总结本作品已经形成的核心能力和当前交付状态。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "闭环完成情况",
+            "关键能力",
+            "交付形态"
+          ]
+        },
+        {
+          "title": "系统特色与应用价值",
+          "writing_purpose": "把系统特点、应用价值和当前交付成熟度收束到一起。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "系统特色",
+            "应用价值",
+            "交付成熟度"
+          ]
+        },
+        {
+          "title": "不足与后续优化",
+          "writing_purpose": "如实说明不足，并交代后续优化方向。",
+          "required_third_level_count": 3,
+          "required_third_level_titles": [
+            "当前不足",
+            "优化方向",
+            "延展空间"
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "issues": [],
+  "next_action": ""
+}

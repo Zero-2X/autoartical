@@ -1,0 +1,47 @@
+{
+  "topic": "开放词汇检测与RSI",
+  "queries": [
+    {
+      "id": "Q1",
+      "query": "开放词汇检测与RSI field background significance review",
+      "source_types": [
+        "official_report",
+        "survey",
+        "policy"
+      ]
+    },
+    {
+      "id": "Q2",
+      "query": "遥感影像开放词汇目标检测（RS-OVD）与可靠语义校准 task definition benchmark survey",
+      "source_types": [
+        "paper",
+        "dataset"
+      ]
+    },
+    {
+      "id": "Q3",
+      "query": "遥感影像开放词汇目标检测（RS-OVD）与可靠语义校准 common challenges limitations failure analysis",
+      "source_types": [
+        "paper",
+        "benchmark"
+      ]
+    },
+    {
+      "id": "Q4",
+      "query": "遥感影像开放词汇目标检测（RS-OVD）与可靠语义校准 methods taxonomy comparison baseline",
+      "source_types": [
+        "paper",
+        "official_code"
+      ]
+    },
+    {
+      "id": "Q5",
+      "query": "遥感影像开放词汇目标检测（RS-OVD）与可靠语义校准 case study deployment evaluation metrics",
+      "source_types": [
+        "case_report",
+        "benchmark"
+      ]
+    }
+  ],
+  "rule": "query plans are not evidence"
+}

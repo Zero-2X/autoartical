@@ -1,0 +1,24 @@
+{
+  "figure_id": "s1_visual_1",
+  "visual_type": "figure",
+  "title": "问题场景图",
+  "purpose": "说明典型场景、目标用户或应用覆盖范围。",
+  "content": "标题：问题场景图；放置小节：背景与赛题价值；正文目的：说明典型场景、目标用户或应用覆盖范围。。",
+  "aspect": "16:9",
+  "route": "Codex built-in image_gen",
+  "prompt": "为研究申报书生成信息图。标题：问题场景图；放置小节：背景与赛题价值；正文目的：说明典型场景、目标用户或应用覆盖范围。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "source_refs": [
+    "ev_d827045531",
+    "ev_7f9521c71a",
+    "ev_84bd681099",
+    "ev_9ca3b5c76b"
+  ],
+  "asset_candidates": [
+    "figures/s1_visual_1.png",
+    "figures/s1_visual_1.pdf",
+    "workspace/document_export/assets/visuals/s1_visual_1.png",
+    "workspace/document_export/assets/visuals/s1_visual_1.pdf"
+  ],
+  "created_at": "2026-09-22T17:18:24+00:00",
+  "status": "awaiting_generation"
+}

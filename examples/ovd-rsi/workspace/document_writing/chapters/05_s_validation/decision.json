@@ -1,0 +1,254 @@
+{
+  "decision_contract_version": "v3",
+  "chapter_id": "s_validation",
+  "chapter_heading": "五、测试与效果分析",
+  "status": "approved",
+  "current_round": 1,
+  "max_rounds": 3,
+  "latest_writer_status": "completed",
+  "latest_audit_status": "passed",
+  "latest_verdict": "approved",
+  "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+  "blocking_reason_category": "",
+  "return_to_step": "",
+  "audit_dimensions": {
+    "goal_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "score_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "position_logic": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "heading_structure": {
+      "status": "pass",
+      "notes": "required_h3=5, actual_h3=5, required_h4>=10, actual_h4=10",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "body_priority_coverage": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "evidence_support": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "innovation_loop": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "length_budget": {
+      "status": "pass",
+      "notes": "章节长度达标：actual=1401, required>=1380",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "visuals_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "terminology_consistency": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "pending_items_handling": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    }
+  },
+  "length_gate": {
+    "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+    "raw_budget": "1380-1900",
+    "budget_lower": 1380,
+    "budget_upper": 1900,
+    "min_ratio": 1.0,
+    "min_required": 1380,
+    "actual_count": 1401,
+    "enforceable": true,
+    "status": "passed",
+    "passed": true
+  },
+  "structure_gate": {
+    "required": true,
+    "status": "passed",
+    "passed": true,
+    "required_second_level_count": 5,
+    "actual_second_level_count": 5,
+    "required_second_level_titles": [
+      "评测协议与数据划分",
+      "Current methods 基线对比",
+      "开放类别与旋转定位效果",
+      "可靠性校准与查询稳定性",
+      "系统延迟与案例证据"
+    ],
+    "actual_second_level_titles": [
+      "评测协议与数据划分",
+      "Current methods 基线对比",
+      "开放类别与旋转定位效果",
+      "可靠性校准与查询稳定性",
+      "系统延迟与案例证据"
+    ],
+    "required_third_level_total_min": 10,
+    "actual_third_level_total": 10,
+    "missing_second_level_titles": [],
+    "missing_third_level_titles": [],
+    "per_second_level": [
+      {
+        "title": "评测协议与数据划分",
+        "required_third_level_count": 2,
+        "actual_third_level_count": 2,
+        "required_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "actual_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "Current methods 基线对比",
+        "required_third_level_count": 2,
+        "actual_third_level_count": 2,
+        "required_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "actual_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "开放类别与旋转定位效果",
+        "required_third_level_count": 2,
+        "actual_third_level_count": 2,
+        "required_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "actual_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "可靠性校准与查询稳定性",
+        "required_third_level_count": 2,
+        "actual_third_level_count": 2,
+        "required_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "actual_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "系统延迟与案例证据",
+        "required_third_level_count": 2,
+        "actual_third_level_count": 2,
+        "required_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "actual_third_level_titles": [
+          "核心内容",
+          "支撑说明"
+        ],
+        "missing_third_level_titles": []
+      }
+    ],
+    "notes": "required_h3=5, actual_h3=5, required_h4>=10, actual_h4=10"
+  },
+  "missing_materials_gate": {
+    "status": "pending",
+    "items": [],
+    "notes": ""
+  },
+  "primary_failures": [],
+  "required_revision_categories": [],
+  "recommended_visual_actions": [],
+  "score_history": [],
+  "trigger_reason": "chapter_not_started",
+  "requested_changes": [],
+  "applied_changes": [
+    {
+      "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+      "status": "applied"
+    }
+  ],
+  "stale_state": {
+    "is_stale": false,
+    "reason": ""
+  },
+  "human_record_required": false,
+  "human_record_status": "not_required",
+  "approved_for_next_chapter": true,
+  "ready_for_final_acceptance": true,
+  "next_action": "agent1_dispatch_agent2_writer",
+  "next_action_owner": "agent1",
+  "last_updated": "2026-09-23T00:00:00Z",
+  "notes": ""
+}

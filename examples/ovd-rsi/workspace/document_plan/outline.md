@@ -1,0 +1,614 @@
+# Proposal Outline
+
+- Project Name: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准
+- Competition: competition-rules
+- Inferred Work Type: 平台应用型
+- Work Type Reason: 项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。
+- Scoring Dimensions: 应用价值
+- Deliverable Constraint: 线上提交作品完整设计方案文档与实物文档说明
+
+## 一、作品概述与问题定义
+
+- Goal: 讲清赛题背景、业务痛点、目标用户和项目切入问题，先把“为什么值得做”说透。
+- Narrative Role: 用真实业务矛盾把项目拉进评委视野，避免作品书一开始就陷入模型堆砌。
+- Position Logic: 作为首个正文主体章节，本章必须先建立问题、对象和必要性，才能让后续总体方案与技术细节显得顺理成章。
+- Chapter Weight Reason: 当前项目判定为平台应用型，本章需要承担问题立论与用户场景落地职责，避免作品书一上来就堆技术名词。
+- Matched Scores: 创意、应用价值
+- Sample Reference: 第一章 作品概述 / 先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。
+- Suggested Length: 4p / 1800-2400 字
+- Previous Sections: none
+- Next Sections: 二、作品设计与总体架构
+- Subsections:
+  - 背景与赛题价值
+  - 目标用户与问题场景
+  - 业务痛点拆解
+- Structure Contract:
+  - Required second-level count: 3
+  - Required third-level total min: 9
+  - 背景与赛题价值: must contain 3 third-level headings -> 现实背景、趋势与赛题牵引、问题演进
+  - 目标用户与问题场景: must contain 3 third-level headings -> 目标对象、典型动作、场景约束
+  - 业务痛点拆解: must contain 3 third-level headings -> 现有不足、风险放大链路、直接代价
+- Body Priorities:
+  - 问题紧迫性
+  - 目标用户与使用动作
+  - 现有流程代价
+  - 项目切入必要性
+- Visual Priorities:
+  - 背景趋势图
+  - 问题链路图
+  - 用户-痛点对应表
+- Key Messages:
+  - 遥感开放词汇检测真正要解决的不是把更多类别名称放进模型，而是让用户能够用新词汇查询目标，同时知道结果是否定位正确、是否存在类别幻觉以及哪些结果需要人工复核。
+  - 核心用户聚焦 自然资源与生态监测部门、应急遥感解译团队、遥感数据服务企业，项目要解决的关键问题是：自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度。
+  - 本章需要把“识别盲区”和“处置低效”两类问题同时讲清，给后文方案设计留足必要性。
+- Must Include:
+  - 自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度。
+  - 自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度
+  - 自然图像语义空间与遥感俯视影像之间存在明显域差异
+  - 小目标、旋转目标和密集目标同时造成定位与类别匹配困难
+  - 目标用户为什么会在当前流程中持续承受漏检、误判和响应迟缓成本。
+- Key Evidence:
+  - [ev_d827045531] 使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=遥感检测多样性、benchmark 选择、域偏移
+  - [ev_7f9521c71a] 主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=旋转目标、定位指标、航空影像挑战
+  - [ev_84bd681099] 评分标准决定后续 idea 叙事和作品书结构取舍。 | kind=scoring_rule | authority=competition_official | source=competition-rules.md | reliability=high | supports=评分维度对齐、章节权重分配
+  - [ev_9ca3b5c76b] 交付要求会反向约束系统展示方式和 record 结构。 | kind=submission_requirement | authority=competition_official | source=competition-rules.md | reliability=high | supports=交付形式设计、答辩展示结构
+- Recommended Visuals:
+  - 问题场景图
+  - 背景趋势图
+  - 目标用户与痛点对应表
+  - 问题链路图
+- Visual Specs:
+  - [图1-1] 问题场景图 | type=figure | purpose=说明典型场景、目标用户或应用覆盖范围。 | anchor=背景与赛题价值 | subsection=背景与赛题价值
+  - [图1-2] 背景趋势图 | type=figure | purpose=支撑背景趋势、需求演进或问题紧迫性的论证。 | anchor=背景与赛题价值 | subsection=背景与赛题价值
+  - [表1-3] 目标用户与痛点对应表 | type=table | purpose=用户-痛点对应表 | anchor=目标用户与问题场景 | subsection=目标用户与问题场景
+  - [图1-4] 问题链路图 | type=figure | purpose=问题链路图 | anchor=业务痛点拆解 | subsection=业务痛点拆解
+- Risks:
+  - 背景不能写成泛化社会议题口号
+  - 不能只写识别难，还要写处置链路为何断裂
+- Common Errors:
+  - 背景写成社会议题口号
+  - 只有风险描述，没有用户动作
+  - 问题没有自然导向后文方案
+- Appendix Candidates:
+  - 补充背景统计口径
+  - 扩展案例或法规原文摘录
+- Pending Confirmations:
+  - 当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。
+  - 当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。
+  - 当前章程未明确作品书字数或页数限制，需要补充模板文件确认。
+- Missing Materials:
+  - 当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 当前章程未明确作品书字数或页数限制，需要补充模板文件确认。 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - YOLO-World 等组件的许可证需要在发布前核验 | impact=全书规划 | backtrack=step1/step4 | priority=high
+
+## 二、作品设计与总体架构
+
+- Goal: 按作品书成稿口径交代总体设计、系统主线和输入输出闭环，让整体结构先成立，再展开细节。
+- Narrative Role: 承上启下，把前文的问题压缩为作品书中的总体设计与总体架构，避免正文长期停留在提案式说明口吻。
+- Position Logic: 本章承接问题定义，把前文痛点转成可运行系统的总体设计与总体架构，为后续关键技术和实现流程提供坐标。
+- Chapter Weight Reason: 针对平台应用型项目，本章是整部作品书的总图坐标；若总体设计与边界不清，后文技术章节会显得碎片化。
+- Matched Scores: 创意、技术方案及其实现质量、讲解表现
+- Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
+- Suggested Length: 6p / 1300-1800 字
+- Previous Sections: 一、作品概述与问题定义
+- Next Sections: 三、核心创新与关键技术、四、作品实现与运行闭环
+- Subsections:
+  - 总体目标与设计原则
+  - 系统总体架构
+  - 输入-处理-输出闭环
+- Structure Contract:
+  - Required second-level count: 3
+  - Required third-level total min: 9
+  - 总体目标与设计原则: must contain 3 third-level headings -> 设计目标、方案边界、设计原则
+  - 系统总体架构: must contain 3 third-level headings -> 分层结构、模块职责、多端部署关系
+  - 输入-处理-输出闭环: must contain 3 third-level headings -> 输入接入、分析与评分、输出与联动
+- Body Priorities:
+  - 总体目标与边界
+  - 输入-处理-输出闭环
+  - 模块职责
+  - 人工介入位置
+- Visual Priorities:
+  - 总体架构图
+  - 数据流图
+  - MVP 边界图
+- Key Messages:
+  - 构建以文本查询为入口的遥感开放词汇检测系统，先用遥感域视觉语言原型对齐查询，再用多尺度和旋转候选完成定位，最后用类别—区域一致性、背景抑制和温度校准输出带证据的可靠结果。
+  - 系统链路围绕 遥感影像切片与质量检查、文本词汇与域适配编码、水平/旋转候选检测、可靠性校准与证据回放 展开，先强调闭环，再逐层解释模块。
+  - 本章必须主动说明 MVP 为何这样划定边界，哪些能力先落地、哪些能力作为后续扩展。
+- Must Include:
+  - 构建以文本查询为入口的遥感开放词汇检测系统，先用遥感域视觉语言原型对齐查询，再用多尺度和旋转候选完成定位，最后用类别—区域一致性、背景抑制和温度校准输出带证据的可靠结果。
+  - 系统输入、核心处理链路、输出结果和人工介入位置。
+  - MVP 版本优先完成哪些能力，哪些能力属于后续扩展。
+- Linked Architecture:
+  - 遥感影像切片与质量检查
+  - 文本词汇与域适配编码
+  - 水平/旋转候选检测
+  - 可靠性校准与证据回放
+- Key Evidence:
+  - [ev_d827045531] 使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=遥感检测多样性、benchmark 选择、域偏移
+  - [ev_7f9521c71a] 主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=旋转目标、定位指标、航空影像挑战
+  - [ev_9662694342] 把细粒度混淆、类别层级和提示词稳定性纳入错误分析。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=细粒度类别、有向检测、语义混淆
+  - [ev_84bd681099] 评分标准决定后续 idea 叙事和作品书结构取舍。 | kind=scoring_rule | authority=competition_official | source=competition-rules.md | reliability=high | supports=评分维度对齐、章节权重分配
+  - [ev_9ca3b5c76b] 交付要求会反向约束系统展示方式和 record 结构。 | kind=submission_requirement | authority=competition_official | source=competition-rules.md | reliability=high | supports=交付形式设计、答辩展示结构
+  - [ev_c00e228bb3]  | kind=unknown | authority=unknown | source=unknown | reliability=unknown | supports=none
+- Recommended Visuals:
+  - 总体架构图
+  - 模块职责分层图
+  - 输入-处理-输出闭环图
+  - 多端联动部署图
+  - MVP 范围边界图
+- Visual Specs:
+  - [图2-1] 总体架构图 | type=figure | purpose=说明系统由哪些模块组成，以及模块之间如何协同。 | anchor=总体目标与设计原则 | subsection=总体目标与设计原则
+  - [图2-2] 模块职责分层图 | type=figure | purpose=说明系统由哪些模块组成，以及模块之间如何协同。 | anchor=系统总体架构 | subsection=系统总体架构
+  - [图2-3] 输入-处理-输出闭环图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环
+  - [图2-4] 多端联动部署图 | type=figure | purpose=部署拓扑图 | anchor=系统总体架构 | subsection=系统总体架构
+  - [图2-5] MVP 范围边界图 | type=figure | purpose=说明 MVP 范围、流程路线或待确认事项。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环
+- Risks:
+  - 如果没有总图，答辩时会显得碎片化
+  - 方案边界不清会被追问当前版本与后续扩展的分界依据
+- Common Errors:
+  - 只有总框图，没有输入输出闭环
+  - 没有说明 MVP 范围
+  - 把未来扩展能力写成当前已有能力
+- Appendix Candidates:
+  - 模块接口字段表
+  - 非核心扩展能力清单
+- Missing Materials:
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试 | impact=二、作品设计与总体架构 | backtrack=step4 | priority=high
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界 | impact=二、作品设计与总体架构 | backtrack=step4 | priority=high
+  - YOLO-World 等组件的许可证需要在发布前核验 | impact=二、作品设计与总体架构 | backtrack=step4 | priority=high
+
+## 三、核心创新与关键技术
+
+- Goal: 把创新点拆成可论证、可对应技术结构的章节，而不是停留在口号式命名。
+- Narrative Role: 证明项目不是通用系统的简单拼装，而是围绕 遥感影像开放词汇目标检测 场景中的关键问题做了针对性设计。
+- Position Logic: 在总体方案已经建立后，本章负责回答“核心新东西到底是什么、为什么这样设计、落在什么技术抓手上”。
+- Chapter Weight Reason: 平台应用型项目的高分通常来自这一章与测试章形成的双重闭环，因此本章应承担创新定义、机制落点与技术解释的主要篇幅。
+- Matched Scores: 创意、技术方案及其实现质量
+- Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
+- Suggested Length: 23p / 1490-1950 字
+- Previous Sections: 二、作品设计与总体架构
+- Next Sections: 四、作品实现与运行闭环、五、测试与效果分析
+- Subsections:
+  - 创新点总览
+  - 创新一 · 遥感域词汇原型适配
+  - 创新二 · 多尺度旋转候选协同
+  - 创新三 · 可靠语义校准
+  - 创新与技术层映射
+- Structure Contract:
+  - Required second-level count: 5
+  - Required third-level total min: 12
+  - 创新点总览: must contain 2 third-level headings -> 痛点映射、创新协同
+  - 创新一 · 遥感域词汇原型适配: must contain 2 third-level headings -> 核心内容、支撑说明
+  - 创新二 · 多尺度旋转候选协同: must contain 3 third-level headings -> 核心内容、实现方法、支撑说明
+  - 创新三 · 可靠语义校准: must contain 2 third-level headings -> 核心内容、支撑说明
+  - 创新与技术层映射: must contain 3 third-level headings -> 技术落点、验证锚点、系统对应关系
+- Body Priorities:
+  - 创新点与痛点一一对应
+  - 技术机制解释
+  - 模块落点
+  - 与系统结构映射
+- Visual Priorities:
+  - 创新点-痛点对照表
+  - 关键技术分层图
+  - 原理流程图
+- Key Messages:
+  - 利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。
+  - 将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。
+  - 利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。
+  - 创新点必须一一落到识别难题、风险决策或展示联动上，不能和普通功能列表混在一起。
+- Must Include:
+  - 创新一 · 遥感域词汇原型适配
+  - 创新二 · 多尺度旋转候选协同
+  - 创新三 · 可靠语义校准
+  - 利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。
+  - 将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。
+  - 利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。
+  - 遥感影像切片与质量检查
+  - 文本词汇与域适配编码
+  - 水平/旋转候选检测
+  - 可靠性校准与证据回放
+- Linked Innovations:
+  - 创新一 · 遥感域词汇原型适配
+  - 创新二 · 多尺度旋转候选协同
+  - 创新三 · 可靠语义校准
+- Linked Architecture:
+  - 遥感影像切片与质量检查
+  - 文本词汇与域适配编码
+  - 水平/旋转候选检测
+  - 可靠性校准与证据回放
+- Key Evidence:
+  - [ev_d827045531] 使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=遥感检测多样性、benchmark 选择、域偏移
+  - [ev_7f9521c71a] 主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=旋转目标、定位指标、航空影像挑战
+- Recommended Visuals:
+  - 创新点-痛点对照表
+  - 创新一 · 遥感域词汇原型适配示意图
+  - 创新二 · 多尺度旋转候选协同示意图
+  - 创新三 · 可靠语义校准示意图
+  - 关键技术分层图
+  - 创新模块证据映射表
+- Visual Specs:
+  - [表3-1] 创新点-痛点对照表 | type=table | purpose=对齐痛点、创新点、模块或证据之间的对应关系。 | anchor=创新点总览 | subsection=创新点总览
+  - [图3-2] 创新一 · 遥感域词汇原型适配示意图 | type=figure | purpose=关键技术分层图 | anchor=创新一 · 遥感域词汇原型适配 | subsection=创新一 · 遥感域词汇原型适配
+  - [图3-3] 创新二 · 多尺度旋转候选协同示意图 | type=figure | purpose=原理流程图 | anchor=创新二 · 多尺度旋转候选协同 | subsection=创新二 · 多尺度旋转候选协同
+  - [图3-4] 创新三 · 可靠语义校准示意图 | type=figure | purpose=原理流程图 | anchor=创新三 · 可靠语义校准 | subsection=创新三 · 可靠语义校准
+  - [图3-5] 关键技术分层图 | type=figure | purpose=说明系统由哪些模块组成，以及模块之间如何协同。 | anchor=创新与技术层映射 | subsection=创新与技术层映射
+  - [表3-6] 创新模块证据映射表 | type=table | purpose=对齐痛点、创新点、模块或证据之间的对应关系。 | anchor=创新与技术层映射 | subsection=创新与技术层映射
+- Innovation Loop Map:
+  - 创新一 · 遥感域词汇原型适配: role=提出本作品做法，并把创新点落到具体模块、机制或工程抓手上。; validation=五、测试与效果分析 / 创新性说明; signal=相对基线的方法改进、消融贡献或系统能力增强
+  - 创新二 · 多尺度旋转候选协同: role=提出本作品做法，并把创新点落到具体模块、机制或工程抓手上。; validation=五、测试与效果分析 / 创新性说明; signal=相对基线的方法改进、消融贡献或系统能力增强
+  - 创新三 · 可靠语义校准: role=提出本作品做法，并把创新点落到具体模块、机制或工程抓手上。; validation=五、测试与效果分析 / 创新性说明; signal=相对基线的方法改进、消融贡献或系统能力增强
+- Risks:
+  - 创新点不能只剩命名，需要给出对应痛点和技术抓手
+  - 需要区分创新点与实现模块，避免章节逻辑重复
+- Common Errors:
+  - 创新点只有命名没有机制
+  - 创新点与实现模块重复叙述
+  - 未区分技术亮点和核心创新
+- Appendix Candidates:
+  - 公式推导
+  - 扩展模块实现细节
+  - 补充伪代码
+- Missing Materials:
+  - 创新一 · 遥感域词汇原型适配 | impact=三、核心创新与关键技术 | backtrack=step4 | priority=high
+  - 创新二 · 多尺度旋转候选协同 | impact=三、核心创新与关键技术 | backtrack=step4 | priority=high
+  - 创新三 · 可靠语义校准 | impact=三、核心创新与关键技术 | backtrack=step4 | priority=high
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试 | impact=三、核心创新与关键技术 | backtrack=step4 | priority=high
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界 | impact=三、核心创新与关键技术 | backtrack=step4 | priority=high
+  - YOLO-World 等组件的许可证需要在发布前核验 | impact=三、核心创新与关键技术 | backtrack=step4 | priority=high
+
+## 四、作品实现与运行闭环
+
+- Goal: 把模块如何协同运行、数据如何流转和人工如何介入写具体，建立完成度感。
+- Narrative Role: 把抽象方案落到工程链路，回答“这个系统究竟怎么跑起来”。
+- Position Logic: 本章位于创新与应用之间，负责把前章的机制变成可运行流程，证明项目不只是概念图和模块名。
+- Chapter Weight Reason: 对于平台应用型项目，本章决定评委对完成度的直观判断，尤其影响“实现质量”和“讲解表现”。
+- Matched Scores: 技术方案及其实现质量、讲解表现
+- Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
+- Suggested Length: 4p / 1080-1500 字
+- Previous Sections: 二、作品设计与总体架构、三、核心创新与关键技术
+- Next Sections: 五、测试与效果分析、六、应用前景与落地价值
+- Subsections:
+  - 模块实现说明
+  - 运行流程
+  - 案例回放与人工复核
+- Structure Contract:
+  - Required second-level count: 3
+  - Required third-level total min: 9
+  - 模块实现说明: must contain 3 third-level headings -> 统一表征对象、模块实现、接口协同
+  - 运行流程: must contain 3 third-level headings -> 输入接入、分析与评分、输出与联动
+  - 案例回放与人工复核: must contain 3 third-level headings -> 案例回放链路、复核证据面板、复核与留痕
+- Body Priorities:
+  - 模块协同关系
+  - 运行流程
+  - 人工复核与回放机制
+  - 可运行性证明
+- Visual Priorities:
+  - 运行流程图
+  - 时序图
+  - 界面截图或模块接口表
+- Key Messages:
+  - 系统运行主线是采集、理解、评分、告警、复核，重点说明每一步如何承接前一步结果。
+  - 可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线
+  - DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证
+  - 系统先支持离线切片推理，再扩展到实时或边缘部署
+  - 本章要主动体现作品是可运行 MVP，而不是只有概念框图。
+- Must Include:
+  - 多模态数据接入方式和统一表征思路。
+  - 风险评分与预警生成逻辑。
+  - 人工复核、案例留痕和展示联动如何进入闭环。
+  - 可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线
+  - DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证
+  - 系统先支持离线切片推理，再扩展到实时或边缘部署
+- Linked Architecture:
+  - 遥感影像切片与质量检查
+  - 文本词汇与域适配编码
+  - 水平/旋转候选检测
+  - 可靠性校准与证据回放
+- Key Evidence:
+  - [ev_d827045531] 使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=遥感检测多样性、benchmark 选择、域偏移
+  - [ev_7f9521c71a] 主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=旋转目标、定位指标、航空影像挑战
+  - [ev_9662694342] 把细粒度混淆、类别层级和提示词稳定性纳入错误分析。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=细粒度类别、有向检测、语义混淆
+- Recommended Visuals:
+  - 统一表征与接入链路图
+  - 运行流程图
+  - 评分与告警链路图
+  - 模块接口表
+  - 案例流转时序图
+  - 多端工作台示意
+- Visual Specs:
+  - [表4-1] 统一表征与接入链路图 | type=table | purpose=运行流程图 | anchor=模块实现说明 | subsection=模块实现说明
+  - [图4-2] 运行流程图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=运行流程 | subsection=运行流程
+  - [图4-3] 评分与告警链路图 | type=figure | purpose=界面截图或模块接口表 | anchor=运行流程 | subsection=运行流程
+  - [表4-4] 模块接口表 | type=table | purpose=界面截图或模块接口表 | anchor=模块实现说明 | subsection=模块实现说明
+  - [图4-5] 案例流转时序图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=案例回放与人工复核 | subsection=案例回放与人工复核
+  - [图4-6] 多端工作台示意 | type=figure | purpose=界面截图或模块接口表 | anchor=案例回放与人工复核 | subsection=案例回放与人工复核
+- Innovation Loop Map:
+  - 创新一 · 遥感域词汇原型适配: role=把前章创新机制落成运行流程、接口交互和工程实现闭环。; validation=五、测试与效果分析 / 六、应用前景与落地价值; signal=流程可运行、模块可协作、系统可演示
+  - 创新二 · 多尺度旋转候选协同: role=把前章创新机制落成运行流程、接口交互和工程实现闭环。; validation=五、测试与效果分析 / 六、应用前景与落地价值; signal=流程可运行、模块可协作、系统可演示
+  - 创新三 · 可靠语义校准: role=把前章创新机制落成运行流程、接口交互和工程实现闭环。; validation=五、测试与效果分析 / 六、应用前景与落地价值; signal=流程可运行、模块可协作、系统可演示
+- Risks:
+  - 只有模块名没有运行逻辑会显得完成度不足
+  - 需要避免把未来扩展能力误写成当前已实现功能
+- Common Errors:
+  - 只有模块清单没有流程
+  - 流程图与正文不一致
+  - 把尚未实现的能力写成已完成功能
+- Appendix Candidates:
+  - 接口协议
+  - 详细运行日志
+  - 工程参数配置
+- Missing Materials:
+  - 可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线 | impact=四、作品实现与运行闭环 | backtrack=step4 | priority=medium
+  - DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证 | impact=四、作品实现与运行闭环 | backtrack=step4 | priority=medium
+  - 系统先支持离线切片推理，再扩展到实时或边缘部署 | impact=四、作品实现与运行闭环 | backtrack=step4 | priority=medium
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试 | impact=四、作品实现与运行闭环 | backtrack=step4 | priority=medium
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界 | impact=四、作品实现与运行闭环 | backtrack=step4 | priority=medium
+  - YOLO-World 等组件的许可证需要在发布前核验 | impact=四、作品实现与运行闭环 | backtrack=step4 | priority=medium
+
+## 五、测试与效果分析
+
+- Goal: 围绕关键性能、对比实验、复杂场景稳定性和系统闭环指标，形成与创新点一一对应的验证链，而不是只在结尾补几条结果。
+- Narrative Role: 把前文提出的创新点和系统闭环转成可被评委验证的结果证据，形成“创新提出 - 机制实现 - 效果证明”的完整闭环。
+- Position Logic: 本章位于系统实现之后、应用价值之前，负责回答“作品做出来以后到底是否有效、稳定、可运行”。
+- Chapter Weight Reason: 平台应用型项目若缺少正式测试章，创新与实现很难转化为可信的评审印象，因此本章必须承担关键证据链的组织任务。
+- Matched Scores: 技术方案及其实现质量、创意、讲解表现
+- Sample Reference: 第三章 作品测试与分析 / 先冻结公开基准、base/novel 划分和提示词协议，再按基线对比、旋转定位、可靠性校准、查询稳定性和系统案例展开分析。
+- Suggested Length: 4-6p / 1380-1900 字
+- Previous Sections: 三、核心创新与关键技术、四、作品实现与运行闭环
+- Next Sections: 六、应用前景与落地价值
+- Subsections:
+  - 评测协议与数据划分
+  - Current methods 基线对比
+  - 开放类别与旋转定位效果
+  - 可靠性校准与查询稳定性
+  - 系统延迟与案例证据
+- Structure Contract:
+  - Required second-level count: 5
+  - Required third-level total min: 10
+  - 评测协议与数据划分: must contain 2 third-level headings -> 核心内容、支撑说明
+  - Current methods 基线对比: must contain 2 third-level headings -> 核心内容、支撑说明
+  - 开放类别与旋转定位效果: must contain 2 third-level headings -> 核心内容、支撑说明
+  - 可靠性校准与查询稳定性: must contain 2 third-level headings -> 核心内容、支撑说明
+  - 系统延迟与案例证据: must contain 2 third-level headings -> 核心内容、支撑说明
+- Body Priorities:
+  - 公开基准与 base/novel/generalized 划分
+  - Grounding DINO、Detic、YOLO-World 和闭集上限对照
+  - HBB/OBB、小目标与细粒度结果
+  - ECE、Brier、高置信假阳性和同义查询一致性
+  - 延迟、显存、证据卡与跨区域外测
+- Visual Priorities:
+  - 数据集与 base/novel 划分图
+  - 方法类别对照表
+  - HBB/OBB 结果表
+  - 校准曲线与查询一致性图
+  - 案例证据卡与延迟面板
+- Key Messages:
+  - 本验证包以 创新一 · 遥感域词汇原型适配、创新二 · 多尺度旋转候选协同、创新三 · 可靠语义校准 为主线，组织公开资料、仿真场景和原型日志三类材料，提供可直接落入作品书的测试结构。
+  - 本章测试采用公开轴承故障数据、仿真工况数据与原型系统运行日志构成的混合验证链。其中，公开数据用于验证基础诊断能力，仿真工况用于验证跨工况与弱故障稳定性，原型日志用于验证时延、告警与工单闭环能力。
+  - 每个核心创新至少要在本章找到一个对应的实验、案例或系统级指标支撑。
+- Must Include:
+  - 本章测试采用公开轴承故障数据、仿真工况数据与原型系统运行日志构成的混合验证链。其中，公开数据用于验证基础诊断能力，仿真工况用于验证跨工况与弱故障稳定性，原型日志用于验证时延、告警与工单闭环能力。
+  - 关键指标汇总与对应含义说明。
+  - 对比实验设置、结果和结论解释。
+  - 复杂场景稳定性或跨工况表现说明。
+  - 系统时延、吞吐、闭环完成率等系统级结果。
+  - 核心任务完成率
+  - 关键能力提升幅度
+  - 系统响应时延
+  - 闭环完成率
+  - 基础方案与增强方案对比
+  - 稳态场景与复杂场景对比
+  - 结果输出与联动闭环对比
+- Linked Innovations:
+  - 创新一 · 遥感域词汇原型适配
+  - 创新二 · 多尺度旋转候选协同
+  - 创新三 · 可靠语义校准
+- Linked Architecture:
+  - 遥感影像切片与质量检查
+  - 文本词汇与域适配编码
+  - 水平/旋转候选检测
+  - 可靠性校准与证据回放
+- Key Evidence:
+  - [ev_d827045531] 使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=遥感检测多样性、benchmark 选择、域偏移
+  - [ev_7f9521c71a] 主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=旋转目标、定位指标、航空影像挑战
+  - [ev_9662694342] 把细粒度混淆、类别层级和提示词稳定性纳入错误分析。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=细粒度类别、有向检测、语义混淆
+- Recommended Visuals:
+  - 数据来源与规模表
+  - 关键性能汇总表
+  - 对比实验结果表
+  - 案例回放时序图
+  - 系统性能与闭环指标清单
+- Visual Specs:
+  - [表5-1] 数据来源与规模表 | type=table | purpose=数据集与 base/novel 划分图 | anchor=评测协议与数据划分 | subsection=评测协议与数据划分
+  - [表5-2] 关键性能汇总表 | type=table | purpose=方法类别对照表 | anchor=Current methods 基线对比 | subsection=Current methods 基线对比
+  - [表5-3] 对比实验结果表 | type=table | purpose=HBB/OBB 结果表 | anchor=开放类别与旋转定位效果 | subsection=开放类别与旋转定位效果
+  - [图5-4] 案例回放时序图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=可靠性校准与查询稳定性 | subsection=可靠性校准与查询稳定性
+  - [表5-5] 系统性能与闭环指标清单 | type=table | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=系统延迟与案例证据 | subsection=系统延迟与案例证据
+- Innovation Loop Map:
+  - 创新一 · 遥感域词汇原型适配: role=用指标、实验、案例和系统级性能把前文创新点落实为可验证结果。; validation=五、测试与效果分析; signal=指标改善、稳定性提升、闭环效率与系统性能
+  - 创新二 · 多尺度旋转候选协同: role=用指标、实验、案例和系统级性能把前文创新点落实为可验证结果。; validation=五、测试与效果分析; signal=指标改善、稳定性提升、闭环效率与系统性能
+  - 创新三 · 可靠语义校准: role=用指标、实验、案例和系统级性能把前文创新点落实为可验证结果。; validation=五、测试与效果分析; signal=指标改善、稳定性提升、闭环效率与系统性能
+- Risks:
+  - 测试章必须显式说明数据来源边界
+  - 每项创新若没有对应实验或案例支撑，会削弱前文创新说服力
+- Common Errors:
+  - 只罗列几个好看的数字
+  - 没有交代指标口径和数据边界
+  - 把系统性能和分类效果混在一起
+  - 把仿真示例值写成真实实测结果
+- Appendix Candidates:
+  - 补充实验说明
+  - 扩展曲线图
+  - 更多案例回放截图
+- Missing Materials:
+  - 数据来源与规模表 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - 关键性能汇总表 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - 对比实验结果表 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - 案例回放时序图 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - 系统性能与闭环指标清单 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+  - YOLO-World 等组件的许可证需要在发布前核验 | impact=五、测试与效果分析 | backtrack=step4 | priority=high
+
+## 六、应用前景与落地价值
+
+- Goal: 讲清系统给谁用、在什么情境里用、具体带来什么收益，并兼顾答辩展示价值。
+- Narrative Role: 把技术能力翻译成可落地价值，避免作品书后半段只剩技术术语。
+- Position Logic: 在已经说明技术与实现之后，本章把能力翻译成场景、动作与收益，回答“为什么真的值得用”。
+- Chapter Weight Reason: 平台应用型项目通常会在应用价值上被重点追问，因此本章必须把用户、流程、收益和展示价值说具体。
+- Matched Scores: 应用价值、讲解表现
+- Sample Reference: 第一章 作品概述 / 先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。
+- Suggested Length: 4p / 1110-1500 字
+- Previous Sections: 五、测试与效果分析
+- Next Sections: 七、总结与展望
+- Subsections:
+  - 目标用户与典型场景
+  - 业务收益与竞争优势
+  - 比赛展示价值
+- Structure Contract:
+  - Required second-level count: 3
+  - Required third-level total min: 9
+  - 目标用户与典型场景: must contain 3 third-level headings -> 目标对象、典型动作、场景约束
+  - 业务收益与竞争优势: must contain 3 third-level headings -> 收益路径、资源效率、竞争优势
+  - 比赛展示价值: must contain 3 third-level headings -> 展示主线、多端呈现、演示价值
+- Body Priorities:
+  - 典型场景
+  - 用户动作
+  - 收益闭环
+  - 展示价值
+- Visual Priorities:
+  - 场景矩阵图
+  - 部署流程图
+  - 价值闭环图
+- Key Messages:
+  - 应用场景聚焦 灾害区域新目标快速检索、港口与机场设施巡查、农业与生态目标变化监测，每类用户都需要对应一条清晰的使用动作。
+  - 减少新增类别的全量标注依赖
+  - 把开放词汇结果转成带来源、查询和置信度的审计证据
+  - 适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示
+- Must Include:
+  - 灾害区域新目标快速检索
+  - 港口与机场设施巡查
+  - 农业与生态目标变化监测
+  - 减少新增类别的全量标注依赖
+  - 把开放词汇结果转成带来源、查询和置信度的审计证据
+  - 适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示
+- Key Evidence:
+  - [ev_84bd681099] 评分标准决定后续 idea 叙事和作品书结构取舍。 | kind=scoring_rule | authority=competition_official | source=competition-rules.md | reliability=high | supports=评分维度对齐、章节权重分配
+  - [ev_9ca3b5c76b] 交付要求会反向约束系统展示方式和 record 结构。 | kind=submission_requirement | authority=competition_official | source=competition-rules.md | reliability=high | supports=交付形式设计、答辩展示结构
+  - [ev_c00e228bb3]  | kind=unknown | authority=unknown | source=unknown | reliability=unknown | supports=none
+- Recommended Visuals:
+  - 应用场景矩阵
+  - 角色-动作-收益表
+  - 预警工单联动流程图
+  - 价值闭环图
+  - 答辩展示页示意
+- Visual Specs:
+  - [表6-1] 应用场景矩阵 | type=table | purpose=说明典型场景、目标用户或应用覆盖范围。 | anchor=目标用户与典型场景 | subsection=目标用户与典型场景
+  - [表6-2] 角色-动作-收益表 | type=table | purpose=部署流程图 | anchor=目标用户与典型场景 | subsection=目标用户与典型场景
+  - [图6-3] 预警工单联动流程图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=业务收益与竞争优势 | subsection=业务收益与竞争优势
+  - [图6-4] 价值闭环图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=业务收益与竞争优势 | subsection=业务收益与竞争优势
+  - [图6-5] 竞赛答辩演示界面板 | type=figure | purpose=价值闭环图 | anchor=比赛展示价值 | subsection=比赛展示价值
+- Risks:
+  - 应用价值不能只写口号，必须落到具体用户收益
+  - 需要兼顾业务落地与比赛展示，不要只写商业化想象
+- Common Errors:
+  - 应用场景只有名词没有流程
+  - 价值只有口号没有收益路径
+  - 把商业化愿景当成当前落地能力
+- Appendix Candidates:
+  - 扩展业务流程
+  - 成本收益测算假设
+- Missing Materials:
+  - 灾害区域新目标快速检索 | impact=六、应用前景与落地价值 | backtrack=step4 | priority=medium
+  - 港口与机场设施巡查 | impact=六、应用前景与落地价值 | backtrack=step4 | priority=medium
+  - 农业与生态目标变化监测 | impact=六、应用前景与落地价值 | backtrack=step4 | priority=medium
+  - 减少新增类别的全量标注依赖 | impact=六、应用前景与落地价值 | backtrack=step4 | priority=medium
+  - 把开放词汇结果转成带来源、查询和置信度的审计证据 | impact=六、应用前景与落地价值 | backtrack=step4 | priority=medium
+  - 适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示 | impact=六、应用前景与落地价值 | backtrack=step4 | priority=medium
+
+## 七、总结与展望
+
+- Goal: 用作品书收束口径总结当前成果、边界与后续展望，避免把尾章写成项目排期表或提案附页。
+- Narrative Role: 用作品书定稿口径收束全书，说明作品已经形成的能力、系统特色和后续优化方向。
+- Position Logic: 作为收束章节，本章负责总结作品完成情况、系统价值与不足展望，避免尾章写成项目计划或内部待办说明。
+- Chapter Weight Reason: 对于平台应用型项目，本章不是附属排期页，而是成熟度说明；它直接影响评委对项目完成度与延展性的判断。
+- Matched Scores: 技术方案及其实现质量、应用价值
+- Sample Reference: 第五章 总结与展望 / 收束作品完成情况，明确系统特色、当前不足和后续优化方向。
+- Suggested Length: 1-2p / 15840-20750 字
+- Previous Sections: 六、应用前景与落地价值
+- Next Sections: none
+- Subsections:
+  - 作品完成情况
+  - 系统特色与应用价值
+  - 不足与后续优化
+- Structure Contract:
+  - Required second-level count: 3
+  - Required third-level total min: 9
+  - 作品完成情况: must contain 3 third-level headings -> 闭环完成情况、关键能力、交付形态
+  - 系统特色与应用价值: must contain 3 third-level headings -> 系统特色、应用价值、交付成熟度
+  - 不足与后续优化: must contain 3 third-level headings -> 当前不足、优化方向、延展空间
+- Body Priorities:
+  - 完成情况
+  - 系统特色
+  - 应用价值
+  - 不足与后续方向
+- Visual Priorities:
+  - 完成情况对照表
+  - 系统价值闭环图
+  - 优化方向图
+- Key Messages:
+  - 可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线
+  - DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证
+  - 系统先支持离线切片推理，再扩展到实时或边缘部署
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界
+  - YOLO-World 等组件的许可证需要在发布前核验
+  - 该方向把前沿的开放词汇检测与明确的遥感应用约束结合起来，既有科学问题，也能形成可演示、可评测、可扩展的比赛作品。
+- Must Include:
+  - 可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线
+  - DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证
+  - 系统先支持离线切片推理，再扩展到实时或边缘部署
+  - 作品已经形成的闭环能力与交付形态。
+  - 系统特色、应用价值和交付成熟度。
+  - 当前不足与后续优化方向。
+- Linked Architecture:
+  - 遥感影像切片与质量检查
+  - 文本词汇与域适配编码
+  - 水平/旋转候选检测
+  - 可靠性校准与证据回放
+- Key Evidence:
+  - [ev_d827045531] 使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=遥感检测多样性、benchmark 选择、域偏移
+  - [ev_7f9521c71a] 主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=旋转目标、定位指标、航空影像挑战
+  - [ev_9662694342] 把细粒度混淆、类别层级和提示词稳定性纳入错误分析。 | kind=dataset_signal | authority=academic | source=external_evidence\external-evidence-intake.json | reliability=high | supports=细粒度类别、有向检测、语义混淆
+  - [ev_84bd681099] 评分标准决定后续 idea 叙事和作品书结构取舍。 | kind=scoring_rule | authority=competition_official | source=competition-rules.md | reliability=high | supports=评分维度对齐、章节权重分配
+  - [ev_9ca3b5c76b] 交付要求会反向约束系统展示方式和 record 结构。 | kind=submission_requirement | authority=competition_official | source=competition-rules.md | reliability=high | supports=交付形式设计、答辩展示结构
+- Recommended Visuals:
+  - 完成情况对照表
+  - 系统价值闭环图
+  - 优化方向图
+- Visual Specs:
+  - [表7-1] 完成情况对照表 | type=table | purpose=对齐痛点、创新点、模块或证据之间的对应关系。 | anchor=作品完成情况 | subsection=作品完成情况
+  - [图7-2] 系统价值闭环图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=系统特色与应用价值 | subsection=系统特色与应用价值
+  - [图7-3] 优化方向图 | type=figure | purpose=优化方向图 | anchor=不足与后续优化 | subsection=不足与后续优化
+- Risks:
+  - 不要把远期愿景写成当前交付承诺
+  - 需要明确物联网侧接入边界，避免被追问概念不落地
+- Common Errors:
+  - 把尾章写成项目排期表
+  - 把远期愿景写成当前承诺
+  - 总结章节仍在解释写作边界
+- Appendix Candidates:
+  - 详细排期表
+  - 资源依赖表
+- Missing Materials:
+  - 当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 当前章程未明确作品书字数或页数限制，需要补充模板文件确认。 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界 | impact=全书规划 | backtrack=step1/step4 | priority=high
+  - YOLO-World 等组件的许可证需要在发布前核验 | impact=全书规划 | backtrack=step1/step4 | priority=high
+

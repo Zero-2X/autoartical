@@ -1,0 +1,24 @@
+{
+  "figure_id": "s1_visual_4",
+  "visual_type": "figure",
+  "title": "问题链路图",
+  "purpose": "问题链路图",
+  "content": "标题：问题链路图；放置小节：业务痛点拆解；正文目的：问题链路图。",
+  "aspect": "16:9",
+  "route": "Codex built-in image_gen",
+  "prompt": "为研究申报书生成信息图。标题：问题链路图；放置小节：业务痛点拆解；正文目的：问题链路图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "source_refs": [
+    "ev_d827045531",
+    "ev_7f9521c71a",
+    "ev_84bd681099",
+    "ev_9ca3b5c76b"
+  ],
+  "asset_candidates": [
+    "figures/s1_visual_4.png",
+    "figures/s1_visual_4.pdf",
+    "workspace/document_export/assets/visuals/s1_visual_4.png",
+    "workspace/document_export/assets/visuals/s1_visual_4.pdf"
+  ],
+  "created_at": "2026-09-22T17:18:24+00:00",
+  "status": "awaiting_generation"
+}

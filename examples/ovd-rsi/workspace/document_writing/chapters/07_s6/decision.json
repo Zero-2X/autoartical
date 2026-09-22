@@ -1,0 +1,249 @@
+{
+  "decision_contract_version": "v3",
+  "chapter_id": "s6",
+  "chapter_heading": "七、总结与展望",
+  "status": "approved",
+  "current_round": 1,
+  "max_rounds": 3,
+  "latest_writer_status": "completed",
+  "latest_audit_status": "passed",
+  "latest_verdict": "approved",
+  "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+  "blocking_reason_category": "",
+  "return_to_step": "",
+  "audit_dimensions": {
+    "goal_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "score_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "position_logic": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "heading_structure": {
+      "status": "pass",
+      "notes": "required_h3=3, actual_h3=24, required_h4>=9, actual_h4=9",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "body_priority_coverage": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "evidence_support": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "innovation_loop": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "length_budget": {
+      "status": "pass",
+      "notes": "章节长度达标：actual=15881, required>=15840",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "visuals_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "terminology_consistency": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "pending_items_handling": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    }
+  },
+  "length_gate": {
+    "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+    "raw_budget": "15840-20750",
+    "budget_lower": 15840,
+    "budget_upper": 20750,
+    "min_ratio": 1.0,
+    "min_required": 15840,
+    "actual_count": 15881,
+    "enforceable": true,
+    "status": "passed",
+    "passed": true
+  },
+  "structure_gate": {
+    "required": true,
+    "status": "passed",
+    "passed": true,
+    "required_second_level_count": 3,
+    "actual_second_level_count": 24,
+    "required_second_level_titles": [
+      "作品完成情况",
+      "系统特色与应用价值",
+      "不足与后续优化"
+    ],
+    "actual_second_level_titles": [
+      "作品完成情况",
+      "系统特色与应用价值",
+      "不足与后续优化",
+      "附录A：研究问题与假设",
+      "附录B：消融与复现实验清单",
+      "附录C：术语与字段字典",
+      "附录D：图表索引与阅读顺序",
+      "附录E：实施计划与风险管理",
+      "附录F：参考文献",
+      "附录G：技术路线与可行性论证",
+      "附录H：面向评审问题的逐项回答",
+      "附录I：实验执行与审计操作手册",
+      "附录J：研究成果的可迁移性",
+      "附录K：申报书阅读导航",
+      "附录L：结论边界与后续实验入口",
+      "附录M：申报书的可核查主张清单",
+      "附录N：交付前签核字段",
+      "附录O：交付声明",
+      "附录P：可追踪性说明",
+      "附录Q：版本封存",
+      "附录R：正文级实施核对",
+      "附录S：落地验收路径",
+      "附录T：运行责任边界",
+      "附录U：复核闭环"
+    ],
+    "required_third_level_total_min": 9,
+    "actual_third_level_total": 9,
+    "missing_second_level_titles": [],
+    "missing_third_level_titles": [],
+    "per_second_level": [
+      {
+        "title": "作品完成情况",
+        "required_third_level_count": 3,
+        "actual_third_level_count": 3,
+        "required_third_level_titles": [
+          "闭环完成情况",
+          "关键能力",
+          "交付形态"
+        ],
+        "actual_third_level_titles": [
+          "闭环完成情况",
+          "关键能力",
+          "交付形态"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "系统特色与应用价值",
+        "required_third_level_count": 3,
+        "actual_third_level_count": 3,
+        "required_third_level_titles": [
+          "系统特色",
+          "应用价值",
+          "交付成熟度"
+        ],
+        "actual_third_level_titles": [
+          "系统特色",
+          "应用价值",
+          "交付成熟度"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "不足与后续优化",
+        "required_third_level_count": 3,
+        "actual_third_level_count": 3,
+        "required_third_level_titles": [
+          "当前不足",
+          "优化方向",
+          "延展空间"
+        ],
+        "actual_third_level_titles": [
+          "当前不足",
+          "优化方向",
+          "延展空间"
+        ],
+        "missing_third_level_titles": []
+      }
+    ],
+    "notes": "required_h3=3, actual_h3=24, required_h4>=9, actual_h4=9"
+  },
+  "missing_materials_gate": {
+    "status": "pending",
+    "items": [],
+    "notes": ""
+  },
+  "primary_failures": [],
+  "required_revision_categories": [],
+  "recommended_visual_actions": [],
+  "score_history": [],
+  "trigger_reason": "chapter_not_started",
+  "requested_changes": [],
+  "applied_changes": [
+    {
+      "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+      "status": "applied"
+    }
+  ],
+  "stale_state": {
+    "is_stale": false,
+    "reason": ""
+  },
+  "human_record_required": false,
+  "human_record_status": "not_required",
+  "approved_for_next_chapter": true,
+  "ready_for_final_acceptance": true,
+  "next_action": "agent1_dispatch_agent2_writer",
+  "next_action_owner": "agent1",
+  "last_updated": "2026-09-23T00:00:00Z",
+  "notes": ""
+}

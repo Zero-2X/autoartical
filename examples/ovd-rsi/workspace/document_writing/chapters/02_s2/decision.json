@@ -1,0 +1,228 @@
+{
+  "decision_contract_version": "v3",
+  "chapter_id": "s2",
+  "chapter_heading": "二、作品设计与总体架构",
+  "status": "approved",
+  "current_round": 1,
+  "max_rounds": 3,
+  "latest_writer_status": "completed",
+  "latest_audit_status": "passed",
+  "latest_verdict": "approved",
+  "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+  "blocking_reason_category": "",
+  "return_to_step": "",
+  "audit_dimensions": {
+    "goal_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "score_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "position_logic": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "heading_structure": {
+      "status": "pass",
+      "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "body_priority_coverage": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "evidence_support": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "innovation_loop": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "length_budget": {
+      "status": "pass",
+      "notes": "章节长度达标：actual=1333, required>=1300",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "visuals_alignment": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "terminology_consistency": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    },
+    "pending_items_handling": {
+      "status": "pass",
+      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "evidence": [
+        "作品书_OpenRSI-Calibrator.md",
+        "研究简报",
+        "章节结构与长度 Gate"
+      ]
+    }
+  },
+  "length_gate": {
+    "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+    "raw_budget": "1300-1800",
+    "budget_lower": 1300,
+    "budget_upper": 1800,
+    "min_ratio": 1.0,
+    "min_required": 1300,
+    "actual_count": 1333,
+    "enforceable": true,
+    "status": "passed",
+    "passed": true
+  },
+  "structure_gate": {
+    "required": true,
+    "status": "passed",
+    "passed": true,
+    "required_second_level_count": 3,
+    "actual_second_level_count": 3,
+    "required_second_level_titles": [
+      "总体目标与设计原则",
+      "系统总体架构",
+      "输入-处理-输出闭环"
+    ],
+    "actual_second_level_titles": [
+      "总体目标与设计原则",
+      "系统总体架构",
+      "输入-处理-输出闭环"
+    ],
+    "required_third_level_total_min": 9,
+    "actual_third_level_total": 9,
+    "missing_second_level_titles": [],
+    "missing_third_level_titles": [],
+    "per_second_level": [
+      {
+        "title": "总体目标与设计原则",
+        "required_third_level_count": 3,
+        "actual_third_level_count": 3,
+        "required_third_level_titles": [
+          "设计目标",
+          "方案边界",
+          "设计原则"
+        ],
+        "actual_third_level_titles": [
+          "设计目标",
+          "方案边界",
+          "设计原则"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "系统总体架构",
+        "required_third_level_count": 3,
+        "actual_third_level_count": 3,
+        "required_third_level_titles": [
+          "分层结构",
+          "模块职责",
+          "多端部署关系"
+        ],
+        "actual_third_level_titles": [
+          "分层结构",
+          "模块职责",
+          "多端部署关系"
+        ],
+        "missing_third_level_titles": []
+      },
+      {
+        "title": "输入-处理-输出闭环",
+        "required_third_level_count": 3,
+        "actual_third_level_count": 3,
+        "required_third_level_titles": [
+          "输入接入",
+          "分析与评分",
+          "输出与联动"
+        ],
+        "actual_third_level_titles": [
+          "输入接入",
+          "分析与评分",
+          "输出与联动"
+        ],
+        "missing_third_level_titles": []
+      }
+    ],
+    "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9"
+  },
+  "missing_materials_gate": {
+    "status": "pending",
+    "items": [],
+    "notes": ""
+  },
+  "primary_failures": [],
+  "required_revision_categories": [],
+  "recommended_visual_actions": [],
+  "score_history": [],
+  "trigger_reason": "chapter_not_started",
+  "requested_changes": [],
+  "applied_changes": [
+    {
+      "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+      "status": "applied"
+    }
+  ],
+  "stale_state": {
+    "is_stale": false,
+    "reason": ""
+  },
+  "human_record_required": false,
+  "human_record_status": "not_required",
+  "approved_for_next_chapter": true,
+  "ready_for_final_acceptance": true,
+  "next_action": "agent1_dispatch_agent2_writer",
+  "next_action_owner": "agent1",
+  "last_updated": "2026-09-23T00:00:00Z",
+  "notes": ""
+}

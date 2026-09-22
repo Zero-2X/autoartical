@@ -1,0 +1,165 @@
+{
+  "generated_at": "2026-09-22T18:39:54+00:00",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "formats": {
+    "markdown": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.md",
+    "html": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.html",
+    "pdf": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.pdf"
+  },
+  "content_gate": {
+    "passed": true,
+    "failures": [],
+    "per_chapter": [
+      {
+        "heading": "一、作品概述与问题定义",
+        "minimum": 1800,
+        "prose_units": 1847,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "二、作品设计与总体架构",
+        "minimum": 1300,
+        "prose_units": 1333,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "三、核心创新与关键技术",
+        "minimum": 1490,
+        "prose_units": 1504,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "四、作品实现与运行闭环",
+        "minimum": 1080,
+        "prose_units": 1098,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "五、测试与效果分析",
+        "minimum": 1380,
+        "prose_units": 1401,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "六、应用前景与落地价值",
+        "minimum": 1110,
+        "prose_units": 1134,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "七、总结与展望",
+        "minimum": 15840,
+        "prose_units": 15881,
+        "duplicate_paragraph_groups": 0
+      }
+    ],
+    "prose_units": 24198,
+    "duplicate_paragraph_groups": 0,
+    "contract": {
+      "target_pages": [
+        40,
+        50
+      ],
+      "body_units_min": 24000,
+      "body_units_target": 32000,
+      "page_scope": "正文；不含封面、目录、参考文献及附录",
+      "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
+      "visual_contract": {
+        "required_specs_min": 18,
+        "required_external_assets_min": 12,
+        "required_tables_min": 5,
+        "required_diagrams_min": 8,
+        "required_case_or_ui_visuals_min": 4,
+        "required_asset_ratio": 1.0,
+        "all_visuals_must_be_cited": true,
+        "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
+      },
+      "export_contract": {
+        "required_formats": [
+          "markdown",
+          "html",
+          "pdf_or_docx"
+        ],
+        "render_verification": "required_before_delivery",
+        "page_count_must_be_in_range": true,
+        "visual_qa_required": true
+      },
+      "render_verification": "required_before_delivery"
+    },
+    "semantic_review": "required: evidence, specificity, nonredundancy",
+    "render_verification": "pending; prose volume does not establish page count"
+  },
+  "visual_gate": {
+    "passed": true,
+    "failures": [],
+    "required_specs": 34,
+    "external_specs": 22,
+    "available_assets": 22,
+    "requested_assets": 0,
+    "missing_assets": 0,
+    "available_ids": [
+      "s1_visual_1",
+      "s1_visual_2",
+      "s1_visual_4",
+      "s2_visual_1",
+      "s2_visual_2",
+      "s2_visual_3",
+      "s2_visual_4",
+      "s2_mvp",
+      "s3_visual_2",
+      "s3_visual_3",
+      "s3_visual_4",
+      "s3_visual_5",
+      "s4_visual_2",
+      "s4_visual_3",
+      "s4_visual_5",
+      "s4_visual_6",
+      "s_validation_visual_4",
+      "s5_visual_3",
+      "s5_visual_4",
+      "s5_visual_5",
+      "s6_visual_2",
+      "s6_visual_3"
+    ],
+    "requested_ids": [],
+    "missing_ids": [],
+    "uncited_labels": [],
+    "tables_in_draft": 11,
+    "table_quality": {
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": true,
+      "has_missing_value_rule": true
+    },
+    "diagram_specs": 25,
+    "case_or_ui_specs": 4,
+    "asset_ratio": 1.0,
+    "contract": {
+      "required_specs_min": 18,
+      "required_external_assets_min": 12,
+      "required_tables_min": 5,
+      "required_diagrams_min": 8,
+      "required_case_or_ui_visuals_min": 4,
+      "required_asset_ratio": 1.0,
+      "all_visuals_must_be_cited": true,
+      "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
+    }
+  },
+  "render_gate": {
+    "verified": true,
+    "renderer_available": true,
+    "backend": "pymupdf",
+    "page_count": 41,
+    "page_range": [
+      40,
+      50
+    ],
+    "visual_qa": "pass",
+    "report_path": "workspace\\document_export\\render-report.json",
+    "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。"
+  },
+  "review_verdict": "pass",
+  "final_verdict": "pass",
+  "failures": [],
+  "rule": "只有内容、视觉、引用、渲染和逐页视觉 QA 都通过，才能称为完整 40–50 页交付。"
+}

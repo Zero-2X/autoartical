@@ -1,0 +1,172 @@
+# Idea Batch
+
+- Topic: 开放词汇检测与RSI
+- Topic Profile: 遥感影像开放词汇目标检测
+- Competition: competition-rules
+- Idea Seed: 面向遥感影像的开放词汇目标检测与可靠语义校准
+- Generated Ideas: 3
+
+## Evidence-First Rules
+- 每个候选 idea 都必须能回溯到 evidence_refs。
+- evidence 不足以支撑的部分，只能写成 inference_notes。
+- 与 idea 数据库中高度相似的方向需要显式提示。
+
+## Idea 1: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准
+
+- Idea ID: `idea_a`
+- Focus Summary: 遥感域词汇适配、检测定位与置信度校准闭环
+- Candidate Preview: `workspace/ideas/candidates/IdeaCandidate_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.md`
+- Problem: 自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度。
+- Target Users: 自然资源与生态监测部门、应急遥感解译团队、遥感数据服务企业
+- Solution Summary: 构建以文本查询为入口的遥感开放词汇检测系统，先用遥感域视觉语言原型对齐查询，再用多尺度和旋转候选完成定位，最后用类别—区域一致性、背景抑制和温度校准输出带证据的可靠结果。
+- Evidence Refs: ev_d827045531, ev_7f9521c71a, ev_9662694342, ev_84bd681099, ev_9ca3b5c76b, ev_c00e228bb3
+- Similar Registry Hits: 1
+- Core Innovations:
+  - 遥感域视觉语言原型适配
+  - 多尺度旋转候选与词汇查询协同
+  - 类别幻觉抑制与查询不确定性校准
+- Feasibility Notes:
+  - 可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线
+  - DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证
+  - 系统先支持离线切片推理，再扩展到实时或边缘部署
+- Value Notes:
+  - 减少新增类别的全量标注依赖
+  - 把开放词汇结果转成带来源、查询和置信度的审计证据
+  - 适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示
+- Risk Notes:
+  - 开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试
+  - 公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界
+  - YOLO-World 等组件的许可证需要在发布前核验
+- Analysis Basis:
+  - Problem Basis: ev_d827045531, ev_7f9521c71a
+  - Solution Basis: ev_d827045531, ev_7f9521c71a, ev_9662694342
+  - Fit Basis: ev_84bd681099, ev_9ca3b5c76b
+  - Novelty Basis: ev_d827045531, ev_7f9521c71a
+  - Communication Basis: ev_c00e228bb3
+- Template-Aligned Preview:
+  - Opening Summary: 遥感开放词汇检测真正要解决的不是把更多类别名称放进模型，而是让用户能够用新词汇查询目标，同时知道结果是否定位正确、是否存在类别幻觉以及哪些结果需要人工复核。
+  - Blind Spots:
+    - 自然图像语义空间与遥感俯视影像之间存在明显域差异
+    - 小目标、旋转目标和密集目标同时造成定位与类别匹配困难
+    - 开放词汇模型可能给不存在的目标较高分数，单一置信度不能代表可靠性
+  - Innovation Blocks:
+    - 创新一 · 遥感域词汇原型适配: 利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。
+    - 创新二 · 多尺度旋转候选协同: 将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。
+    - 创新三 · 可靠语义校准: 利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。
+  - Closing Summary: 该方向把前沿的开放词汇检测与明确的遥感应用约束结合起来，既有科学问题，也能形成可演示、可评测、可扩展的比赛作品。
+- Innovation Evidence Map:
+  - 创新一 · 遥感域词汇原型适配: ev_d827045531, ev_7f9521c71a
+    - Rationale: Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark、DOTA: A Large-scale Dataset for Object Detection in Aerial Images 共同支撑该模块的系统设计与论证边界。
+  - 创新二 · 多尺度旋转候选协同: ev_d827045531, ev_7f9521c71a
+    - Rationale: Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark、DOTA: A Large-scale Dataset for Object Detection in Aerial Images 共同支撑该模块的系统设计与论证边界。
+  - 创新三 · 可靠语义校准: ev_d827045531, ev_7f9521c71a
+    - Rationale: Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark、DOTA: A Large-scale Dataset for Object Detection in Aerial Images 共同支撑该模块的系统设计与论证边界。
+- Similar Registry Hits Detail:
+  - OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准 [idea_955ebcf839] from ovd-rsi via RSI、地球观测、开放词汇、目标检测、视觉语言、遥感、遥感影像
+- Matched Scoring Dimensions:
+  - 应用价值
+- Scores: 创新性 9/10, 可行性 8/10, 匹配度 9/10, 展示潜力 9/10
+
+## Idea 2: Prompt2Rotate：面向旋转遥感目标的开放提示词检测
+
+- Idea ID: `idea_b`
+- Focus Summary: 开放提示词、旋转框定位与小目标增强
+- Candidate Preview: `workspace/ideas/candidates/IdeaCandidate_Prompt2Rotate：面向旋转遥感目标的开放提示词检测.md`
+- Problem: 遥感目标在俯视视角下方向任意、尺度跨度大且经常密集排列，通用水平框开放词汇检测会把相邻目标合并或把方向信息丢失。
+- Target Users: 航空遥感解译人员、交通设施巡检团队、测绘与地理信息企业
+- Solution Summary: 以开放提示词为入口，将多尺度切片、旋转框候选和类别原型对齐结合，重点解决小目标召回和相邻目标分离。
+- Evidence Refs: ev_d827045531, ev_7f9521c71a, ev_9662694342, ev_84bd681099, ev_9ca3b5c76b, ev_c00e228bb3
+- Similar Registry Hits: 0
+- Core Innovations:
+  - 旋转框开放提示词解码
+  - 尺度感知候选融合
+  - 同义词与层级类别一致性约束
+- Feasibility Notes:
+  - 以 Grounding DINO 或 YOLO-World 作为文本检测基线
+  - DOTA 与 FAIR1M 可用于旋转框和细粒度评估
+- Value Notes:
+  - 视觉演示直观
+  - 适合展示查询词变化带来的结果变化
+  - 能把遥感检测的方向特性讲清楚
+- Risk Notes:
+  - 旋转框标注和评测成本高
+  - 方法创新容易收敛为检测头改造，需避免只做工程堆叠
+- Analysis Basis:
+  - Problem Basis: ev_d827045531, ev_7f9521c71a
+  - Solution Basis: ev_d827045531, ev_7f9521c71a, ev_9662694342
+  - Fit Basis: ev_84bd681099, ev_9ca3b5c76b
+  - Novelty Basis: ev_d827045531, ev_7f9521c71a
+  - Communication Basis: ev_c00e228bb3
+- Template-Aligned Preview:
+  - Opening Summary: 遥感影像中的开放词汇检测必须同时回答“是什么”和“朝向哪里”，否则新类别识别无法转化为可用定位。
+  - Blind Spots:
+    - 开放提示词可能只改变类别名称而没有真正扩大可检测类别
+    - 旋转框收益可能被切片策略和后处理混淆
+  - Innovation Blocks:
+    - 创新一 · 旋转框开放提示词解码: 让文本查询和方向定位共享候选级表示。
+    - 创新二 · 尺度感知候选融合: 在不同切片尺度下合并候选，减少小目标漏检与重复框。
+    - 创新三 · 语义层级一致性: 用父类、子类和同义词约束输出，降低细粒度混淆。
+  - Closing Summary: 该方向工程边界清晰、展示效果强，适合以旋转目标和小目标为主要比赛亮点。
+- Innovation Evidence Map:
+  - 创新一 · 旋转框开放提示词解码: ev_7f9521c71a, ev_d827045531
+    - Rationale: DOTA: A Large-scale Dataset for Object Detection in Aerial Images、Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark 共同支撑该模块的系统设计与论证边界。
+  - 创新二 · 尺度感知候选融合: ev_7f9521c71a, ev_d827045531
+    - Rationale: DOTA: A Large-scale Dataset for Object Detection in Aerial Images、Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark 共同支撑该模块的系统设计与论证边界。
+  - 创新三 · 语义层级一致性: ev_7f9521c71a, ev_d827045531
+    - Rationale: DOTA: A Large-scale Dataset for Object Detection in Aerial Images、Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark 共同支撑该模块对跨模态叙事错位与误导风险的识别论证。
+- Matched Scoring Dimensions:
+  - 应用价值
+- Scores: 创新性 8/10, 可行性 8/10, 匹配度 8/10, 展示潜力 9/10
+
+## Idea 3: EarthQuery-Edge：面向地球观测的轻量开放词汇检索
+
+- Idea ID: `idea_c`
+- Focus Summary: 开放词汇检测的低延迟部署与交互式检索
+- Candidate Preview: `workspace/ideas/candidates/IdeaCandidate_EarthQuery-Edge：面向地球观测的轻量开放词汇检索.md`
+- Problem: 大模型开放词汇检测通常需要较高算力和复杂图像预处理，难以在有限资源下对大范围遥感影像进行交互式检索。
+- Target Users: 应急指挥中心、野外遥感作业团队、基层自然资源管理部门
+- Solution Summary: 通过词汇原型缓存、候选区域预计算和轻量重排序，构建可在有限算力设备上运行的开放词汇遥感检索系统。
+- Evidence Refs: ev_d827045531, ev_7f9521c71a, ev_9662694342, ev_84bd681099, ev_9ca3b5c76b, ev_c00e228bb3
+- Similar Registry Hits: 1
+- Core Innovations:
+  - 词汇原型缓存
+  - 候选区域预计算
+  - 延迟—召回—可靠性联合调度
+- Feasibility Notes:
+  - 可从 YOLO-World 的实时路线或轻量 Grounding DINO 配置起步
+  - 先做离线索引再做在线查询，开发路径明确
+- Value Notes:
+  - 实时性和交互性适合比赛展示
+  - 可以用同一影像多次查询体现开放能力
+- Risk Notes:
+  - 轻量化可能牺牲新类别召回
+  - 缓存机制需要处理词汇更新与版本一致性
+- Analysis Basis:
+  - Problem Basis: ev_d827045531, ev_7f9521c71a
+  - Solution Basis: ev_d827045531, ev_7f9521c71a, ev_9662694342
+  - Fit Basis: ev_84bd681099, ev_9ca3b5c76b
+  - Novelty Basis: ev_d827045531, ev_7f9521c71a
+  - Communication Basis: ev_c00e228bb3
+- Template-Aligned Preview:
+  - Opening Summary: 开放词汇检测只有进入可交互的遥感工作流，才能真正降低新增类别搜索成本；因此速度、可重复性和可靠性必须一起设计。
+  - Blind Spots:
+    - 速度提升不能替代语义正确性
+    - 轻量系统仍需在公开基准上与强模型比较
+  - Innovation Blocks:
+    - 创新一 · 词汇原型缓存: 避免每次查询重复编码固定词汇，减少交互延迟。
+    - 创新二 · 候选区域预计算: 预先生成候选区域，再用文本条件完成快速重排序。
+    - 创新三 · 联合调度: 按照查询复杂度和资源状态动态选择精度与延迟档位。
+  - Closing Summary: 该方向部署和展示价值突出，但需要严格防止轻量化变成只追求速度而忽略开放类别召回。
+- Innovation Evidence Map:
+  - 创新一 · 词汇原型缓存: ev_d827045531, ev_7f9521c71a
+    - Rationale: Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark、DOTA: A Large-scale Dataset for Object Detection in Aerial Images 共同支撑该模块的系统设计与论证边界。
+  - 创新二 · 候选区域预计算: ev_d827045531, ev_7f9521c71a
+    - Rationale: Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark、DOTA: A Large-scale Dataset for Object Detection in Aerial Images 共同支撑该模块的系统设计与论证边界。
+  - 创新三 · 联合调度: ev_d827045531, ev_7f9521c71a
+    - Rationale: Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark、DOTA: A Large-scale Dataset for Object Detection in Aerial Images 共同支撑该模块的系统设计与论证边界。
+- Similar Registry Hits Detail:
+  - OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准 [idea_955ebcf839] from ovd-rsi via 地球观测、开放词汇、遥感、遥感影像
+- Matched Scoring Dimensions:
+  - 应用价值
+- Scores: 创新性 8/10, 可行性 9/10, 匹配度 8/10, 展示潜力 10/10
+

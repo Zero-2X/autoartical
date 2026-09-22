@@ -1,0 +1,68 @@
+{
+  "document": "examples\\ovd-rsi\\output\\作品书_OpenRSI-Calibrator.md",
+  "generated_checks": {
+    "heading_count": 179,
+    "paragraph_count": 290,
+    "table_line_count": 69,
+    "citation_count": 36,
+    "has_mermaid": false,
+    "has_embedded_image": false,
+    "table_quality": {
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": true
+    },
+    "generic_phrase_counts": {},
+    "repeated_paragraphs": []
+  },
+  "text_quality": {
+    "passed": true,
+    "failures": [],
+    "prose_units": 24012,
+    "body_units_min": 24000,
+    "body_units_target": 32000,
+    "paragraph_count": 162,
+    "thin_paragraph_count": 11,
+    "thin_paragraph_ratio": 0.068,
+    "duplicate_paragraph_groups": 0,
+    "heading_count": 179,
+    "citation_count": 20,
+    "table_blocks": 11,
+    "table_quality": {
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": true,
+      "has_missing_value_rule": true
+    },
+    "visual_references": 33,
+    "term_status": {
+      "problem_definition": true,
+      "method_mechanism": true,
+      "experiment_protocol": true,
+      "boundary_and_risk": true
+    },
+    "short_document": false
+  },
+  "rubric": {
+    "论文": {
+      "问题与贡献": true,
+      "方法与验证": true,
+      "引用可追溯": true
+    },
+    "竞赛说明书": {
+      "需求覆盖": true,
+      "方案闭环": true,
+      "评审友好": true
+    },
+    "基金申报书": {
+      "科学问题": true,
+      "技术路线": true,
+      "可行性与风险": true
+    }
+  },
+  "coverage_score": 1.0,
+  "ai_style_risks": {},
+  "verdict": "pass",
+  "missing_sections": [],
+  "mode": "long_form_required"
+}

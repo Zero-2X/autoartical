@@ -1,0 +1,395 @@
+{
+  "schema_version": "research-brief.v1",
+  "generated_at": "2026-09-22T17:12:25Z",
+  "topic": "开放词汇检测与RSI",
+  "domain": {
+    "name": "计算机视觉与地球观测智能解译",
+    "why_research": "遥感影像承载自然资源、灾害应急、交通设施和生态监测信息，但目标类别、地域、分辨率与拍摄方向持续变化；固定类别检测每增加一种目标都需要重新采集和标注，开放词汇检测有机会把自然语言查询转化为可扩展的检索接口。",
+    "evidence_ids": [
+      "ev_d827045531",
+      "ev_7f9521c71a",
+      "ev_df7e4935d7"
+    ]
+  },
+  "subdomain": {
+    "name": "遥感影像开放词汇目标检测（RS-OVD）与可靠语义校准",
+    "why_direction": "RS-OVD 同时面对遥感域视觉—语言对齐、任意方向和多尺度定位、细粒度类别混淆以及类别幻觉；如果不把定位正确性与置信度可靠性一起建模，新增词汇只能带来不可审计的候选框。",
+    "evidence_ids": [
+      "ev_df7e4935d7",
+      "ev_39cee8f6f3",
+      "ev_ed1515af87"
+    ]
+  },
+  "common_challenges": [
+    {
+      "challenge": "自然图像视觉—语言表示与遥感俯视影像存在域差异",
+      "impact": "新类别的文本相似度不一定对应遥感实例相似度，导致 novel recall 和类别排名下降。",
+      "evidence_ids": [
+        "ev_df7e4935d7",
+        "ev_39cee8f6f3"
+      ]
+    },
+    {
+      "challenge": "目标尺度跨度大、方向任意且小目标密集",
+      "impact": "水平框候选会合并邻近目标或遗漏低分辨率目标，定位误差会进一步污染语义匹配。",
+      "evidence_ids": [
+        "ev_7f9521c71a",
+        "ev_d827045531",
+        "ev_9662694342"
+      ]
+    },
+    {
+      "challenge": "开放词汇查询存在同义词、层级词和提示词敏感性",
+      "impact": "同一目标换一个短语可能产生不同框集合，系统难以复现，用户无法判断结果是否稳定。",
+      "evidence_ids": [
+        "ev_7ef4331b38",
+        "ev_ed1515af87"
+      ]
+    },
+    {
+      "challenge": "弱监督和伪标签扩大词汇覆盖但带来空间噪声",
+      "impact": "模型可能把背景纹理或共现物体当作目标，产生类别幻觉和高置信假阳性。",
+      "evidence_ids": [
+        "ev_1124a9c4a8",
+        "ev_53e8fd7356",
+        "ev_df7e4935d7"
+      ]
+    },
+    {
+      "challenge": "强模型的推理成本、许可证和真实区域域外风险未被统一纳入",
+      "impact": "比赛演示可能只展示精度，无法证明系统在有限算力、跨区域和可分发条件下可用。",
+      "evidence_ids": [
+        "ev_40ff1f0b23",
+        "ev_d827045531",
+        "ev_ed1515af87"
+      ]
+    }
+  ],
+  "current_methods": [
+    {
+      "category": "文本条件零样本/训练自由检测",
+      "mechanism": "将类别名或自然语言短语编码为文本条件，与候选区域的视觉表示做跨模态匹配。代表工作包括 Grounding DINO。",
+      "strengths": [
+        "无需为每个新类别重新训练检测头",
+        "查询接口直观，适合快速验证新词汇"
+      ],
+      "limitations": [
+        "通用视觉语言空间与遥感域有偏差",
+        "小目标和旋转目标的候选框质量限制最终结果",
+        "置信度未必可解释或校准"
+      ],
+      "evidence_ids": [
+        "ev_7ef4331b38",
+        "ev_ed1515af87"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "category": "图像级监督与大词汇检测",
+      "mechanism": "利用图像类别或图文数据扩大类别空间，再通过区域—文本对齐完成检测。代表工作包括 Detic 与 GLIP。",
+      "strengths": [
+        "类别覆盖和开放词汇规模较大",
+        "可利用廉价图像级数据扩展词汇"
+      ],
+      "limitations": [
+        "图像级标签缺少实例位置",
+        "弱监督噪声可能造成候选框漂移和背景幻觉",
+        "跨域迁移需要额外校准"
+      ],
+      "evidence_ids": [
+        "ev_1124a9c4a8",
+        "ev_53e8fd7356"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "category": "遥感域视觉语言适配与数据扩展",
+      "mechanism": "用 RS5M/GeoRSCLIP 等域数据或 LAE-1M 等大规模遥感检测数据，把通用语义空间迁移到地球观测影像。",
+      "strengths": [
+        "更贴近遥感纹理、尺度和场景语义",
+        "可以提升类别覆盖与域内检索能力"
+      ],
+      "limitations": [
+        "数据整理、自动标注和训练成本高",
+        "域数据噪声和类别长尾会影响可复现性",
+        "扩大词汇不等于提高定位可靠性"
+      ],
+      "evidence_ids": [
+        "ev_39cee8f6f3",
+        "ev_df7e4935d7",
+        "ev_ed1515af87"
+      ],
+      "status": "reviewed"
+    },
+    {
+      "category": "实时开放词汇检测与部署优化",
+      "mechanism": "把文本条件和视觉特征融入单阶段检测器，使用词汇缓存、轻量路径和预计算候选降低推理成本。代表工作包括 YOLO-World。",
+      "strengths": [
+        "延迟低，便于比赛演示和边缘部署",
+        "可将固定词汇编码为可复用原型"
+      ],
+      "limitations": [
+        "轻量化可能牺牲 novel recall 与小目标性能",
+        "速度受切片、分辨率和词汇规模共同影响",
+        "许可证和权重分发边界需要核验"
+      ],
+      "evidence_ids": [
+        "ev_40ff1f0b23"
+      ],
+      "status": "reviewed"
+    }
+  ],
+  "key_gap": {
+    "statement": "现有路线分别改善词汇覆盖、遥感域适配或推理效率，但缺少一个把新类别查询、旋转/多尺度定位和可靠性校准放在同一协议下验证的轻量闭环；模型即使命中类别，也可能定位错误或对不存在目标给出高置信度。",
+    "research_question": "在不为每个新类别进行全量实例标注的条件下，遥感域视觉语言原型、多尺度旋转候选与类别—区域可靠性校准能否协同提升 novel 类别召回、定位质量和查询稳定性，并在有限延迟下保持可审计的误报边界？",
+    "evidence_ids": [
+      "ev_df7e4935d7",
+      "ev_7f9521c71a",
+      "ev_1124a9c4a8",
+      "ev_40ff1f0b23"
+    ],
+    "status": "reviewed"
+  },
+  "design_rationale": [
+    {
+      "design": "遥感域词汇原型适配",
+      "rationale": "RS5M/GeoRSCLIP 与 LAE 说明通用视觉语言空间迁移到遥感域存在缺口；先用域内图文表示校正文本原型，可以减少同名类别在俯视纹理和尺度变化下的语义偏移。",
+      "testable_prediction": "相对冻结通用文本编码器，域适配原型应提高 novel 类别召回和同义查询的一致性，且不应只在单一数据集有效。",
+      "evidence_ids": [
+        "ev_39cee8f6f3",
+        "ev_df7e4935d7"
+      ]
+    },
+    {
+      "design": "多尺度旋转候选与词汇查询协同",
+      "rationale": "DOTA/FAIR1M 的方向和细粒度标注说明水平框候选会把定位误差传给语义匹配；将切片尺度、旋转几何与文本条件放到候选级融合，才能区分密集小目标。",
+      "testable_prediction": "在 DOTA/FAIR1M 的旋转框协议中，该组件应主要改善小目标 AR、旋转框 mAP 和相邻目标分离，而不是只改变总体分类分数。",
+      "evidence_ids": [
+        "ev_7f9521c71a",
+        "ev_9662694342"
+      ]
+    },
+    {
+      "design": "类别—区域一致性与不确定性校准",
+      "rationale": "Detic/GLIP/LAE 的弱监督和开放词汇扩展可能放大类别幻觉；用区域证据、背景对照和温度校准重新估计置信度，可以把结果分成可自动接受、需复核和拒识三类。",
+      "testable_prediction": "校准后 ECE/Brier 与高置信假阳性率应下降，并能在保持 novel recall 的情况下提供可解释复核阈值。",
+      "evidence_ids": [
+        "ev_1124a9c4a8",
+        "ev_53e8fd7356",
+        "ev_df7e4935d7"
+      ]
+    }
+  ],
+  "case_study": {
+    "title": "灾害后港口设施与临时目标快速检索案例（仿真）",
+    "timeline": [
+      "T1：输入同一港区灾后遥感影像，系统记录影像来源、分辨率、时间和切片参数。",
+      "T2：用户输入“临时帐篷、受损码头、救援车辆”等训练类别之外的查询短语。",
+      "T3：系统用域适配词汇原型生成候选框，并用旋转框和多尺度切片合并重复结果。",
+      "T4：系统对每个候选给出类别—区域一致性、不确定性、来源切片和拒识原因。",
+      "T5：用户用同义短语重查，系统展示结果稳定性、变化框和需人工复核的边界案例。",
+      "T6：系统导出带查询、模型版本、阈值、框坐标和原图缩略图的证据卡。"
+    ],
+    "purpose": "验证开放词汇查询、旋转定位、可靠性校准和证据回放是否形成可理解的比赛演示闭环。",
+    "status": "planned"
+  },
+  "experiment_plan": {
+    "benchmarks": [
+      {
+        "name": "DIOR-OV",
+        "protocol": "按类别分为 base/novel，冻结图像划分、类别映射和提示词模板；报告 base、novel、generalized 三种设置。",
+        "purpose": "检验跨场景和类别扩展能力",
+        "evidence_ids": [
+          "ev_d827045531"
+        ]
+      },
+      {
+        "name": "DOTA-OVB",
+        "protocol": "在 DOTA 固定版本上采用旋转框 base/novel 划分，报告 OBB mAP、AR 和密集小目标分层结果。",
+        "purpose": "检验方向定位和密集目标分离",
+        "evidence_ids": [
+          "ev_7f9521c71a"
+        ]
+      },
+      {
+        "name": "FAIR1M-FG",
+        "protocol": "选取许可证允许的公开子集，保留细粒度层级，报告近义类别混淆与查询稳定性。",
+        "purpose": "检验细粒度语义边界",
+        "evidence_ids": [
+          "ev_9662694342"
+        ]
+      },
+      {
+        "name": "跨区域外测集",
+        "protocol": "从未参与调参的区域或时间采样，记录影像来源、分辨率、天气/季节和人工复核状态。",
+        "purpose": "检验域外风险与真实部署边界",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_df7e4935d7"
+        ]
+      }
+    ],
+    "baselines": [
+      {
+        "name": "Grounding DINO",
+        "category": "文本条件零样本",
+        "purpose": "强零样本开放集定位基线",
+        "evidence_ids": [
+          "ev_7ef4331b38"
+        ]
+      },
+      {
+        "name": "Detic",
+        "category": "图像级监督大词汇",
+        "purpose": "大类别空间和自定义词汇基线",
+        "evidence_ids": [
+          "ev_1124a9c4a8"
+        ]
+      },
+      {
+        "name": "YOLO-World",
+        "category": "实时开放词汇",
+        "purpose": "速度—召回—部署权衡基线",
+        "evidence_ids": [
+          "ev_40ff1f0b23"
+        ]
+      },
+      {
+        "name": "闭集检测器 + 已知类别上限",
+        "category": "封闭集上限",
+        "purpose": "区分新增词汇能力与已知类别检测能力",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "label": "base/novel/generalized mAP",
+        "meaning": "分别测已知类、未见类和联合分布的检测精度，证明类别扩展是否以已知类退化为代价。"
+      },
+      {
+        "label": "novel recall 与 AR",
+        "meaning": "测新类别候选是否被找出来，区分语义匹配不足和定位召回不足。"
+      },
+      {
+        "label": "HBB/OBB mAP 与小目标分层 AP",
+        "meaning": "测水平框、旋转框和不同目标尺度下的定位质量。"
+      },
+      {
+        "label": "ECE、Brier score 与高置信假阳性率",
+        "meaning": "测置信度是否可解释，证明可靠性校准是否抑制类别幻觉。"
+      },
+      {
+        "label": "同义查询一致性与提示词敏感度",
+        "meaning": "测同一目标用不同短语查询时框集合和类别排序是否稳定。"
+      },
+      {
+        "label": "端到端延迟、显存和吞吐",
+        "meaning": "测切片、编码、检测和回放的系统代价，证明比赛演示和部署边界。"
+      }
+    ],
+    "questions": [
+      {
+        "id": "Q1",
+        "purpose": "证明主方法相对 Grounding DINO、Detic、YOLO-World 是否提升 novel/generalized 检测与旋转定位。"
+      },
+      {
+        "id": "Q2",
+        "purpose": "通过逐组件消融证明域适配、旋转候选和可靠性校准的独立贡献。"
+      },
+      {
+        "id": "Q3",
+        "purpose": "通过同义查询、跨区域、小目标和背景干扰测试证明鲁棒性与失败边界。"
+      },
+      {
+        "id": "Q4",
+        "purpose": "通过灾害后港口案例解释系统如何输出查询、候选框、置信度和人工复核证据。"
+      }
+    ],
+    "data_splits": "所有公开数据固定版本、类别映射、随机种子、图像切片、提示词模板和后处理阈值；跨区域外测不参与训练和调参。",
+    "ablations": [
+      "去掉遥感域原型适配",
+      "去掉旋转候选",
+      "去掉区域一致性",
+      "去掉温度校准",
+      "不做词汇缓存",
+      "不同提示词模板"
+    ],
+    "success_criteria": [
+      "在至少两个公开基准上，novel recall 和 generalized mAP 相对最强基线有可重复提升，且 base mAP 下降不超过预先设定容忍范围。",
+      "在 DOTA-OVB/FAIR1M-FG 上，旋转框和小目标分层指标的提升能够被消融实验归因于多尺度旋转候选，而不是后处理阈值变化。",
+      "校准模块降低 ECE、Brier score 或高置信假阳性率中的至少两项，并保留可接受的 novel recall。",
+      "同义查询一致性、跨区域外测和案例证据卡全部有记录；任何未达到的目标都写入限制，不用虚构结果补齐。",
+      "系统记录端到端延迟、显存、模型版本、查询词和阈值，满足比赛演示的可重复运行要求。"
+    ],
+    "status": "planned"
+  },
+  "evidence_summary": {
+    "total_candidates": 13,
+    "usable_sources": 12,
+    "reviewed_sources": 12,
+    "unverified_sources": 0,
+    "external_research_sources": 10
+  },
+  "research_questions": [
+    {
+      "id": "Q1",
+      "question": "开放词汇检测与RSI 所属的研究领域是什么，为什么值得研究？",
+      "required_evidence": [
+        "权威背景",
+        "影响事实"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "创新一 · 遥感域词汇原型适配 是什么子领域，为什么选择这个方向？",
+      "required_evidence": [
+        "任务定义",
+        "应用边界",
+        "代表工作"
+      ]
+    },
+    {
+      "id": "Q3",
+      "question": "子领域有哪些通用挑战，它们造成什么可测影响？",
+      "required_evidence": [
+        "挑战分类",
+        "失败后果"
+      ]
+    },
+    {
+      "id": "Q4",
+      "question": "Current methods 可以分为哪些类别？每类的机制、优点、缺点和适用边界是什么？",
+      "required_evidence": [
+        "代表工作",
+        "统一分类依据"
+      ]
+    },
+    {
+      "id": "Q5",
+      "question": "现有缺陷如何收敛为一个可检验的关键研究问题？",
+      "required_evidence": [
+        "缺陷对照",
+        "未解决矛盾"
+      ]
+    },
+    {
+      "id": "Q6",
+      "question": "科学设计是什么？每个组件为什么必要，rationale 如何对应缺陷？",
+      "required_evidence": [
+        "机制假设",
+        "可证伪预测"
+      ]
+    },
+    {
+      "id": "Q7",
+      "question": "case study 与主实验如何验证想法？benchmark、baseline、metrics 分别测什么、证明什么？",
+      "required_evidence": [
+        "案例材料",
+        "实验协议"
+      ]
+    }
+  ]
+}

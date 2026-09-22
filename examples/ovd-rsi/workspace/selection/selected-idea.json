@@ -1,0 +1,23 @@
+{
+  "status": "selected",
+  "selected_id": "idea_a",
+  "recommended_order": [
+    "idea_a",
+    "idea_c",
+    "idea_b"
+  ],
+  "selection_reason": "按最高总分自动选中进入下一流程。",
+  "rejected_ideas": [
+    {
+      "idea_id": "idea_b",
+      "reason": "本轮未被人工选中，保留为备选方向。"
+    },
+    {
+      "idea_id": "idea_c",
+      "reason": "本轮未被人工选中，保留为备选方向。"
+    }
+  ],
+  "selected_registry_entry_id": "idea_955ebcf839",
+  "selected_candidate_preview_path": "workspace/ideas/candidates/IdeaCandidate_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.md",
+  "selection_mode": "auto_top_ranked"
+}

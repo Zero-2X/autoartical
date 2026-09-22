@@ -58,6 +58,16 @@
       "short_against_default_contract": true
     },
     {
+      "path": "examples\\ovd-rsi\\competition-rules.md",
+      "prose_units": 449,
+      "short_against_default_contract": true
+    },
+    {
+      "path": "examples\\ovd-rsi\\external_evidence\\README.md",
+      "prose_units": 45,
+      "short_against_default_contract": true
+    },
+    {
       "path": "examples\\ship-vision\\proposal.md",
       "prose_units": 3870,
       "short_against_default_contract": true

@@ -1,0 +1,37 @@
+{
+  "topic_name": "OpenRSI-OV：面向开放世界遥感解译的开放词汇目标检测与可靠语义校准系统",
+  "topic_root": "D:\\autoartical\\examples\\ovd-rsi",
+  "current_step": "document_review",
+  "current_workflow_status": "active",
+  "workflow_status": {
+    "intake": "completed",
+    "requirements": "completed",
+    "ideas": "active",
+    "selection": "completed",
+    "concept": "completed",
+    "research": "completed",
+    "document_plan": "completed",
+    "document_writing": "completed",
+    "document_review": "active",
+    "document_export": "pending"
+  },
+  "active_focus": "作品书已通过章节 gate 和全书总体验收",
+  "latest_user_request": "",
+  "current_direction": "进入 Step8 交接与导出",
+  "selected_idea_id": "idea_a",
+  "next_action": "run_step8_record",
+  "next_actions": [
+    "run_step8_record"
+  ],
+  "open_questions": [],
+  "blocking_reason": "",
+  "resume_entrypoint": "workspace/document_review/quality-gate.json",
+  "required_inputs": [
+    "workspace/document_writing/作品书草稿.md",
+    "workspace/document_review/quality-gate.json"
+  ],
+  "last_completed_artifact": "workspace/document_review/quality-gate.json",
+  "last_verified_at": "2026-09-22T18:33:50Z",
+  "last_updated": "2026-09-22T18:33:50Z",
+  "notes": "Step7 final acceptance passed."
+}

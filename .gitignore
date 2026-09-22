@@ -3,3 +3,5 @@ __pycache__/
 .venv/
 .env
 sample/
+examples/ovd-rsi/output/*.pdf
+examples/ovd-rsi/workspace/document_export/page-*.png

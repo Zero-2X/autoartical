@@ -1,0 +1,6 @@
+{
+  "verdict": "pass",
+  "missing": [],
+  "blocking": false,
+  "rule": "queries and unverified sources never count as findings"
+}

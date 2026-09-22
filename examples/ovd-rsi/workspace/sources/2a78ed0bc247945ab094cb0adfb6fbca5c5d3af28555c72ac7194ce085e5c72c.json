@@ -1,0 +1,758 @@
+{
+  "schema_version": 1,
+  "source_path": "D:\\autoartical\\examples\\ovd-rsi\\external_evidence\\external-evidence-intake.json",
+  "source_sha256": "021bbd425c317836663a50e51794a1d2e6e11ddd6077b9038cc43f0dcb1e1efa",
+  "engine": "builtin",
+  "engine_version": "1",
+  "extracted_at": "2026-09-22T17:04:31.601910+00:00",
+  "segments": [
+    {
+      "locator": "line:1",
+      "page": null,
+      "text": "{"
+    },
+    {
+      "locator": "line:2",
+      "page": null,
+      "text": "  \"items\": ["
+    },
+    {
+      "locator": "line:3",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:4",
+      "page": null,
+      "text": "      \"source_title\": \"Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark\","
+    },
+    {
+      "locator": "line:5",
+      "page": null,
+      "text": "      \"source_url\": \"https://arxiv.org/abs/1909.00133\","
+    },
+    {
+      "locator": "line:6",
+      "page": null,
+      "text": "      \"source_type\": \"dataset\","
+    },
+    {
+      "locator": "line:7",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:8",
+      "page": null,
+      "text": "      \"published_at\": \"2019-08-31\","
+    },
+    {
+      "locator": "line:9",
+      "page": null,
+      "text": "      \"claim\": \"DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。\","
+    },
+    {
+      "locator": "line:10",
+      "page": null,
+      "text": "      \"summary\": \"遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。\","
+    },
+    {
+      "locator": "line:11",
+      "page": null,
+      "text": "      \"derived_insight\": \"使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。\","
+    },
+    {
+      "locator": "line:12",
+      "page": null,
+      "text": "      \"evidence_for\": [\"遥感检测多样性\", \"benchmark 选择\", \"域偏移\"],"
+    },
+    {
+      "locator": "line:13",
+      "page": null,
+      "text": "      \"tags\": [\"遥感\", \"benchmark\", \"开放词汇\", \"检测\"],"
+    },
+    {
+      "locator": "line:14",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:15",
+      "page": null,
+      "text": "      \"limitations\": \"DIOR 原始任务是封闭集，开放词汇划分需由本项目公布。\""
+    },
+    {
+      "locator": "line:16",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:17",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:18",
+      "page": null,
+      "text": "      \"source_title\": \"DOTA: A Large-scale Dataset for Object Detection in Aerial Images\","
+    },
+    {
+      "locator": "line:19",
+      "page": null,
+      "text": "      \"source_url\": \"https://arxiv.org/abs/1711.10398\","
+    },
+    {
+      "locator": "line:20",
+      "page": null,
+      "text": "      \"source_type\": \"dataset\","
+    },
+    {
+      "locator": "line:21",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:22",
+      "page": null,
+      "text": "      \"published_at\": \"2017-11-28\","
+    },
+    {
+      "locator": "line:23",
+      "page": null,
+      "text": "      \"claim\": \"DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。\","
+    },
+    {
+      "locator": "line:24",
+      "page": null,
+      "text": "      \"summary\": \"俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。\","
+    },
+    {
+      "locator": "line:25",
+      "page": null,
+      "text": "      \"derived_insight\": \"主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。\","
+    },
+    {
+      "locator": "line:26",
+      "page": null,
+      "text": "      \"evidence_for\": [\"旋转目标\", \"定位指标\", \"航空影像挑战\"],"
+    },
+    {
+      "locator": "line:27",
+      "page": null,
+      "text": "      \"tags\": [\"DOTA\", \"旋转框\", \"小目标\", \"遥感\"],"
+    },
+    {
+      "locator": "line:28",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:29",
+      "page": null,
+      "text": "      \"limitations\": \"实验需冻结 DOTA 版本、类别映射和标注格式。\""
+    },
+    {
+      "locator": "line:30",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:31",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:32",
+      "page": null,
+      "text": "      \"source_title\": \"FAIR1M: A Benchmark Dataset for Fine-grained Object Recognition in High-Resolution Remote Sensing Imagery\","
+    },
+    {
+      "locator": "line:33",
+      "page": null,
+      "text": "      \"source_url\": \"https://doi.org/10.1016/j.isprsjprs.2021.05.017\","
+    },
+    {
+      "locator": "line:34",
+      "page": null,
+      "text": "      \"source_type\": \"dataset\","
+    },
+    {
+      "locator": "line:35",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:36",
+      "page": null,
+      "text": "      \"published_at\": \"2021-06-01\","
+    },
+    {
+      "locator": "line:37",
+      "page": null,
+      "text": "      \"claim\": \"FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。\","
+    },
+    {
+      "locator": "line:38",
+      "page": null,
+      "text": "      \"summary\": \"细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。\","
+    },
+    {
+      "locator": "line:39",
+      "page": null,
+      "text": "      \"derived_insight\": \"把细粒度混淆、类别层级和提示词稳定性纳入错误分析。\","
+    },
+    {
+      "locator": "line:40",
+      "page": null,
+      "text": "      \"evidence_for\": [\"细粒度类别\", \"有向检测\", \"语义混淆\"],"
+    },
+    {
+      "locator": "line:41",
+      "page": null,
+      "text": "      \"tags\": [\"FAIR1M\", \"细粒度\", \"有向检测\", \"遥感\"],"
+    },
+    {
+      "locator": "line:42",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:43",
+      "page": null,
+      "text": "      \"limitations\": \"正式实验前需核验数据许可证和下载版本。\""
+    },
+    {
+      "locator": "line:44",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:45",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:46",
+      "page": null,
+      "text": "      \"source_title\": \"RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing\","
+    },
+    {
+      "locator": "line:47",
+      "page": null,
+      "text": "      \"source_url\": \"https://arxiv.org/abs/2306.11300\","
+    },
+    {
+      "locator": "line:48",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:49",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:50",
+      "page": null,
+      "text": "      \"published_at\": \"2023-06-20\","
+    },
+    {
+      "locator": "line:51",
+      "page": null,
+      "text": "      \"claim\": \"RS5M 构建遥感图像—文本配对数据，并用 GeoRSCLIP 研究遥感域视觉—语言表示。\","
+    },
+    {
+      "locator": "line:52",
+      "page": null,
+      "text": "      \"summary\": \"遥感域视觉—语言预训练可以缓解自然图像语义空间与俯视目标之间的域差异，但图像级文本不等于实例级定位真值。\","
+    },
+    {
+      "locator": "line:53",
+      "page": null,
+      "text": "      \"derived_insight\": \"使用遥感域语义先验，另行验证实例级定位损失和校准模块的必要性。\","
+    },
+    {
+      "locator": "line:54",
+      "page": null,
+      "text": "      \"evidence_for\": [\"视觉语言域适配\", \"遥感图文数据\", \"语义先验\"],"
+    },
+    {
+      "locator": "line:55",
+      "page": null,
+      "text": "      \"tags\": [\"RS5M\", \"GeoRSCLIP\", \"遥感\", \"视觉语言\"],"
+    },
+    {
+      "locator": "line:56",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:57",
+      "page": null,
+      "text": "      \"limitations\": \"弱标注和自动描述可能含噪，不能替代实例框真值。\","
+    },
+    {
+      "locator": "line:58",
+      "page": null,
+      "text": "      \"notes\": \"代码仓库：https://github.com/om-ai-lab/RS5M\""
+    },
+    {
+      "locator": "line:59",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:60",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:61",
+      "page": null,
+      "text": "      \"source_title\": \"Locate Anything on Earth: Advancing Open-Vocabulary Object Detection for Remote Sensing Community\","
+    },
+    {
+      "locator": "line:62",
+      "page": null,
+      "text": "      \"source_url\": \"https://ojs.aaai.org/index.php/AAAI/article/view/32672\","
+    },
+    {
+      "locator": "line:63",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:64",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:65",
+      "page": null,
+      "text": "      \"published_at\": \"2025-04-11\","
+    },
+    {
+      "locator": "line:66",
+      "page": null,
+      "text": "      \"claim\": \"LAE 工作将遥感开放词汇检测定义为 Locate Anything on Earth，构建 LAE-1M/LAE-80C，并引入动态词汇构建和视觉引导文本提示。\","
+    },
+    {
+      "locator": "line:67",
+      "page": null,
+      "text": "      \"summary\": \"自然图像开放词汇检测迁移到遥感时存在域差异，遥感数据统一、词汇构建和视觉—文本对齐是核心问题。\","
+    },
+    {
+      "locator": "line:68",
+      "page": null,
+      "text": "      \"derived_insight\": \"本项目不重复构建大规模基础数据集，聚焦增量词汇、可靠性校准和证据输出。\","
+    },
+    {
+      "locator": "line:69",
+      "page": null,
+      "text": "      \"evidence_for\": [\"遥感开放词汇现状\", \"域差异\", \"方法缺口\"],"
+    },
+    {
+      "locator": "line:70",
+      "page": null,
+      "text": "      \"tags\": [\"LAE\", \"遥感\", \"开放词汇\", \"域差异\"],"
+    },
+    {
+      "locator": "line:71",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:72",
+      "page": null,
+      "text": "      \"limitations\": \"不声称复现 LAE-1M 的全部数据和训练成本。\""
+    },
+    {
+      "locator": "line:73",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:74",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:75",
+      "page": null,
+      "text": "      \"source_title\": \"Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection\","
+    },
+    {
+      "locator": "line:76",
+      "page": null,
+      "text": "      \"source_url\": \"https://arxiv.org/abs/2303.05499\","
+    },
+    {
+      "locator": "line:77",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:78",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:79",
+      "page": null,
+      "text": "      \"published_at\": \"2023-03-09\","
+    },
+    {
+      "locator": "line:80",
+      "page": null,
+      "text": "      \"claim\": \"Grounding DINO 将检测器与语言输入结合，支持类别名或指代表达驱动的开放集目标定位。\","
+    },
+    {
+      "locator": "line:81",
+      "page": null,
+      "text": "      \"summary\": \"语言条件检测器能扩展查询词汇，但自然图像预训练与遥感小目标、旋转目标之间存在定位和语义校准风险。\","
+    },
+    {
+      "locator": "line:82",
+      "page": null,
+      "text": "      \"derived_insight\": \"将 Grounding DINO 作为强零样本基线，在相同提示词、切片策略和后处理下比较。\","
+    },
+    {
+      "locator": "line:83",
+      "page": null,
+      "text": "      \"evidence_for\": [\"零样本基线\", \"文本查询\", \"开放集定位\"],"
+    },
+    {
+      "locator": "line:84",
+      "page": null,
+      "text": "      \"tags\": [\"Grounding DINO\", \"开放集\", \"基线\", \"视觉语言\"],"
+    },
+    {
+      "locator": "line:85",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:86",
+      "page": null,
+      "text": "      \"limitations\": \"版本、权重和许可证按官方仓库核验。\","
+    },
+    {
+      "locator": "line:87",
+      "page": null,
+      "text": "      \"notes\": \"官方仓库：https://github.com/IDEA-Research/GroundingDINO\""
+    },
+    {
+      "locator": "line:88",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:89",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:90",
+      "page": null,
+      "text": "      \"source_title\": \"Detic: A Detector with Image Classes\","
+    },
+    {
+      "locator": "line:91",
+      "page": null,
+      "text": "      \"source_url\": \"https://arxiv.org/abs/2203.16527\","
+    },
+    {
+      "locator": "line:92",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:93",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:94",
+      "page": null,
+      "text": "      \"published_at\": \"2022-03-30\","
+    },
+    {
+      "locator": "line:95",
+      "page": null,
+      "text": "      \"claim\": \"Detic 利用图像级监督扩展检测词汇，并支持自定义词汇推理。\","
+    },
+    {
+      "locator": "line:96",
+      "page": null,
+      "text": "      \"summary\": \"图像级监督提升类别覆盖，但弱监督空间精度和遥感域迁移会造成候选框不稳定。\","
+    },
+    {
+      "locator": "line:97",
+      "page": null,
+      "text": "      \"derived_insight\": \"将 Detic 作为大词汇基线，分项报告候选框召回、类别校准和小目标性能。\","
+    },
+    {
+      "locator": "line:98",
+      "page": null,
+      "text": "      \"evidence_for\": [\"图像级监督\", \"自定义词汇\", \"开放词汇基线\"],"
+    },
+    {
+      "locator": "line:99",
+      "page": null,
+      "text": "      \"tags\": [\"Detic\", \"开放词汇\", \"图像级监督\", \"基线\"],"
+    },
+    {
+      "locator": "line:100",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:101",
+      "page": null,
+      "text": "      \"limitations\": \"依赖和许可证边界必须按官方仓库核验。\","
+    },
+    {
+      "locator": "line:102",
+      "page": null,
+      "text": "      \"notes\": \"官方仓库：https://github.com/facebookresearch/Detic\""
+    },
+    {
+      "locator": "line:103",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:104",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:105",
+      "page": null,
+      "text": "      \"source_title\": \"YOLO-World: Real-Time Open-Vocabulary Object Detection\","
+    },
+    {
+      "locator": "line:106",
+      "page": null,
+      "text": "      \"source_url\": \"https://openaccess.thecvf.com/content/CVPR2024/papers/Cheng_YOLO-World_Real-Time_Open-Vocabulary_Object_Detection_CVPR_2024_paper.pdf\","
+    },
+    {
+      "locator": "line:107",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:108",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:109",
+      "page": null,
+      "text": "      \"published_at\": \"2024-06-17\","
+    },
+    {
+      "locator": "line:110",
+      "page": null,
+      "text": "      \"claim\": \"YOLO-World 通过视觉语言建模、RepVL-PAN 和区域—文本对比学习，将开放词汇能力纳入实时检测器。\","
+    },
+    {
+      "locator": "line:111",
+      "page": null,
+      "text": "      \"summary\": \"实时路线适合比赛演示和边缘部署，但速度必须与分辨率、切片、词汇规模和精度共同报告。\","
+    },
+    {
+      "locator": "line:112",
+      "page": null,
+      "text": "      \"derived_insight\": \"设计词汇原型缓存和轻量候选生成，把实时性设为系统约束而非宣传数字。\","
+    },
+    {
+      "locator": "line:113",
+      "page": null,
+      "text": "      \"evidence_for\": [\"实时检测\", \"部署约束\", \"词汇缓存\"],"
+    },
+    {
+      "locator": "line:114",
+      "page": null,
+      "text": "      \"tags\": [\"YOLO-World\", \"实时\", \"部署\", \"开放词汇\"],"
+    },
+    {
+      "locator": "line:115",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:116",
+      "page": null,
+      "text": "      \"limitations\": \"官方仓库 GPL-3.0，商业分发前必须核验许可证。\","
+    },
+    {
+      "locator": "line:117",
+      "page": null,
+      "text": "      \"notes\": \"官方仓库：https://github.com/AILab-CVC/YOLO-World\""
+    },
+    {
+      "locator": "line:118",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:119",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:120",
+      "page": null,
+      "text": "      \"source_title\": \"Grounded Language-Image Pre-training\","
+    },
+    {
+      "locator": "line:121",
+      "page": null,
+      "text": "      \"source_url\": \"https://arxiv.org/abs/2112.03857\","
+    },
+    {
+      "locator": "line:122",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:123",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:124",
+      "page": null,
+      "text": "      \"published_at\": \"2021-12-07\","
+    },
+    {
+      "locator": "line:125",
+      "page": null,
+      "text": "      \"claim\": \"GLIP 将目标检测与短语定位统一为语言感知预训练，并利用图文与 grounding 数据增强开放集迁移。\","
+    },
+    {
+      "locator": "line:126",
+      "page": null,
+      "text": "      \"summary\": \"跨模态预训练提供可扩展语义对齐，但伪框、抓取文本和域外图像会引入噪声与偏置。\","
+    },
+    {
+      "locator": "line:127",
+      "page": null,
+      "text": "      \"derived_insight\": \"复用语言条件检测的任务组织方式，在实验中加入提示词扰动和伪阳性分析。\","
+    },
+    {
+      "locator": "line:128",
+      "page": null,
+      "text": "      \"evidence_for\": [\"跨模态预训练\", \"短语定位\", \"伪标签风险\"],"
+    },
+    {
+      "locator": "line:129",
+      "page": null,
+      "text": "      \"tags\": [\"GLIP\", \"grounding\", \"视觉语言\", \"噪声\"],"
+    },
+    {
+      "locator": "line:130",
+      "page": null,
+      "text": "      \"reliability\": \"high\","
+    },
+    {
+      "locator": "line:131",
+      "page": null,
+      "text": "      \"limitations\": \"GLIP 主要面向自然图像，不能直接代表遥感场景最优结果。\","
+    },
+    {
+      "locator": "line:132",
+      "page": null,
+      "text": "      \"notes\": \"官方仓库：https://github.com/microsoft/GLIP\""
+    },
+    {
+      "locator": "line:133",
+      "page": null,
+      "text": "    },"
+    },
+    {
+      "locator": "line:134",
+      "page": null,
+      "text": "    {"
+    },
+    {
+      "locator": "line:135",
+      "page": null,
+      "text": "      \"source_title\": \"OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images\","
+    },
+    {
+      "locator": "line:136",
+      "page": null,
+      "text": "      \"source_url\": \"https://www.openaccess.thecvf.com/content/ICCV2025/papers/Huang_OpenRSD_Towards_Open-prompts_for_Object_Detection_in_Remote_Sensing_Images_ICCV2025_paper.pdf\","
+    },
+    {
+      "locator": "line:137",
+      "page": null,
+      "text": "      \"source_type\": \"paper\","
+    },
+    {
+      "locator": "line:138",
+      "page": null,
+      "text": "      \"source_authority\": \"academic\","
+    },
+    {
+      "locator": "line:139",
+      "page": null,
+      "text": "      \"published_at\": \"2025-10-01\","
+    },
+    {
+      "locator": "line:140",
+      "page": null,
+      "text": "      \"claim\": \"OpenRSD 针对遥感开放提示词检测，关注类别扩展、旋转目标和精度—实时性之间的平衡。\","
+    },
+    {
+      "locator": "line:141",
+      "page": null,
+      "text": "      \"summary\": \"遥感开放提示词需要同时处理类别语义、方向定位和跨域性能，不能只把自然图像模型直接套入遥感影像。\","
+    },
+    {
+      "locator": "line:142",
+      "page": null,
+      "text": "      \"derived_insight\": \"将开放提示词、旋转框和部署约束合并进实验协议，并把提示词扰动作为稳健性测试。\","
+    },
+    {
+      "locator": "line:143",
+      "page": null,
+      "text": "      \"evidence_for\": [\"遥感开放提示词\", \"旋转目标\", \"实时性\"],"
+    },
+    {
+      "locator": "line:144",
+      "page": null,
+      "text": "      \"tags\": [\"OpenRSD\", \"遥感\", \"开放提示词\", \"旋转框\"],"
+    },
+    {
+      "locator": "line:145",
+      "page": null,
+      "text": "      \"reliability\": \"medium\","
+    },
+    {
+      "locator": "line:146",
+      "page": null,
+      "text": "      \"limitations\": \"以正式论文版本和官方代码为准，不使用摘要之外的未核验数字。\""
+    },
+    {
+      "locator": "line:147",
+      "page": null,
+      "text": "    }"
+    },
+    {
+      "locator": "line:148",
+      "page": null,
+      "text": "  ]"
+    },
+    {
+      "locator": "line:149",
+      "page": null,
+      "text": "}"
+    }
+  ],
+  "text": "{\n\n  \"items\": [\n\n    {\n\n      \"source_title\": \"Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark\",\n\n      \"source_url\": \"https://arxiv.org/abs/1909.00133\",\n\n      \"source_type\": \"dataset\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2019-08-31\",\n\n      \"claim\": \"DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。\",\n\n      \"summary\": \"遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。\",\n\n      \"derived_insight\": \"使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。\",\n\n      \"evidence_for\": [\"遥感检测多样性\", \"benchmark 选择\", \"域偏移\"],\n\n      \"tags\": [\"遥感\", \"benchmark\", \"开放词汇\", \"检测\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"DIOR 原始任务是封闭集，开放词汇划分需由本项目公布。\"\n\n    },\n\n    {\n\n      \"source_title\": \"DOTA: A Large-scale Dataset for Object Detection in Aerial Images\",\n\n      \"source_url\": \"https://arxiv.org/abs/1711.10398\",\n\n      \"source_type\": \"dataset\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2017-11-28\",\n\n      \"claim\": \"DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。\",\n\n      \"summary\": \"俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。\",\n\n      \"derived_insight\": \"主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。\",\n\n      \"evidence_for\": [\"旋转目标\", \"定位指标\", \"航空影像挑战\"],\n\n      \"tags\": [\"DOTA\", \"旋转框\", \"小目标\", \"遥感\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"实验需冻结 DOTA 版本、类别映射和标注格式。\"\n\n    },\n\n    {\n\n      \"source_title\": \"FAIR1M: A Benchmark Dataset for Fine-grained Object Recognition in High-Resolution Remote Sensing Imagery\",\n\n      \"source_url\": \"https://doi.org/10.1016/j.isprsjprs.2021.05.017\",\n\n      \"source_type\": \"dataset\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2021-06-01\",\n\n      \"claim\": \"FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。\",\n\n      \"summary\": \"细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。\",\n\n      \"derived_insight\": \"把细粒度混淆、类别层级和提示词稳定性纳入错误分析。\",\n\n      \"evidence_for\": [\"细粒度类别\", \"有向检测\", \"语义混淆\"],\n\n      \"tags\": [\"FAIR1M\", \"细粒度\", \"有向检测\", \"遥感\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"正式实验前需核验数据许可证和下载版本。\"\n\n    },\n\n    {\n\n      \"source_title\": \"RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing\",\n\n      \"source_url\": \"https://arxiv.org/abs/2306.11300\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2023-06-20\",\n\n      \"claim\": \"RS5M 构建遥感图像—文本配对数据，并用 GeoRSCLIP 研究遥感域视觉—语言表示。\",\n\n      \"summary\": \"遥感域视觉—语言预训练可以缓解自然图像语义空间与俯视目标之间的域差异，但图像级文本不等于实例级定位真值。\",\n\n      \"derived_insight\": \"使用遥感域语义先验，另行验证实例级定位损失和校准模块的必要性。\",\n\n      \"evidence_for\": [\"视觉语言域适配\", \"遥感图文数据\", \"语义先验\"],\n\n      \"tags\": [\"RS5M\", \"GeoRSCLIP\", \"遥感\", \"视觉语言\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"弱标注和自动描述可能含噪，不能替代实例框真值。\",\n\n      \"notes\": \"代码仓库：https://github.com/om-ai-lab/RS5M\"\n\n    },\n\n    {\n\n      \"source_title\": \"Locate Anything on Earth: Advancing Open-Vocabulary Object Detection for Remote Sensing Community\",\n\n      \"source_url\": \"https://ojs.aaai.org/index.php/AAAI/article/view/32672\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2025-04-11\",\n\n      \"claim\": \"LAE 工作将遥感开放词汇检测定义为 Locate Anything on Earth，构建 LAE-1M/LAE-80C，并引入动态词汇构建和视觉引导文本提示。\",\n\n      \"summary\": \"自然图像开放词汇检测迁移到遥感时存在域差异，遥感数据统一、词汇构建和视觉—文本对齐是核心问题。\",\n\n      \"derived_insight\": \"本项目不重复构建大规模基础数据集，聚焦增量词汇、可靠性校准和证据输出。\",\n\n      \"evidence_for\": [\"遥感开放词汇现状\", \"域差异\", \"方法缺口\"],\n\n      \"tags\": [\"LAE\", \"遥感\", \"开放词汇\", \"域差异\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"不声称复现 LAE-1M 的全部数据和训练成本。\"\n\n    },\n\n    {\n\n      \"source_title\": \"Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection\",\n\n      \"source_url\": \"https://arxiv.org/abs/2303.05499\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2023-03-09\",\n\n      \"claim\": \"Grounding DINO 将检测器与语言输入结合，支持类别名或指代表达驱动的开放集目标定位。\",\n\n      \"summary\": \"语言条件检测器能扩展查询词汇，但自然图像预训练与遥感小目标、旋转目标之间存在定位和语义校准风险。\",\n\n      \"derived_insight\": \"将 Grounding DINO 作为强零样本基线，在相同提示词、切片策略和后处理下比较。\",\n\n      \"evidence_for\": [\"零样本基线\", \"文本查询\", \"开放集定位\"],\n\n      \"tags\": [\"Grounding DINO\", \"开放集\", \"基线\", \"视觉语言\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"版本、权重和许可证按官方仓库核验。\",\n\n      \"notes\": \"官方仓库：https://github.com/IDEA-Research/GroundingDINO\"\n\n    },\n\n    {\n\n      \"source_title\": \"Detic: A Detector with Image Classes\",\n\n      \"source_url\": \"https://arxiv.org/abs/2203.16527\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2022-03-30\",\n\n      \"claim\": \"Detic 利用图像级监督扩展检测词汇，并支持自定义词汇推理。\",\n\n      \"summary\": \"图像级监督提升类别覆盖，但弱监督空间精度和遥感域迁移会造成候选框不稳定。\",\n\n      \"derived_insight\": \"将 Detic 作为大词汇基线，分项报告候选框召回、类别校准和小目标性能。\",\n\n      \"evidence_for\": [\"图像级监督\", \"自定义词汇\", \"开放词汇基线\"],\n\n      \"tags\": [\"Detic\", \"开放词汇\", \"图像级监督\", \"基线\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"依赖和许可证边界必须按官方仓库核验。\",\n\n      \"notes\": \"官方仓库：https://github.com/facebookresearch/Detic\"\n\n    },\n\n    {\n\n      \"source_title\": \"YOLO-World: Real-Time Open-Vocabulary Object Detection\",\n\n      \"source_url\": \"https://openaccess.thecvf.com/content/CVPR2024/papers/Cheng_YOLO-World_Real-Time_Open-Vocabulary_Object_Detection_CVPR_2024_paper.pdf\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2024-06-17\",\n\n      \"claim\": \"YOLO-World 通过视觉语言建模、RepVL-PAN 和区域—文本对比学习，将开放词汇能力纳入实时检测器。\",\n\n      \"summary\": \"实时路线适合比赛演示和边缘部署，但速度必须与分辨率、切片、词汇规模和精度共同报告。\",\n\n      \"derived_insight\": \"设计词汇原型缓存和轻量候选生成，把实时性设为系统约束而非宣传数字。\",\n\n      \"evidence_for\": [\"实时检测\", \"部署约束\", \"词汇缓存\"],\n\n      \"tags\": [\"YOLO-World\", \"实时\", \"部署\", \"开放词汇\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"官方仓库 GPL-3.0，商业分发前必须核验许可证。\",\n\n      \"notes\": \"官方仓库：https://github.com/AILab-CVC/YOLO-World\"\n\n    },\n\n    {\n\n      \"source_title\": \"Grounded Language-Image Pre-training\",\n\n      \"source_url\": \"https://arxiv.org/abs/2112.03857\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2021-12-07\",\n\n      \"claim\": \"GLIP 将目标检测与短语定位统一为语言感知预训练，并利用图文与 grounding 数据增强开放集迁移。\",\n\n      \"summary\": \"跨模态预训练提供可扩展语义对齐，但伪框、抓取文本和域外图像会引入噪声与偏置。\",\n\n      \"derived_insight\": \"复用语言条件检测的任务组织方式，在实验中加入提示词扰动和伪阳性分析。\",\n\n      \"evidence_for\": [\"跨模态预训练\", \"短语定位\", \"伪标签风险\"],\n\n      \"tags\": [\"GLIP\", \"grounding\", \"视觉语言\", \"噪声\"],\n\n      \"reliability\": \"high\",\n\n      \"limitations\": \"GLIP 主要面向自然图像，不能直接代表遥感场景最优结果。\",\n\n      \"notes\": \"官方仓库：https://github.com/microsoft/GLIP\"\n\n    },\n\n    {\n\n      \"source_title\": \"OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images\",\n\n      \"source_url\": \"https://www.openaccess.thecvf.com/content/ICCV2025/papers/Huang_OpenRSD_Towards_Open-prompts_for_Object_Detection_in_Remote_Sensing_Images_ICCV2025_paper.pdf\",\n\n      \"source_type\": \"paper\",\n\n      \"source_authority\": \"academic\",\n\n      \"published_at\": \"2025-10-01\",\n\n      \"claim\": \"OpenRSD 针对遥感开放提示词检测，关注类别扩展、旋转目标和精度—实时性之间的平衡。\",\n\n      \"summary\": \"遥感开放提示词需要同时处理类别语义、方向定位和跨域性能，不能只把自然图像模型直接套入遥感影像。\",\n\n      \"derived_insight\": \"将开放提示词、旋转框和部署约束合并进实验协议，并把提示词扰动作为稳健性测试。\",\n\n      \"evidence_for\": [\"遥感开放提示词\", \"旋转目标\", \"实时性\"],\n\n      \"tags\": [\"OpenRSD\", \"遥感\", \"开放提示词\", \"旋转框\"],\n\n      \"reliability\": \"medium\",\n\n      \"limitations\": \"以正式论文版本和官方代码为准，不使用摘要之外的未核验数字。\"\n\n    }\n\n  ]\n\n}",
+  "warnings": [],
+  "verification_status": "unverified"
+}

@@ -1,0 +1,764 @@
+{
+  "schema_version": "v2",
+  "topic_name": "开放词汇检测与RSI",
+  "topic_profile": {
+    "profile_id": "remote_sensing_open_vocabulary_detection",
+    "display_name": "遥感影像开放词汇目标检测",
+    "domain_label": "地球观测遥感影像中的开放词汇目标检测与可靠语义校准",
+    "keywords": [
+      "开放词汇",
+      "开放世界",
+      "open-vocabulary",
+      "open vocabulary",
+      "RSI",
+      "遥感影像",
+      "遥感",
+      "remote sensing",
+      "地球观测",
+      "DIOR",
+      "DOTA",
+      "Grounding DINO",
+      "YOLO-World",
+      "目标检测",
+      "视觉语言",
+      "旋转框"
+    ]
+  },
+  "competition_name": "competition-rules",
+  "seed_direction": "面向遥感影像的开放词汇目标检测：用遥感域视觉语言先验、旋转框定位和可靠性校准支持新类别查询，并通过可回放案例服务比赛展示。",
+  "source_overview": {
+    "rules": [
+      "competition-rules.md"
+    ],
+    "references": [],
+    "external_evidence": [
+      "external_evidence\\external-evidence-intake.json"
+    ],
+    "samples": []
+  },
+  "evidence_items": [
+    {
+      "topic_name": "ovd-rsi",
+      "source_type": "local_file",
+      "source_role": "rule",
+      "source_path": "competition-rules.md",
+      "source_title": "competition-rules",
+      "source_locator": "workspace/requirements/competition-spec.json",
+      "collected_at": "2026-09-23T01:11:50",
+      "reusable": true,
+      "reliability": "high",
+      "source_origin": "requirements",
+      "source_authority": "competition_official",
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "limitations": "",
+      "evidence_id": "ev_84bd681099",
+      "claim": "比赛评分重点集中在：应用价值",
+      "summary": "评分维度直接决定 idea 的匹配度叙事和后续作品书章节分配。",
+      "excerpt": "比赛评分重点集中在：应用价值",
+      "tags": [
+        "评分标准",
+        "应用价值"
+      ],
+      "supports": [
+        "评分维度对齐",
+        "章节权重分配"
+      ],
+      "inspiration_points": [
+        "可直接映射到作品书的章节轻重、创新表述和答辩重心。"
+      ],
+      "derived_insight": "评分标准决定后续 idea 叙事和作品书结构取舍。",
+      "fingerprint": "b61f2258652a3900fd2d112638651b20def708fa",
+      "evidence_kind": "scoring_rule",
+      "applicable_steps": [
+        "requirements",
+        "ideas",
+        "document_plan",
+        "document_writing",
+        "document_review"
+      ],
+      "reusability_tier": "high",
+      "usage_hint": "",
+      "schema_version": "v2"
+    },
+    {
+      "topic_name": "ovd-rsi",
+      "source_type": "local_file",
+      "source_role": "rule",
+      "source_path": "competition-rules.md",
+      "source_title": "competition-rules",
+      "source_locator": "workspace/requirements/competition-spec.json",
+      "collected_at": "2026-09-23T01:11:50",
+      "reusable": true,
+      "reliability": "high",
+      "source_origin": "requirements",
+      "source_authority": "competition_official",
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "limitations": "",
+      "evidence_id": "ev_9ca3b5c76b",
+      "claim": "线上提交作品完整设计方案文档与实物文档说明",
+      "summary": "交付形式要求作品不能只有概念描述，还要便于演示和答辩呈现。",
+      "excerpt": "线上提交作品完整设计方案文档与实物文档说明",
+      "tags": [
+        "交付要求",
+        "演示"
+      ],
+      "supports": [
+        "交付形式设计",
+        "答辩展示结构"
+      ],
+      "inspiration_points": [
+        "需要同步考虑文档、文档说明、document record，而不是只生成文字方案。"
+      ],
+      "derived_insight": "交付要求会反向约束系统展示方式和 record 结构。",
+      "fingerprint": "61424eb281835a54a2cc9b66d3e6177b21e4e4ee",
+      "evidence_kind": "submission_requirement",
+      "applicable_steps": [
+        "requirements",
+        "ideas",
+        "document_plan",
+        "document_writing",
+        "document_review"
+      ],
+      "reusability_tier": "high",
+      "usage_hint": "",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_d827045531",
+      "topic_name": "ovd-rsi",
+      "source_type": "dataset",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "Object Detection in Optical Remote Sensing Images: A Survey and a New Benchmark",
+      "source_locator": "https://arxiv.org/abs/1909.00133",
+      "published_at": "2019-08-31",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+      "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+      "excerpt": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+      "tags": [
+        "遥感",
+        "benchmark",
+        "开放词汇",
+        "检测",
+        "遥感检测多样性",
+        "benchmark 选择",
+        "域偏移",
+        "remote sensing",
+        "DIOR",
+        "目标检测"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "dataset_signal",
+      "supports": [
+        "遥感检测多样性",
+        "benchmark 选择",
+        "域偏移"
+      ],
+      "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+      "inspiration_points": [
+        "可直接支撑：遥感检测多样性",
+        "可直接支撑：benchmark 选择",
+        "可直接支撑：域偏移"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "",
+      "limitations": "DIOR 原始任务是封闭集，开放词汇划分需由本项目公布。",
+      "fingerprint": "d8270455316f4c17be82374bd17bb5a86621803d",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_7f9521c71a",
+      "topic_name": "ovd-rsi",
+      "source_type": "dataset",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "DOTA: A Large-scale Dataset for Object Detection in Aerial Images",
+      "source_locator": "https://arxiv.org/abs/1711.10398",
+      "published_at": "2017-11-28",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+      "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+      "excerpt": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+      "tags": [
+        "DOTA",
+        "旋转框",
+        "小目标",
+        "遥感",
+        "旋转目标",
+        "定位指标",
+        "航空影像挑战",
+        "开放词汇"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "dataset_signal",
+      "supports": [
+        "旋转目标",
+        "定位指标",
+        "航空影像挑战"
+      ],
+      "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+      "inspiration_points": [
+        "可直接支撑：旋转目标",
+        "可直接支撑：定位指标",
+        "可直接支撑：航空影像挑战"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "",
+      "limitations": "实验需冻结 DOTA 版本、类别映射和标注格式。",
+      "fingerprint": "7f9521c71a1146d0e837fbd3e152094f65527a2d",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_9662694342",
+      "topic_name": "ovd-rsi",
+      "source_type": "dataset",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "FAIR1M: A Benchmark Dataset for Fine-grained Object Recognition in High-Resolution Remote Sensing Imagery",
+      "source_locator": "https://doi.org/10.1016/j.isprsjprs.2021.05.017",
+      "published_at": "2021-06-01",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。",
+      "summary": "细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。",
+      "excerpt": "细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。",
+      "tags": [
+        "FAIR1M",
+        "细粒度",
+        "有向检测",
+        "遥感",
+        "细粒度类别",
+        "语义混淆",
+        "遥感影像",
+        "remote sensing"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "dataset_signal",
+      "supports": [
+        "细粒度类别",
+        "有向检测",
+        "语义混淆"
+      ],
+      "derived_insight": "把细粒度混淆、类别层级和提示词稳定性纳入错误分析。",
+      "inspiration_points": [
+        "可直接支撑：细粒度类别",
+        "可直接支撑：有向检测",
+        "可直接支撑：语义混淆"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "",
+      "limitations": "正式实验前需核验数据许可证和下载版本。",
+      "fingerprint": "9662694342c7b952fbf2eabf5459cbe87347f3cd",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_39cee8f6f3",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing",
+      "source_locator": "https://arxiv.org/abs/2306.11300",
+      "published_at": "2023-06-20",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "RS5M 构建遥感图像—文本配对数据，并用 GeoRSCLIP 研究遥感域视觉—语言表示。",
+      "summary": "遥感域视觉—语言预训练可以缓解自然图像语义空间与俯视目标之间的域差异，但图像级文本不等于实例级定位真值。",
+      "excerpt": "代码仓库：https://github.com/om-ai-lab/RS5M",
+      "tags": [
+        "RS5M",
+        "GeoRSCLIP",
+        "遥感",
+        "视觉语言",
+        "视觉语言域适配",
+        "遥感图文数据",
+        "语义先验",
+        "remote sensing"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "代码仓库：https://github.com/om-ai-lab/RS5M",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "视觉语言域适配",
+        "遥感图文数据",
+        "语义先验"
+      ],
+      "derived_insight": "使用遥感域语义先验，另行验证实例级定位损失和校准模块的必要性。",
+      "inspiration_points": [
+        "可直接支撑：视觉语言域适配",
+        "可直接支撑：遥感图文数据",
+        "可直接支撑：语义先验"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "代码仓库：https://github.com/om-ai-lab/RS5M",
+      "limitations": "弱标注和自动描述可能含噪，不能替代实例框真值。",
+      "fingerprint": "39cee8f6f3594af8223cbba0009005cd5400629e",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_df7e4935d7",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "Locate Anything on Earth: Advancing Open-Vocabulary Object Detection for Remote Sensing Community",
+      "source_locator": "https://ojs.aaai.org/index.php/AAAI/article/view/32672",
+      "published_at": "2025-04-11",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "LAE 工作将遥感开放词汇检测定义为 Locate Anything on Earth，构建 LAE-1M/LAE-80C，并引入动态词汇构建和视觉引导文本提示。",
+      "summary": "自然图像开放词汇检测迁移到遥感时存在域差异，遥感数据统一、词汇构建和视觉—文本对齐是核心问题。",
+      "excerpt": "自然图像开放词汇检测迁移到遥感时存在域差异，遥感数据统一、词汇构建和视觉—文本对齐是核心问题。",
+      "tags": [
+        "LAE",
+        "遥感",
+        "开放词汇",
+        "域差异",
+        "遥感开放词汇现状",
+        "方法缺口",
+        "open-vocabulary",
+        "remote sensing"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "遥感开放词汇现状",
+        "域差异",
+        "方法缺口"
+      ],
+      "derived_insight": "本项目不重复构建大规模基础数据集，聚焦增量词汇、可靠性校准和证据输出。",
+      "inspiration_points": [
+        "可直接支撑：遥感开放词汇现状",
+        "可直接支撑：域差异",
+        "可直接支撑：方法缺口"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "",
+      "limitations": "不声称复现 LAE-1M 的全部数据和训练成本。",
+      "fingerprint": "df7e4935d76d816a44c7dc2864d726ace50d626e",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_7ef4331b38",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
+      "source_locator": "https://arxiv.org/abs/2303.05499",
+      "published_at": "2023-03-09",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "Grounding DINO 将检测器与语言输入结合，支持类别名或指代表达驱动的开放集目标定位。",
+      "summary": "语言条件检测器能扩展查询词汇，但自然图像预训练与遥感小目标、旋转目标之间存在定位和语义校准风险。",
+      "excerpt": "官方仓库：https://github.com/IDEA-Research/GroundingDINO",
+      "tags": [
+        "Grounding DINO",
+        "开放集",
+        "基线",
+        "视觉语言",
+        "零样本基线",
+        "文本查询",
+        "开放集定位",
+        "风险",
+        "遥感"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "官方仓库：https://github.com/IDEA-Research/GroundingDINO",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "零样本基线",
+        "文本查询",
+        "开放集定位"
+      ],
+      "derived_insight": "将 Grounding DINO 作为强零样本基线，在相同提示词、切片策略和后处理下比较。",
+      "inspiration_points": [
+        "可直接支撑：零样本基线",
+        "可直接支撑：文本查询",
+        "可直接支撑：开放集定位"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "官方仓库：https://github.com/IDEA-Research/GroundingDINO",
+      "limitations": "版本、权重和许可证按官方仓库核验。",
+      "fingerprint": "7ef4331b381ab2252a47e2707eae37d188f4ea4c",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_1124a9c4a8",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "Detic: A Detector with Image Classes",
+      "source_locator": "https://arxiv.org/abs/2203.16527",
+      "published_at": "2022-03-30",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "Detic 利用图像级监督扩展检测词汇，并支持自定义词汇推理。",
+      "summary": "图像级监督提升类别覆盖，但弱监督空间精度和遥感域迁移会造成候选框不稳定。",
+      "excerpt": "官方仓库：https://github.com/facebookresearch/Detic",
+      "tags": [
+        "Detic",
+        "开放词汇",
+        "图像级监督",
+        "基线",
+        "自定义词汇",
+        "开放词汇基线",
+        "遥感"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "官方仓库：https://github.com/facebookresearch/Detic",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "图像级监督",
+        "自定义词汇",
+        "开放词汇基线"
+      ],
+      "derived_insight": "将 Detic 作为大词汇基线，分项报告候选框召回、类别校准和小目标性能。",
+      "inspiration_points": [
+        "可直接支撑：图像级监督",
+        "可直接支撑：自定义词汇",
+        "可直接支撑：开放词汇基线"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "官方仓库：https://github.com/facebookresearch/Detic",
+      "limitations": "依赖和许可证边界必须按官方仓库核验。",
+      "fingerprint": "1124a9c4a8c94ed41e6087860fef6562f9453bfa",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_40ff1f0b23",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "YOLO-World: Real-Time Open-Vocabulary Object Detection",
+      "source_locator": "https://openaccess.thecvf.com/content/CVPR2024/papers/Cheng_YOLO-World_Real-Time_Open-Vocabulary_Object_Detection_CVPR_2024_paper.pdf",
+      "published_at": "2024-06-17",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "YOLO-World 通过视觉语言建模、RepVL-PAN 和区域—文本对比学习，将开放词汇能力纳入实时检测器。",
+      "summary": "实时路线适合比赛演示和边缘部署，但速度必须与分辨率、切片、词汇规模和精度共同报告。",
+      "excerpt": "官方仓库：https://github.com/AILab-CVC/YOLO-World",
+      "tags": [
+        "YOLO-World",
+        "实时",
+        "部署",
+        "开放词汇",
+        "实时检测",
+        "部署约束",
+        "词汇缓存",
+        "open-vocabulary",
+        "视觉语言",
+        "边缘部署"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "官方仓库：https://github.com/AILab-CVC/YOLO-World",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "实时检测",
+        "部署约束",
+        "词汇缓存"
+      ],
+      "derived_insight": "设计词汇原型缓存和轻量候选生成，把实时性设为系统约束而非宣传数字。",
+      "inspiration_points": [
+        "可直接支撑：实时检测",
+        "可直接支撑：部署约束",
+        "可直接支撑：词汇缓存"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "官方仓库：https://github.com/AILab-CVC/YOLO-World",
+      "limitations": "官方仓库 GPL-3.0，商业分发前必须核验许可证。",
+      "fingerprint": "40ff1f0b23f528ecfd3e4caedb184636b7ff5f91",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_53e8fd7356",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "Grounded Language-Image Pre-training",
+      "source_locator": "https://arxiv.org/abs/2112.03857",
+      "published_at": "2021-12-07",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "GLIP 将目标检测与短语定位统一为语言感知预训练，并利用图文与 grounding 数据增强开放集迁移。",
+      "summary": "跨模态预训练提供可扩展语义对齐，但伪框、抓取文本和域外图像会引入噪声与偏置。",
+      "excerpt": "官方仓库：https://github.com/microsoft/GLIP",
+      "tags": [
+        "GLIP",
+        "grounding",
+        "视觉语言",
+        "噪声",
+        "跨模态预训练",
+        "短语定位",
+        "伪标签风险",
+        "目标检测",
+        "感知"
+      ],
+      "reusable": true,
+      "reliability": "high",
+      "notes": "官方仓库：https://github.com/microsoft/GLIP",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "跨模态预训练",
+        "短语定位",
+        "伪标签风险"
+      ],
+      "derived_insight": "复用语言条件检测的任务组织方式，在实验中加入提示词扰动和伪阳性分析。",
+      "inspiration_points": [
+        "可直接支撑：跨模态预训练",
+        "可直接支撑：短语定位",
+        "可直接支撑：伪标签风险"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "官方仓库：https://github.com/microsoft/GLIP",
+      "limitations": "GLIP 主要面向自然图像，不能直接代表遥感场景最优结果。",
+      "fingerprint": "53e8fd7356576c159e49db7cd870cec91c264b82",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_ed1515af87",
+      "topic_name": "ovd-rsi",
+      "source_type": "paper",
+      "source_role": "external_research",
+      "source_path": "external_evidence\\external-evidence-intake.json",
+      "source_title": "OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images",
+      "source_locator": "https://www.openaccess.thecvf.com/content/ICCV2025/papers/Huang_OpenRSD_Towards_Open-prompts_for_Object_Detection_in_Remote_Sensing_Images_ICCV2025_paper.pdf",
+      "published_at": "2025-10-01",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "OpenRSD 针对遥感开放提示词检测，关注类别扩展、旋转目标和精度—实时性之间的平衡。",
+      "summary": "遥感开放提示词需要同时处理类别语义、方向定位和跨域性能，不能只把自然图像模型直接套入遥感影像。",
+      "excerpt": "遥感开放提示词需要同时处理类别语义、方向定位和跨域性能，不能只把自然图像模型直接套入遥感影像。",
+      "tags": [
+        "OpenRSD",
+        "遥感",
+        "开放提示词",
+        "旋转框",
+        "遥感开放提示词",
+        "旋转目标",
+        "实时性",
+        "遥感影像",
+        "remote sensing"
+      ],
+      "reusable": true,
+      "reliability": "medium",
+      "notes": "",
+      "source_authority": "academic",
+      "source_origin": "manual_external_intake",
+      "evidence_kind": "research_finding",
+      "supports": [
+        "遥感开放提示词",
+        "旋转目标",
+        "实时性"
+      ],
+      "derived_insight": "将开放提示词、旋转框和部署约束合并进实验协议，并把提示词扰动作为稳健性测试。",
+      "inspiration_points": [
+        "可直接支撑：遥感开放提示词",
+        "可直接支撑：旋转目标",
+        "可直接支撑：实时性"
+      ],
+      "applicable_steps": [
+        "ideas",
+        "concept",
+        "document_plan",
+        "document_writing"
+      ],
+      "applicable_work_types": [],
+      "curation_status": "reviewed",
+      "usage_hint": "",
+      "limitations": "以正式论文版本和官方代码为准，不使用摘要之外的未核验数字。",
+      "fingerprint": "ed1515af8739e877de5e28ffd054d3d079bb41c6",
+      "reusability_tier": "high",
+      "schema_version": "v2"
+    },
+    {
+      "evidence_id": "ev_d19d578ade",
+      "topic_name": "ovd-rsi",
+      "source_type": "human_seed",
+      "source_role": "seed_direction",
+      "source_path": "",
+      "source_title": "人工主轴输入",
+      "source_locator": "cli:--seed-text",
+      "collected_at": "2026-09-23T01:11:50",
+      "claim": "面向遥感影像的开放词汇目标检测：用遥感域视觉语言先验、旋转框定位和可靠性校准支持新类别查询，并通过可回放案例服务比赛展示。",
+      "summary": "这是人工指定的主轴，不是外部事实证据，后续只允许在这个方向内扩展变体。",
+      "excerpt": "面向遥感影像的开放词汇目标检测：用遥感域视觉语言先验、旋转框定位和可靠性校准支持新类别查询，并通过可回放案例服务比赛展示。",
+      "tags": [
+        "开放词汇",
+        "遥感影像",
+        "遥感",
+        "目标检测",
+        "视觉语言",
+        "旋转框"
+      ],
+      "reusable": true,
+      "reliability": "medium",
+      "supports": [
+        "选题边界"
+      ],
+      "derived_insight": "人工主轴只用于限制扩展方向，不可直接当作事实依据。",
+      "inspiration_points": [
+        "后续变体应围绕这条主轴扩展，但所有论证仍需补事实证据。"
+      ],
+      "source_origin": "human_cli_input",
+      "applicable_work_types": [],
+      "usage_hint": "只在 Step2 做同轴变体约束使用。",
+      "limitations": "不是事实证据，不能直接出现在作品书论证链中。",
+      "fingerprint": "1929085ef9ecd6bd002383fc38f9908b622aa3c9",
+      "source_authority": "human_input",
+      "evidence_kind": "direction_constraint",
+      "applicable_steps": [
+        "ideas"
+      ],
+      "reusability_tier": "medium",
+      "curation_status": "normalized",
+      "schema_version": "v2"
+    }
+  ],
+  "summary": {
+    "top_themes": [
+      "评分标准",
+      "应用价值",
+      "遥感",
+      "benchmark",
+      "开放词汇",
+      "检测",
+      "遥感检测多样性",
+      "benchmark 选择"
+    ],
+    "scoring_focus": [
+      "应用价值"
+    ],
+    "recommended_direction": [
+      "围绕人工主轴“面向遥感影像的开放词汇目标检测：用遥感域视觉语言先验、旋转框定位和可靠性校准支持新类别查询，并通过可回放案例服务比赛展示。”做同轴变体，不做无关发散。",
+      "围绕遥感域开放词汇检测组织研究主线，明确 RSI 指 Remote Sensing Imagery，避免写成通用自然图像检测。",
+      "把类别扩展、旋转定位、查询鲁棒性和可靠性校准分别设为可检验问题，不能只用一个 mAP 证明开放能力。",
+      "优先复用 Grounding DINO、Detic、YOLO-World、RS5M/GeoRSCLIP 的公开接口思想，严格核验代码许可证和权重来源。"
+    ],
+    "open_gaps": [
+      "当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。",
+      "当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。",
+      "当前章程未明确作品书字数或页数限制，需要补充模板文件确认。"
+    ]
+  },
+  "shared_registry_sync": {
+    "registry_schema_version": "v2",
+    "registry_path": "sample\\databases\\evidence\\evidence-registry.json",
+    "created_ids": [
+      "ev_84bd681099",
+      "ev_9ca3b5c76b",
+      "ev_d827045531",
+      "ev_7f9521c71a",
+      "ev_9662694342",
+      "ev_39cee8f6f3",
+      "ev_df7e4935d7",
+      "ev_7ef4331b38",
+      "ev_1124a9c4a8",
+      "ev_40ff1f0b23",
+      "ev_53e8fd7356",
+      "ev_ed1515af87",
+      "ev_d19d578ade"
+    ],
+    "updated_ids": []
+  }
+}

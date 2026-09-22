@@ -1,0 +1,1675 @@
+{
+  "workflow_mode": "real_llm_multi_agent",
+  "verdict": "pass",
+  "chapter_gate_summary": [
+    {
+      "chapter_id": "s1",
+      "chapter_heading": "一、作品概述与问题定义",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=11",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1847, required>=1800",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1800-2400",
+        "budget_lower": 1800,
+        "budget_upper": 2400,
+        "min_ratio": 1.0,
+        "min_required": 1800,
+        "actual_count": 1847,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\01_s1\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\01_s1\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\01_s1\\audit.md"
+    },
+    {
+      "chapter_id": "s2",
+      "chapter_heading": "二、作品设计与总体架构",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1333, required>=1300",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1300-1800",
+        "budget_lower": 1300,
+        "budget_upper": 1800,
+        "min_ratio": 1.0,
+        "min_required": 1300,
+        "actual_count": 1333,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\02_s2\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\02_s2\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\02_s2\\audit.md"
+    },
+    {
+      "chapter_id": "s3",
+      "chapter_heading": "三、核心创新与关键技术",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=5, actual_h3=5, required_h4>=12, actual_h4=12",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1504, required>=1490",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1490-1950",
+        "budget_lower": 1490,
+        "budget_upper": 1950,
+        "min_ratio": 1.0,
+        "min_required": 1490,
+        "actual_count": 1504,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\03_s3\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\03_s3\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\03_s3\\audit.md"
+    },
+    {
+      "chapter_id": "s4",
+      "chapter_heading": "四、作品实现与运行闭环",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1098, required>=1080",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1080-1500",
+        "budget_lower": 1080,
+        "budget_upper": 1500,
+        "min_ratio": 1.0,
+        "min_required": 1080,
+        "actual_count": 1098,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\04_s4\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\04_s4\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\04_s4\\audit.md"
+    },
+    {
+      "chapter_id": "s_validation",
+      "chapter_heading": "五、测试与效果分析",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=5, actual_h3=5, required_h4>=10, actual_h4=10",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1401, required>=1380",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1380-1900",
+        "budget_lower": 1380,
+        "budget_upper": 1900,
+        "min_ratio": 1.0,
+        "min_required": 1380,
+        "actual_count": 1401,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\05_s_validation\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\05_s_validation\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\05_s_validation\\audit.md"
+    },
+    {
+      "chapter_id": "s5",
+      "chapter_heading": "六、应用前景与落地价值",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1134, required>=1110",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1110-1500",
+        "budget_lower": 1110,
+        "budget_upper": 1500,
+        "min_ratio": 1.0,
+        "min_required": 1110,
+        "actual_count": 1134,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\06_s5\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\06_s5\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\06_s5\\audit.md"
+    },
+    {
+      "chapter_id": "s6",
+      "chapter_heading": "七、总结与展望",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=24, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=15881, required>=15840",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "15840-20750",
+        "budget_lower": 15840,
+        "budget_upper": 20750,
+        "min_ratio": 1.0,
+        "min_required": 15840,
+        "actual_count": 15881,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\07_s6\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\07_s6\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\07_s6\\audit.md"
+    },
+    {
+      "chapter_id": "abstract",
+      "chapter_heading": "摘要",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "not_applicable",
+          "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=632, required>=600",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "600-1000",
+        "budget_lower": 600,
+        "budget_upper": 1000,
+        "min_ratio": 1.0,
+        "min_required": 600,
+        "actual_count": 632,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\08_abstract\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\08_abstract\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\08_abstract\\audit.md"
+    },
+    {
+      "chapter_id": "conclusion",
+      "chapter_heading": "结语",
+      "status": "approved",
+      "round": 1,
+      "verdict": "approved",
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "primary_failures": [],
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "not_applicable",
+          "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=803, required>=800",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "800-1400",
+        "budget_lower": 800,
+        "budget_upper": 1400,
+        "min_ratio": 1.0,
+        "min_required": 800,
+        "actual_count": 803,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "requested_changes": [],
+      "decision_file": "workspace\\document_writing\\chapters\\09_conclusion\\decision.json",
+      "draft_file": "workspace\\document_writing\\chapters\\09_conclusion\\draft.md",
+      "audit_file": "workspace\\document_writing\\chapters\\09_conclusion\\audit.md"
+    }
+  ],
+  "final_acceptance": {
+    "status": "pass",
+    "issues": [],
+    "score": 100
+  },
+  "length_gate_summary": {
+    "per_chapter": [
+      {
+        "chapter_id": "abstract",
+        "chapter_heading": "摘要",
+        "actual_count": 632,
+        "min_required": 600,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s1",
+        "chapter_heading": "一、作品概述与问题定义",
+        "actual_count": 1847,
+        "min_required": 1800,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s2",
+        "chapter_heading": "二、作品设计与总体架构",
+        "actual_count": 1333,
+        "min_required": 1300,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s3",
+        "chapter_heading": "三、核心创新与关键技术",
+        "actual_count": 1504,
+        "min_required": 1490,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s4",
+        "chapter_heading": "四、作品实现与运行闭环",
+        "actual_count": 1098,
+        "min_required": 1080,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s_validation",
+        "chapter_heading": "五、测试与效果分析",
+        "actual_count": 1401,
+        "min_required": 1380,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s5",
+        "chapter_heading": "六、应用前景与落地价值",
+        "actual_count": 1134,
+        "min_required": 1110,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "s6",
+        "chapter_heading": "七、总结与展望",
+        "actual_count": 15881,
+        "min_required": 15840,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      {
+        "chapter_id": "conclusion",
+        "chapter_heading": "结语",
+        "actual_count": 803,
+        "min_required": 800,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      }
+    ],
+    "total_actual": 25633,
+    "total_required": 25400,
+    "assembled_count": 28176,
+    "passed": true
+  },
+  "evidence_gate_summary": {
+    "per_chapter": [
+      {
+        "chapter_id": "abstract",
+        "chapter_heading": "摘要",
+        "required": false,
+        "status": "not_applicable",
+        "evidence_count": 0,
+        "authoritative_count": 0,
+        "high_reliability_count": 0,
+        "insight_count": 0,
+        "supports_count": 0,
+        "evidence_kinds": [],
+        "source_authorities": [],
+        "audit_status": "pass",
+        "evidence_ids": []
+      },
+      {
+        "chapter_id": "s1",
+        "chapter_heading": "一、作品概述与问题定义",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 4,
+        "authoritative_count": 4,
+        "high_reliability_count": 4,
+        "insight_count": 4,
+        "supports_count": 10,
+        "evidence_kinds": [
+          "dataset_signal",
+          "scoring_rule",
+          "submission_requirement"
+        ],
+        "source_authorities": [
+          "academic",
+          "competition_official"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a",
+          "ev_84bd681099",
+          "ev_9ca3b5c76b"
+        ]
+      },
+      {
+        "chapter_id": "s2",
+        "chapter_heading": "二、作品设计与总体架构",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 6,
+        "authoritative_count": 5,
+        "high_reliability_count": 5,
+        "insight_count": 5,
+        "supports_count": 13,
+        "evidence_kinds": [
+          "dataset_signal",
+          "scoring_rule",
+          "submission_requirement"
+        ],
+        "source_authorities": [
+          "academic",
+          "competition_official"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a",
+          "ev_9662694342",
+          "ev_84bd681099",
+          "ev_9ca3b5c76b",
+          "ev_c00e228bb3"
+        ]
+      },
+      {
+        "chapter_id": "s3",
+        "chapter_heading": "三、核心创新与关键技术",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 2,
+        "authoritative_count": 2,
+        "high_reliability_count": 2,
+        "insight_count": 2,
+        "supports_count": 6,
+        "evidence_kinds": [
+          "dataset_signal"
+        ],
+        "source_authorities": [
+          "academic"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a"
+        ]
+      },
+      {
+        "chapter_id": "s4",
+        "chapter_heading": "四、作品实现与运行闭环",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 3,
+        "authoritative_count": 3,
+        "high_reliability_count": 3,
+        "insight_count": 3,
+        "supports_count": 9,
+        "evidence_kinds": [
+          "dataset_signal"
+        ],
+        "source_authorities": [
+          "academic"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a",
+          "ev_9662694342"
+        ]
+      },
+      {
+        "chapter_id": "s_validation",
+        "chapter_heading": "五、测试与效果分析",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 3,
+        "authoritative_count": 3,
+        "high_reliability_count": 3,
+        "insight_count": 3,
+        "supports_count": 9,
+        "evidence_kinds": [
+          "dataset_signal"
+        ],
+        "source_authorities": [
+          "academic"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a",
+          "ev_9662694342"
+        ]
+      },
+      {
+        "chapter_id": "s5",
+        "chapter_heading": "六、应用前景与落地价值",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 3,
+        "authoritative_count": 2,
+        "high_reliability_count": 2,
+        "insight_count": 2,
+        "supports_count": 4,
+        "evidence_kinds": [
+          "scoring_rule",
+          "submission_requirement"
+        ],
+        "source_authorities": [
+          "competition_official"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_84bd681099",
+          "ev_9ca3b5c76b",
+          "ev_c00e228bb3"
+        ]
+      },
+      {
+        "chapter_id": "s6",
+        "chapter_heading": "七、总结与展望",
+        "required": true,
+        "status": "strong",
+        "evidence_count": 5,
+        "authoritative_count": 5,
+        "high_reliability_count": 5,
+        "insight_count": 5,
+        "supports_count": 13,
+        "evidence_kinds": [
+          "dataset_signal",
+          "scoring_rule",
+          "submission_requirement"
+        ],
+        "source_authorities": [
+          "academic",
+          "competition_official"
+        ],
+        "audit_status": "pass",
+        "evidence_ids": [
+          "ev_d827045531",
+          "ev_7f9521c71a",
+          "ev_9662694342",
+          "ev_84bd681099",
+          "ev_9ca3b5c76b"
+        ]
+      },
+      {
+        "chapter_id": "conclusion",
+        "chapter_heading": "结语",
+        "required": false,
+        "status": "not_applicable",
+        "evidence_count": 0,
+        "authoritative_count": 0,
+        "high_reliability_count": 0,
+        "insight_count": 0,
+        "supports_count": 0,
+        "evidence_kinds": [],
+        "source_authorities": [],
+        "audit_status": "pass",
+        "evidence_ids": []
+      }
+    ],
+    "required_chapters": 7,
+    "missing_required": 0,
+    "weak_required": 0,
+    "passed": true
+  },
+  "coverage_score": 100,
+  "major_issues": [],
+  "minor_issues": [],
+  "pending_confirmations": [
+    "YOLO-World 等组件的许可证需要在发布前核验",
+    "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+    "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+    "当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。",
+    "当前章程未明确作品书字数或页数限制，需要补充模板文件确认。",
+    "当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。"
+  ],
+  "next_action": "run_step8_record",
+  "next_action_owner": "agent1",
+  "content_depth_gate": {
+    "passed": true,
+    "failures": [],
+    "per_chapter": [
+      {
+        "heading": "一、作品概述与问题定义",
+        "minimum": 1800,
+        "prose_units": 1847,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "二、作品设计与总体架构",
+        "minimum": 1300,
+        "prose_units": 1333,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "三、核心创新与关键技术",
+        "minimum": 1490,
+        "prose_units": 1504,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "四、作品实现与运行闭环",
+        "minimum": 1080,
+        "prose_units": 1098,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "五、测试与效果分析",
+        "minimum": 1380,
+        "prose_units": 1401,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "六、应用前景与落地价值",
+        "minimum": 1110,
+        "prose_units": 1134,
+        "duplicate_paragraph_groups": 0
+      },
+      {
+        "heading": "七、总结与展望",
+        "minimum": 15840,
+        "prose_units": 15881,
+        "duplicate_paragraph_groups": 0
+      }
+    ],
+    "prose_units": 24198,
+    "duplicate_paragraph_groups": 0,
+    "contract": {
+      "target_pages": [
+        40,
+        50
+      ],
+      "body_units_min": 24000,
+      "body_units_target": 32000,
+      "page_scope": "正文；不含封面、目录、参考文献及附录",
+      "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
+      "visual_contract": {
+        "required_specs_min": 18,
+        "required_external_assets_min": 12,
+        "required_tables_min": 5,
+        "required_diagrams_min": 8,
+        "required_case_or_ui_visuals_min": 4,
+        "required_asset_ratio": 1.0,
+        "all_visuals_must_be_cited": true,
+        "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
+      },
+      "export_contract": {
+        "required_formats": [
+          "markdown",
+          "html",
+          "pdf_or_docx"
+        ],
+        "render_verification": "required_before_delivery",
+        "page_count_must_be_in_range": true,
+        "visual_qa_required": true
+      },
+      "render_verification": "required_before_delivery"
+    },
+    "semantic_review": "required: evidence, specificity, nonredundancy",
+    "render_verification": "pending; prose volume does not establish page count"
+  },
+  "visual_gate": {
+    "passed": true,
+    "failures": [],
+    "required_specs": 34,
+    "external_specs": 22,
+    "available_assets": 22,
+    "requested_assets": 0,
+    "missing_assets": 0,
+    "available_ids": [
+      "s1_visual_1",
+      "s1_visual_2",
+      "s1_visual_4",
+      "s2_visual_1",
+      "s2_visual_2",
+      "s2_visual_3",
+      "s2_visual_4",
+      "s2_mvp",
+      "s3_visual_2",
+      "s3_visual_3",
+      "s3_visual_4",
+      "s3_visual_5",
+      "s4_visual_2",
+      "s4_visual_3",
+      "s4_visual_5",
+      "s4_visual_6",
+      "s_validation_visual_4",
+      "s5_visual_3",
+      "s5_visual_4",
+      "s5_visual_5",
+      "s6_visual_2",
+      "s6_visual_3"
+    ],
+    "requested_ids": [],
+    "missing_ids": [],
+    "uncited_labels": [],
+    "tables_in_draft": 11,
+    "table_quality": {
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": true,
+      "has_missing_value_rule": true
+    },
+    "diagram_specs": 25,
+    "case_or_ui_specs": 4,
+    "asset_ratio": 1.0,
+    "contract": {
+      "required_specs_min": 18,
+      "required_external_assets_min": 12,
+      "required_tables_min": 5,
+      "required_diagrams_min": 8,
+      "required_case_or_ui_visuals_min": 4,
+      "required_asset_ratio": 1.0,
+      "all_visuals_must_be_cited": true,
+      "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
+    }
+  },
+  "final_draft_gate_summary": {
+    "hard_failures": [],
+    "major_issues": [],
+    "minor_issues": [],
+    "matched_hard_patterns": [],
+    "matched_major_patterns": [],
+    "proposal_style_titles": [],
+    "temporary_innovation_headings": [],
+    "mixed_visual_numbering": false,
+    "duplicate_paragraphs": [],
+    "section_overlap_issues": []
+  }
+}

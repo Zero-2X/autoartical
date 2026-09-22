@@ -1,0 +1,25 @@
+{
+  "dimensions": [
+    "应用价值"
+  ],
+  "covered": [
+    {
+      "dimension": "应用价值",
+      "sections": [
+        {
+          "section_id": "s1",
+          "heading": "一、作品概述与问题定义"
+        },
+        {
+          "section_id": "s5",
+          "heading": "六、应用前景与落地价值"
+        },
+        {
+          "section_id": "s6",
+          "heading": "七、总结与展望"
+        }
+      ]
+    }
+  ],
+  "gaps": []
+}

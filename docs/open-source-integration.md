@@ -63,4 +63,4 @@ MIT/Apache 代码复用需保留各自许可与适用声明，并核对模型或
 
 本轮已实际落地 `workflow/scripts/source_ingestion.py`：PDF 改为全文逐页提取，HTML 可选 Trafilatura，Office 可选 MarkItDown；每份资料生成 SHA-256、解析引擎版本、定位片段、告警和缓存记录。`validate_evidence.py` 现在读取实际的 `evidence_items` 字段，并支持 `--strict`。可选依赖列在 `requirements-integrations.txt`，核心流程不因未安装这些依赖而改变 Markdown/TXT/JSON 的内置处理。
 
-不建议为此把通用 agent 平台整体搬入仓库；先补资料、内容质量与交付闭环，避免维护两套状态系统。本轮没有生成一份具体选题的 40–50 页成稿，也没有将示例短稿重新标记为合格。
+不建议为此把通用 agent 平台整体搬入仓库；先补资料、内容质量与交付闭环，避免维护两套状态系统。本仓库已用开放词汇 RSI 作为完整验收样例：研究 Gate、章节审批、正文/视觉/引用检查和 PyMuPDF 实际渲染均通过，具体证据保存在 `examples/ovd-rsi/workspace/`。后续接入外部解析器或排版工具仍需按同一合同重新验收。

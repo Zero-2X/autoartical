@@ -1,0 +1,4786 @@
+{
+  "workflow_policy": {
+    "mode": "real_llm_multi_agent",
+    "default_backbone": "gpt-5.4/high",
+    "write_one_chapter_at_a_time": true,
+    "audit_before_next_chapter": true,
+    "assemble_only_approved_chapters": true,
+    "final_acceptance_required": true,
+    "max_rounds_per_chapter": 3
+  },
+  "chapters": [
+    {
+      "chapter_id": "s1",
+      "chapter_type": "body_section",
+      "heading": "一、作品概述与问题定义",
+      "title": "作品概述与问题定义",
+      "goal": "讲清赛题背景、业务痛点、目标用户和项目切入问题，先把“为什么值得做”说透。",
+      "matched_scores": [
+        "创意",
+        "应用价值"
+      ],
+      "narrative_role": "用真实业务矛盾把项目拉进评委视野，避免作品书一开始就陷入模型堆砌。",
+      "position_logic": "作为首个正文主体章节，本章必须先建立问题、对象和必要性，才能让后续总体方案与技术细节显得顺理成章。",
+      "chapter_weight_reason": "当前项目判定为平台应用型，本章需要承担问题立论与用户场景落地职责，避免作品书一上来就堆技术名词。",
+      "predecessor_sections": [],
+      "successor_sections": [
+        "二、作品设计与总体架构"
+      ],
+      "writing_order": 1,
+      "assembly_order": 1,
+      "sample_chapter": "第一章 作品概述",
+      "sample_logic": "先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。",
+      "suggested_page_span": "4p",
+      "suggested_word_budget": "1800-2400",
+      "subsections": [
+        "背景与赛题价值",
+        "目标用户与问题场景",
+        "业务痛点拆解"
+      ],
+      "structure_contract": {
+        "contract_id": "s1_structure",
+        "chapter_heading": "一、作品概述与问题定义",
+        "required_second_level_count": 3,
+        "required_second_level_titles": [
+          "背景与赛题价值",
+          "目标用户与问题场景",
+          "业务痛点拆解"
+        ],
+        "required_third_level_total_min": 9,
+        "required_third_level_total_target": 9,
+        "second_level_contracts": [
+          {
+            "title": "背景与赛题价值",
+            "writing_purpose": "交代问题为何成立、为何紧迫。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "现实背景",
+              "趋势与赛题牵引",
+              "问题演进"
+            ]
+          },
+          {
+            "title": "目标用户与问题场景",
+            "writing_purpose": "说明给谁用、在什么动作链里用。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "目标对象",
+              "典型动作",
+              "场景约束"
+            ]
+          },
+          {
+            "title": "业务痛点拆解",
+            "writing_purpose": "把现有流程的断点和代价拆开说清。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "现有不足",
+              "风险放大链路",
+              "直接代价"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "问题紧迫性",
+        "目标用户与使用动作",
+        "现有流程代价",
+        "项目切入必要性"
+      ],
+      "visual_priority": [
+        "背景趋势图",
+        "问题链路图",
+        "用户-痛点对应表"
+      ],
+      "appendix_candidates": [
+        "补充背景统计口径",
+        "扩展案例或法规原文摘录"
+      ],
+      "key_messages": [
+        "遥感开放词汇检测真正要解决的不是把更多类别名称放进模型，而是让用户能够用新词汇查询目标，同时知道结果是否定位正确、是否存在类别幻觉以及哪些结果需要人工复核。",
+        "核心用户聚焦 自然资源与生态监测部门、应急遥感解译团队、遥感数据服务企业，项目要解决的关键问题是：自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度。",
+        "本章需要把“识别盲区”和“处置低效”两类问题同时讲清，给后文方案设计留足必要性。"
+      ],
+      "must_include": [
+        "自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度。",
+        "自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度",
+        "自然图像语义空间与遥感俯视影像之间存在明显域差异",
+        "小目标、旋转目标和密集目标同时造成定位与类别匹配困难",
+        "目标用户为什么会在当前流程中持续承受漏检、误判和响应迟缓成本。"
+      ],
+      "linked_innovations": [],
+      "linked_architecture": [],
+      "innovation_loop_map": [],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_d827045531",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+          "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+          "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移"
+          ],
+          "reliability": "high",
+          "tags": [
+            "遥感",
+            "benchmark",
+            "开放词汇",
+            "检测",
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移",
+            "remote sensing",
+            "DIOR",
+            "目标检测"
+          ]
+        },
+        {
+          "evidence_id": "ev_7f9521c71a",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+          "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+          "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战"
+          ],
+          "reliability": "high",
+          "tags": [
+            "DOTA",
+            "旋转框",
+            "小目标",
+            "遥感",
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战",
+            "开放词汇"
+          ]
+        },
+        {
+          "evidence_id": "ev_84bd681099",
+          "source": "competition-rules.md",
+          "claim": "比赛评分重点集中在：应用价值",
+          "summary": "评分维度直接决定 idea 的匹配度叙事和后续作品书章节分配。",
+          "derived_insight": "评分标准决定后续 idea 叙事和作品书结构取舍。",
+          "evidence_kind": "scoring_rule",
+          "source_authority": "competition_official",
+          "supports": [
+            "评分维度对齐",
+            "章节权重分配"
+          ],
+          "reliability": "high",
+          "tags": [
+            "评分标准",
+            "应用价值"
+          ]
+        },
+        {
+          "evidence_id": "ev_9ca3b5c76b",
+          "source": "competition-rules.md",
+          "claim": "线上提交作品完整设计方案文档与实物文档说明",
+          "summary": "交付形式要求作品不能只有概念描述，还要便于演示和答辩呈现。",
+          "derived_insight": "交付要求会反向约束系统展示方式和 record 结构。",
+          "evidence_kind": "submission_requirement",
+          "source_authority": "competition_official",
+          "supports": [
+            "交付形式设计",
+            "答辩展示结构"
+          ],
+          "reliability": "high",
+          "tags": [
+            "交付要求",
+            "演示"
+          ]
+        }
+      ],
+      "chapter_seed_payload": {},
+      "common_errors": [
+        "背景写成社会议题口号",
+        "只有风险描述，没有用户动作",
+        "问题没有自然导向后文方案"
+      ],
+      "pending_confirmations": [
+        "当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。",
+        "当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。",
+        "当前章程未明确作品书字数或页数限制，需要补充模板文件确认。"
+      ],
+      "missing_materials": [
+        {
+          "missing_item": "当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "当前章程未明确作品书字数或页数限制，需要补充模板文件确认。",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "YOLO-World 等组件的许可证需要在发布前核验",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        }
+      ],
+      "recommended_visuals": [
+        "问题场景图",
+        "背景趋势图",
+        "目标用户与痛点对应表",
+        "问题链路图"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s1_visual_1",
+          "label": "图1-1",
+          "visual_type": "figure",
+          "title": "问题场景图",
+          "purpose": "说明典型场景、目标用户或应用覆盖范围。",
+          "placement_anchor": "背景与赛题价值",
+          "suggested_subsection": "背景与赛题价值",
+          "body_reference_hint": "建议在正文中使用“如图1-1所示”或“图1-1显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s1_visual_1.png",
+            "figures/s1_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s1_visual_1.png",
+            "workspace/document_export/assets/visuals/s1_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s1_visual_2",
+          "label": "图1-2",
+          "visual_type": "figure",
+          "title": "背景趋势图",
+          "purpose": "支撑背景趋势、需求演进或问题紧迫性的论证。",
+          "placement_anchor": "背景与赛题价值",
+          "suggested_subsection": "背景与赛题价值",
+          "body_reference_hint": "建议在正文中使用“如图1-2所示”或“图1-2显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s1_visual_2.png",
+            "figures/s1_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s1_visual_2.png",
+            "workspace/document_export/assets/visuals/s1_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s1_visual_3",
+          "label": "表1-3",
+          "visual_type": "table",
+          "title": "目标用户与痛点对应表",
+          "purpose": "用户-痛点对应表",
+          "placement_anchor": "目标用户与问题场景",
+          "suggested_subsection": "目标用户与问题场景",
+          "body_reference_hint": "建议在正文中使用“如表1-3所示”或“表1-3显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s1_visual_3.png",
+            "figures/s1_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s1_visual_3.png",
+            "workspace/document_export/assets/visuals/s1_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s1_visual_4",
+          "label": "图1-4",
+          "visual_type": "figure",
+          "title": "问题链路图",
+          "purpose": "问题链路图",
+          "placement_anchor": "业务痛点拆解",
+          "suggested_subsection": "业务痛点拆解",
+          "body_reference_hint": "建议在正文中使用“如图1-4所示”或“图1-4显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s1_visual_4.png",
+            "figures/s1_visual_4.pdf",
+            "workspace/document_export/assets/visuals/s1_visual_4.png",
+            "workspace/document_export/assets/visuals/s1_visual_4.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\01_s1",
+        "brief": "workspace\\document_writing\\chapters\\01_s1\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\01_s1\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\01_s1\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\01_s1\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\01_s1\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1800-2400",
+        "budget_lower": 1800,
+        "budget_upper": 2400,
+        "min_ratio": 1.0,
+        "min_required": 1800,
+        "actual_count": 1847,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 3,
+        "actual_second_level_count": 3,
+        "required_second_level_titles": [
+          "背景与赛题价值",
+          "目标用户与问题场景",
+          "业务痛点拆解"
+        ],
+        "actual_second_level_titles": [
+          "背景与赛题价值",
+          "目标用户与问题场景",
+          "业务痛点拆解"
+        ],
+        "required_third_level_total_min": 9,
+        "actual_third_level_total": 11,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "背景与赛题价值",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 4,
+            "required_third_level_titles": [
+              "现实背景",
+              "趋势与赛题牵引",
+              "问题演进"
+            ],
+            "actual_third_level_titles": [
+              "现实背景",
+              "趋势与赛题牵引",
+              "问题演进",
+              "赛题价值"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "目标用户与问题场景",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 4,
+            "required_third_level_titles": [
+              "目标对象",
+              "典型动作",
+              "场景约束"
+            ],
+            "actual_third_level_titles": [
+              "目标对象",
+              "典型动作",
+              "场景约束",
+              "使用边界"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "业务痛点拆解",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "现有不足",
+              "风险放大链路",
+              "直接代价"
+            ],
+            "actual_third_level_titles": [
+              "现有不足",
+              "风险放大链路",
+              "直接代价"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=11"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=11",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1847, required>=1800",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "s2",
+      "chapter_type": "body_section",
+      "heading": "二、作品设计与总体架构",
+      "title": "作品设计与总体架构",
+      "goal": "按作品书成稿口径交代总体设计、系统主线和输入输出闭环，让整体结构先成立，再展开细节。",
+      "matched_scores": [
+        "创意",
+        "技术方案及其实现质量",
+        "讲解表现"
+      ],
+      "narrative_role": "承上启下，把前文的问题压缩为作品书中的总体设计与总体架构，避免正文长期停留在提案式说明口吻。",
+      "position_logic": "本章承接问题定义，把前文痛点转成可运行系统的总体设计与总体架构，为后续关键技术和实现流程提供坐标。",
+      "chapter_weight_reason": "针对平台应用型项目，本章是整部作品书的总图坐标；若总体设计与边界不清，后文技术章节会显得碎片化。",
+      "predecessor_sections": [
+        "一、作品概述与问题定义"
+      ],
+      "successor_sections": [
+        "三、核心创新与关键技术",
+        "四、作品实现与运行闭环"
+      ],
+      "writing_order": 2,
+      "assembly_order": 2,
+      "sample_chapter": "第二章 作品设计与实现",
+      "sample_logic": "先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。",
+      "suggested_page_span": "6p",
+      "suggested_word_budget": "1300-1800",
+      "subsections": [
+        "总体目标与设计原则",
+        "系统总体架构",
+        "输入-处理-输出闭环"
+      ],
+      "structure_contract": {
+        "contract_id": "s2_structure",
+        "chapter_heading": "二、作品设计与总体架构",
+        "required_second_level_count": 3,
+        "required_second_level_titles": [
+          "总体目标与设计原则",
+          "系统总体架构",
+          "输入-处理-输出闭环"
+        ],
+        "required_third_level_total_min": 9,
+        "required_third_level_total_target": 9,
+        "second_level_contracts": [
+          {
+            "title": "总体目标与设计原则",
+            "writing_purpose": "先定义目标，再交代边界与原则。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "设计目标",
+              "方案边界",
+              "设计原则"
+            ]
+          },
+          {
+            "title": "系统总体架构",
+            "writing_purpose": "解释系统结构和模块分工。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "分层结构",
+              "模块职责",
+              "多端部署关系"
+            ]
+          },
+          {
+            "title": "输入-处理-输出闭环",
+            "writing_purpose": "讲清输入、处理、输出如何闭合。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "输入接入",
+              "分析与评分",
+              "输出与联动"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "总体目标与边界",
+        "输入-处理-输出闭环",
+        "模块职责",
+        "人工介入位置"
+      ],
+      "visual_priority": [
+        "总体架构图",
+        "数据流图",
+        "MVP 边界图"
+      ],
+      "appendix_candidates": [
+        "模块接口字段表",
+        "非核心扩展能力清单"
+      ],
+      "key_messages": [
+        "构建以文本查询为入口的遥感开放词汇检测系统，先用遥感域视觉语言原型对齐查询，再用多尺度和旋转候选完成定位，最后用类别—区域一致性、背景抑制和温度校准输出带证据的可靠结果。",
+        "系统链路围绕 遥感影像切片与质量检查、文本词汇与域适配编码、水平/旋转候选检测、可靠性校准与证据回放 展开，先强调闭环，再逐层解释模块。",
+        "本章必须主动说明 MVP 为何这样划定边界，哪些能力先落地、哪些能力作为后续扩展。"
+      ],
+      "must_include": [
+        "构建以文本查询为入口的遥感开放词汇检测系统，先用遥感域视觉语言原型对齐查询，再用多尺度和旋转候选完成定位，最后用类别—区域一致性、背景抑制和温度校准输出带证据的可靠结果。",
+        "系统输入、核心处理链路、输出结果和人工介入位置。",
+        "MVP 版本优先完成哪些能力，哪些能力属于后续扩展。"
+      ],
+      "linked_innovations": [],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_d827045531",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+          "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+          "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移"
+          ],
+          "reliability": "high",
+          "tags": [
+            "遥感",
+            "benchmark",
+            "开放词汇",
+            "检测",
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移",
+            "remote sensing",
+            "DIOR",
+            "目标检测"
+          ]
+        },
+        {
+          "evidence_id": "ev_7f9521c71a",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+          "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+          "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战"
+          ],
+          "reliability": "high",
+          "tags": [
+            "DOTA",
+            "旋转框",
+            "小目标",
+            "遥感",
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战",
+            "开放词汇"
+          ]
+        },
+        {
+          "evidence_id": "ev_9662694342",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。",
+          "summary": "细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。",
+          "derived_insight": "把细粒度混淆、类别层级和提示词稳定性纳入错误分析。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "细粒度类别",
+            "有向检测",
+            "语义混淆"
+          ],
+          "reliability": "high",
+          "tags": [
+            "FAIR1M",
+            "细粒度",
+            "有向检测",
+            "遥感",
+            "细粒度类别",
+            "语义混淆",
+            "遥感影像",
+            "remote sensing"
+          ]
+        },
+        {
+          "evidence_id": "ev_84bd681099",
+          "source": "competition-rules.md",
+          "claim": "比赛评分重点集中在：应用价值",
+          "summary": "评分维度直接决定 idea 的匹配度叙事和后续作品书章节分配。",
+          "derived_insight": "评分标准决定后续 idea 叙事和作品书结构取舍。",
+          "evidence_kind": "scoring_rule",
+          "source_authority": "competition_official",
+          "supports": [
+            "评分维度对齐",
+            "章节权重分配"
+          ],
+          "reliability": "high",
+          "tags": [
+            "评分标准",
+            "应用价值"
+          ]
+        },
+        {
+          "evidence_id": "ev_9ca3b5c76b",
+          "source": "competition-rules.md",
+          "claim": "线上提交作品完整设计方案文档与实物文档说明",
+          "summary": "交付形式要求作品不能只有概念描述，还要便于演示和答辩呈现。",
+          "derived_insight": "交付要求会反向约束系统展示方式和 record 结构。",
+          "evidence_kind": "submission_requirement",
+          "source_authority": "competition_official",
+          "supports": [
+            "交付形式设计",
+            "答辩展示结构"
+          ],
+          "reliability": "high",
+          "tags": [
+            "交付要求",
+            "演示"
+          ]
+        },
+        {
+          "evidence_id": "ev_c00e228bb3",
+          "source": "",
+          "claim": "",
+          "summary": "",
+          "derived_insight": "",
+          "evidence_kind": "",
+          "source_authority": "",
+          "supports": [],
+          "reliability": "",
+          "tags": []
+        }
+      ],
+      "chapter_seed_payload": {},
+      "common_errors": [
+        "只有总框图，没有输入输出闭环",
+        "没有说明 MVP 范围",
+        "把未来扩展能力写成当前已有能力"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+          "impacted_chapter": "二、作品设计与总体架构",
+          "why_needed": "这些问题会影响系统边界、模块职责和 MVP 范围定义。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "在本章显式写明假设条件与暂不覆盖范围。"
+        },
+        {
+          "missing_item": "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+          "impacted_chapter": "二、作品设计与总体架构",
+          "why_needed": "这些问题会影响系统边界、模块职责和 MVP 范围定义。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "在本章显式写明假设条件与暂不覆盖范围。"
+        },
+        {
+          "missing_item": "YOLO-World 等组件的许可证需要在发布前核验",
+          "impacted_chapter": "二、作品设计与总体架构",
+          "why_needed": "这些问题会影响系统边界、模块职责和 MVP 范围定义。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "在本章显式写明假设条件与暂不覆盖范围。"
+        }
+      ],
+      "recommended_visuals": [
+        "总体架构图",
+        "模块职责分层图",
+        "输入-处理-输出闭环图",
+        "多端联动部署图",
+        "MVP 范围边界图"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s2_visual_1",
+          "label": "图2-1",
+          "visual_type": "figure",
+          "title": "总体架构图",
+          "purpose": "说明系统由哪些模块组成，以及模块之间如何协同。",
+          "placement_anchor": "总体目标与设计原则",
+          "suggested_subsection": "总体目标与设计原则",
+          "body_reference_hint": "建议在正文中使用“如图2-1所示”或“图2-1显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s2_visual_1.png",
+            "figures/s2_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s2_visual_1.png",
+            "workspace/document_export/assets/visuals/s2_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s2_visual_2",
+          "label": "图2-2",
+          "visual_type": "figure",
+          "title": "模块职责分层图",
+          "purpose": "说明系统由哪些模块组成，以及模块之间如何协同。",
+          "placement_anchor": "系统总体架构",
+          "suggested_subsection": "系统总体架构",
+          "body_reference_hint": "建议在正文中使用“如图2-2所示”或“图2-2显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s2_visual_2.png",
+            "figures/s2_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s2_visual_2.png",
+            "workspace/document_export/assets/visuals/s2_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s2_visual_3",
+          "label": "图2-3",
+          "visual_type": "figure",
+          "title": "输入-处理-输出闭环图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "输入-处理-输出闭环",
+          "suggested_subsection": "输入-处理-输出闭环",
+          "body_reference_hint": "建议在正文中使用“如图2-3所示”或“图2-3显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s2_visual_3.png",
+            "figures/s2_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s2_visual_3.png",
+            "workspace/document_export/assets/visuals/s2_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s2_visual_4",
+          "label": "图2-4",
+          "visual_type": "figure",
+          "title": "多端联动部署图",
+          "purpose": "部署拓扑图",
+          "placement_anchor": "系统总体架构",
+          "suggested_subsection": "系统总体架构",
+          "body_reference_hint": "建议在正文中使用“如图2-4所示”或“图2-4显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s2_visual_4.png",
+            "figures/s2_visual_4.pdf",
+            "workspace/document_export/assets/visuals/s2_visual_4.png",
+            "workspace/document_export/assets/visuals/s2_visual_4.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s2_mvp",
+          "label": "图2-5",
+          "visual_type": "figure",
+          "title": "MVP 范围边界图",
+          "purpose": "说明 MVP 范围、流程路线或待确认事项。",
+          "placement_anchor": "输入-处理-输出闭环",
+          "suggested_subsection": "输入-处理-输出闭环",
+          "body_reference_hint": "建议在正文中使用“如图2-5所示”或“图2-5显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s2_mvp.png",
+            "figures/s2_mvp.pdf",
+            "workspace/document_export/assets/visuals/s2_mvp.png",
+            "workspace/document_export/assets/visuals/s2_mvp.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\02_s2",
+        "brief": "workspace\\document_writing\\chapters\\02_s2\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\02_s2\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\02_s2\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\02_s2\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\02_s2\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1300-1800",
+        "budget_lower": 1300,
+        "budget_upper": 1800,
+        "min_ratio": 1.0,
+        "min_required": 1300,
+        "actual_count": 1333,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 3,
+        "actual_second_level_count": 3,
+        "required_second_level_titles": [
+          "总体目标与设计原则",
+          "系统总体架构",
+          "输入-处理-输出闭环"
+        ],
+        "actual_second_level_titles": [
+          "总体目标与设计原则",
+          "系统总体架构",
+          "输入-处理-输出闭环"
+        ],
+        "required_third_level_total_min": 9,
+        "actual_third_level_total": 9,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "总体目标与设计原则",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "设计目标",
+              "方案边界",
+              "设计原则"
+            ],
+            "actual_third_level_titles": [
+              "设计目标",
+              "方案边界",
+              "设计原则"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "系统总体架构",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "分层结构",
+              "模块职责",
+              "多端部署关系"
+            ],
+            "actual_third_level_titles": [
+              "分层结构",
+              "模块职责",
+              "多端部署关系"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "输入-处理-输出闭环",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "输入接入",
+              "分析与评分",
+              "输出与联动"
+            ],
+            "actual_third_level_titles": [
+              "输入接入",
+              "分析与评分",
+              "输出与联动"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1333, required>=1300",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "s3",
+      "chapter_type": "body_section",
+      "heading": "三、核心创新与关键技术",
+      "title": "核心创新与关键技术",
+      "goal": "把创新点拆成可论证、可对应技术结构的章节，而不是停留在口号式命名。",
+      "matched_scores": [
+        "创意",
+        "技术方案及其实现质量"
+      ],
+      "narrative_role": "证明项目不是通用系统的简单拼装，而是围绕 遥感影像开放词汇目标检测 场景中的关键问题做了针对性设计。",
+      "position_logic": "在总体方案已经建立后，本章负责回答“核心新东西到底是什么、为什么这样设计、落在什么技术抓手上”。",
+      "chapter_weight_reason": "平台应用型项目的高分通常来自这一章与测试章形成的双重闭环，因此本章应承担创新定义、机制落点与技术解释的主要篇幅。",
+      "predecessor_sections": [
+        "二、作品设计与总体架构"
+      ],
+      "successor_sections": [
+        "四、作品实现与运行闭环",
+        "五、测试与效果分析"
+      ],
+      "writing_order": 3,
+      "assembly_order": 3,
+      "sample_chapter": "第二章 作品设计与实现",
+      "sample_logic": "先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。",
+      "suggested_page_span": "23p",
+      "suggested_word_budget": "1490-1950",
+      "subsections": [
+        "创新点总览",
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准",
+        "创新与技术层映射"
+      ],
+      "structure_contract": {
+        "contract_id": "s3_structure",
+        "chapter_heading": "三、核心创新与关键技术",
+        "required_second_level_count": 5,
+        "required_second_level_titles": [
+          "创新点总览",
+          "创新一 · 遥感域词汇原型适配",
+          "创新二 · 多尺度旋转候选协同",
+          "创新三 · 可靠语义校准",
+          "创新与技术层映射"
+        ],
+        "required_third_level_total_min": 12,
+        "required_third_level_total_target": 12,
+        "second_level_contracts": [
+          {
+            "title": "创新点总览",
+            "writing_purpose": "先总览创新对应关系，再说明协同逻辑。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "痛点映射",
+              "创新协同"
+            ]
+          },
+          {
+            "title": "创新一 · 遥感域词汇原型适配",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "创新二 · 多尺度旋转候选协同",
+            "writing_purpose": "技术创新章节要先解释方法机制，再说明为何有效。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "核心内容",
+              "实现方法",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "创新三 · 可靠语义校准",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "创新与技术层映射",
+            "writing_purpose": "把创新与系统结构重新对齐。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "技术落点",
+              "验证锚点",
+              "系统对应关系"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "创新点与痛点一一对应",
+        "技术机制解释",
+        "模块落点",
+        "与系统结构映射"
+      ],
+      "visual_priority": [
+        "创新点-痛点对照表",
+        "关键技术分层图",
+        "原理流程图"
+      ],
+      "appendix_candidates": [
+        "公式推导",
+        "扩展模块实现细节",
+        "补充伪代码"
+      ],
+      "key_messages": [
+        "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。",
+        "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。",
+        "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。",
+        "创新点必须一一落到识别难题、风险决策或展示联动上，不能和普通功能列表混在一起。"
+      ],
+      "must_include": [
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准",
+        "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。",
+        "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。",
+        "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。",
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "linked_innovations": [
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准"
+      ],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [
+        {
+          "innovation_title": "创新一 · 遥感域词汇原型适配",
+          "problem_source": "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。",
+          "current_section_role": "提出本作品做法，并把创新点落到具体模块、机制或工程抓手上。",
+          "validation_anchor": "五、测试与效果分析 / 创新性说明",
+          "expected_value_signal": "相对基线的方法改进、消融贡献或系统能力增强",
+          "practical_meaning": "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。"
+        },
+        {
+          "innovation_title": "创新二 · 多尺度旋转候选协同",
+          "problem_source": "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。",
+          "current_section_role": "提出本作品做法，并把创新点落到具体模块、机制或工程抓手上。",
+          "validation_anchor": "五、测试与效果分析 / 创新性说明",
+          "expected_value_signal": "相对基线的方法改进、消融贡献或系统能力增强",
+          "practical_meaning": "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。"
+        },
+        {
+          "innovation_title": "创新三 · 可靠语义校准",
+          "problem_source": "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。",
+          "current_section_role": "提出本作品做法，并把创新点落到具体模块、机制或工程抓手上。",
+          "validation_anchor": "五、测试与效果分析 / 创新性说明",
+          "expected_value_signal": "相对基线的方法改进、消融贡献或系统能力增强",
+          "practical_meaning": "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。"
+        }
+      ],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_d827045531",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+          "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+          "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移"
+          ],
+          "reliability": "high",
+          "tags": [
+            "遥感",
+            "benchmark",
+            "开放词汇",
+            "检测",
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移",
+            "remote sensing",
+            "DIOR",
+            "目标检测"
+          ]
+        },
+        {
+          "evidence_id": "ev_7f9521c71a",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+          "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+          "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战"
+          ],
+          "reliability": "high",
+          "tags": [
+            "DOTA",
+            "旋转框",
+            "小目标",
+            "遥感",
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战",
+            "开放词汇"
+          ]
+        }
+      ],
+      "chapter_seed_payload": {},
+      "common_errors": [
+        "创新点只有命名没有机制",
+        "创新点与实现模块重复叙述",
+        "未区分技术亮点和核心创新"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "创新一 · 遥感域词汇原型适配",
+          "impacted_chapter": "三、核心创新与关键技术",
+          "why_needed": "创新章节要求每个创新点都有技术机制、实现落点和后续验证锚点。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "将尚未闭环的条目降级为功能亮点或待实现方向。"
+        },
+        {
+          "missing_item": "创新二 · 多尺度旋转候选协同",
+          "impacted_chapter": "三、核心创新与关键技术",
+          "why_needed": "创新章节要求每个创新点都有技术机制、实现落点和后续验证锚点。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "将尚未闭环的条目降级为功能亮点或待实现方向。"
+        },
+        {
+          "missing_item": "创新三 · 可靠语义校准",
+          "impacted_chapter": "三、核心创新与关键技术",
+          "why_needed": "创新章节要求每个创新点都有技术机制、实现落点和后续验证锚点。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "将尚未闭环的条目降级为功能亮点或待实现方向。"
+        },
+        {
+          "missing_item": "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+          "impacted_chapter": "三、核心创新与关键技术",
+          "why_needed": "创新章节要求每个创新点都有技术机制、实现落点和后续验证锚点。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "将尚未闭环的条目降级为功能亮点或待实现方向。"
+        },
+        {
+          "missing_item": "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+          "impacted_chapter": "三、核心创新与关键技术",
+          "why_needed": "创新章节要求每个创新点都有技术机制、实现落点和后续验证锚点。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "将尚未闭环的条目降级为功能亮点或待实现方向。"
+        },
+        {
+          "missing_item": "YOLO-World 等组件的许可证需要在发布前核验",
+          "impacted_chapter": "三、核心创新与关键技术",
+          "why_needed": "创新章节要求每个创新点都有技术机制、实现落点和后续验证锚点。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "将尚未闭环的条目降级为功能亮点或待实现方向。"
+        }
+      ],
+      "recommended_visuals": [
+        "创新点-痛点对照表",
+        "创新一 · 遥感域词汇原型适配示意图",
+        "创新二 · 多尺度旋转候选协同示意图",
+        "创新三 · 可靠语义校准示意图",
+        "关键技术分层图",
+        "创新模块证据映射表"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s3_visual_1",
+          "label": "表3-1",
+          "visual_type": "table",
+          "title": "创新点-痛点对照表",
+          "purpose": "对齐痛点、创新点、模块或证据之间的对应关系。",
+          "placement_anchor": "创新点总览",
+          "suggested_subsection": "创新点总览",
+          "body_reference_hint": "建议在正文中使用“如表3-1所示”或“表3-1显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s3_visual_1.png",
+            "figures/s3_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s3_visual_1.png",
+            "workspace/document_export/assets/visuals/s3_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s3_visual_2",
+          "label": "图3-2",
+          "visual_type": "figure",
+          "title": "创新一 · 遥感域词汇原型适配示意图",
+          "purpose": "关键技术分层图",
+          "placement_anchor": "创新一 · 遥感域词汇原型适配",
+          "suggested_subsection": "创新一 · 遥感域词汇原型适配",
+          "body_reference_hint": "建议在正文中使用“如图3-2所示”或“图3-2显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s3_visual_2.png",
+            "figures/s3_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s3_visual_2.png",
+            "workspace/document_export/assets/visuals/s3_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s3_visual_3",
+          "label": "图3-3",
+          "visual_type": "figure",
+          "title": "创新二 · 多尺度旋转候选协同示意图",
+          "purpose": "原理流程图",
+          "placement_anchor": "创新二 · 多尺度旋转候选协同",
+          "suggested_subsection": "创新二 · 多尺度旋转候选协同",
+          "body_reference_hint": "建议在正文中使用“如图3-3所示”或“图3-3显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s3_visual_3.png",
+            "figures/s3_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s3_visual_3.png",
+            "workspace/document_export/assets/visuals/s3_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s3_visual_4",
+          "label": "图3-4",
+          "visual_type": "figure",
+          "title": "创新三 · 可靠语义校准示意图",
+          "purpose": "原理流程图",
+          "placement_anchor": "创新三 · 可靠语义校准",
+          "suggested_subsection": "创新三 · 可靠语义校准",
+          "body_reference_hint": "建议在正文中使用“如图3-4所示”或“图3-4显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s3_visual_4.png",
+            "figures/s3_visual_4.pdf",
+            "workspace/document_export/assets/visuals/s3_visual_4.png",
+            "workspace/document_export/assets/visuals/s3_visual_4.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s3_visual_5",
+          "label": "图3-5",
+          "visual_type": "figure",
+          "title": "关键技术分层图",
+          "purpose": "说明系统由哪些模块组成，以及模块之间如何协同。",
+          "placement_anchor": "创新与技术层映射",
+          "suggested_subsection": "创新与技术层映射",
+          "body_reference_hint": "建议在正文中使用“如图3-5所示”或“图3-5显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s3_visual_5.png",
+            "figures/s3_visual_5.pdf",
+            "workspace/document_export/assets/visuals/s3_visual_5.png",
+            "workspace/document_export/assets/visuals/s3_visual_5.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s3_visual_6",
+          "label": "表3-6",
+          "visual_type": "table",
+          "title": "创新模块证据映射表",
+          "purpose": "对齐痛点、创新点、模块或证据之间的对应关系。",
+          "placement_anchor": "创新与技术层映射",
+          "suggested_subsection": "创新与技术层映射",
+          "body_reference_hint": "建议在正文中使用“如表3-6所示”或“表3-6显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s3_visual_6.png",
+            "figures/s3_visual_6.pdf",
+            "workspace/document_export/assets/visuals/s3_visual_6.png",
+            "workspace/document_export/assets/visuals/s3_visual_6.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\03_s3",
+        "brief": "workspace\\document_writing\\chapters\\03_s3\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\03_s3\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\03_s3\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\03_s3\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\03_s3\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1490-1950",
+        "budget_lower": 1490,
+        "budget_upper": 1950,
+        "min_ratio": 1.0,
+        "min_required": 1490,
+        "actual_count": 1504,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 5,
+        "actual_second_level_count": 5,
+        "required_second_level_titles": [
+          "创新点总览",
+          "创新一 · 遥感域词汇原型适配",
+          "创新二 · 多尺度旋转候选协同",
+          "创新三 · 可靠语义校准",
+          "创新与技术层映射"
+        ],
+        "actual_second_level_titles": [
+          "创新点总览",
+          "创新一 · 遥感域词汇原型适配",
+          "创新二 · 多尺度旋转候选协同",
+          "创新三 · 可靠语义校准",
+          "创新与技术层映射"
+        ],
+        "required_third_level_total_min": 12,
+        "actual_third_level_total": 12,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "创新点总览",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "痛点映射",
+              "创新协同"
+            ],
+            "actual_third_level_titles": [
+              "痛点映射",
+              "创新协同"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "创新一 · 遥感域词汇原型适配",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "创新二 · 多尺度旋转候选协同",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "核心内容",
+              "实现方法",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "实现方法",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "创新三 · 可靠语义校准",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "创新与技术层映射",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "技术落点",
+              "验证锚点",
+              "系统对应关系"
+            ],
+            "actual_third_level_titles": [
+              "技术落点",
+              "验证锚点",
+              "系统对应关系"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=5, actual_h3=5, required_h4>=12, actual_h4=12"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=5, actual_h3=5, required_h4>=12, actual_h4=12",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1504, required>=1490",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "s4",
+      "chapter_type": "body_section",
+      "heading": "四、作品实现与运行闭环",
+      "title": "作品实现与运行闭环",
+      "goal": "把模块如何协同运行、数据如何流转和人工如何介入写具体，建立完成度感。",
+      "matched_scores": [
+        "技术方案及其实现质量",
+        "讲解表现"
+      ],
+      "narrative_role": "把抽象方案落到工程链路，回答“这个系统究竟怎么跑起来”。",
+      "position_logic": "本章位于创新与应用之间，负责把前章的机制变成可运行流程，证明项目不只是概念图和模块名。",
+      "chapter_weight_reason": "对于平台应用型项目，本章决定评委对完成度的直观判断，尤其影响“实现质量”和“讲解表现”。",
+      "predecessor_sections": [
+        "二、作品设计与总体架构",
+        "三、核心创新与关键技术"
+      ],
+      "successor_sections": [
+        "五、测试与效果分析",
+        "六、应用前景与落地价值"
+      ],
+      "writing_order": 4,
+      "assembly_order": 4,
+      "sample_chapter": "第二章 作品设计与实现",
+      "sample_logic": "先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。",
+      "suggested_page_span": "4p",
+      "suggested_word_budget": "1080-1500",
+      "subsections": [
+        "模块实现说明",
+        "运行流程",
+        "案例回放与人工复核"
+      ],
+      "structure_contract": {
+        "contract_id": "s4_structure",
+        "chapter_heading": "四、作品实现与运行闭环",
+        "required_second_level_count": 3,
+        "required_second_level_titles": [
+          "模块实现说明",
+          "运行流程",
+          "案例回放与人工复核"
+        ],
+        "required_third_level_total_min": 9,
+        "required_third_level_total_target": 9,
+        "second_level_contracts": [
+          {
+            "title": "模块实现说明",
+            "writing_purpose": "说明模块如何落地与协作。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "统一表征对象",
+              "模块实现",
+              "接口协同"
+            ]
+          },
+          {
+            "title": "运行流程",
+            "writing_purpose": "讲清输入、处理、输出如何闭合。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "输入接入",
+              "分析与评分",
+              "输出与联动"
+            ]
+          },
+          {
+            "title": "案例回放与人工复核",
+            "writing_purpose": "说明系统如何进入人工闭环。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "案例回放链路",
+              "复核证据面板",
+              "复核与留痕"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "模块协同关系",
+        "运行流程",
+        "人工复核与回放机制",
+        "可运行性证明"
+      ],
+      "visual_priority": [
+        "运行流程图",
+        "时序图",
+        "界面截图或模块接口表"
+      ],
+      "appendix_candidates": [
+        "接口协议",
+        "详细运行日志",
+        "工程参数配置"
+      ],
+      "key_messages": [
+        "系统运行主线是采集、理解、评分、告警、复核，重点说明每一步如何承接前一步结果。",
+        "可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线",
+        "DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证",
+        "系统先支持离线切片推理，再扩展到实时或边缘部署",
+        "本章要主动体现作品是可运行 MVP，而不是只有概念框图。"
+      ],
+      "must_include": [
+        "多模态数据接入方式和统一表征思路。",
+        "风险评分与预警生成逻辑。",
+        "人工复核、案例留痕和展示联动如何进入闭环。",
+        "可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线",
+        "DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证",
+        "系统先支持离线切片推理，再扩展到实时或边缘部署"
+      ],
+      "linked_innovations": [],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [
+        {
+          "innovation_title": "创新一 · 遥感域词汇原型适配",
+          "problem_source": "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。",
+          "current_section_role": "把前章创新机制落成运行流程、接口交互和工程实现闭环。",
+          "validation_anchor": "五、测试与效果分析 / 六、应用前景与落地价值",
+          "expected_value_signal": "流程可运行、模块可协作、系统可演示",
+          "practical_meaning": "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。"
+        },
+        {
+          "innovation_title": "创新二 · 多尺度旋转候选协同",
+          "problem_source": "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。",
+          "current_section_role": "把前章创新机制落成运行流程、接口交互和工程实现闭环。",
+          "validation_anchor": "五、测试与效果分析 / 六、应用前景与落地价值",
+          "expected_value_signal": "流程可运行、模块可协作、系统可演示",
+          "practical_meaning": "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。"
+        },
+        {
+          "innovation_title": "创新三 · 可靠语义校准",
+          "problem_source": "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。",
+          "current_section_role": "把前章创新机制落成运行流程、接口交互和工程实现闭环。",
+          "validation_anchor": "五、测试与效果分析 / 六、应用前景与落地价值",
+          "expected_value_signal": "流程可运行、模块可协作、系统可演示",
+          "practical_meaning": "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。"
+        }
+      ],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_d827045531",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+          "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+          "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移"
+          ],
+          "reliability": "high",
+          "tags": [
+            "遥感",
+            "benchmark",
+            "开放词汇",
+            "检测",
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移",
+            "remote sensing",
+            "DIOR",
+            "目标检测"
+          ]
+        },
+        {
+          "evidence_id": "ev_7f9521c71a",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+          "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+          "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战"
+          ],
+          "reliability": "high",
+          "tags": [
+            "DOTA",
+            "旋转框",
+            "小目标",
+            "遥感",
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战",
+            "开放词汇"
+          ]
+        },
+        {
+          "evidence_id": "ev_9662694342",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。",
+          "summary": "细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。",
+          "derived_insight": "把细粒度混淆、类别层级和提示词稳定性纳入错误分析。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "细粒度类别",
+            "有向检测",
+            "语义混淆"
+          ],
+          "reliability": "high",
+          "tags": [
+            "FAIR1M",
+            "细粒度",
+            "有向检测",
+            "遥感",
+            "细粒度类别",
+            "语义混淆",
+            "遥感影像",
+            "remote sensing"
+          ]
+        }
+      ],
+      "chapter_seed_payload": {},
+      "common_errors": [
+        "只有模块清单没有流程",
+        "流程图与正文不一致",
+        "把尚未实现的能力写成已完成功能"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线",
+          "impacted_chapter": "四、作品实现与运行闭环",
+          "why_needed": "实现章节需要明确系统当前能跑到哪一步、哪些能力已具备、哪些仍是规划。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "用 MVP 范围说明替代完整实现承诺，并标出人工介入位置。"
+        },
+        {
+          "missing_item": "DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证",
+          "impacted_chapter": "四、作品实现与运行闭环",
+          "why_needed": "实现章节需要明确系统当前能跑到哪一步、哪些能力已具备、哪些仍是规划。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "用 MVP 范围说明替代完整实现承诺，并标出人工介入位置。"
+        },
+        {
+          "missing_item": "系统先支持离线切片推理，再扩展到实时或边缘部署",
+          "impacted_chapter": "四、作品实现与运行闭环",
+          "why_needed": "实现章节需要明确系统当前能跑到哪一步、哪些能力已具备、哪些仍是规划。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "用 MVP 范围说明替代完整实现承诺，并标出人工介入位置。"
+        },
+        {
+          "missing_item": "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+          "impacted_chapter": "四、作品实现与运行闭环",
+          "why_needed": "实现章节需要明确系统当前能跑到哪一步、哪些能力已具备、哪些仍是规划。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "用 MVP 范围说明替代完整实现承诺，并标出人工介入位置。"
+        },
+        {
+          "missing_item": "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+          "impacted_chapter": "四、作品实现与运行闭环",
+          "why_needed": "实现章节需要明确系统当前能跑到哪一步、哪些能力已具备、哪些仍是规划。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "用 MVP 范围说明替代完整实现承诺，并标出人工介入位置。"
+        },
+        {
+          "missing_item": "YOLO-World 等组件的许可证需要在发布前核验",
+          "impacted_chapter": "四、作品实现与运行闭环",
+          "why_needed": "实现章节需要明确系统当前能跑到哪一步、哪些能力已具备、哪些仍是规划。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "用 MVP 范围说明替代完整实现承诺，并标出人工介入位置。"
+        }
+      ],
+      "recommended_visuals": [
+        "统一表征与接入链路图",
+        "运行流程图",
+        "评分与告警链路图",
+        "模块接口表",
+        "案例流转时序图",
+        "多端工作台示意"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s4_visual_1",
+          "label": "表4-1",
+          "visual_type": "table",
+          "title": "统一表征与接入链路图",
+          "purpose": "运行流程图",
+          "placement_anchor": "模块实现说明",
+          "suggested_subsection": "模块实现说明",
+          "body_reference_hint": "建议在正文中使用“如表4-1所示”或“表4-1显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s4_visual_1.png",
+            "figures/s4_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s4_visual_1.png",
+            "workspace/document_export/assets/visuals/s4_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s4_visual_2",
+          "label": "图4-2",
+          "visual_type": "figure",
+          "title": "运行流程图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "运行流程",
+          "suggested_subsection": "运行流程",
+          "body_reference_hint": "建议在正文中使用“如图4-2所示”或“图4-2显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s4_visual_2.png",
+            "figures/s4_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s4_visual_2.png",
+            "workspace/document_export/assets/visuals/s4_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s4_visual_3",
+          "label": "图4-3",
+          "visual_type": "figure",
+          "title": "评分与告警链路图",
+          "purpose": "界面截图或模块接口表",
+          "placement_anchor": "运行流程",
+          "suggested_subsection": "运行流程",
+          "body_reference_hint": "建议在正文中使用“如图4-3所示”或“图4-3显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s4_visual_3.png",
+            "figures/s4_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s4_visual_3.png",
+            "workspace/document_export/assets/visuals/s4_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s4_visual_4",
+          "label": "表4-4",
+          "visual_type": "table",
+          "title": "模块接口表",
+          "purpose": "界面截图或模块接口表",
+          "placement_anchor": "模块实现说明",
+          "suggested_subsection": "模块实现说明",
+          "body_reference_hint": "建议在正文中使用“如表4-4所示”或“表4-4显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s4_visual_4.png",
+            "figures/s4_visual_4.pdf",
+            "workspace/document_export/assets/visuals/s4_visual_4.png",
+            "workspace/document_export/assets/visuals/s4_visual_4.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s4_visual_5",
+          "label": "图4-5",
+          "visual_type": "figure",
+          "title": "案例流转时序图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "案例回放与人工复核",
+          "suggested_subsection": "案例回放与人工复核",
+          "body_reference_hint": "建议在正文中使用“如图4-5所示”或“图4-5显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s4_visual_5.png",
+            "figures/s4_visual_5.pdf",
+            "workspace/document_export/assets/visuals/s4_visual_5.png",
+            "workspace/document_export/assets/visuals/s4_visual_5.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s4_visual_6",
+          "label": "图4-6",
+          "visual_type": "figure",
+          "title": "多端工作台示意",
+          "purpose": "界面截图或模块接口表",
+          "placement_anchor": "案例回放与人工复核",
+          "suggested_subsection": "案例回放与人工复核",
+          "body_reference_hint": "建议在正文中使用“如图4-6所示”或“图4-6显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s4_visual_6.png",
+            "figures/s4_visual_6.pdf",
+            "workspace/document_export/assets/visuals/s4_visual_6.png",
+            "workspace/document_export/assets/visuals/s4_visual_6.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\04_s4",
+        "brief": "workspace\\document_writing\\chapters\\04_s4\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\04_s4\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\04_s4\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\04_s4\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\04_s4\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1080-1500",
+        "budget_lower": 1080,
+        "budget_upper": 1500,
+        "min_ratio": 1.0,
+        "min_required": 1080,
+        "actual_count": 1098,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 3,
+        "actual_second_level_count": 3,
+        "required_second_level_titles": [
+          "模块实现说明",
+          "运行流程",
+          "案例回放与人工复核"
+        ],
+        "actual_second_level_titles": [
+          "模块实现说明",
+          "运行流程",
+          "案例回放与人工复核"
+        ],
+        "required_third_level_total_min": 9,
+        "actual_third_level_total": 9,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "模块实现说明",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "统一表征对象",
+              "模块实现",
+              "接口协同"
+            ],
+            "actual_third_level_titles": [
+              "统一表征对象",
+              "模块实现",
+              "接口协同"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "运行流程",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "输入接入",
+              "分析与评分",
+              "输出与联动"
+            ],
+            "actual_third_level_titles": [
+              "输入接入",
+              "分析与评分",
+              "输出与联动"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "案例回放与人工复核",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "案例回放链路",
+              "复核证据面板",
+              "复核与留痕"
+            ],
+            "actual_third_level_titles": [
+              "案例回放链路",
+              "复核证据面板",
+              "复核与留痕"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1098, required>=1080",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "s_validation",
+      "chapter_type": "body_section",
+      "heading": "五、测试与效果分析",
+      "title": "测试与效果分析",
+      "goal": "围绕关键性能、对比实验、复杂场景稳定性和系统闭环指标，形成与创新点一一对应的验证链，而不是只在结尾补几条结果。",
+      "matched_scores": [
+        "技术方案及其实现质量",
+        "创意",
+        "讲解表现"
+      ],
+      "narrative_role": "把前文提出的创新点和系统闭环转成可被评委验证的结果证据，形成“创新提出 - 机制实现 - 效果证明”的完整闭环。",
+      "position_logic": "本章位于系统实现之后、应用价值之前，负责回答“作品做出来以后到底是否有效、稳定、可运行”。",
+      "chapter_weight_reason": "平台应用型项目若缺少正式测试章，创新与实现很难转化为可信的评审印象，因此本章必须承担关键证据链的组织任务。",
+      "predecessor_sections": [
+        "三、核心创新与关键技术",
+        "四、作品实现与运行闭环"
+      ],
+      "successor_sections": [
+        "六、应用前景与落地价值"
+      ],
+      "writing_order": 5,
+      "assembly_order": 5,
+      "sample_chapter": "第三章 作品测试与分析",
+      "sample_logic": "先冻结公开基准、base/novel 划分和提示词协议，再按基线对比、旋转定位、可靠性校准、查询稳定性和系统案例展开分析。",
+      "suggested_page_span": "4-6p",
+      "suggested_word_budget": "1380-1900",
+      "subsections": [
+        "评测协议与数据划分",
+        "Current methods 基线对比",
+        "开放类别与旋转定位效果",
+        "可靠性校准与查询稳定性",
+        "系统延迟与案例证据"
+      ],
+      "structure_contract": {
+        "contract_id": "s_validation_structure",
+        "chapter_heading": "五、测试与效果分析",
+        "required_second_level_count": 5,
+        "required_second_level_titles": [
+          "评测协议与数据划分",
+          "Current methods 基线对比",
+          "开放类别与旋转定位效果",
+          "可靠性校准与查询稳定性",
+          "系统延迟与案例证据"
+        ],
+        "required_third_level_total_min": 10,
+        "required_third_level_total_target": 10,
+        "second_level_contracts": [
+          {
+            "title": "评测协议与数据划分",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "Current methods 基线对比",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "开放类别与旋转定位效果",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "可靠性校准与查询稳定性",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          },
+          {
+            "title": "系统延迟与案例证据",
+            "writing_purpose": "保持两级细化，避免只有章标题和大段正文。",
+            "required_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "公开基准与 base/novel/generalized 划分",
+        "Grounding DINO、Detic、YOLO-World 和闭集上限对照",
+        "HBB/OBB、小目标与细粒度结果",
+        "ECE、Brier、高置信假阳性和同义查询一致性",
+        "延迟、显存、证据卡与跨区域外测"
+      ],
+      "visual_priority": [
+        "数据集与 base/novel 划分图",
+        "方法类别对照表",
+        "HBB/OBB 结果表",
+        "校准曲线与查询一致性图",
+        "案例证据卡与延迟面板"
+      ],
+      "appendix_candidates": [
+        "补充实验说明",
+        "扩展曲线图",
+        "更多案例回放截图"
+      ],
+      "key_messages": [
+        "本验证包以 创新一 · 遥感域词汇原型适配、创新二 · 多尺度旋转候选协同、创新三 · 可靠语义校准 为主线，组织公开资料、仿真场景和原型日志三类材料，提供可直接落入作品书的测试结构。",
+        "本章测试采用公开轴承故障数据、仿真工况数据与原型系统运行日志构成的混合验证链。其中，公开数据用于验证基础诊断能力，仿真工况用于验证跨工况与弱故障稳定性，原型日志用于验证时延、告警与工单闭环能力。",
+        "每个核心创新至少要在本章找到一个对应的实验、案例或系统级指标支撑。"
+      ],
+      "must_include": [
+        "本章测试采用公开轴承故障数据、仿真工况数据与原型系统运行日志构成的混合验证链。其中，公开数据用于验证基础诊断能力，仿真工况用于验证跨工况与弱故障稳定性，原型日志用于验证时延、告警与工单闭环能力。",
+        "关键指标汇总与对应含义说明。",
+        "对比实验设置、结果和结论解释。",
+        "复杂场景稳定性或跨工况表现说明。",
+        "系统时延、吞吐、闭环完成率等系统级结果。",
+        "核心任务完成率",
+        "关键能力提升幅度",
+        "系统响应时延",
+        "闭环完成率",
+        "基础方案与增强方案对比",
+        "稳态场景与复杂场景对比",
+        "结果输出与联动闭环对比"
+      ],
+      "linked_innovations": [
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准"
+      ],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [
+        {
+          "innovation_title": "创新一 · 遥感域词汇原型适配",
+          "problem_source": "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。",
+          "current_section_role": "用指标、实验、案例和系统级性能把前文创新点落实为可验证结果。",
+          "validation_anchor": "五、测试与效果分析",
+          "expected_value_signal": "指标改善、稳定性提升、闭环效率与系统性能",
+          "practical_meaning": "利用遥感图文表示校正通用文本嵌入，使同一类别在俯视尺度、方向和纹理条件下保持稳定语义。"
+        },
+        {
+          "innovation_title": "创新二 · 多尺度旋转候选协同",
+          "problem_source": "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。",
+          "current_section_role": "用指标、实验、案例和系统级性能把前文创新点落实为可验证结果。",
+          "validation_anchor": "五、测试与效果分析",
+          "expected_value_signal": "指标改善、稳定性提升、闭环效率与系统性能",
+          "practical_meaning": "将切片、多尺度候选和旋转框定位与文本查询联合优化，降低小目标漏检和方向错配。"
+        },
+        {
+          "innovation_title": "创新三 · 可靠语义校准",
+          "problem_source": "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。",
+          "current_section_role": "用指标、实验、案例和系统级性能把前文创新点落实为可验证结果。",
+          "validation_anchor": "五、测试与效果分析",
+          "expected_value_signal": "指标改善、稳定性提升、闭环效率与系统性能",
+          "practical_meaning": "利用类别—区域一致性、背景对照和温度校准抑制类别幻觉，输出可解释的不确定性和人工复核建议。"
+        }
+      ],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_d827045531",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+          "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+          "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移"
+          ],
+          "reliability": "high",
+          "tags": [
+            "遥感",
+            "benchmark",
+            "开放词汇",
+            "检测",
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移",
+            "remote sensing",
+            "DIOR",
+            "目标检测"
+          ]
+        },
+        {
+          "evidence_id": "ev_7f9521c71a",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+          "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+          "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战"
+          ],
+          "reliability": "high",
+          "tags": [
+            "DOTA",
+            "旋转框",
+            "小目标",
+            "遥感",
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战",
+            "开放词汇"
+          ]
+        },
+        {
+          "evidence_id": "ev_9662694342",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。",
+          "summary": "细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。",
+          "derived_insight": "把细粒度混淆、类别层级和提示词稳定性纳入错误分析。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "细粒度类别",
+            "有向检测",
+            "语义混淆"
+          ],
+          "reliability": "high",
+          "tags": [
+            "FAIR1M",
+            "细粒度",
+            "有向检测",
+            "遥感",
+            "细粒度类别",
+            "语义混淆",
+            "遥感影像",
+            "remote sensing"
+          ]
+        }
+      ],
+      "chapter_seed_payload": {
+        "seed_type": "validation_support_pack",
+        "enabled": true,
+        "pack": {
+          "mode": "simulated_demo",
+          "status": "ready",
+          "disclosure": "本章测试采用公开轴承故障数据、仿真工况数据与原型系统运行日志构成的混合验证链。其中，公开数据用于验证基础诊断能力，仿真工况用于验证跨工况与弱故障稳定性，原型日志用于验证时延、告警与工单闭环能力。",
+          "abstract_result_prefix": "原型测试结果表明，",
+          "validation_boundary": "受限于真实产线长期故障样本采集周期，本章测试主要面向竞赛原型流程的功能验证与效果评估。公开数据用于验证诊断模型的基础识别能力，仿真工况用于验证复杂场景下的稳定性，原型日志用于验证系统运行与闭环联动能力。相关结果可作为作品原型有效性的支撑依据，后续仍需在真实产线长期运行中进一步校准和验证。",
+          "chapter_title": "测试与效果分析",
+          "summary": "本验证包以 创新一 · 遥感域词汇原型适配、创新二 · 多尺度旋转候选协同、创新三 · 可靠语义校准 为主线，组织公开资料、仿真场景和原型日志三类材料，提供可直接落入作品书的测试结构。",
+          "data_sources": [
+            {
+              "name": "公开资料或公开数据",
+              "source": "公开数据集或公开资料",
+              "scale": "按当前 topic 补充",
+              "classes": "按当前任务定义",
+              "split": "建议明确训练 / 验证 / 测试口径",
+              "use": "用于支撑基础识别或判断能力。"
+            },
+            {
+              "name": "仿真场景数据",
+              "source": "规则构造或回放生成",
+              "scale": "按当前 topic 补充",
+              "classes": "复杂场景 / 扰动场景",
+              "split": "建议按场景组划分",
+              "use": "用于验证复杂场景、扰动条件或跨场景稳定性。"
+            },
+            {
+              "name": "原型系统日志",
+              "source": "演示原型运行记录",
+              "scale": "按当前 topic 补充",
+              "classes": "处理时延 / 联动事件 / 回写记录",
+              "split": "按事件粒度统计",
+              "use": "用于支撑时延、吞吐与闭环能力。"
+            }
+          ],
+          "metric_summary": [
+            {
+              "label": "核心任务完成率",
+              "value": "90%+",
+              "meaning": "用于说明系统具备基础任务执行能力。"
+            },
+            {
+              "label": "关键能力提升幅度",
+              "value": "+5 到 +10 pct",
+              "meaning": "用于说明创新模块相对基线具有可见收益。"
+            },
+            {
+              "label": "系统响应时延",
+              "value": "1 到 3 s",
+              "meaning": "用于说明演示级系统具备可运行性。"
+            },
+            {
+              "label": "闭环完成率",
+              "value": "80%+",
+              "meaning": "用于说明结果能够进入后续处置流程。"
+            }
+          ],
+          "comparison_experiments": [
+            {
+              "title": "基础方案与增强方案对比",
+              "goal": "证明创新模块对核心效果指标存在正向贡献。",
+              "groups": [
+                "A 组：基础方案，记录核心指标作为对照。",
+                "B 组：加入第一项创新后，观察识别或判断质量变化。",
+                "C 组：加入全部创新后，观察整体指标是否继续提升。"
+              ],
+              "conclusion": "该组实验用于支撑“为什么需要创新模块”。"
+            },
+            {
+              "title": "稳态场景与复杂场景对比",
+              "goal": "验证系统在更接近真实业务波动条件下是否仍保持稳定。",
+              "groups": [
+                "A 组：标准场景输入。",
+                "B 组：噪声、扰动或跨场景输入。",
+                "C 组：加入适配策略后的复杂场景输入。"
+              ],
+              "conclusion": "该组实验用于支撑“为什么系统不是只在理想环境下有效”。"
+            },
+            {
+              "title": "结果输出与联动闭环对比",
+              "goal": "验证系统输出是否能够进入业务动作，而不是停留在单点结果。",
+              "groups": [
+                "A 组：仅输出识别/评分结果。",
+                "B 组：输出结果 + 风险分级或建议动作。",
+                "C 组：输出结果 + 联动任务 + 回写留痕。"
+              ],
+              "conclusion": "该组实验用于支撑“为什么作品是系统型闭环而非单模块演示”。"
+            }
+          ],
+          "case_replay": {
+            "title": "典型异常案例回放（仿真）",
+            "timeline": [
+              "T1：系统处于基线状态，无异常触发。",
+              "T2：关键输入指标开始偏离基线，系统给出趋势提醒。",
+              "T3：连续异常满足阈值条件，系统提升为中风险。",
+              "T4：平台触发联动任务并推送人工复核。",
+              "T5：人工查看证据面板并填写处理结论。",
+              "T6：系统完成回写与闭环留痕。"
+            ]
+          },
+          "system_metrics": [
+            "建议至少补充单次处理耗时、页面响应时间、批量吞吐和联动时延四类指标。",
+            "若暂未形成真实实测，应明确说明数据来源边界，并保持指标口径前后一致。"
+          ],
+          "required_assets": [
+            "数据来源与规模表",
+            "关键性能汇总表",
+            "对比实验结果表",
+            "案例回放时序图",
+            "系统性能与闭环指标清单"
+          ]
+        }
+      },
+      "common_errors": [
+        "只罗列几个好看的数字",
+        "没有交代指标口径和数据边界",
+        "把系统性能和分类效果混在一起",
+        "把仿真示例值写成真实实测结果"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "数据来源与规模表",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "关键性能汇总表",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "对比实验结果表",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "案例回放时序图",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "系统性能与闭环指标清单",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        },
+        {
+          "missing_item": "YOLO-World 等组件的许可证需要在发布前核验",
+          "impacted_chapter": "五、测试与效果分析",
+          "why_needed": "测试章要求结果、图表和案例回放一起构成完整证据链。",
+          "priority": "high",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少提供公开数据、仿真工况或原型日志中的一类支撑，并补齐对照组、指标含义和案例回放。"
+        }
+      ],
+      "recommended_visuals": [
+        "数据来源与规模表",
+        "关键性能汇总表",
+        "对比实验结果表",
+        "案例回放时序图",
+        "系统性能与闭环指标清单"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s_validation_visual_1",
+          "label": "表5-1",
+          "visual_type": "table",
+          "title": "数据来源与规模表",
+          "purpose": "数据集与 base/novel 划分图",
+          "placement_anchor": "评测协议与数据划分",
+          "suggested_subsection": "评测协议与数据划分",
+          "body_reference_hint": "建议在正文中使用“如表5-1所示”或“表5-1显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s_validation_visual_1.png",
+            "figures/s_validation_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s_validation_visual_1.png",
+            "workspace/document_export/assets/visuals/s_validation_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s_validation_visual_2",
+          "label": "表5-2",
+          "visual_type": "table",
+          "title": "关键性能汇总表",
+          "purpose": "方法类别对照表",
+          "placement_anchor": "Current methods 基线对比",
+          "suggested_subsection": "Current methods 基线对比",
+          "body_reference_hint": "建议在正文中使用“如表5-2所示”或“表5-2显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s_validation_visual_2.png",
+            "figures/s_validation_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s_validation_visual_2.png",
+            "workspace/document_export/assets/visuals/s_validation_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s_validation_visual_3",
+          "label": "表5-3",
+          "visual_type": "table",
+          "title": "对比实验结果表",
+          "purpose": "HBB/OBB 结果表",
+          "placement_anchor": "开放类别与旋转定位效果",
+          "suggested_subsection": "开放类别与旋转定位效果",
+          "body_reference_hint": "建议在正文中使用“如表5-3所示”或“表5-3显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s_validation_visual_3.png",
+            "figures/s_validation_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s_validation_visual_3.png",
+            "workspace/document_export/assets/visuals/s_validation_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s_validation_visual_4",
+          "label": "图5-4",
+          "visual_type": "figure",
+          "title": "案例回放时序图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "可靠性校准与查询稳定性",
+          "suggested_subsection": "可靠性校准与查询稳定性",
+          "body_reference_hint": "建议在正文中使用“如图5-4所示”或“图5-4显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s_validation_visual_4.png",
+            "figures/s_validation_visual_4.pdf",
+            "workspace/document_export/assets/visuals/s_validation_visual_4.png",
+            "workspace/document_export/assets/visuals/s_validation_visual_4.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s_validation_visual_5",
+          "label": "表5-5",
+          "visual_type": "table",
+          "title": "系统性能与闭环指标清单",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "系统延迟与案例证据",
+          "suggested_subsection": "系统延迟与案例证据",
+          "body_reference_hint": "建议在正文中使用“如表5-5所示”或“表5-5显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s_validation_visual_5.png",
+            "figures/s_validation_visual_5.pdf",
+            "workspace/document_export/assets/visuals/s_validation_visual_5.png",
+            "workspace/document_export/assets/visuals/s_validation_visual_5.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\05_s_validation",
+        "brief": "workspace\\document_writing\\chapters\\05_s_validation\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\05_s_validation\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\05_s_validation\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\05_s_validation\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\05_s_validation\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1380-1900",
+        "budget_lower": 1380,
+        "budget_upper": 1900,
+        "min_ratio": 1.0,
+        "min_required": 1380,
+        "actual_count": 1401,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 5,
+        "actual_second_level_count": 5,
+        "required_second_level_titles": [
+          "评测协议与数据划分",
+          "Current methods 基线对比",
+          "开放类别与旋转定位效果",
+          "可靠性校准与查询稳定性",
+          "系统延迟与案例证据"
+        ],
+        "actual_second_level_titles": [
+          "评测协议与数据划分",
+          "Current methods 基线对比",
+          "开放类别与旋转定位效果",
+          "可靠性校准与查询稳定性",
+          "系统延迟与案例证据"
+        ],
+        "required_third_level_total_min": 10,
+        "actual_third_level_total": 10,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "评测协议与数据划分",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "Current methods 基线对比",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "开放类别与旋转定位效果",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "可靠性校准与查询稳定性",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "系统延迟与案例证据",
+            "required_third_level_count": 2,
+            "actual_third_level_count": 2,
+            "required_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "actual_third_level_titles": [
+              "核心内容",
+              "支撑说明"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=5, actual_h3=5, required_h4>=10, actual_h4=10"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=5, actual_h3=5, required_h4>=10, actual_h4=10",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1401, required>=1380",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "s5",
+      "chapter_type": "body_section",
+      "heading": "六、应用前景与落地价值",
+      "title": "应用前景与落地价值",
+      "goal": "讲清系统给谁用、在什么情境里用、具体带来什么收益，并兼顾答辩展示价值。",
+      "matched_scores": [
+        "应用价值",
+        "讲解表现"
+      ],
+      "narrative_role": "把技术能力翻译成可落地价值，避免作品书后半段只剩技术术语。",
+      "position_logic": "在已经说明技术与实现之后，本章把能力翻译成场景、动作与收益，回答“为什么真的值得用”。",
+      "chapter_weight_reason": "平台应用型项目通常会在应用价值上被重点追问，因此本章必须把用户、流程、收益和展示价值说具体。",
+      "predecessor_sections": [
+        "五、测试与效果分析"
+      ],
+      "successor_sections": [
+        "七、总结与展望"
+      ],
+      "writing_order": 6,
+      "assembly_order": 6,
+      "sample_chapter": "第一章 作品概述",
+      "sample_logic": "先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。",
+      "suggested_page_span": "4p",
+      "suggested_word_budget": "1110-1500",
+      "subsections": [
+        "目标用户与典型场景",
+        "业务收益与竞争优势",
+        "比赛展示价值"
+      ],
+      "structure_contract": {
+        "contract_id": "s5_structure",
+        "chapter_heading": "六、应用前景与落地价值",
+        "required_second_level_count": 3,
+        "required_second_level_titles": [
+          "目标用户与典型场景",
+          "业务收益与竞争优势",
+          "比赛展示价值"
+        ],
+        "required_third_level_total_min": 9,
+        "required_third_level_total_target": 9,
+        "second_level_contracts": [
+          {
+            "title": "目标用户与典型场景",
+            "writing_purpose": "说明给谁用、在什么动作链里用。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "目标对象",
+              "典型动作",
+              "场景约束"
+            ]
+          },
+          {
+            "title": "业务收益与竞争优势",
+            "writing_purpose": "把技术能力翻译为收益闭环。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "收益路径",
+              "资源效率",
+              "竞争优势"
+            ]
+          },
+          {
+            "title": "比赛展示价值",
+            "writing_purpose": "说明比赛展示逻辑而不是泛泛应用价值。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "展示主线",
+              "多端呈现",
+              "演示价值"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "典型场景",
+        "用户动作",
+        "收益闭环",
+        "展示价值"
+      ],
+      "visual_priority": [
+        "场景矩阵图",
+        "部署流程图",
+        "价值闭环图"
+      ],
+      "appendix_candidates": [
+        "扩展业务流程",
+        "成本收益测算假设"
+      ],
+      "key_messages": [
+        "应用场景聚焦 灾害区域新目标快速检索、港口与机场设施巡查、农业与生态目标变化监测，每类用户都需要对应一条清晰的使用动作。",
+        "减少新增类别的全量标注依赖",
+        "把开放词汇结果转成带来源、查询和置信度的审计证据",
+        "适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示"
+      ],
+      "must_include": [
+        "灾害区域新目标快速检索",
+        "港口与机场设施巡查",
+        "农业与生态目标变化监测",
+        "减少新增类别的全量标注依赖",
+        "把开放词汇结果转成带来源、查询和置信度的审计证据",
+        "适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示"
+      ],
+      "linked_innovations": [],
+      "linked_architecture": [],
+      "innovation_loop_map": [],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_84bd681099",
+          "source": "competition-rules.md",
+          "claim": "比赛评分重点集中在：应用价值",
+          "summary": "评分维度直接决定 idea 的匹配度叙事和后续作品书章节分配。",
+          "derived_insight": "评分标准决定后续 idea 叙事和作品书结构取舍。",
+          "evidence_kind": "scoring_rule",
+          "source_authority": "competition_official",
+          "supports": [
+            "评分维度对齐",
+            "章节权重分配"
+          ],
+          "reliability": "high",
+          "tags": [
+            "评分标准",
+            "应用价值"
+          ]
+        },
+        {
+          "evidence_id": "ev_9ca3b5c76b",
+          "source": "competition-rules.md",
+          "claim": "线上提交作品完整设计方案文档与实物文档说明",
+          "summary": "交付形式要求作品不能只有概念描述，还要便于演示和答辩呈现。",
+          "derived_insight": "交付要求会反向约束系统展示方式和 record 结构。",
+          "evidence_kind": "submission_requirement",
+          "source_authority": "competition_official",
+          "supports": [
+            "交付形式设计",
+            "答辩展示结构"
+          ],
+          "reliability": "high",
+          "tags": [
+            "交付要求",
+            "演示"
+          ]
+        },
+        {
+          "evidence_id": "ev_c00e228bb3",
+          "source": "",
+          "claim": "",
+          "summary": "",
+          "derived_insight": "",
+          "evidence_kind": "",
+          "source_authority": "",
+          "supports": [],
+          "reliability": "",
+          "tags": []
+        }
+      ],
+      "chapter_seed_payload": {},
+      "common_errors": [
+        "应用场景只有名词没有流程",
+        "价值只有口号没有收益路径",
+        "把商业化愿景当成当前落地能力"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "灾害区域新目标快速检索",
+          "impacted_chapter": "六、应用前景与落地价值",
+          "why_needed": "应用章节必须说明给谁用、怎么用、用了以后有什么变化。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少给出 2-3 个典型角色及其使用动作链。"
+        },
+        {
+          "missing_item": "港口与机场设施巡查",
+          "impacted_chapter": "六、应用前景与落地价值",
+          "why_needed": "应用章节必须说明给谁用、怎么用、用了以后有什么变化。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少给出 2-3 个典型角色及其使用动作链。"
+        },
+        {
+          "missing_item": "农业与生态目标变化监测",
+          "impacted_chapter": "六、应用前景与落地价值",
+          "why_needed": "应用章节必须说明给谁用、怎么用、用了以后有什么变化。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少给出 2-3 个典型角色及其使用动作链。"
+        },
+        {
+          "missing_item": "减少新增类别的全量标注依赖",
+          "impacted_chapter": "六、应用前景与落地价值",
+          "why_needed": "应用章节必须说明给谁用、怎么用、用了以后有什么变化。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少给出 2-3 个典型角色及其使用动作链。"
+        },
+        {
+          "missing_item": "把开放词汇结果转成带来源、查询和置信度的审计证据",
+          "impacted_chapter": "六、应用前景与落地价值",
+          "why_needed": "应用章节必须说明给谁用、怎么用、用了以后有什么变化。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少给出 2-3 个典型角色及其使用动作链。"
+        },
+        {
+          "missing_item": "适合用词汇输入、遥感图像、检测框和案例回放进行比赛演示",
+          "impacted_chapter": "六、应用前景与落地价值",
+          "why_needed": "应用章节必须说明给谁用、怎么用、用了以后有什么变化。",
+          "priority": "medium",
+          "suggested_backtrack_step": "step4",
+          "minimum_acceptable_substitute": "至少给出 2-3 个典型角色及其使用动作链。"
+        }
+      ],
+      "recommended_visuals": [
+        "应用场景矩阵",
+        "角色-动作-收益表",
+        "预警工单联动流程图",
+        "价值闭环图",
+        "答辩展示页示意"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s5_visual_1",
+          "label": "表6-1",
+          "visual_type": "table",
+          "title": "应用场景矩阵",
+          "purpose": "说明典型场景、目标用户或应用覆盖范围。",
+          "placement_anchor": "目标用户与典型场景",
+          "suggested_subsection": "目标用户与典型场景",
+          "body_reference_hint": "建议在正文中使用“如表6-1所示”或“表6-1显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s5_visual_1.png",
+            "figures/s5_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s5_visual_1.png",
+            "workspace/document_export/assets/visuals/s5_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s5_visual_2",
+          "label": "表6-2",
+          "visual_type": "table",
+          "title": "角色-动作-收益表",
+          "purpose": "部署流程图",
+          "placement_anchor": "目标用户与典型场景",
+          "suggested_subsection": "目标用户与典型场景",
+          "body_reference_hint": "建议在正文中使用“如表6-2所示”或“表6-2显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s5_visual_2.png",
+            "figures/s5_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s5_visual_2.png",
+            "workspace/document_export/assets/visuals/s5_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s5_visual_3",
+          "label": "图6-3",
+          "visual_type": "figure",
+          "title": "预警工单联动流程图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "业务收益与竞争优势",
+          "suggested_subsection": "业务收益与竞争优势",
+          "body_reference_hint": "建议在正文中使用“如图6-3所示”或“图6-3显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s5_visual_3.png",
+            "figures/s5_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s5_visual_3.png",
+            "workspace/document_export/assets/visuals/s5_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s5_visual_4",
+          "label": "图6-4",
+          "visual_type": "figure",
+          "title": "价值闭环图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "业务收益与竞争优势",
+          "suggested_subsection": "业务收益与竞争优势",
+          "body_reference_hint": "建议在正文中使用“如图6-4所示”或“图6-4显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s5_visual_4.png",
+            "figures/s5_visual_4.pdf",
+            "workspace/document_export/assets/visuals/s5_visual_4.png",
+            "workspace/document_export/assets/visuals/s5_visual_4.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s5_visual_5",
+          "label": "图6-5",
+          "visual_type": "figure",
+          "title": "竞赛答辩演示界面板",
+          "purpose": "价值闭环图",
+          "placement_anchor": "比赛展示价值",
+          "suggested_subsection": "比赛展示价值",
+          "body_reference_hint": "建议在正文中使用“如图6-5所示”或“图6-5显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s5_visual_5.png",
+            "figures/s5_visual_5.pdf",
+            "workspace/document_export/assets/visuals/s5_visual_5.png",
+            "workspace/document_export/assets/visuals/s5_visual_5.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\06_s5",
+        "brief": "workspace\\document_writing\\chapters\\06_s5\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\06_s5\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\06_s5\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\06_s5\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\06_s5\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "1110-1500",
+        "budget_lower": 1110,
+        "budget_upper": 1500,
+        "min_ratio": 1.0,
+        "min_required": 1110,
+        "actual_count": 1134,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 3,
+        "actual_second_level_count": 3,
+        "required_second_level_titles": [
+          "目标用户与典型场景",
+          "业务收益与竞争优势",
+          "比赛展示价值"
+        ],
+        "actual_second_level_titles": [
+          "目标用户与典型场景",
+          "业务收益与竞争优势",
+          "比赛展示价值"
+        ],
+        "required_third_level_total_min": 9,
+        "actual_third_level_total": 9,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "目标用户与典型场景",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "目标对象",
+              "典型动作",
+              "场景约束"
+            ],
+            "actual_third_level_titles": [
+              "目标对象",
+              "典型动作",
+              "场景约束"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "业务收益与竞争优势",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "收益路径",
+              "资源效率",
+              "竞争优势"
+            ],
+            "actual_third_level_titles": [
+              "收益路径",
+              "资源效率",
+              "竞争优势"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "比赛展示价值",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "展示主线",
+              "多端呈现",
+              "演示价值"
+            ],
+            "actual_third_level_titles": [
+              "展示主线",
+              "多端呈现",
+              "演示价值"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=1134, required>=1110",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "s6",
+      "chapter_type": "body_section",
+      "heading": "七、总结与展望",
+      "title": "总结与展望",
+      "goal": "用作品书收束口径总结当前成果、边界与后续展望，避免把尾章写成项目排期表或提案附页。",
+      "matched_scores": [
+        "技术方案及其实现质量",
+        "应用价值"
+      ],
+      "narrative_role": "用作品书定稿口径收束全书，说明作品已经形成的能力、系统特色和后续优化方向。",
+      "position_logic": "作为收束章节，本章负责总结作品完成情况、系统价值与不足展望，避免尾章写成项目计划或内部待办说明。",
+      "chapter_weight_reason": "对于平台应用型项目，本章不是附属排期页，而是成熟度说明；它直接影响评委对项目完成度与延展性的判断。",
+      "predecessor_sections": [
+        "六、应用前景与落地价值"
+      ],
+      "successor_sections": [],
+      "writing_order": 7,
+      "assembly_order": 7,
+      "sample_chapter": "第五章 总结与展望",
+      "sample_logic": "收束作品完成情况，明确系统特色、当前不足和后续优化方向。",
+      "suggested_page_span": "1-2p",
+      "suggested_word_budget": "15840-20750",
+      "subsections": [
+        "作品完成情况",
+        "系统特色与应用价值",
+        "不足与后续优化"
+      ],
+      "structure_contract": {
+        "contract_id": "s6_structure",
+        "chapter_heading": "七、总结与展望",
+        "required_second_level_count": 3,
+        "required_second_level_titles": [
+          "作品完成情况",
+          "系统特色与应用价值",
+          "不足与后续优化"
+        ],
+        "required_third_level_total_min": 9,
+        "required_third_level_total_target": 9,
+        "second_level_contracts": [
+          {
+            "title": "作品完成情况",
+            "writing_purpose": "总结本作品已经形成的核心能力和当前交付状态。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "闭环完成情况",
+              "关键能力",
+              "交付形态"
+            ]
+          },
+          {
+            "title": "系统特色与应用价值",
+            "writing_purpose": "把系统特点、应用价值和当前交付成熟度收束到一起。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "系统特色",
+              "应用价值",
+              "交付成熟度"
+            ]
+          },
+          {
+            "title": "不足与后续优化",
+            "writing_purpose": "如实说明不足，并交代后续优化方向。",
+            "required_third_level_count": 3,
+            "required_third_level_titles": [
+              "当前不足",
+              "优化方向",
+              "延展空间"
+            ]
+          }
+        ],
+        "failure_action": "rerun_planning_outline_recomposition"
+      },
+      "body_priority": [
+        "完成情况",
+        "系统特色",
+        "应用价值",
+        "不足与后续方向"
+      ],
+      "visual_priority": [
+        "完成情况对照表",
+        "系统价值闭环图",
+        "优化方向图"
+      ],
+      "appendix_candidates": [
+        "详细排期表",
+        "资源依赖表"
+      ],
+      "key_messages": [
+        "可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线",
+        "DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证",
+        "系统先支持离线切片推理，再扩展到实时或边缘部署",
+        "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+        "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+        "YOLO-World 等组件的许可证需要在发布前核验",
+        "该方向把前沿的开放词汇检测与明确的遥感应用约束结合起来，既有科学问题，也能形成可演示、可评测、可扩展的比赛作品。"
+      ],
+      "must_include": [
+        "可在 Grounding DINO、Detic 或 YOLO-World 上建立可复现实验基线",
+        "DIOR、DOTA、FAIR1M 等公开数据可支撑多协议验证",
+        "系统先支持离线切片推理，再扩展到实时或边缘部署",
+        "作品已经形成的闭环能力与交付形态。",
+        "系统特色、应用价值和交付成熟度。",
+        "当前不足与后续优化方向。"
+      ],
+      "linked_innovations": [],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [],
+      "supporting_evidence": [
+        {
+          "evidence_id": "ev_d827045531",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DIOR 是光学遥感目标检测基准，包含 20 类目标并覆盖尺度、成像条件、天气和季节变化。",
+          "summary": "遥感检测需要在跨场景、类内差异和小目标条件下评估，不能直接照搬自然图像类别假设。",
+          "derived_insight": "使用 DIOR 作为水平框和跨域开放词汇评测入口，并显式冻结 base/novel 划分。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移"
+          ],
+          "reliability": "high",
+          "tags": [
+            "遥感",
+            "benchmark",
+            "开放词汇",
+            "检测",
+            "遥感检测多样性",
+            "benchmark 选择",
+            "域偏移",
+            "remote sensing",
+            "DIOR",
+            "目标检测"
+          ]
+        },
+        {
+          "evidence_id": "ev_7f9521c71a",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "DOTA 用任意方向四边形标注航空影像目标，覆盖尺度、方向和形状变化。",
+          "summary": "俯视影像中的旋转目标和密集目标会同时影响定位与类别匹配，适合检验开放词汇模型的空间鲁棒性。",
+          "derived_insight": "主实验同时报告水平框与旋转框结果，避免类别命中掩盖定位退化。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战"
+          ],
+          "reliability": "high",
+          "tags": [
+            "DOTA",
+            "旋转框",
+            "小目标",
+            "遥感",
+            "旋转目标",
+            "定位指标",
+            "航空影像挑战",
+            "开放词汇"
+          ]
+        },
+        {
+          "evidence_id": "ev_9662694342",
+          "source": "external_evidence\\external-evidence-intake.json",
+          "claim": "FAIR1M 面向高分辨率遥感影像细粒度有向目标识别，提供大量实例和细粒度类别信息。",
+          "summary": "细粒度近义类别会放大提示词和语义原型混淆，必须报告类别层级和错误类型。",
+          "derived_insight": "把细粒度混淆、类别层级和提示词稳定性纳入错误分析。",
+          "evidence_kind": "dataset_signal",
+          "source_authority": "academic",
+          "supports": [
+            "细粒度类别",
+            "有向检测",
+            "语义混淆"
+          ],
+          "reliability": "high",
+          "tags": [
+            "FAIR1M",
+            "细粒度",
+            "有向检测",
+            "遥感",
+            "细粒度类别",
+            "语义混淆",
+            "遥感影像",
+            "remote sensing"
+          ]
+        },
+        {
+          "evidence_id": "ev_84bd681099",
+          "source": "competition-rules.md",
+          "claim": "比赛评分重点集中在：应用价值",
+          "summary": "评分维度直接决定 idea 的匹配度叙事和后续作品书章节分配。",
+          "derived_insight": "评分标准决定后续 idea 叙事和作品书结构取舍。",
+          "evidence_kind": "scoring_rule",
+          "source_authority": "competition_official",
+          "supports": [
+            "评分维度对齐",
+            "章节权重分配"
+          ],
+          "reliability": "high",
+          "tags": [
+            "评分标准",
+            "应用价值"
+          ]
+        },
+        {
+          "evidence_id": "ev_9ca3b5c76b",
+          "source": "competition-rules.md",
+          "claim": "线上提交作品完整设计方案文档与实物文档说明",
+          "summary": "交付形式要求作品不能只有概念描述，还要便于演示和答辩呈现。",
+          "derived_insight": "交付要求会反向约束系统展示方式和 record 结构。",
+          "evidence_kind": "submission_requirement",
+          "source_authority": "competition_official",
+          "supports": [
+            "交付形式设计",
+            "答辩展示结构"
+          ],
+          "reliability": "high",
+          "tags": [
+            "交付要求",
+            "演示"
+          ]
+        }
+      ],
+      "chapter_seed_payload": {},
+      "common_errors": [
+        "把尾章写成项目排期表",
+        "把远期愿景写成当前承诺",
+        "总结章节仍在解释写作边界"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [
+        {
+          "missing_item": "当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "当前章程未明确作品书字数或页数限制，需要补充模板文件确认。",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        },
+        {
+          "missing_item": "YOLO-World 等组件的许可证需要在发布前核验",
+          "impacted_chapter": "全书规划",
+          "why_needed": "这些信息会影响章节轻重、格式约束、系统边界或强 claim 的成立条件。",
+          "priority": "high",
+          "suggested_backtrack_step": "step1/step4",
+          "minimum_acceptable_substitute": "在正文中显式标为待确认项，并降低结论强度。"
+        }
+      ],
+      "recommended_visuals": [
+        "完成情况对照表",
+        "系统价值闭环图",
+        "优化方向图"
+      ],
+      "visual_specs": [
+        {
+          "visual_id": "s6_visual_1",
+          "label": "表7-1",
+          "visual_type": "table",
+          "title": "完成情况对照表",
+          "purpose": "对齐痛点、创新点、模块或证据之间的对应关系。",
+          "placement_anchor": "作品完成情况",
+          "suggested_subsection": "作品完成情况",
+          "body_reference_hint": "建议在正文中使用“如表7-1所示”或“表7-1显示”来引用该表。",
+          "asset_candidates": [
+            "figures/s6_visual_1.png",
+            "figures/s6_visual_1.pdf",
+            "workspace/document_export/assets/visuals/s6_visual_1.png",
+            "workspace/document_export/assets/visuals/s6_visual_1.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s6_visual_2",
+          "label": "图7-2",
+          "visual_type": "figure",
+          "title": "系统价值闭环图",
+          "purpose": "说明系统运行步骤、数据流向或业务闭环。",
+          "placement_anchor": "系统特色与应用价值",
+          "suggested_subsection": "系统特色与应用价值",
+          "body_reference_hint": "建议在正文中使用“如图7-2所示”或“图7-2显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s6_visual_2.png",
+            "figures/s6_visual_2.pdf",
+            "workspace/document_export/assets/visuals/s6_visual_2.png",
+            "workspace/document_export/assets/visuals/s6_visual_2.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        },
+        {
+          "visual_id": "s6_visual_3",
+          "label": "图7-3",
+          "visual_type": "figure",
+          "title": "优化方向图",
+          "purpose": "优化方向图",
+          "placement_anchor": "不足与后续优化",
+          "suggested_subsection": "不足与后续优化",
+          "body_reference_hint": "建议在正文中使用“如图7-3所示”或“图7-3显示”来引用该图。",
+          "asset_candidates": [
+            "figures/s6_visual_3.png",
+            "figures/s6_visual_3.pdf",
+            "workspace/document_export/assets/visuals/s6_visual_3.png",
+            "workspace/document_export/assets/visuals/s6_visual_3.pdf"
+          ],
+          "required": true,
+          "fallback_render": "latex_placeholder"
+        }
+      ],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\07_s6",
+        "brief": "workspace\\document_writing\\chapters\\07_s6\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\07_s6\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\07_s6\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\07_s6\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\07_s6\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "15840-20750",
+        "budget_lower": 15840,
+        "budget_upper": 20750,
+        "min_ratio": 1.0,
+        "min_required": 15840,
+        "actual_count": 15881,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": true,
+        "status": "passed",
+        "passed": true,
+        "required_second_level_count": 3,
+        "actual_second_level_count": 24,
+        "required_second_level_titles": [
+          "作品完成情况",
+          "系统特色与应用价值",
+          "不足与后续优化"
+        ],
+        "actual_second_level_titles": [
+          "作品完成情况",
+          "系统特色与应用价值",
+          "不足与后续优化",
+          "附录A：研究问题与假设",
+          "附录B：消融与复现实验清单",
+          "附录C：术语与字段字典",
+          "附录D：图表索引与阅读顺序",
+          "附录E：实施计划与风险管理",
+          "附录F：参考文献",
+          "附录G：技术路线与可行性论证",
+          "附录H：面向评审问题的逐项回答",
+          "附录I：实验执行与审计操作手册",
+          "附录J：研究成果的可迁移性",
+          "附录K：申报书阅读导航",
+          "附录L：结论边界与后续实验入口",
+          "附录M：申报书的可核查主张清单",
+          "附录N：交付前签核字段",
+          "附录O：交付声明",
+          "附录P：可追踪性说明",
+          "附录Q：版本封存",
+          "附录R：正文级实施核对",
+          "附录S：落地验收路径",
+          "附录T：运行责任边界",
+          "附录U：复核闭环"
+        ],
+        "required_third_level_total_min": 9,
+        "actual_third_level_total": 9,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "per_second_level": [
+          {
+            "title": "作品完成情况",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "闭环完成情况",
+              "关键能力",
+              "交付形态"
+            ],
+            "actual_third_level_titles": [
+              "闭环完成情况",
+              "关键能力",
+              "交付形态"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "系统特色与应用价值",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "系统特色",
+              "应用价值",
+              "交付成熟度"
+            ],
+            "actual_third_level_titles": [
+              "系统特色",
+              "应用价值",
+              "交付成熟度"
+            ],
+            "missing_third_level_titles": []
+          },
+          {
+            "title": "不足与后续优化",
+            "required_third_level_count": 3,
+            "actual_third_level_count": 3,
+            "required_third_level_titles": [
+              "当前不足",
+              "优化方向",
+              "延展空间"
+            ],
+            "actual_third_level_titles": [
+              "当前不足",
+              "优化方向",
+              "延展空间"
+            ],
+            "missing_third_level_titles": []
+          }
+        ],
+        "notes": "required_h3=3, actual_h3=24, required_h4>=9, actual_h4=9"
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "pass",
+          "notes": "required_h3=3, actual_h3=24, required_h4>=9, actual_h4=9",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=15881, required>=15840",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "abstract",
+      "chapter_type": "abstract",
+      "heading": "摘要",
+      "title": "摘要",
+      "goal": "用 2-3 段概括项目问题、方案、创新点和应用价值，供评委快速建立全局认知。",
+      "matched_scores": [
+        "应用价值"
+      ],
+      "narrative_role": "作为全书压缩视图，必须覆盖项目名称、问题、方案、创新和价值，不展开章节细节。",
+      "position_logic": "摘要位于全书最前，负责压缩全书主线并帮助评委快速建立总认知。",
+      "chapter_weight_reason": "摘要虽然篇幅短，但承担全书压缩任务，必须覆盖问题、方案、创新与结果。",
+      "predecessor_sections": [],
+      "successor_sections": [
+        "一、作品概述与问题定义"
+      ],
+      "writing_order": 8,
+      "assembly_order": 0,
+      "sample_chapter": "摘要",
+      "sample_logic": "先交代问题与对象，再压缩方案、创新点和应用价值，不重复正文展开。",
+      "suggested_page_span": "2p",
+      "suggested_word_budget": "600-1000",
+      "subsections": [],
+      "structure_contract": {},
+      "body_priority": [
+        "问题",
+        "方案",
+        "创新",
+        "结果",
+        "价值"
+      ],
+      "visual_priority": [],
+      "appendix_candidates": [],
+      "key_messages": [
+        "项目名称必须稳定写为 OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准。",
+        "摘要要覆盖问题、方案、创新、应用价值四个层面。",
+        "摘要写完后应能独立支撑答辩开场和作品书检索。"
+      ],
+      "must_include": [
+        "自然图像开放词汇检测器面对遥感影像中的小目标、旋转目标、密集排列和细粒度类别时，容易出现语义命中但定位错误、类别幻觉和置信度失真；新增类别还需要重新标注和训练，限制了地球观测系统的响应速度。",
+        "构建以文本查询为入口的遥感开放词汇检测系统，先用遥感域视觉语言原型对齐查询，再用多尺度和旋转候选完成定位，最后用类别—区域一致性、背景抑制和温度校准输出带证据的可靠结果。",
+        "核心创新点概括",
+        "目标用户与应用价值概括"
+      ],
+      "linked_innovations": [
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准"
+      ],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [],
+      "supporting_evidence": [],
+      "common_errors": [
+        "摘要写成口号",
+        "摘要数据在正文无支撑",
+        "摘要只讲方案不讲结果"
+      ],
+      "pending_confirmations": [],
+      "missing_materials": [],
+      "recommended_visuals": [],
+      "visual_specs": [],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\08_abstract",
+        "brief": "workspace\\document_writing\\chapters\\08_abstract\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\08_abstract\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\08_abstract\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\08_abstract\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\08_abstract\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "600-1000",
+        "budget_lower": 600,
+        "budget_upper": 1000,
+        "min_ratio": 1.0,
+        "min_required": 600,
+        "actual_count": 632,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": false,
+        "status": "not_applicable",
+        "passed": true,
+        "required_second_level_count": 0,
+        "actual_second_level_count": 0,
+        "required_third_level_total_min": 0,
+        "actual_third_level_total": 0,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "notes": "Abstract/conclusion chapters do not require body heading structure gate."
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "not_applicable",
+          "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=632, required>=600",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    },
+    {
+      "chapter_id": "conclusion",
+      "chapter_type": "conclusion",
+      "heading": "结语",
+      "title": "结语",
+      "goal": "收束项目贡献、作品价值与后续优化方向，不再新增核心论证。",
+      "matched_scores": [
+        "应用价值",
+        "讲解表现"
+      ],
+      "narrative_role": "作为收尾章节，总结贡献、应用价值并给出克制的后续优化方向。",
+      "position_logic": "结语位于全书末尾，只做收束，不再引入新技术细节或新实验。",
+      "chapter_weight_reason": "结语篇幅不大，但直接影响整部作品书的成熟度、完成感和评委对作品价值的最终判断。",
+      "predecessor_sections": [
+        "七、总结与展望"
+      ],
+      "successor_sections": [],
+      "writing_order": 9,
+      "assembly_order": 8,
+      "sample_chapter": "第五章 总结与展望",
+      "sample_logic": "只做总结、价值收束和后续优化方向，不重复正文技术细节。",
+      "suggested_page_span": "1-2p",
+      "suggested_word_budget": "800-1400",
+      "subsections": [],
+      "structure_contract": {},
+      "body_priority": [
+        "贡献总结",
+        "作品价值",
+        "后续优化"
+      ],
+      "visual_priority": [],
+      "appendix_candidates": [],
+      "key_messages": [
+        "总结项目已形成的核心能力与系统主线。",
+        "收束作品对典型用户与应用场景的价值。",
+        "提出下一流程优化方向，但不要写成范围管理说明。"
+      ],
+      "must_include": [
+        "项目总体贡献总结",
+        "作品价值收束",
+        "下一流程优化方向"
+      ],
+      "linked_innovations": [
+        "创新一 · 遥感域词汇原型适配",
+        "创新二 · 多尺度旋转候选协同",
+        "创新三 · 可靠语义校准"
+      ],
+      "linked_architecture": [
+        "遥感影像切片与质量检查",
+        "文本词汇与域适配编码",
+        "水平/旋转候选检测",
+        "可靠性校准与证据回放"
+      ],
+      "innovation_loop_map": [],
+      "supporting_evidence": [],
+      "common_errors": [
+        "结尾新增未论证内容",
+        "只重复前文没有收束",
+        "把愿景写成当前已交付能力"
+      ],
+      "pending_confirmations": [
+        "开放词汇能力可能被提示词选择放大，需要冻结查询模板并做同义改写测试",
+        "公开数据与真实区域存在域差异，必须保留跨区域外测和人工复核边界",
+        "YOLO-World 等组件的许可证需要在发布前核验"
+      ],
+      "missing_materials": [],
+      "recommended_visuals": [],
+      "visual_specs": [],
+      "work_type": "平台应用型",
+      "work_type_reason": "项目强调平台能力、用户场景和运营闭环，作品书应提高问题场景、系统流程和应用价值的章节权重。",
+      "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+      "competition_name": "competition-rules",
+      "status": "approved",
+      "current_round": 1,
+      "latest_verdict": "approved",
+      "score_history": [],
+      "requested_changes": [],
+      "applied_changes": [
+        {
+          "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
+          "status": "applied"
+        }
+      ],
+      "approved_at": "2026-09-23T00:00:00Z",
+      "audit_summary": "## Verdict",
+      "files": {
+        "chapter_dir": "workspace\\document_writing\\chapters\\09_conclusion",
+        "brief": "workspace\\document_writing\\chapters\\09_conclusion\\brief.md",
+        "draft": "workspace\\document_writing\\chapters\\09_conclusion\\draft.md",
+        "audit": "workspace\\document_writing\\chapters\\09_conclusion\\audit.md",
+        "decision_schema": "workspace\\document_writing\\chapters\\09_conclusion\\decision-schema.md",
+        "decision": "workspace\\document_writing\\chapters\\09_conclusion\\decision.json"
+      },
+      "length_gate": {
+        "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
+        "raw_budget": "800-1400",
+        "budget_lower": 800,
+        "budget_upper": 1400,
+        "min_ratio": 1.0,
+        "min_required": 800,
+        "actual_count": 803,
+        "enforceable": true,
+        "status": "passed",
+        "passed": true
+      },
+      "structure_gate": {
+        "required": false,
+        "status": "not_applicable",
+        "passed": true,
+        "required_second_level_count": 0,
+        "actual_second_level_count": 0,
+        "required_third_level_total_min": 0,
+        "actual_third_level_total": 0,
+        "missing_second_level_titles": [],
+        "missing_third_level_titles": [],
+        "notes": "Abstract/conclusion chapters do not require body heading structure gate."
+      },
+      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "blocking_reason_category": "",
+      "return_to_step": "",
+      "audit_dimensions": {
+        "goal_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "score_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "position_logic": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "heading_structure": {
+          "status": "not_applicable",
+          "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "body_priority_coverage": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "evidence_support": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "innovation_loop": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "length_budget": {
+          "status": "pass",
+          "notes": "章节长度达标：actual=803, required>=800",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "visuals_alignment": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "terminology_consistency": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        },
+        "pending_items_handling": {
+          "status": "pass",
+          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "evidence": [
+            "作品书_OpenRSI-Calibrator.md",
+            "研究简报",
+            "章节结构与长度 Gate"
+          ]
+        }
+      },
+      "missing_materials_gate": {
+        "status": "pending",
+        "items": [],
+        "notes": ""
+      },
+      "primary_failures": [],
+      "required_revision_categories": []
+    }
+  ]
+}

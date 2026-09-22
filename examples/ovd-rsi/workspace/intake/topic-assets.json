@@ -1,0 +1,11 @@
+{
+  "rules": [
+    "competition-rules.md"
+  ],
+  "references": [
+    "external_evidence\\external-evidence-intake.json"
+  ],
+  "samples": [],
+  "outputs_present": [],
+  "missing_inputs": []
+}

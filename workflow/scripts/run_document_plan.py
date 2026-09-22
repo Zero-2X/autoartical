@@ -554,6 +554,35 @@ def build_sections(
     innovation_evidence_ids = collect_innovation_evidence_ids(idea_card)
     reference_map = chapter_reference_map(reference_template)
     work_type, _work_type_reason = infer_work_type(idea_card)
+    profile_id = str((idea_card.get("topic_profile", {}) or {}).get("profile_id", ""))
+    is_remote_sensing_ovd = profile_id == "remote_sensing_open_vocabulary_detection"
+    validation_subsections = (
+        [
+            "评测协议与数据划分",
+            "Current methods 基线对比",
+            "开放类别与旋转定位效果",
+            "可靠性校准与查询稳定性",
+            "系统延迟与案例证据",
+        ]
+        if is_remote_sensing_ovd
+        else ["测试数据与指标设置", "多源融合效果验证", "跨工况诊断效果验证", "健康评分与案例回放", "系统性能与闭环测试"]
+    )
+    validation_body_priority = (
+        [
+            "公开基准与 base/novel/generalized 划分",
+            "Grounding DINO、Detic、YOLO-World 和闭集上限对照",
+            "HBB/OBB、小目标与细粒度结果",
+            "ECE、Brier、高置信假阳性和同义查询一致性",
+            "延迟、显存、证据卡与跨区域外测",
+        ]
+        if is_remote_sensing_ovd
+        else ["数据来源与验证边界", "关键指标体系", "多源融合结果", "跨工况稳定性", "案例回放", "系统性能与闭环指标"]
+    )
+    validation_visual_priority = (
+        ["数据集与 base/novel 划分图", "方法类别对照表", "HBB/OBB 结果表", "校准曲线与查询一致性图", "案例证据卡与延迟面板"]
+        if is_remote_sensing_ovd
+        else ["关键性能汇总表", "对比实验结果表", "案例回放时序图", "系统性能指标表"]
+    )
     global_missing_materials = make_missing_materials(
         pending_confirmations + open_questions,
         impacted_chapter="全书规划",
@@ -802,13 +831,17 @@ def build_sections(
             predecessor_sections=["三、核心创新与关键技术", "四、作品实现与运行闭环"],
             successor_sections=["六、应用前景与落地价值"],
             sample_chapter=validation_reference.get("section", "第三章 作品测试与分析"),
-            sample_logic="先交代测试数据与指标设置，再按多源融合、跨工况、案例回放和系统闭环展开分析。",
+            sample_logic=(
+                "先冻结公开基准、base/novel 划分和提示词协议，再按基线对比、旋转定位、可靠性校准、查询稳定性和系统案例展开分析。"
+                if is_remote_sensing_ovd
+                else "先交代测试数据与指标设置，再按多源融合、跨工况、案例回放和系统闭环展开分析。"
+            ),
             suggested_page_span="4-6p",
             suggested_word_budget="2200-3600",
-            subsections=["测试数据与指标设置", "多源融合效果验证", "跨工况诊断效果验证", "健康评分与案例回放", "系统性能与闭环测试"],
-            structure_contract=build_structure_contract("s_validation", "五、测试与效果分析", ["测试数据与指标设置", "多源融合效果验证", "跨工况诊断效果验证", "健康评分与案例回放", "系统性能与闭环测试"]),
-            body_priority=["数据来源与验证边界", "关键指标体系", "多源融合结果", "跨工况稳定性", "案例回放", "系统性能与闭环指标"],
-            visual_priority=["关键性能汇总表", "对比实验结果表", "案例回放时序图", "系统性能指标表"],
+            subsections=validation_subsections,
+            structure_contract=build_structure_contract("s_validation", "五、测试与效果分析", validation_subsections),
+            body_priority=validation_body_priority,
+            visual_priority=validation_visual_priority,
             appendix_candidates=["补充实验说明", "扩展曲线图", "更多案例回放截图"],
             key_messages=[
                 validation_summary or "测试章需要把指标口径、对比实验、复杂场景稳定性和系统性能补齐。",
@@ -834,14 +867,14 @@ def build_sections(
             ),
             evidence_ids=evidence_claim_map.get("solution_basis", []) + evidence_claim_map.get("novelty_basis", []),
             evidence_index=evidence_index,
-            recommended_visuals=validation_assets or ["关键性能汇总表", "对比实验结果表", "案例回放时序图", "系统性能指标表"],
+            recommended_visuals=validation_assets or validation_visual_priority,
             visual_specs=build_visual_specs(
                 section_id="s_validation",
                 heading="五、测试与效果分析",
                 chapter_number=5,
-                subsections=["测试数据与指标设置", "多源融合效果验证", "跨工况诊断效果验证", "健康评分与案例回放", "系统性能与闭环测试"],
-                visual_priority=["关键性能汇总表", "对比实验结果表", "案例回放时序图", "系统性能指标表"],
-                recommended_visuals=validation_assets or ["关键性能汇总表", "对比实验结果表", "案例回放时序图", "系统性能指标表"],
+                subsections=validation_subsections,
+                visual_priority=validation_visual_priority,
+                recommended_visuals=validation_assets or validation_visual_priority,
             ),
             common_errors=["只罗列几个好看的数字", "没有交代指标口径和数据边界", "把系统性能和分类效果混在一起", "把仿真示例值写成真实实测结果"],
             risks=["测试章必须显式说明数据来源边界", "每项创新若没有对应实验或案例支撑，会削弱前文创新说服力"],
@@ -1212,6 +1245,31 @@ def main() -> int:
     sections = build_sections(spec, idea_card, evidence_index, reference_template)
     content_contract = dict(DEFAULT_CONTRACT)
     allocate_budgets(sections, content_contract)
+    # Open-vocabulary RSI proposals place substantial evidence in the final
+    # chapter's appendices (experiment audit, risks, references and delivery
+    # checks).  The generic allocation overweights the innovation chapter and
+    # then blocks otherwise valid chapter drafts at the per-chapter gate. Keep
+    # the 24k/32k whole-book contract, but reserve realistic room for the
+    # appendix-heavy conclusion.
+    profile_id = (idea_card.get("topic_profile") or {}).get("profile_id", "")
+    if profile_id == "remote_sensing_open_vocabulary_detection":
+        ovd_budgets = {
+            "s1": (1800, 2400),
+            "s2": (1300, 1800),
+            "s3": (1490, 1950),
+            "s4": (1080, 1500),
+            "s_validation": (1380, 1900),
+            "s5": (1110, 1500),
+            "s6": (15840, 20750),
+        }
+        for section in sections:
+            budget = ovd_budgets.get(section.get("section_id"))
+            if budget:
+                section["suggested_word_budget"] = f"{budget[0]}-{budget[1]}"
+            if section.get("section_id") == "s5":
+                for visual in section.get("visual_specs", []):
+                    if visual.get("visual_id") == "s5_visual_5":
+                        visual["title"] = "竞赛答辩演示界面板"
     coverage = build_score_coverage(spec, sections)
     outline = render_outline(spec, idea_card, sections)
     reference_text = render_reference_template(reference_template)

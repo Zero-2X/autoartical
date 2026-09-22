@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "source_path": "D:\\autoartical\\examples\\ovd-rsi\\external_evidence\\README.md",
+  "source_sha256": "882c982b947d2a3e1212c283bb73da3ca5fac4af22f8c4decad3c06301b3c2f9",
+  "engine": "builtin",
+  "engine_version": "1",
+  "extracted_at": "2026-09-22T17:04:31.634869+00:00",
+  "segments": [
+    {
+      "locator": "line:1",
+      "page": null,
+      "text": "# External Evidence"
+    },
+    {
+      "locator": "line:2",
+      "page": null,
+      "text": ""
+    },
+    {
+      "locator": "line:3",
+      "page": null,
+      "text": "Place web-searched papers, reports, datasets, and manually curated evidence notes here."
+    },
+    {
+      "locator": "line:4",
+      "page": null,
+      "text": ""
+    },
+    {
+      "locator": "line:5",
+      "page": null,
+      "text": "- `external-evidence-intake.json`: structured source list for Step2 import."
+    },
+    {
+      "locator": "line:6",
+      "page": null,
+      "text": "- `*.md`: optional search notes, reading memos, or evidence curation logs."
+    },
+    {
+      "locator": "line:7",
+      "page": null,
+      "text": ""
+    },
+    {
+      "locator": "line:8",
+      "page": null,
+      "text": "Recommended fields per item:"
+    },
+    {
+      "locator": "line:9",
+      "page": null,
+      "text": "- source_title / source_url / source_type / source_authority"
+    },
+    {
+      "locator": "line:10",
+      "page": null,
+      "text": "- claim / summary / derived_insight"
+    },
+    {
+      "locator": "line:11",
+      "page": null,
+      "text": "- inspiration_points / evidence_for"
+    },
+    {
+      "locator": "line:12",
+      "page": null,
+      "text": "- applicable_steps / applicable_work_types"
+    },
+    {
+      "locator": "line:13",
+      "page": null,
+      "text": "- reliability / curation_status / usage_hint / limitations"
+    }
+  ],
+  "text": "# External Evidence\n\n\n\nPlace web-searched papers, reports, datasets, and manually curated evidence notes here.\n\n\n\n- `external-evidence-intake.json`: structured source list for Step2 import.\n\n- `*.md`: optional search notes, reading memos, or evidence curation logs.\n\n\n\nRecommended fields per item:\n\n- source_title / source_url / source_type / source_authority\n\n- claim / summary / derived_insight\n\n- inspiration_points / evidence_for\n\n- applicable_steps / applicable_work_types\n\n- reliability / curation_status / usage_hint / limitations",
+  "warnings": [],
+  "verification_status": "unverified"
+}

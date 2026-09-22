@@ -1,0 +1,21 @@
+{
+  "competition_name": "competition-rules",
+  "track_name": "",
+  "deadline": "",
+  "submission_format": "线上提交作品完整设计方案文档与实物文档说明",
+  "word_limit": "",
+  "page_limit": "",
+  "required_sections": [],
+  "optional_sections": [],
+  "scoring_dimensions": [
+    "应用价值"
+  ],
+  "bonus_points": [],
+  "forbidden_points": [],
+  "template_requirements": [],
+  "pending_confirmations": [
+    "当前章程未给出作品书具体章节模板，需要补充命题文件或文档格式要求。",
+    "当前 topic 的具体赛道 / 命题方向尚未从章程中唯一确定，需要结合命题文件确认。",
+    "当前章程未明确作品书字数或页数限制，需要补充模板文件确认。"
+  ]
+}

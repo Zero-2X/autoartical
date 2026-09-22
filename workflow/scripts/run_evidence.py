@@ -156,7 +156,7 @@ def infer_source_role(rel_path: str, raw_text: str, default_role: str) -> str:
 
 
 def should_skip_reference(rel_path: str) -> bool:
-    lower_path = rel_path.lower()
+    lower_path = rel_path.replace("\\", "/").lower()
     if lower_path == "external_evidence/readme.md":
         return True
     return False
@@ -412,9 +412,12 @@ def build_source_overview(topic_dir: Path) -> dict:
     external_items = [
         str(path.relative_to(topic_dir))
         for path in sorted((topic_dir / "external_evidence").rglob("*"))
-        if path.is_file()
+        if path.is_file() and path.name.lower() != "readme.md"
     ] if (topic_dir / "external_evidence").exists() else []
-    base_references = [rel for rel in assets.get("references", []) if not rel.startswith("external_evidence/")]
+    base_references = [
+        rel for rel in assets.get("references", [])
+        if not rel.replace("\\", "/").startswith("external_evidence/")
+    ]
     return {
         "rules": assets.get("rules", []),
         "references": base_references,
