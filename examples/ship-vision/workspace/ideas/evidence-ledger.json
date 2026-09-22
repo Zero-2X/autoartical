@@ -2,7 +2,7 @@
   "topic": "视航守望：面向桥区复杂水域的船舶视觉感知与风险证据闭环系统",
   "evidence_items": [
     {
-      "id": "E1",
+      "evidence_id": "E1",
       "source_role": "external_research",
       "evidence_kind": "review",
       "title": "Visual perception for autonomous surface vehicles in complex waterway environments: A review",
@@ -14,7 +14,7 @@
       "supports": ["Q1", "Q3", "Q4"]
     },
     {
-      "id": "E2",
+      "evidence_id": "E2",
       "source_role": "external_research",
       "evidence_kind": "benchmark",
       "title": "SeaDronesSee: A Maritime Benchmark for Detecting Humans in Open Water",
@@ -26,7 +26,7 @@
       "supports": ["Q2", "Q7"]
     },
     {
-      "id": "E3",
+      "evidence_id": "E3",
       "source_role": "external_research",
       "evidence_kind": "benchmark",
       "title": "MaCVi: Maritime Computer Vision Workshop and Challenge",
@@ -38,7 +38,7 @@
       "supports": ["Q2", "Q4", "Q7"]
     },
     {
-      "id": "E4",
+      "evidence_id": "E4",
       "source_role": "external_research",
       "evidence_kind": "review",
       "title": "Visual Perception Challenges in Adverse Weather for Autonomous Vehicles",
@@ -50,7 +50,7 @@
       "supports": ["Q3", "Q4"]
     },
     {
-      "id": "E5",
+      "evidence_id": "E5",
       "source_role": "external_research",
       "evidence_kind": "research_paper",
       "title": "Robust Perception and Navigation of Autonomous Surface Vehicles in Challenging Environments",
@@ -62,7 +62,7 @@
       "supports": ["Q3", "Q5", "Q6"]
     },
     {
-      "id": "E6",
+      "evidence_id": "E6",
       "source_role": "rule",
       "evidence_kind": "official_rule",
       "title": "IMO Convention on the International Regulations for Preventing Collisions at Sea (COLREG)",
