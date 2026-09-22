@@ -18,6 +18,16 @@ def _table_blocks(text: str) -> int:
     return count
 
 
+def _table_quality(text: str) -> dict[str, bool]:
+    """Check the minimum metadata needed to interpret evidence tables."""
+    return {
+        "has_units": "单位" in text,
+        "has_sources": "来源" in text or "数据来源" in text,
+        "has_statistical_basis": "统计" in text or "统计口径" in text or "置信区间" in text,
+        "has_missing_value_rule": "缺失" in text or bool(re.search(r"\b(?:NA|N/A|null)\b", text, re.I)),
+    }
+
+
 def _visual_references(text: str) -> int:
     return len(set(re.findall(r"[图表]\s*\d+(?:[-.．]\d+)+", text)))
 
@@ -40,6 +50,8 @@ def audit_text_quality(text: str, contract: dict[str, Any] | None = None) -> dic
     thin = [value for value in paragraph_units if value < thin_threshold]
     thin_ratio = (len(thin) / paragraph_count) if paragraph_count else 1.0
     citation_count = len(set(re.findall(r"\[[0-9]+\]|https?://\S+", text)))
+    table_blocks = _table_blocks(text)
+    table_quality = _table_quality(text)
     required_terms = {
         "problem_definition": ["研究问题", "关键问题", "问题"],
         "method_mechanism": ["输入", "输出", "机制", "方法"],
@@ -57,6 +69,10 @@ def audit_text_quality(text: str, contract: dict[str, Any] | None = None) -> dic
         failures.append(f"薄段落比例过高：{thin_ratio:.2f} > 0.35")
     if citation_count < 3:
         failures.append(f"可追溯引用不足：{citation_count} < 3")
+    if table_blocks:
+        missing_table_fields = [key for key, passed in table_quality.items() if not passed]
+        if missing_table_fields:
+            failures.append("表格解释元数据缺失：" + "、".join(missing_table_fields))
     missing_term_groups = [key for key, passed in term_status.items() if not passed]
     if missing_term_groups:
         failures.append("关键论证信息缺失：" + "、".join(missing_term_groups))
@@ -72,7 +88,8 @@ def audit_text_quality(text: str, contract: dict[str, Any] | None = None) -> dic
         "duplicate_paragraph_groups": metrics["duplicate_paragraph_groups"],
         "heading_count": _heading_count(text),
         "citation_count": citation_count,
-        "table_blocks": _table_blocks(text),
+        "table_blocks": table_blocks,
+        "table_quality": table_quality,
         "visual_references": _visual_references(text),
         "term_status": term_status,
         "short_document": metrics["prose_units"] < minimum,

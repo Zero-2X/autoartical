@@ -23,6 +23,13 @@ class TextQualityTests(unittest.TestCase):
         self.assertIn("thin_paragraph_ratio", report)
         self.assertTrue(report["term_status"]["experiment_protocol"])
 
+    def test_table_metadata_is_required_when_tables_are_present(self):
+        text = "研究问题、方法机制、benchmark、基线、指标、数据划分、消融、边界和风险。\n\n| 指标 | 数值 |\n|---|---|\n| AP50 | 0.8 |"
+        report = audit_text_quality(text)
+        self.assertTrue(report["table_blocks"])
+        self.assertFalse(report["table_quality"]["has_sources"])
+        self.assertTrue(any("表格解释元数据缺失" in item for item in report["failures"]))
+
 
 if __name__ == "__main__":
     unittest.main()

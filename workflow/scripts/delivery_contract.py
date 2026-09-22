@@ -73,6 +73,15 @@ def _count_markdown_tables(draft: str) -> int:
     return count
 
 
+def _table_quality(draft: str) -> dict[str, bool]:
+    return {
+        "has_units": "单位" in draft,
+        "has_sources": "来源" in draft or "数据来源" in draft,
+        "has_statistical_basis": "统计" in draft or "统计口径" in draft or "置信区间" in draft,
+        "has_missing_value_rule": "缺失" in draft or bool(re.search(r"\b(?:NA|N/A|null)\b", draft, re.I)),
+    }
+
+
 def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict[str, Any]:
     contract = plan.get("content_contract", {}).get("visual_contract", {}) or {}
     specs = iter_visual_specs(plan)
@@ -93,6 +102,7 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
     references = set(re.findall(r"[图表]\s*\d+(?:[-.．]\d+)+", draft))
     uncited = [label for label in labels if label and not any(label.replace(" ", "") in ref.replace(" ", "") for ref in references)]
     tables_in_draft = _count_markdown_tables(draft)
+    table_quality = _table_quality(draft)
     diagrams = sum(_is_diagram(item) for item in required)
     case_or_ui = sum(_is_case_or_ui(item) for item in required)
     required_assets_min = int(contract.get("required_external_assets_min", 0) or 0)
@@ -106,6 +116,10 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
         failures.append(f"外部视觉资产完成率不足：{ratio:.2f} < {contract.get('required_asset_ratio', 1.0)}")
     if tables_in_draft < int(contract.get("required_tables_min", 0) or 0):
         failures.append(f"正文表格不足：{tables_in_draft} < {contract.get('required_tables_min', 0)}")
+    if tables_in_draft and int(contract.get("required_tables_min", 0) or 0):
+        missing_table_fields = [key for key, passed in table_quality.items() if not passed]
+        if missing_table_fields:
+            failures.append("表格解释元数据缺失：" + "、".join(missing_table_fields))
     if diagrams < int(contract.get("required_diagrams_min", 0) or 0):
         failures.append(f"图示规格不足：{diagrams} < {contract.get('required_diagrams_min', 0)}")
     if case_or_ui < int(contract.get("required_case_or_ui_visuals_min", 0) or 0):
@@ -125,6 +139,7 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
         "missing_ids": missing,
         "uncited_labels": uncited,
         "tables_in_draft": tables_in_draft,
+        "table_quality": table_quality,
         "diagram_specs": diagrams,
         "case_or_ui_specs": case_or_ui,
         "asset_ratio": ratio,

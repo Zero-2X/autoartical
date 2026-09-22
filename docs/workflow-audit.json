@@ -39,6 +39,7 @@
     "visual_contract_is_explicit": true,
     "review_checks_visual_gate": true,
     "export_requires_render_report": true,
+    "table_metadata_gate_is_explicit": true,
     "evaluator_has_long_form_mode": true,
     "planner_carries_content_contract": true,
     "visual_script_writes_requests": true,
@@ -87,6 +88,11 @@
       "severity": "fixed",
       "area": "导出",
       "finding": "HTML 生成曾容易被误解为最终交付；现在必须提供 render-report.json，记录页数在 40–50、逐页 visual_qa=pass 和 verified=true。"
+    },
+    {
+      "severity": "fixed",
+      "area": "表格质量",
+      "finding": "表格数量不再是唯一要求；含表格的正文必须提供单位、数据来源、统计口径和缺失值规则，否则进入 revise。"
     },
     {
       "severity": "known_limit",
