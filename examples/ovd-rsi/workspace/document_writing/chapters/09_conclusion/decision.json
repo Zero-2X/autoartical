@@ -8,107 +8,107 @@
   "latest_writer_status": "completed",
   "latest_audit_status": "passed",
   "latest_verdict": "approved",
-  "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+  "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
   "blocking_reason_category": "",
   "return_to_step": "",
   "audit_dimensions": {
     "goal_alignment": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "score_alignment": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "position_logic": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "heading_structure": {
       "status": "not_applicable",
       "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "body_priority_coverage": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "evidence_support": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "innovation_loop": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "length_budget": {
       "status": "pass",
-      "notes": "章节长度达标：actual=803, required>=800",
+      "notes": "章节长度达标：actual=801, required>=800",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "visuals_alignment": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "terminology_consistency": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     },
     "pending_items_handling": {
       "status": "pass",
-      "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+      "notes": "已完成主题证据与结构复核。",
       "evidence": [
-        "作品书_OpenRSI-Calibrator.md",
         "研究简报",
-        "章节结构与长度 Gate"
+        "章节草稿",
+        "质量 Gate"
       ]
     }
   },
@@ -119,7 +119,7 @@
     "budget_upper": 1400,
     "min_ratio": 1.0,
     "min_required": 800,
-    "actual_count": 803,
+    "actual_count": 801,
     "enforceable": true,
     "status": "passed",
     "passed": true
@@ -147,12 +147,7 @@
   "score_history": [],
   "trigger_reason": "chapter_not_started",
   "requested_changes": [],
-  "applied_changes": [
-    {
-      "summary": "按 OpenRSI-Calibrator 研究 brief 写入完整章节正文并通过章节结构/长度复核。",
-      "status": "applied"
-    }
-  ],
+  "applied_changes": [],
   "stale_state": {
     "is_stale": false,
     "reason": ""

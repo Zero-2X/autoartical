@@ -30,6 +30,12 @@ class ContentDepthTests(unittest.TestCase):
         self.assertFalse(gate["passed"])
         self.assertEqual(gate["prose_units"], 2)
 
+    def test_appendix_prose_is_excluded_from_body_volume(self):
+        body = "正文段落包含研究问题、机制、实验与边界，长度足以计量。"
+        appendix = "附录说明 " + "补充材料" * 200
+        metrics = content_metrics("## 第一章\n" + body + "\n\n## 附录A\n" + appendix)
+        self.assertEqual(metrics["prose_units"], content_metrics(body)["prose_units"])
+
     def test_good_volume_still_requires_render_and_semantics(self):
         gate = build_content_depth_gate("## 方法\n输入数据按采集时间排序。", [{"heading": "方法", "suggested_word_budget": "10-20"}], {"body_units_min": 10})
         self.assertTrue(gate["passed"])

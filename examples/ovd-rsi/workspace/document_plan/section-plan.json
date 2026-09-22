@@ -1051,7 +1051,7 @@
       "sample_chapter": "第一章 作品概述",
       "sample_logic": "先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。",
       "suggested_page_span": "4p",
-      "suggested_word_budget": "1800-2400",
+      "suggested_word_budget": "2400-3200",
       "subsections": [
         "背景与赛题价值",
         "目标用户与问题场景",
@@ -1397,7 +1397,7 @@
       "sample_chapter": "第二章 作品设计与实现",
       "sample_logic": "先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。",
       "suggested_page_span": "6p",
-      "suggested_word_budget": "1300-1800",
+      "suggested_word_budget": "1300-1733",
       "subsections": [
         "总体目标与设计原则",
         "系统总体架构",
@@ -1700,7 +1700,7 @@
           "visual_id": "s2_mvp",
           "label": "图2-5",
           "visual_type": "figure",
-          "title": "MVP 范围边界图",
+          "title": "最小可行范围边界图",
           "purpose": "说明 MVP 范围、流程路线或待确认事项。",
           "placement_anchor": "输入-处理-输出闭环",
           "suggested_subsection": "输入-处理-输出闭环",
@@ -1775,7 +1775,7 @@
       "sample_chapter": "第二章 作品设计与实现",
       "sample_logic": "先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。",
       "suggested_page_span": "23p",
-      "suggested_word_budget": "1490-1950",
+      "suggested_word_budget": "1450-1933",
       "subsections": [
         "创新点总览",
         "创新一 · 遥感域词汇原型适配",
@@ -2179,7 +2179,7 @@
       "sample_chapter": "第二章 作品设计与实现",
       "sample_logic": "先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。",
       "suggested_page_span": "4p",
-      "suggested_word_budget": "1080-1500",
+      "suggested_word_budget": "2500-3333",
       "subsections": [
         "模块实现说明",
         "运行流程",
@@ -2581,7 +2581,7 @@
       "sample_chapter": "第三章 作品测试与分析",
       "sample_logic": "先冻结公开基准、base/novel 划分和提示词协议，再按基线对比、旋转定位、可靠性校准、查询稳定性和系统案例展开分析。",
       "suggested_page_span": "4-6p",
-      "suggested_word_budget": "1380-1900",
+      "suggested_word_budget": "4000-5333",
       "subsections": [
         "评测协议与数据划分",
         "Current methods 基线对比",
@@ -3123,7 +3123,7 @@
       "sample_chapter": "第一章 作品概述",
       "sample_logic": "先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。",
       "suggested_page_span": "4p",
-      "suggested_word_budget": "1110-1500",
+      "suggested_word_budget": "1100-1467",
       "subsections": [
         "目标用户与典型场景",
         "业务收益与竞争优势",
@@ -3441,7 +3441,7 @@
       "sample_chapter": "第五章 总结与展望",
       "sample_logic": "收束作品完成情况，明确系统特色、当前不足和后续优化方向。",
       "suggested_page_span": "1-2p",
-      "suggested_word_budget": "15840-20750",
+      "suggested_word_budget": "11250-15000",
       "subsections": [
         "作品完成情况",
         "系统特色与应用价值",

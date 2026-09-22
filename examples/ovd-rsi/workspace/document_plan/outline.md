@@ -15,7 +15,7 @@
 - Chapter Weight Reason: 当前项目判定为平台应用型，本章需要承担问题立论与用户场景落地职责，避免作品书一上来就堆技术名词。
 - Matched Scores: 创意、应用价值
 - Sample Reference: 第一章 作品概述 / 先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。
-- Suggested Length: 4p / 1800-2400 字
+- Suggested Length: 4p / 2400-3200 字
 - Previous Sections: none
 - Next Sections: 二、作品设计与总体架构
 - Subsections:
@@ -92,7 +92,7 @@
 - Chapter Weight Reason: 针对平台应用型项目，本章是整部作品书的总图坐标；若总体设计与边界不清，后文技术章节会显得碎片化。
 - Matched Scores: 创意、技术方案及其实现质量、讲解表现
 - Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
-- Suggested Length: 6p / 1300-1800 字
+- Suggested Length: 6p / 1300-1733 字
 - Previous Sections: 一、作品概述与问题定义
 - Next Sections: 三、核心创新与关键技术、四、作品实现与运行闭环
 - Subsections:
@@ -145,7 +145,7 @@
   - [图2-2] 模块职责分层图 | type=figure | purpose=说明系统由哪些模块组成，以及模块之间如何协同。 | anchor=系统总体架构 | subsection=系统总体架构
   - [图2-3] 输入-处理-输出闭环图 | type=figure | purpose=说明系统运行步骤、数据流向或业务闭环。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环
   - [图2-4] 多端联动部署图 | type=figure | purpose=部署拓扑图 | anchor=系统总体架构 | subsection=系统总体架构
-  - [图2-5] MVP 范围边界图 | type=figure | purpose=说明 MVP 范围、流程路线或待确认事项。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环
+  - [图2-5] 最小可行范围边界图 | type=figure | purpose=说明 MVP 范围、流程路线或待确认事项。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环
 - Risks:
   - 如果没有总图，答辩时会显得碎片化
   - 方案边界不清会被追问当前版本与后续扩展的分界依据
@@ -169,7 +169,7 @@
 - Chapter Weight Reason: 平台应用型项目的高分通常来自这一章与测试章形成的双重闭环，因此本章应承担创新定义、机制落点与技术解释的主要篇幅。
 - Matched Scores: 创意、技术方案及其实现质量
 - Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
-- Suggested Length: 23p / 1490-1950 字
+- Suggested Length: 23p / 1450-1933 字
 - Previous Sections: 二、作品设计与总体架构
 - Next Sections: 四、作品实现与运行闭环、五、测试与效果分析
 - Subsections:
@@ -268,7 +268,7 @@
 - Chapter Weight Reason: 对于平台应用型项目，本章决定评委对完成度的直观判断，尤其影响“实现质量”和“讲解表现”。
 - Matched Scores: 技术方案及其实现质量、讲解表现
 - Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
-- Suggested Length: 4p / 1080-1500 字
+- Suggested Length: 4p / 2500-3333 字
 - Previous Sections: 二、作品设计与总体架构、三、核心创新与关键技术
 - Next Sections: 五、测试与效果分析、六、应用前景与落地价值
 - Subsections:
@@ -357,7 +357,7 @@
 - Chapter Weight Reason: 平台应用型项目若缺少正式测试章，创新与实现很难转化为可信的评审印象，因此本章必须承担关键证据链的组织任务。
 - Matched Scores: 技术方案及其实现质量、创意、讲解表现
 - Sample Reference: 第三章 作品测试与分析 / 先冻结公开基准、base/novel 划分和提示词协议，再按基线对比、旋转定位、可靠性校准、查询稳定性和系统案例展开分析。
-- Suggested Length: 4-6p / 1380-1900 字
+- Suggested Length: 4-6p / 4000-5333 字
 - Previous Sections: 三、核心创新与关键技术、四、作品实现与运行闭环
 - Next Sections: 六、应用前景与落地价值
 - Subsections:
@@ -462,7 +462,7 @@
 - Chapter Weight Reason: 平台应用型项目通常会在应用价值上被重点追问，因此本章必须把用户、流程、收益和展示价值说具体。
 - Matched Scores: 应用价值、讲解表现
 - Sample Reference: 第一章 作品概述 / 先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。
-- Suggested Length: 4p / 1110-1500 字
+- Suggested Length: 4p / 1100-1467 字
 - Previous Sections: 五、测试与效果分析
 - Next Sections: 七、总结与展望
 - Subsections:
@@ -538,7 +538,7 @@
 - Chapter Weight Reason: 对于平台应用型项目，本章不是附属排期页，而是成熟度说明；它直接影响评委对项目完成度与延展性的判断。
 - Matched Scores: 技术方案及其实现质量、应用价值
 - Sample Reference: 第五章 总结与展望 / 收束作品完成情况，明确系统特色、当前不足和后续优化方向。
-- Suggested Length: 1-2p / 15840-20750 字
+- Suggested Length: 1-2p / 11250-15000 字
 - Previous Sections: 六、应用前景与落地价值
 - Next Sections: none
 - Subsections:

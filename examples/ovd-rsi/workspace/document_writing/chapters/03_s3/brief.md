@@ -18,7 +18,7 @@
 - Work Type: 平台应用型
 - Matched Scores: 创意、技术方案及其实现质量
 - Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
-- Suggested Length: 23p / 1490-1950
+- Suggested Length: 23p / 1450-1933
 
 ## Section Dependencies
 - 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。
@@ -54,8 +54,8 @@
   - Reference Hint: 建议在正文中使用“如表3-6所示”或“表3-6显示”来引用该表。
 
 ## Length Gate
-- Target Budget: 1490-1950
-- Minimum Pass Threshold: 1490 (100% of lower bound 1490)
+- Target Budget: 1450-1933
+- Minimum Pass Threshold: 1450 (100% of lower bound 1450)
 - Count Rule: Chinese CJK characters plus Latin word tokens after stripping markdown formatting.
 - Agent3 must not approve this chapter if the正文长度 is below the minimum pass threshold unless Agent1 explicitly downgrades the requirement.
 

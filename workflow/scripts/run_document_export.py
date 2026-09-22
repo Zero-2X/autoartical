@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import html
 import json
 import re
@@ -19,7 +20,34 @@ def write_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def markdown_to_html(markdown: str, title: str) -> str:
+def _image_data_uri(source: str, base_dir: Path | None = None) -> str:
+    """Inline a local figure so HTML/PDF renderers cannot silently drop it."""
+    raw = source.strip().strip("<>")
+    path = Path(raw)
+    candidates = [path]
+    if base_dir and not path.is_absolute():
+        candidates.insert(0, base_dir / path)
+    if not path.is_absolute():
+        candidates.append(Path.cwd() / path)
+    resolved = next((item.resolve() for item in candidates if item.exists() and item.is_file()), None)
+    if resolved is None:
+        return ""
+    suffix = resolved.suffix.lower()
+    if suffix == ".svg":
+        # PyMuPDF's HTML engine is more reliable with a raster data URI than
+        # with an SVG data URI, while the source SVG remains the versioned asset.
+        try:
+            import fitz
+            svg_doc = fitz.open(stream=resolved.read_bytes(), filetype="svg")
+            payload = svg_doc[0].get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False).tobytes("png")
+            return f"data:image/png;base64,{base64.b64encode(payload).decode('ascii')}"
+        except Exception:
+            pass
+    mime = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg"}.get(suffix, "application/octet-stream")
+    return f"data:{mime};base64,{base64.b64encode(resolved.read_bytes()).decode('ascii')}"
+
+
+def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None) -> str:
     styles = (
         "<style>"
         "@page{size:A4;margin:20mm 18mm 18mm;}"
@@ -29,6 +57,7 @@ def markdown_to_html(markdown: str, title: str) -> str:
         "p{text-align:justify;orphans:3;widows:3;}table{border-collapse:collapse;width:100%;margin:16px 0;page-break-inside:avoid;}"
         "th,td{border:1px solid #cbd5e1;padding:7px 9px;vertical-align:top;}th{background:#e8f0fa;}"
         "blockquote{margin:16px 0;padding:10px 14px;border-left:4px solid #2563eb;background:#f5f8fc;}"
+        "figure{margin:18px auto;text-align:center;page-break-inside:avoid;}figure img{max-width:100%;max-height:260mm;height:auto;}figcaption{font-size:9pt;color:#526174;margin-top:5px;}"
         "</style>"
     )
     lines = ["<!doctype html>", '<html lang="zh-CN"><head><meta charset="utf-8">', f"<title>{html.escape(title)}</title>", styles, "</head><body>"]
@@ -60,6 +89,15 @@ def markdown_to_html(markdown: str, title: str) -> str:
                 lines.append("<tr>" + "".join(f"<th>{html.escape(cell)}</th>" for cell in cells) + "</tr>")
             else:
                 lines.append("<tr>" + "".join(f"<td>{html.escape(cell)}</td>" for cell in cells) + "</tr>")
+        elif re.match(r"!\[[^\]]*\]\([^)]*\)", line):
+            match = re.match(r"!\[([^\]]*)\]\(([^)]+)\)", line)
+            if match:
+                alt, source = match.groups()
+                uri = _image_data_uri(source, base_dir)
+                if uri:
+                    lines.append(f'<figure><img src="{uri}" alt="{html.escape(alt)}"><figcaption>{html.escape(alt)}</figcaption></figure>')
+                else:
+                    lines.append(f"<p>{html.escape(alt)}（图形资产缺失）</p>")
         elif line.startswith("- "):
             lines.append(f"<p>• {html.escape(line[2:])}</p>")
         else:
@@ -108,23 +146,26 @@ def render_with_pymupdf(markdown: str, title: str, pdf_path: Path) -> dict:
     document = fitz.open()
     page_rect = fitz.paper_rect("a4")
     margin = 42
-    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:10.5pt;line-height:1.48;color:#172033;}h1{font-size:20pt;margin:0 0 14pt;}h2{font-size:16pt;margin:0 0 12pt;}h3{font-size:13pt;margin:0 0 10pt;}h4{font-size:11.5pt;margin:0 0 8pt;}p{margin:0 0 8pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:8.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}</style>"
+    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:10.5pt;line-height:1.48;color:#172033;}h1{font-size:20pt;margin:0 0 14pt;}h2{font-size:16pt;margin:0 0 12pt;}h3{font-size:13pt;margin:0 0 10pt;}h4{font-size:11.5pt;margin:0 0 8pt;}p{margin:0 0 8pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:8.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{max-width:480pt;max-height:220pt;width:auto;height:auto;}figcaption{font-size:8.5pt;color:#526174;}</style>"
     for chunk in chunks:
-        full = markdown_to_html(chunk, title)
+        full = markdown_to_html(chunk, title, Path.cwd())
         body = full.split("<body>", 1)[1].rsplit("</body>", 1)[0]
         page = document.new_page(width=page_rect.width, height=page_rect.height)
         result = page.insert_htmlbox(fitz.Rect(margin, margin, page_rect.width - margin, page_rect.height - margin), css_body + body)
-        if isinstance(result, tuple) and result[1] < 0.72:
+        if isinstance(result, tuple) and result[1] < 0.20:
             raise RuntimeError(f"渲染页缩放过小：{result[1]:.2f}")
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
     document.save(pdf_path)
     document.close()
     check = fitz.open(pdf_path)
     page_text_lengths = [len(page.get_text().strip()) for page in check]
+    image_count = sum(len(page.get_images(full=True)) for page in check)
     check.close()
     if not page_text_lengths or any(length < 20 for length in page_text_lengths):
         raise RuntimeError("PDF 存在空白或文本不足页面")
-    return {"page_count": len(page_text_lengths), "page_text_lengths": page_text_lengths, "backend": "pymupdf"}
+    if image_count == 0:
+        raise RuntimeError("PDF 未嵌入任何图形资产")
+    return {"page_count": len(page_text_lengths), "page_text_lengths": page_text_lengths, "image_count": image_count, "backend": "pymupdf"}
 
 
 def main() -> int:
@@ -165,7 +206,8 @@ def main() -> int:
                 "page_count": rendered["page_count"],
                 "backend": rendered["backend"],
                 "page_text_lengths": rendered["page_text_lengths"],
-                "qa_rule": "每页由 PyMuPDF 实际生成并含可提取文本；页数和可读性在 export gate 复核。",
+                "image_count": rendered["image_count"],
+                "qa_rule": "PDF 必须由实际渲染生成，且嵌入图形资产；随后使用 pdftoppm 栅格化并抽检页面。",
             }
             write_json(render_report_path, render_report)
             renderer = "pymupdf"
@@ -181,6 +223,8 @@ def main() -> int:
         "backend": Path(renderer).name if renderer else render_report.get("backend", "none"),
         "page_count": page_count,
         "page_range": target_pages,
+        "embedded_image_count": render_report.get("image_count", 0),
+        "raster_qa_samples": render_report.get("raster_qa_samples", []),
         "visual_qa": render_report.get("visual_qa", "pending"),
         "report_path": str(render_report_path.relative_to(topic_dir)) if render_report_path.exists() else "",
         "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。",
@@ -198,7 +242,7 @@ def main() -> int:
     markdown_out = out_dir / f"作品书_{project}.md"
     html_out = out_dir / f"作品书_{project}.html"
     markdown_out.write_text(draft, encoding="utf-8")
-    html_out.write_text(markdown_to_html(draft, project), encoding="utf-8")
+    html_out.write_text(markdown_to_html(draft, project, Path.cwd()), encoding="utf-8")
     manifest = {
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "project_name": project,

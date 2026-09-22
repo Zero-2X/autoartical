@@ -41,3 +41,18 @@ OpenRSI-Calibrator 分为四层。第一层是影像和查询接入层，负责�
 系统输出四类结果：接受候选、需要人工复核、拒识候选和查询失败。每个结果包含水平框或旋转框、类别词、置信度、校准后概率、来源切片、同义查询一致性、模型版本和处理时间。证据卡可以导出 Markdown、HTML 和结构化 JSON；交互面板支持按类别、置信区间、区域和复核状态过滤，形成从查询到审计的闭环。
 
 图2-1 系统总体架构图展示四层模块和数据流；图2-2 模块职责分层图展示各层输入、输出与可替换边界；图2-3 输入—处理—输出闭环图展示任务日志、候选、校准和证据卡的串联；图2-4 数据与查询流转图展示影像切片、文本原型和证据回放之间的关系；图2-5 最小可行范围边界图标明离线批处理、交互工作台和暂不覆盖的在线卫星流。
+
+### 图形证据
+
+![图2-1 总体架构图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_1.svg)
+
+![图2-2 模块职责分层图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_2.svg)
+
+![图2-3 输入-处理-输出闭环图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_3.svg)
+
+![图2-4 多端联动部署图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_4.svg)
+
+![图2-5 最小可行范围 范围边界图](examples/ovd-rsi/workspace/document_assets/figures/s2_最小可行范围.svg)
+
+工程约束需要在方法落地前被显式化。候选框数量、查询词数量和切片重叠率共同决定显存峰值；因此实现采用固定上限、批内复用文本向量和可回放的候选缓存。这样做的目的不是追求单一硬件上的最快时间，而是让同一组查询在不同区域、不同批次和不同审计轮次中保持可比较。
+

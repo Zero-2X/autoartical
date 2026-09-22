@@ -18,7 +18,7 @@
 - Work Type: 平台应用型
 - Matched Scores: 创意、技术方案及其实现质量、讲解表现
 - Sample Reference: 第二章 作品设计与实现 / 先讲产品和界面，再讲系统架构与数据流，最后深入关键技术与工程实现。
-- Suggested Length: 6p / 1300-1800
+- Suggested Length: 6p / 1300-1733
 
 ## Section Dependencies
 - 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。
@@ -48,11 +48,11 @@
   - Reference Hint: 建议在正文中使用“如图2-3所示”或“图2-3显示”来引用该图。
 - [图2-4] 多端联动部署图 | type=figure | purpose=部署拓扑图 | anchor=系统总体架构 | subsection=系统总体架构 | required=True
   - Reference Hint: 建议在正文中使用“如图2-4所示”或“图2-4显示”来引用该图。
-- [图2-5] MVP 范围边界图 | type=figure | purpose=说明 MVP 范围、流程路线或待确认事项。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环 | required=True
+- [图2-5] 最小可行范围边界图 | type=figure | purpose=说明 MVP 范围、流程路线或待确认事项。 | anchor=输入-处理-输出闭环 | subsection=输入-处理-输出闭环 | required=True
   - Reference Hint: 建议在正文中使用“如图2-5所示”或“图2-5显示”来引用该图。
 
 ## Length Gate
-- Target Budget: 1300-1800
+- Target Budget: 1300-1733
 - Minimum Pass Threshold: 1300 (100% of lower bound 1300)
 - Count Rule: Chinese CJK characters plus Latin word tokens after stripping markdown formatting.
 - Agent3 must not approve this chapter if the正文长度 is below the minimum pass threshold unless Agent1 explicitly downgrades the requirement.

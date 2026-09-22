@@ -1,12 +1,12 @@
 {
-  "document": "examples\\ovd-rsi\\output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.md",
+  "document": "examples\\ovd-rsi\\workspace\\document_writing\\作品书草稿.md",
   "generated_checks": {
-    "heading_count": 184,
-    "paragraph_count": 315,
+    "heading_count": 230,
+    "paragraph_count": 422,
     "table_line_count": 69,
     "citation_count": 36,
     "has_mermaid": false,
-    "has_embedded_image": false,
+    "has_embedded_image": true,
     "table_quality": {
       "has_units": true,
       "has_sources": true,
@@ -18,14 +18,14 @@
   "text_quality": {
     "passed": true,
     "failures": [],
-    "prose_units": 25628,
+    "prose_units": 26706,
     "body_units_min": 24000,
     "body_units_target": 32000,
-    "paragraph_count": 182,
-    "thin_paragraph_count": 15,
-    "thin_paragraph_ratio": 0.082,
+    "paragraph_count": 195,
+    "thin_paragraph_count": 21,
+    "thin_paragraph_ratio": 0.108,
     "duplicate_paragraph_groups": 0,
-    "heading_count": 184,
+    "heading_count": 230,
     "citation_count": 20,
     "table_blocks": 11,
     "table_quality": {

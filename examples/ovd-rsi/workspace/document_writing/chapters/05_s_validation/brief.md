@@ -18,7 +18,7 @@
 - Work Type: 平台应用型
 - Matched Scores: 技术方案及其实现质量、创意、讲解表现
 - Sample Reference: 第三章 作品测试与分析 / 先冻结公开基准、base/novel 划分和提示词协议，再按基线对比、旋转定位、可靠性校准、查询稳定性和系统案例展开分析。
-- Suggested Length: 4-6p / 1380-1900
+- Suggested Length: 4-6p / 4000-5333
 
 ## Section Dependencies
 - 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。
@@ -55,8 +55,8 @@
   - Reference Hint: 建议在正文中使用“如表5-5所示”或“表5-5显示”来引用该表。
 
 ## Length Gate
-- Target Budget: 1380-1900
-- Minimum Pass Threshold: 1380 (100% of lower bound 1380)
+- Target Budget: 4000-5333
+- Minimum Pass Threshold: 4000 (100% of lower bound 4000)
 - Count Rule: Chinese CJK characters plus Latin word tokens after stripping markdown formatting.
 - Agent3 must not approve this chapter if the正文长度 is below the minimum pass threshold unless Agent1 explicitly downgrades the requirement.
 

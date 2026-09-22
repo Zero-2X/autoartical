@@ -16,16 +16,16 @@
 - 结语: status=approved, round=1, verdict=approved, block=none, decision=workspace\document_writing\chapters\09_conclusion\decision.json
 
 ## Length Gate Summary
-- Full Book: assembled=28176, required>=25400, passed=True
+- Full Book: assembled=29811, required>=25400, passed=True
 - 摘要: actual=632, required>=600, status=passed, passed=True
-- 一、作品概述与问题定义: actual=1847, required>=1800, status=passed, passed=True
-- 二、作品设计与总体架构: actual=1333, required>=1300, status=passed, passed=True
-- 三、核心创新与关键技术: actual=1504, required>=1490, status=passed, passed=True
-- 四、作品实现与运行闭环: actual=1098, required>=1080, status=passed, passed=True
-- 五、测试与效果分析: actual=1401, required>=1380, status=passed, passed=True
-- 六、应用前景与落地价值: actual=1134, required>=1110, status=passed, passed=True
-- 七、总结与展望: actual=15881, required>=15840, status=passed, passed=True
-- 结语: actual=803, required>=800, status=passed, passed=True
+- 一、作品概述与问题定义: actual=2764, required>=2400, status=passed, passed=True
+- 二、作品设计与总体架构: actual=1450, required>=1300, status=passed, passed=True
+- 三、核心创新与关键技术: actual=1504, required>=1450, status=passed, passed=True
+- 四、作品实现与运行闭环: actual=2663, required>=2500, status=passed, passed=True
+- 五、测试与效果分析: actual=4298, required>=4000, status=passed, passed=True
+- 六、应用前景与落地价值: actual=1240, required>=1100, status=passed, passed=True
+- 七、总结与展望: actual=11355, required>=11250, status=passed, passed=True
+- 结语: actual=801, required>=800, status=passed, passed=True
 
 ## Evidence Gate Summary
 - Required Chapters: 7, missing=0, weak=0, passed=True

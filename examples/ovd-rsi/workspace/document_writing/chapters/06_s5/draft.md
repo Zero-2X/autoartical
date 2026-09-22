@@ -54,3 +54,14 @@
 图6-3 端到端演示路径、图6-4 用户角色与证据流、图6-5 竞赛答辩展示板。
 
 表6-2 竞赛展示任务与评审关注点。
+
+### 图形证据
+
+![图6-3 预警工单联动流程图](examples/ovd-rsi/workspace/document_assets/figures/s5_visual_3.svg)
+
+![图6-4 价值闭环图](examples/ovd-rsi/workspace/document_assets/figures/s5_visual_4.svg)
+
+![图6-5 竞赛答辩演示界面板](examples/ovd-rsi/workspace/document_assets/figures/s5_visual_5.svg)
+
+竞赛展示还要验证评委能否沿着证据链完成一次判断。展示脚本将查询词、候选框、置信度、校准状态和人工复核动作放在同一画面，并为每个动作保留时间戳。评委看到的不是一张静态效果图，而是一条从开放词汇输入到风险提示和结果导出的可追踪路径。
+

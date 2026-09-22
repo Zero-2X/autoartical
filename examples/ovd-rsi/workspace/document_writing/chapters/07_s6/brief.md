@@ -18,7 +18,7 @@
 - Work Type: 平台应用型
 - Matched Scores: 技术方案及其实现质量、应用价值
 - Sample Reference: 第五章 总结与展望 / 收束作品完成情况，明确系统特色、当前不足和后续优化方向。
-- Suggested Length: 1-2p / 15840-20750
+- Suggested Length: 1-2p / 11250-15000
 
 ## Section Dependencies
 - 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。
@@ -47,8 +47,8 @@
   - Reference Hint: 建议在正文中使用“如图7-3所示”或“图7-3显示”来引用该图。
 
 ## Length Gate
-- Target Budget: 15840-20750
-- Minimum Pass Threshold: 15840 (100% of lower bound 15840)
+- Target Budget: 11250-15000
+- Minimum Pass Threshold: 11250 (100% of lower bound 11250)
 - Count Rule: Chinese CJK characters plus Latin word tokens after stripping markdown formatting.
 - Agent3 must not approve this chapter if the正文长度 is below the minimum pass threshold unless Agent1 explicitly downgrades the requirement.
 

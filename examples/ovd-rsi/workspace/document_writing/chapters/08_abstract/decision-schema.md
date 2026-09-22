@@ -40,3 +40,4 @@ It is not a writing sample, not a tone reference, and not a content template for
 - Do not leave key dimensions at `pending` after making a verdict.
 - Do not write generic requested changes such as “优化文风” without a concrete target.
 - Do not mark evidence support as passed merely because sources were mentioned.
+

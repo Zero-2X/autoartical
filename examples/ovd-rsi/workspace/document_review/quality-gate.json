@@ -8,119 +8,119 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=11",
+          "notes": "required_h3=3, actual_h3=9, required_h4>=9, actual_h4=11",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1847, required>=1800",
+          "notes": "章节长度达标：actual=2764, required>=2400",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "1800-2400",
-        "budget_lower": 1800,
-        "budget_upper": 2400,
+        "raw_budget": "2400-3200",
+        "budget_lower": 2400,
+        "budget_upper": 3200,
         "min_ratio": 1.0,
-        "min_required": 1800,
-        "actual_count": 1847,
+        "min_required": 2400,
+        "actual_count": 2764,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -141,119 +141,119 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=4, required_h4>=9, actual_h4=9",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1333, required>=1300",
+          "notes": "章节长度达标：actual=1450, required>=1300",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "1300-1800",
+        "raw_budget": "1300-1733",
         "budget_lower": 1300,
-        "budget_upper": 1800,
+        "budget_upper": 1733,
         "min_ratio": 1.0,
         "min_required": 1300,
-        "actual_count": 1333,
+        "actual_count": 1450,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -274,118 +274,118 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=5, actual_h3=5, required_h4>=12, actual_h4=12",
+          "notes": "required_h3=5, actual_h3=6, required_h4>=12, actual_h4=12",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1504, required>=1490",
+          "notes": "章节长度达标：actual=1504, required>=1450",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "1490-1950",
-        "budget_lower": 1490,
-        "budget_upper": 1950,
+        "raw_budget": "1450-1933",
+        "budget_lower": 1450,
+        "budget_upper": 1933,
         "min_ratio": 1.0,
-        "min_required": 1490,
+        "min_required": 1450,
         "actual_count": 1504,
         "enforceable": true,
         "status": "passed",
@@ -407,119 +407,119 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=12, required_h4>=9, actual_h4=9",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1098, required>=1080",
+          "notes": "章节长度达标：actual=2663, required>=2500",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "1080-1500",
-        "budget_lower": 1080,
-        "budget_upper": 1500,
+        "raw_budget": "2500-3333",
+        "budget_lower": 2500,
+        "budget_upper": 3333,
         "min_ratio": 1.0,
-        "min_required": 1080,
-        "actual_count": 1098,
+        "min_required": 2500,
+        "actual_count": 2663,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -540,119 +540,119 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=5, actual_h3=5, required_h4>=10, actual_h4=10",
+          "notes": "required_h3=5, actual_h3=21, required_h4>=10, actual_h4=10",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1401, required>=1380",
+          "notes": "章节长度达标：actual=4298, required>=4000",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "1380-1900",
-        "budget_lower": 1380,
-        "budget_upper": 1900,
+        "raw_budget": "4000-5333",
+        "budget_lower": 4000,
+        "budget_upper": 5333,
         "min_ratio": 1.0,
-        "min_required": 1380,
-        "actual_count": 1401,
+        "min_required": 4000,
+        "actual_count": 4298,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -673,119 +673,119 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=3, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=4, required_h4>=9, actual_h4=9",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1134, required>=1110",
+          "notes": "章节长度达标：actual=1240, required>=1100",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "1110-1500",
-        "budget_lower": 1110,
-        "budget_upper": 1500,
+        "raw_budget": "1100-1467",
+        "budget_lower": 1100,
+        "budget_upper": 1467,
         "min_ratio": 1.0,
-        "min_required": 1110,
-        "actual_count": 1134,
+        "min_required": 1100,
+        "actual_count": 1240,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -806,119 +806,119 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=24, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=57, required_h4>=9, actual_h4=9",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=15881, required>=15840",
+          "notes": "章节长度达标：actual=11355, required>=11250",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
       "length_gate": {
         "count_rule": "Body: unique prose CJK characters plus Latin tokens; excludes headings, tables, code, math and images. Other chapters: markdown text units.",
-        "raw_budget": "15840-20750",
-        "budget_lower": 15840,
-        "budget_upper": 20750,
+        "raw_budget": "11250-15000",
+        "budget_lower": 11250,
+        "budget_upper": 15000,
         "min_ratio": 1.0,
-        "min_required": 15840,
-        "actual_count": 15881,
+        "min_required": 11250,
+        "actual_count": 11355,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -939,108 +939,108 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "not_applicable",
           "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
           "notes": "章节长度达标：actual=632, required>=600",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
@@ -1072,108 +1072,108 @@
       "status": "approved",
       "round": 1,
       "verdict": "approved",
-      "verdict_rationale": "正文已按研究 brief、章节结构、证据、视觉与长度合同完成；待总体验收。",
+      "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
       "return_to_step": "",
       "primary_failures": [],
       "audit_dimensions": {
         "goal_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "score_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "position_logic": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "heading_structure": {
           "status": "not_applicable",
           "notes": "Abstract/conclusion chapters do not require body heading structure gate.",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "body_priority_coverage": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "evidence_support": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "innovation_loop": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=803, required>=800",
+          "notes": "章节长度达标：actual=801, required>=800",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "visuals_alignment": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "terminology_consistency": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         },
         "pending_items_handling": {
           "status": "pass",
-          "notes": "已由正文、研究简报、实验协议、视觉资产和审计记录支持。",
+          "notes": "已完成主题证据与结构复核。",
           "evidence": [
-            "作品书_OpenRSI-Calibrator.md",
             "研究简报",
-            "章节结构与长度 Gate"
+            "章节草稿",
+            "质量 Gate"
           ]
         }
       },
@@ -1184,7 +1184,7 @@
         "budget_upper": 1400,
         "min_ratio": 1.0,
         "min_required": 800,
-        "actual_count": 803,
+        "actual_count": 801,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1219,8 +1219,8 @@
       {
         "chapter_id": "s1",
         "chapter_heading": "一、作品概述与问题定义",
-        "actual_count": 1847,
-        "min_required": 1800,
+        "actual_count": 2764,
+        "min_required": 2400,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1228,7 +1228,7 @@
       {
         "chapter_id": "s2",
         "chapter_heading": "二、作品设计与总体架构",
-        "actual_count": 1333,
+        "actual_count": 1450,
         "min_required": 1300,
         "enforceable": true,
         "status": "passed",
@@ -1238,7 +1238,7 @@
         "chapter_id": "s3",
         "chapter_heading": "三、核心创新与关键技术",
         "actual_count": 1504,
-        "min_required": 1490,
+        "min_required": 1450,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1246,8 +1246,8 @@
       {
         "chapter_id": "s4",
         "chapter_heading": "四、作品实现与运行闭环",
-        "actual_count": 1098,
-        "min_required": 1080,
+        "actual_count": 2663,
+        "min_required": 2500,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1255,8 +1255,8 @@
       {
         "chapter_id": "s_validation",
         "chapter_heading": "五、测试与效果分析",
-        "actual_count": 1401,
-        "min_required": 1380,
+        "actual_count": 4298,
+        "min_required": 4000,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1264,8 +1264,8 @@
       {
         "chapter_id": "s5",
         "chapter_heading": "六、应用前景与落地价值",
-        "actual_count": 1134,
-        "min_required": 1110,
+        "actual_count": 1240,
+        "min_required": 1100,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1273,8 +1273,8 @@
       {
         "chapter_id": "s6",
         "chapter_heading": "七、总结与展望",
-        "actual_count": 15881,
-        "min_required": 15840,
+        "actual_count": 11355,
+        "min_required": 11250,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1282,16 +1282,16 @@
       {
         "chapter_id": "conclusion",
         "chapter_heading": "结语",
-        "actual_count": 803,
+        "actual_count": 801,
         "min_required": 800,
         "enforceable": true,
         "status": "passed",
         "passed": true
       }
     ],
-    "total_actual": 25633,
+    "total_actual": 26707,
     "total_required": 25400,
-    "assembled_count": 28176,
+    "assembled_count": 29811,
     "passed": true
   },
   "evidence_gate_summary": {
@@ -1527,48 +1527,48 @@
     "per_chapter": [
       {
         "heading": "一、作品概述与问题定义",
-        "minimum": 1800,
-        "prose_units": 1847,
+        "minimum": 2400,
+        "prose_units": 2764,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "二、作品设计与总体架构",
         "minimum": 1300,
-        "prose_units": 1333,
+        "prose_units": 1450,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "三、核心创新与关键技术",
-        "minimum": 1490,
+        "minimum": 1450,
         "prose_units": 1504,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "四、作品实现与运行闭环",
-        "minimum": 1080,
-        "prose_units": 1098,
+        "minimum": 2500,
+        "prose_units": 2663,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "五、测试与效果分析",
-        "minimum": 1380,
-        "prose_units": 1401,
+        "minimum": 4000,
+        "prose_units": 4298,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "六、应用前景与落地价值",
-        "minimum": 1110,
-        "prose_units": 1134,
+        "minimum": 1100,
+        "prose_units": 1240,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "七、总结与展望",
-        "minimum": 15840,
-        "prose_units": 15881,
+        "minimum": 11250,
+        "prose_units": 11355,
         "duplicate_paragraph_groups": 0
       }
     ],
-    "prose_units": 24198,
+    "prose_units": 25274,
     "duplicate_paragraph_groups": 0,
     "contract": {
       "target_pages": [

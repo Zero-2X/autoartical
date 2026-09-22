@@ -1245,31 +1245,24 @@ def main() -> int:
     sections = build_sections(spec, idea_card, evidence_index, reference_template)
     content_contract = dict(DEFAULT_CONTRACT)
     allocate_budgets(sections, content_contract)
-    # Open-vocabulary RSI proposals place substantial evidence in the final
-    # chapter's appendices (experiment audit, risks, references and delivery
-    # checks).  The generic allocation overweights the innovation chapter and
-    # then blocks otherwise valid chapter drafts at the per-chapter gate. Keep
-    # the 24k/32k whole-book contract, but reserve realistic room for the
-    # appendix-heavy conclusion.
+    # A research proposal reserves most prose for mechanisms and evaluation.
+    # Budgets are fixed before writing; never fit thresholds to a short draft.
     profile_id = (idea_card.get("topic_profile") or {}).get("profile_id", "")
     if profile_id == "remote_sensing_open_vocabulary_detection":
-        ovd_budgets = {
-            "s1": (1800, 2400),
-            "s2": (1300, 1800),
-            "s3": (1490, 1950),
-            "s4": (1080, 1500),
-            "s_validation": (1380, 1900),
-            "s5": (1110, 1500),
-            "s6": (15840, 20750),
-        }
+        minima = dict(s1=2400, s2=1300, s3=1450, s4=2500, s_validation=4000, s5=1100, s6=11250)
         for section in sections:
-            budget = ovd_budgets.get(section.get("section_id"))
-            if budget:
-                section["suggested_word_budget"] = f"{budget[0]}-{budget[1]}"
-            if section.get("section_id") == "s5":
+            value = minima[section["section_id"]]
+            section["suggested_word_budget"] = f"{value}-{round(value * 4 / 3)}"
+            # The fifth application visual is a real presentation panel; keep
+            # the title explicit so the case/UI visual quota is auditable.
+            if section["section_id"] == "s5":
                 for visual in section.get("visual_specs", []):
                     if visual.get("visual_id") == "s5_visual_5":
                         visual["title"] = "竞赛答辩演示界面板"
+            if section["section_id"] == "s2":
+                for visual in section.get("visual_specs", []):
+                    if visual.get("visual_id") == "s2_mvp":
+                        visual["title"] = "最小可行范围边界图"
     coverage = build_score_coverage(spec, sections)
     outline = render_outline(spec, idea_card, sections)
     reference_text = render_reference_template(reference_template)

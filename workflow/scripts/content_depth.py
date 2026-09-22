@@ -51,6 +51,20 @@ def allocate_budgets(sections: list[dict], contract: dict) -> None:
 
 
 def prose_paragraphs(text: str) -> list[str]:
+    # A nested appendix/reference section is not body prose. Resume only at
+    # a heading at the same or higher level, so heading depth cannot hide padding.
+    kept, excluded_level = [], None
+    for line in text.splitlines():
+        heading = re.match(r"^(#{1,6})\s+(.+)", line)
+        if heading:
+            level, title = len(heading[1]), heading[2].strip()
+            if excluded_level is not None and level <= excluded_level:
+                excluded_level = None
+            if re.match(r"(?:附录|参考文献|参考资料|Appendix\b|References\b)", title, re.I):
+                excluded_level = level
+        if excluded_level is None:
+            kept.append(line)
+    text = "\n".join(kept)
     text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
     text = re.sub(r"(?ms)^\s*(`{3,}|~{3,})[^\n]*\n.*?^\s*\1\s*$", "", text)
     text = re.sub(r"\$\$.*?\$\$|\\\[.*?\\\]", "", text, flags=re.S)

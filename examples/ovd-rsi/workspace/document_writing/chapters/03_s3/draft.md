@@ -67,3 +67,14 @@ Detic 和 GLIP 展示了扩大类别空间与使用图像级/图文数据的价�
 表格解释：单位为百分比、百分点或毫秒时必须在实验报告中明示；数据来源为公开基准或外测集；统计口径固定随机种子、类别划分和查询模板；缺失值说明写为 NA 并附原因。
 
 表3-6 创新消融与验证映射。
+
+### 图形证据
+
+![图3-2 创新一 · 遥感域词汇原型适配示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_2.svg)
+
+![图3-3 创新二 · 多尺度旋转候选协同示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_3.svg)
+
+![图3-4 创新三 · 可靠语义校准示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_4.svg)
+
+![图3-5 关键技术分层图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_5.svg)
+

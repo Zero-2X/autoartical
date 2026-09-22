@@ -18,7 +18,7 @@
 - Work Type: 平台应用型
 - Matched Scores: 创意、应用价值
 - Sample Reference: 第一章 作品概述 / 先讲为什么做，再讲别人做到哪、现有缺口是什么，最后收束到本项目特色与应用前景。
-- Suggested Length: 4p / 1800-2400
+- Suggested Length: 4p / 2400-3200
 
 ## Section Dependencies
 - 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。
@@ -49,8 +49,8 @@
   - Reference Hint: 建议在正文中使用“如图1-4所示”或“图1-4显示”来引用该图。
 
 ## Length Gate
-- Target Budget: 1800-2400
-- Minimum Pass Threshold: 1800 (100% of lower bound 1800)
+- Target Budget: 2400-3200
+- Minimum Pass Threshold: 2400 (100% of lower bound 2400)
 - Count Rule: Chinese CJK characters plus Latin word tokens after stripping markdown formatting.
 - Agent3 must not approve this chapter if the正文长度 is below the minimum pass threshold unless Agent1 explicitly downgrades the requirement.
 
