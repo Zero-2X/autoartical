@@ -17,8 +17,10 @@ COMMANDS = [
     ("run_concept.py", "形成选题说明"),
     ("run_research.py", "自动研究与实验契约"),
     ("run_document_plan.py", "规划文档结构"),
+    ("run_visual_assets.py", "生成视觉资产请求与素材清单"),
     ("run_document_writing.py", "撰写文档"),
     ("run_document_review.py", "审查文档"),
+    ("run_document_export.py", "导出并执行最终交付门禁"),
 ]
 
 
@@ -31,6 +33,7 @@ def main() -> int:
     p.add_argument("--idea-seed", default="", help="候选生成的补充方向")
     p.add_argument("--from-step", dest="from_step", choices=[name[:-3] for name, _ in COMMANDS], default="init_workspace")
     p.add_argument("--dry-run", action="store_true", help="只显示将要执行的命令")
+    p.add_argument("--allow-html-only", action="store_true", help="允许只输出 HTML；不会宣称 PDF/DOCX 页数已核验")
     args = p.parse_args()
     topic = Path(args.topic_dir).expanduser().resolve()
     if not topic.exists():
@@ -46,8 +49,10 @@ def main() -> int:
         "run_concept.py": ((["--topic", args.topic] if args.topic else []),),
         "run_research.py": ((["--topic", args.topic] if args.topic else []),),
         "run_document_plan.py": ((["--topic", args.topic] if args.topic else []),),
+        "run_visual_assets.py": ([],),
         "run_document_writing.py": ([],),
         "run_document_review.py": ([],),
+        "run_document_export.py": ((["--allow-html-only"] if args.allow_html_only else []),),
     }
     for name, label in COMMANDS[start:]:
         cmd = [sys.executable, str(SCRIPTS / name), *common, *extras[name][0]]

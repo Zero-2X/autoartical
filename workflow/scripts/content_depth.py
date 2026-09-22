@@ -11,6 +11,22 @@ DEFAULT_CONTRACT = {
     "body_units_target": 32000,
     "page_scope": "正文；不含封面、目录、参考文献及附录",
     "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
+    "visual_contract": {
+        "required_specs_min": 18,
+        "required_external_assets_min": 12,
+        "required_tables_min": 5,
+        "required_diagrams_min": 8,
+        "required_case_or_ui_visuals_min": 4,
+        "required_asset_ratio": 1.0,
+        "all_visuals_must_be_cited": True,
+        "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。",
+    },
+    "export_contract": {
+        "required_formats": ["markdown", "html", "pdf_or_docx"],
+        "render_verification": "required_before_delivery",
+        "page_count_must_be_in_range": True,
+        "visual_qa_required": True,
+    },
     "render_verification": "required_before_delivery",
 }
 

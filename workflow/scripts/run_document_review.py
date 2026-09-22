@@ -18,6 +18,7 @@ from proposal_workflow import (
 )
 from writing_quality_rules import load_writing_quality_rules
 from content_depth import DEFAULT_CONTRACT, build_content_depth_gate
+from delivery_contract import build_visual_gate
 
 PASSLIKE_DIMENSION_STATUSES = {"pass", "passed", "not_applicable", "n/a", "na"}
 WRITING_QUALITY_RULES = load_writing_quality_rules()
@@ -390,10 +391,12 @@ def main() -> int:
     content_depth_gate = build_content_depth_gate(
         draft, plan.get("sections", []), plan.get("content_contract", DEFAULT_CONTRACT)
     )
+    visual_gate = build_visual_gate(topic_dir, plan, draft)
 
     payload = load_json_template("quality-gate.template.json")
     chapter_summary, major_issues, blocked = build_chapter_summary(manifest)
     major_issues.extend(content_depth_gate["failures"])
+    major_issues.extend(visual_gate["failures"])
     length_gate_summary = build_length_gate_summary(manifest, draft)
     evidence_gate_summary = build_evidence_gate_summary(manifest)
     final_draft_gate_summary = build_final_draft_gate_summary(draft, manifest)
@@ -536,6 +539,7 @@ def main() -> int:
     }
     payload["length_gate_summary"] = length_gate_summary
     payload["content_depth_gate"] = content_depth_gate
+    payload["visual_gate"] = visual_gate
     payload["evidence_gate_summary"] = evidence_gate_summary
     payload["final_draft_gate_summary"] = final_draft_gate_summary
     payload["coverage_score"] = coverage_score
@@ -582,6 +586,12 @@ def main() -> int:
             f"count={item['evidence_count']}, authoritative={item['authoritative_count']}, "
             f"high_reliability={item['high_reliability_count']}, audit={item['audit_status']}"
         )
+    lines.extend(["", "## Visual Gate Summary"])
+    lines.append(
+        f"- Required Specs: {visual_gate['required_specs']}, available_assets={visual_gate['available_assets']}, "
+        f"asset_ratio={visual_gate['asset_ratio']:.2f}, passed={visual_gate['passed']}"
+    )
+    lines.extend([f"- {item}" for item in visual_gate["failures"]] or ["- none"])
     lines.extend(["", "## Final Draft Gate Summary"])
     lines.append(
         f"- Mixed Visual Numbering: {final_draft_gate_summary['mixed_visual_numbering']}"

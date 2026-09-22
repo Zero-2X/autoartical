@@ -54,7 +54,7 @@ python workflow/scripts/run_research.py ./my-topic
 
 ## 交付门禁
 
-进入 `document_plan` 前：研究 Gate 必须通过。进入正文审查前：每章必须通过结构、证据、篇幅和待确认项检查。40–50 页要求实质正文达到内容合同，标题、表格、代码、图片和重复段落不能凑量。正式交付前用 Pandoc/Typst 或用户指定模板渲染，并记录页数、字体、图表断页和引用结果；内容 Gate 与版式 Gate 都通过才算完成。
+进入 `document_plan` 前：研究 Gate 必须通过。进入正文审查前：每章必须通过结构、证据、篇幅和待确认项检查。40–50 页是默认交付合同，正文、图表、案例、流程图和界面视觉从计划阶段一起分配；标题、表格、代码、图片和重复段落不能凑量。正式交付前必须运行 `run_visual_assets.py` 和 `run_document_export.py`，用 Pandoc/Typst/LibreOffice 或用户指定模板渲染，并记录页数、字体、图表断页、视觉 QA 和引用结果；内容 Gate、视觉 Gate 与版式 Gate 都通过才算完成。
 
 ## 外部项目的吸收边界
 

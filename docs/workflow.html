@@ -31,7 +31,7 @@
   </header>
   <main>
     <section class="panel">
-      <h2>全流程</h2><p class="muted">自动研究 Gate 通过后，才能进入正文规划；内容 Gate 和版式 Gate 都通过后，才算交付。</p>
+      <h2>全流程</h2><p class="muted">40–50 页是从选题开始固定的交付合同。自动研究、正文、视觉资产、渲染和逐页 QA 全部通过后，才算交付。</p>
       <div class="flow">
         <div class="node"><span class="number">1</span><h3>资料与要求</h3><p>导入规则、论文、报告、数据集说明和已有材料，保留路径、哈希与定位。</p><span class="arrow">→</span></div>
         <div class="node"><span class="number">2</span><h3>候选选题</h3><p>生成多个方向，比较新颖性、可行性、证据成本和评审匹配度。</p><span class="arrow">→</span></div>
@@ -40,7 +40,8 @@
         <div class="node"><span class="number">5</span><h3>自动研究</h3><p>回答领域、子领域、挑战、Current methods、缺口和实验契约。</p><span class="arrow">→</span></div>
         <div class="node"><span class="number">6</span><h3>章节规划</h3><p>把主张、证据、篇幅、图表和章节逻辑绑定起来。</p><span class="arrow">→</span></div>
         <div class="node"><span class="number">7</span><h3>逐章写作</h3><p>按章节解锁，写作、审计、修改通过后才能进入下一章。</p><span class="arrow">→</span></div>
-        <div class="node"><span class="number">8</span><h3>全书交付</h3><p>检查证据、去重、内容密度、渲染页数、图表和引用。</p></div>
+        <div class="node"><span class="number">8</span><h3>视觉资产</h3><p>为图表、流程图、图标、案例和界面生成可审计请求，素材完成后才能导出。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">9</span><h3>全书交付</h3><p>检查证据、正文密度、视觉资产、实际渲染页数、图表和引用。</p></div>
       </div>
     </section>
 
@@ -60,7 +61,7 @@
     <section class="panel">
       <h2>怎样得到好的结果</h2>
       <div class="contract">
-        <div class="card good"><h3>有效做法</h3><ul><li>先固定研究问题，再让方法回答问题。</li><li>把每个事实绑定到来源和原文位置。</li><li>用统一标准比较方法，而不是堆论文摘要。</li><li>让实验问题、指标和结论一一对应。</li><li>补充机制、边界、失败分析和取舍。</li><li>40–50 页由实质正文自然构成。</li></ul></div>
+          <div class="card good"><h3>有效做法</h3><ul><li>先固定研究问题，再让方法回答问题。</li><li>把每个事实绑定到来源和原文位置。</li><li>用统一标准比较方法，而不是堆论文摘要。</li><li>让实验问题、指标和结论一一对应。</li><li>补充机制、边界、失败分析和取舍。</li><li>从选题开始分配 40–50 页正文、图表、案例和视觉素材。</li><li>导出前用实际 PDF/DOCX 渲染逐页检查。</li></ul></div>
         <div class="card bad"><h3>会导致低质量的做法</h3><ul><li>把搜索摘要或模型常识当作证据。</li><li>先写方法，再倒推研究动机。</li><li>只列 benchmark，不说明测量目的。</li><li>用表格、图片、留白和重复段落凑页数。</li><li>把计划、假设和结果混写。</li><li>用关键词命中代替事实核验。</li></ul></div>
       </div>
       <div class="gate"><span>来源可追溯</span><span>方法可比较</span><span>设计可解释</span><span>实验可复现</span><span>正文有实质密度</span><span>渲染已核验</span></div>
@@ -83,7 +84,9 @@
         <div class="card"><strong>document-writing</strong><p>逐章正文、引用、图表、内容密度和全书审查。</p></div>
         <div class="card"><strong>source ingestion</strong><p>PDF/Office/HTML/Markdown 导入，缓存、哈希、页码/行号定位。</p></div>
         <div class="card"><strong>research-gate</strong><p>缺少证据、方法比较或实验协议时阻止正文规划。</p></div>
-        <div class="card"><strong>content-depth</strong><p>检查有效正文量、重复段落和 40–50 页内容合同。</p></div>
+        <div class="card"><strong>content-depth</strong><p>检查有效正文量、重复段落和从选题开始生效的 40–50 页内容合同。</p></div>
+        <div class="card"><strong>visual-assets</strong><p>生成图表、流程图、图标、案例和界面素材请求，追踪生成状态与正文引用。</p></div>
+        <div class="card"><strong>delivery-gate</strong><p>同时检查正文、视觉资产、渲染器、页数和逐页 QA，未通过就阻止最终交付。</p></div>
         <div class="card"><strong>render verification</strong><p>用正式模板核对页数、字体、断页、图表、公式和引用。</p></div>
       </div>
     </section>

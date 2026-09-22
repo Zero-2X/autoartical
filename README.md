@@ -46,6 +46,13 @@ python run_workflow.py ./my-topic --select-id idea_a --from-step run_selection
 python workflow/scripts/run_research.py ./my-topic
 python run_workflow.py ./my-topic --from-step run_research
 
+# 生成视觉请求；写作和审查完成后执行最终导出门禁
+python workflow/scripts/run_visual_assets.py ./my-topic
+python run_workflow.py ./my-topic --from-step run_visual_assets
+
+# 没有 PDF/DOCX 渲染器时只生成 HTML 预览，不会宣称页数达标
+python run_workflow.py ./my-topic --from-step run_document_export --allow-html-only
+
 # 对已有文档做联合专业审查
 python workflow/scripts/evaluate_document.py examples/bridge-risk/proposal.md \
   --out examples/bridge-risk/review.json
@@ -74,7 +81,7 @@ PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。需要�
 
 自动研究会先回答“领域是什么、为什么研究、子领域是什么、为什么选择、通用挑战及影响、Current methods 分类与优缺点、关键缺口、科学设计 rationale、case study、benchmark/baseline/metrics 与实验目的”，再允许进入正文规划。详见 [自动研究工作流](workflow/references/automatic-research.md)。
 
-长文默认要求 **40–50 页实质正文**。规划器分配 24000–32000 个中文字符／英文词元的起始预算，逐章和全书检查排除标题、表格、代码、图片及重复段落。预算不是页数换算；交付前必须按正式模板渲染，核验内容密度和实际正文页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
+长文默认要求 **40–50 页实质正文**，从选题开始即进入合同。规划器分配 24000–32000 个中文字符／英文词元的起始预算，并同时分配视觉规格、素材请求和导出要求；逐章和全书检查排除标题、表格、代码、图片及重复段落。交付前必须通过内容、视觉、引用和实际渲染门禁，核验内容密度和正文页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
 
 - **论文**：问题是否可检验，方法是否可复现，基线/消融/统计区间是否完整，引用是否真实存在。
 - **竞赛说明书**：需求、用户、方案、创新、实施、风险和展示证据是否形成闭环。

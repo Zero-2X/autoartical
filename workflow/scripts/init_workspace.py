@@ -193,7 +193,12 @@ def main() -> int:
     write_json(workspace / "document_writing" / "action-ledger.json", load_json_template("document-writing-action-ledger.template.json"))
     write_text(workspace / "document_writing" / "status.md", "# Step6 Multi-Agent Status\n\n")
     write_text(workspace / "document_writing" / "review-log.md", "# Step6 Review Log\n\n")
-    write_text(output / "README.md", "# Output\n\nPlace final proposal markdown/pdf outputs here.\n")
+    write_text(
+        output / "README.md",
+        "# Output\n\n"
+        "Final delivery is produced only after content, evidence, visual, render and page QA gates pass.\n"
+        "Expected outputs: Markdown source, print-ready HTML, and a rendered PDF or DOCX when a renderer is available.\n",
+    )
     write_text(workspace / "document_review" / "quality-report.md", "# Quality Report\n\n")
     write_json(workspace / "document_review" / "quality-gate.json", load_json_template("quality-gate.template.json"))
     write_text(

@@ -1,0 +1,13 @@
+{
+  "backend": "",
+  "source": "",
+  "output": "",
+  "page_count": null,
+  "page_range": [40, 50],
+  "verified": false,
+  "visual_qa": "pending",
+  "inspected_pages": [],
+  "issues": [],
+  "renderer_version": "",
+  "notes": "必须逐页检查图文、表格、字体、断页和孤立标题；verified 只能在 page_count 落入范围且 visual_qa=pass 时为 true。"
+}
