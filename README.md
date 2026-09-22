@@ -14,12 +14,12 @@ flowchart LR
  B --> C[候选选题]
  C --> D{人工确认}
  D --> E[选题说明]
- E --> F[章节计划]
- F --> G[正文写作]
- G --> H[论文/竞赛/基金联合审查]
- H --> I[表格、配图、引用核验]
- I --> J[迭代记忆 SQLite]
- J --> F
+ E --> F[自动研究]
+ F --> G[章节计划]
+ G --> H[正文写作]
+ H --> I[论文/竞赛/基金联合审查]
+ I --> J[表格、配图、引用核验]
+ J --> G
 ```
 
 | 环节 | 产物 | 质量约束 |
@@ -27,6 +27,7 @@ flowchart LR
 | 选题 | 候选集、评分依据、选择记录 | 不凭空补事实，保留人工决策 |
 | 规划 | 章节计划、主张清单、证据映射 | 每个关键结论都能回到来源 |
 | 写作 | Markdown 正文、表格、Mermaid 图 | 事实、计划、假设分开表达 |
+| 自动研究 | 领域/子领域/挑战/方法分类/缺口/实验契约 | 查询和未核验来源不能当作事实 |
 | 审查 | 论文/竞赛/基金三套口径 | 科学问题、方案闭环、可行性同时检查 |
 | 迭代 | SQLite 轮次数据库 | 记录优点、缺陷、改动、依据和指标 |
 
@@ -52,6 +53,7 @@ python workflow/scripts/iteration_memory.py examples/bridge-risk/iteration-memor
 ## 这个仓库保留了什么
 
 - `workflow/scripts/`：选题、证据、规划、写作、引用/结构审查和迭代工具。
+- `workflow/scripts/run_research.py`：在选题说明后生成自动研究问题、证据地图和实验契约；Gate 未通过时不允许进入文档规划。
 - `workflow/prompts/`：论文各章节、引用、图表和自审提示词。
 - `workflow/references/`：论文、竞赛说明书、基金风格评审、表格、图表、编译与提交规范。
 - `workflow/templates/`：可机器读取的章节、引用、图表、审查和发布模板。
@@ -61,6 +63,8 @@ python workflow/scripts/iteration_memory.py examples/bridge-risk/iteration-memor
 PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。需要配图时，工作流先生成带来源的请求文件，再调用 Codex 内置 `image_gen`；图片、提示词、来源和审查结果一起归档，避免配图脱离正文证据。
 
 ## 专业评审口径
+
+自动研究会先回答“领域是什么、为什么研究、子领域是什么、为什么选择、通用挑战及影响、Current methods 分类与优缺点、关键缺口、科学设计 rationale、case study、benchmark/baseline/metrics 与实验目的”，再允许进入正文规划。详见 [自动研究工作流](workflow/references/automatic-research.md)。
 
 长文默认要求 **40–50 页实质正文**。规划器分配 24000–32000 个中文字符／英文词元的起始预算，逐章和全书检查排除标题、表格、代码、图片及重复段落。预算不是页数换算；交付前必须按正式模板渲染，核验内容密度和实际正文页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
 

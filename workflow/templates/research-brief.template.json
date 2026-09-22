@@ -1,0 +1,14 @@
+{
+  "schema_version": "research-brief.v1",
+  "topic": "",
+  "domain": {"name": "", "why_research": "", "evidence_ids": []},
+  "subdomain": {"name": "", "why_direction": "", "evidence_ids": []},
+  "common_challenges": [],
+  "current_methods": [],
+  "key_gap": {"statement": "", "research_question": "", "evidence_ids": [], "status": "needs_synthesis"},
+  "design_rationale": [],
+  "case_study": {"title": "", "timeline": [], "purpose": "", "status": "planned"},
+  "experiment_plan": {"benchmarks": [], "baselines": [], "metrics": [], "questions": [], "success_criteria": [], "status": "needs_protocol"},
+  "research_questions": [],
+  "evidence_summary": {}
+}

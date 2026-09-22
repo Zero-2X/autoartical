@@ -1175,11 +1175,22 @@ def main() -> int:
     spec_path = topic_dir / "workspace" / "requirements" / "competition-spec.json"
     card_path = topic_dir / "workspace" / "concept" / "idea-card.json"
     evidence_path = topic_dir / "workspace" / "ideas" / "evidence-ledger.json"
+    research_gate_path = topic_dir / "workspace" / "research" / "research-gate.json"
+    research_brief_path = topic_dir / "workspace" / "research" / "research-brief.json"
 
     if not spec_path.exists() or not card_path.exists():
         raise SystemExit("Missing step inputs for document_plan.")
+    if not research_gate_path.exists():
+        raise SystemExit("Missing research-gate.json. Run run_research.py before document planning.")
+    research_gate = read_json(research_gate_path)
+    if research_gate.get("verdict") != "pass":
+        raise SystemExit("Automatic research gate is not passed; complete research evidence before document planning.")
+    if not research_brief_path.exists():
+        raise SystemExit("Missing research-brief.json. Run run_research.py before document planning.")
+    research_brief = read_json(research_brief_path)
 
     idea_card = read_json(card_path)
+    idea_card["research_brief"] = research_brief
     if args.topic.strip():
         topic_profile = resolve_topic_profile(topic_dir, explicit_topic=args.topic)
         idea_card["topic_name"] = topic_profile.get("topic_name", "")
@@ -1224,6 +1235,8 @@ def main() -> int:
             "scoring_dimensions": spec.get("scoring_dimensions", []),
             "reference_template": reference_template,
             "outline_structure_gate": structure_gate,
+            "research_gate": research_gate,
+            "research_brief": research_brief,
             "sections": sections,
             "content_contract": content_contract,
         },

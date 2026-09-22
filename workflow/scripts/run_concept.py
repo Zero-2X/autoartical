@@ -492,11 +492,12 @@ def update_workspace_state(topic_dir: Path) -> None:
         return
     state = read_json(state_path)
     workflow_status = state.setdefault("workflow_status", {})
-    state["current_step"] = "document_plan"
+    state["current_step"] = "research"
     workflow_status["selection"] = "completed"
     workflow_status["concept"] = "completed"
-    workflow_status["document_plan"] = "active"
-    state["next_action"] = "run_document_plan"
+    workflow_status["research"] = "active"
+    workflow_status["document_plan"] = "pending"
+    state["next_action"] = "run_research"
     state["blocking_reason"] = ""
     state["required_inputs"] = []
     write_json(state_path, state)
