@@ -63,7 +63,10 @@ python workflow/scripts/iteration_memory.py examples/bridge-risk/iteration-memor
 - `workflow/references/`：论文、竞赛说明书、基金风格评审、表格、图表、编译与提交规范。
 - `workflow/templates/`：可机器读取的章节、引用、图表、审查和发布模板。
 - `skills/document-writing/SKILL.md`：可复用的 Codex 文档写作 skill。
+- `skills/academic-research-writing/SKILL.md`：可复用的文献研究、方法分类和论文写作 skill。
 - `examples/bridge-risk/`：一份已经经过三轮迭代的完整示例。
+
+可直接打开 [完整工作流 HTML 页面](docs/workflow.html) 查看流程、研究链路和质量门禁。
 
 PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。需要配图时，工作流先生成带来源的请求文件，再调用 Codex 内置 `image_gen`；图片、提示词、来源和审查结果一起归档，避免配图脱离正文证据。
 

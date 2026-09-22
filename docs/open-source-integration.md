@@ -48,6 +48,19 @@ MIT/Apache 代码复用需保留各自许可与适用声明，并核对模型或
 3. 随后：建立正式模板编译入口及渲染记录，让正文量、页面范围和视觉密度共同决定交付状态。
 4. 保留独立内容审查：现有 evaluate_document.py 主要是关键词与格式启发式检查，不能证明事实正确或文稿成熟。已有 runner 主要负责文件和状态编排，不能宣称单条命令已经自动完成真实 LLM 写作。还存在历史路径／命名残留，应另行按可执行入口逐项清理。
 
+## 文献写作与 Skill 化补充调研（2026-09-22）
+
+| 项目 | Stars | 最近 push | 许可 | 吸收方式 |
+|---|---:|---|---|---|
+| [AcademicForge](https://github.com/HughYau/AcademicForge) | 2,569 | 2026-08-30 | README 标 MIT，API 为 NOASSERTION | 参考跨 Codex/Claude/OpenCode 的 skill 目录、按需安装和 Windows 支持；不复制其技能内容 |
+| [Medical Research Agent Skills](https://github.com/aipoch/medical-research-skills) | 1,904 | 2026-09-17 | MIT | 参考“证据洞察—方案设计—分析—学术写作”的能力分层和 skill 审计思想；医学专属内容不纳入通用仓库 |
+| [PaperDebugger](https://github.com/PaperDebugger/paperdebugger) | 1,541 | 2026-07-03 | AGPL-3.0 | 参考 Research → Critique → Revision 闭环；不复制 AGPL 代码或提示词 |
+| [ClaudePrism](https://github.com/delibae/claude-prism) | 1,784 | 2026-08-28 | MIT | 参考离线科学写作工作区、LaTeX/Python 与可复用 skill 的组合；不引入其桌面应用 |
+| [Awesome Scientific Writing](https://github.com/writing-resources/awesome-scientific-writing) | 1,006 | 2026-09-15 | CC0-1.0 | 参考其对引用、交叉引用、编辑器、转换器和模板的能力地图 |
+| [PaperQA2](https://github.com/Future-House/paper-qa) | 9,232 | 2026-08-12 | Apache-2.0 | 参考带页码/来源的科学文献检索、元数据意识和冲突识别；当前以接口边界写入 skill |
+
+因此新增 `skills/academic-research-writing/SKILL.md`，把上述可迁移做法凝练为本仓库自己的触发条件、研究链路、证据规则、写作结构和交付门禁。`document-writing` 只负责正文表达与交付，研究型任务必须先经过新 skill 和 `run_research.py`。
+
 本轮已实际落地 `workflow/scripts/source_ingestion.py`：PDF 改为全文逐页提取，HTML 可选 Trafilatura，Office 可选 MarkItDown；每份资料生成 SHA-256、解析引擎版本、定位片段、告警和缓存记录。`validate_evidence.py` 现在读取实际的 `evidence_items` 字段，并支持 `--strict`。可选依赖列在 `requirements-integrations.txt`，核心流程不因未安装这些依赖而改变 Markdown/TXT/JSON 的内置处理。
 
 不建议为此把通用 agent 平台整体搬入仓库；先补资料、内容质量与交付闭环，避免维护两套状态系统。本轮没有生成一份具体选题的 40–50 页成稿，也没有将示例短稿重新标记为合格。

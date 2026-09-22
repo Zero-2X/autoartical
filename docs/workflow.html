@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoArtical · 从选题到高质量文档</title>
+  <style>
+    :root{--ink:#172033;--muted:#5f6b7a;--line:#dce3ed;--paper:#f7f9fc;--blue:#2563eb;--cyan:#0891b2;--green:#15803d;--amber:#b45309;--violet:#7c3aed}
+    *{box-sizing:border-box} body{margin:0;color:var(--ink);font:16px/1.75 "Segoe UI","Microsoft YaHei",sans-serif;background:var(--paper)}
+    .hero{padding:72px max(24px,calc((100% - 1180px)/2));background:linear-gradient(135deg,#101a35,#173f68 56%,#0f766e);color:#fff;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;width:460px;height:460px;border:1px solid #ffffff30;border-radius:50%;right:-100px;top:-190px;box-shadow:0 0 0 42px #ffffff0d,0 0 0 84px #ffffff08}
+    .eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:#a7e5ee}.hero h1{font-size:clamp(34px,5vw,66px);line-height:1.08;max-width:850px;margin:15px 0}.hero p{max-width:760px;color:#d9eef5;font-size:19px}.badge{display:inline-block;border:1px solid #ffffff45;border-radius:999px;padding:3px 12px;margin:6px 6px 0 0;color:#e4fbff;font-size:13px}
+    main{max-width:1180px;margin:auto;padding:32px 24px 72px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;margin:20px 0;box-shadow:0 10px 30px #1020400a}.panel h2{margin:0 0 10px;font-size:25px}.panel h3{margin-bottom:5px}.muted{color:var(--muted)}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}.node{position:relative;min-height:150px;padding:18px;border-radius:14px;background:linear-gradient(160deg,#eef5ff,#fff);border:1px solid #cfe0ff}.node:nth-child(4n+2){background:linear-gradient(160deg,#ecfeff,#fff);border-color:#b8e8ef}.node:nth-child(4n+3){background:linear-gradient(160deg,#f2f0ff,#fff);border-color:#d8d0ff}.node:nth-child(4n+4){background:linear-gradient(160deg,#effcf3,#fff);border-color:#c9ebd2}.number{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:50%;background:var(--blue);color:#fff;font-weight:700;margin-bottom:8px}.node h3{font-size:17px;margin:0}.node p{font-size:14px;color:var(--muted);margin:6px 0}.arrow{position:absolute;right:-17px;top:68px;color:var(--blue);font-size:25px;z-index:2}.node:last-child .arrow{display:none}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:18px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}.card strong{display:block;font-size:17px;margin-bottom:5px}.card p{margin:0;color:var(--muted);font-size:14px}.pill{font-size:12px;border-radius:6px;padding:2px 8px;background:#e7efff;color:#1d4ed8}
+    .contract{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contract ul,.card ul{margin:9px 0 0;padding-left:20px}.good{border-left:4px solid var(--green)}.bad{border-left:4px solid #dc2626}.good h3{color:var(--green)}.bad h3{color:#b91c1c}
+    .gate{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.gate span{padding:9px 12px;border-radius:10px;background:#f1f5f9;border:1px solid var(--line);font-size:14px}.gate span:before{content:"✓";color:var(--green);font-weight:700;margin-right:7px}
+    details{border-top:1px solid var(--line);padding:13px 0}details:first-of-type{border-top:0}summary{cursor:pointer;font-weight:700}summary::marker{color:var(--blue)}
+    select{font:inherit;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}.mode-note{padding:12px 14px;border-radius:10px;background:#eff6ff;color:#1e40af;margin-top:14px}
+    footer{max-width:1180px;margin:auto;padding:0 24px 34px;color:var(--muted);font-size:13px}
+    @media(max-width:800px){.flow{grid-template-columns:1fr 1fr}.grid,.contract{grid-template-columns:1fr}.arrow{display:none}.hero{padding-top:45px}}
+    @media(max-width:480px){.flow{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">AutoArtical · Evidence-led research writing</div>
+    <h1>把一个模糊想法，变成能被核验的完整文档</h1>
+    <p>工作流先研究，再规划，再写作，再审查。每个重要结论都有来源，每个设计都有理由，每个实验都说明它要证明什么。</p>
+    <span class="badge">领域 → 子领域 → 挑战</span><span class="badge">方法分类 → 关键缺口</span><span class="badge">rationale → case study → 主实验</span>
+  </header>
+  <main>
+    <section class="panel">
+      <h2>全流程</h2><p class="muted">自动研究 Gate 通过后，才能进入正文规划；内容 Gate 和版式 Gate 都通过后，才算交付。</p>
+      <div class="flow">
+        <div class="node"><span class="number">1</span><h3>资料与要求</h3><p>导入规则、论文、报告、数据集说明和已有材料，保留路径、哈希与定位。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">2</span><h3>候选选题</h3><p>生成多个方向，比较新颖性、可行性、证据成本和评审匹配度。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">3</span><h3>人工选择</h3><p>保留选择理由与被拒方向，避免模型自行锁定未经确认的题目。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">4</span><h3>选题说明</h3><p>固定问题、用户、创新、架构、场景和现有证据。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">5</span><h3>自动研究</h3><p>回答领域、子领域、挑战、Current methods、缺口和实验契约。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">6</span><h3>章节规划</h3><p>把主张、证据、篇幅、图表和章节逻辑绑定起来。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">7</span><h3>逐章写作</h3><p>按章节解锁，写作、审计、修改通过后才能进入下一章。</p><span class="arrow">→</span></div>
+        <div class="node"><span class="number">8</span><h3>全书交付</h3><p>检查证据、去重、内容密度、渲染页数、图表和引用。</p></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>自动研究到底研究什么</h2>
+      <div class="grid">
+        <div class="card"><span class="pill">Q1–Q2</span><strong>领域与子领域</strong><p>说明研究对象、任务边界和研究价值，禁止用宏大背景替代任务定义。</p></div>
+        <div class="card"><span class="pill">Q3</span><strong>挑战与影响</strong><p>把挑战写成可观察失败模式，说明影响、条件和可测后果。</p></div>
+        <div class="card"><span class="pill">Q4</span><strong>Current methods</strong><p>按机制分类，逐类写代表工作、共同优势、共同缺陷和适用范围。</p></div>
+        <div class="card"><span class="pill">Q5</span><strong>关键缺口</strong><p>形成“缺陷 → 未解决矛盾 → 可证伪研究问题”的闭环。</p></div>
+        <div class="card"><span class="pill">Q6</span><strong>科学设计</strong><p>每个组件都要有 rationale、机制假设和 testable prediction。</p></div>
+        <div class="card"><span class="pill">Q7</span><strong>案例与主实验</strong><p>明确 benchmark、baseline、metrics、成功标准，以及每项实验要证明的主张。</p></div>
+      </div>
+      <div class="mode-note">入口：<code>python workflow/scripts/run_research.py ./my-topic</code>。首次运行生成 research brief 骨架和检索计划；证据不足时停止，补齐后重跑。</div>
+    </section>
+
+    <section class="panel">
+      <h2>怎样得到好的结果</h2>
+      <div class="contract">
+        <div class="card good"><h3>有效做法</h3><ul><li>先固定研究问题，再让方法回答问题。</li><li>把每个事实绑定到来源和原文位置。</li><li>用统一标准比较方法，而不是堆论文摘要。</li><li>让实验问题、指标和结论一一对应。</li><li>补充机制、边界、失败分析和取舍。</li><li>40–50 页由实质正文自然构成。</li></ul></div>
+        <div class="card bad"><h3>会导致低质量的做法</h3><ul><li>把搜索摘要或模型常识当作证据。</li><li>先写方法，再倒推研究动机。</li><li>只列 benchmark，不说明测量目的。</li><li>用表格、图片、留白和重复段落凑页数。</li><li>把计划、假设和结果混写。</li><li>用关键词命中代替事实核验。</li></ul></div>
+      </div>
+      <div class="gate"><span>来源可追溯</span><span>方法可比较</span><span>设计可解释</span><span>实验可复现</span><span>正文有实质密度</span><span>渲染已核验</span></div>
+    </section>
+
+    <section class="panel">
+      <h2>按文档类型调整重点</h2>
+      <label for="mode">当前模式：</label>
+      <select id="mode"><option value="paper">论文</option><option value="competition">竞赛说明书</option><option value="grant">基金申请书</option></select>
+      <div id="modeText" class="mode-note"></div>
+      <details open><summary>论文</summary><p>重点是可检验问题、相关工作分类、方法复现、benchmark 公平性、消融、统计和局限。</p></details>
+      <details><summary>竞赛说明书</summary><p>重点是用户痛点、方案闭环、创新与实现证据、应用流程、风险和展示可理解性。</p></details>
+      <details><summary>基金申请书</summary><p>重点是科学问题、研究目标、技术路线、前期基础、创新点、可行性和风险控制。</p></details>
+    </section>
+
+    <section class="panel">
+      <h2>仓库中的可复用能力</h2>
+      <div class="grid">
+        <div class="card"><strong>academic-research-writing</strong><p>研究型任务的统一 Skill：从领域研究到实验契约，再进入写作。</p></div>
+        <div class="card"><strong>document-writing</strong><p>逐章正文、引用、图表、内容密度和全书审查。</p></div>
+        <div class="card"><strong>source ingestion</strong><p>PDF/Office/HTML/Markdown 导入，缓存、哈希、页码/行号定位。</p></div>
+        <div class="card"><strong>research-gate</strong><p>缺少证据、方法比较或实验协议时阻止正文规划。</p></div>
+        <div class="card"><strong>content-depth</strong><p>检查有效正文量、重复段落和 40–50 页内容合同。</p></div>
+        <div class="card"><strong>render verification</strong><p>用正式模板核对页数、字体、断页、图表、公式和引用。</p></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>研究与写作的边界</h2>
+      <p class="muted">GitHub 项目提供了可借鉴的能力形态：PaperQA2 的引用型科学检索、AcademicForge 和 ClaudePrism 的 skill 化工作区、PaperDebugger 的研究—批评—修订闭环，以及 Docling、MarkItDown、Pandoc、Typst 的资料与交付链路。AutoArtical 只吸收公开的工作方法和接口边界，保留自己的证据台账、状态文件和审查规则。</p>
+      <p class="muted">自动化可以生成问题、整理来源和检查结构，不能替人确认事实、编造结果或替代领域判断。</p>
+    </section>
+  </main>
+  <footer>AutoArtical · 证据驱动的长文工作流 · 页面可离线打开 · 详细规范见仓库 docs/ 与 skills/</footer>
+  <script>
+    const notes={paper:'论文模式：先锁定研究问题和 claims，再组织相关工作、方法、实验与局限；每项实验都要回答一个明确问题。',competition:'竞赛模式：把研究证据翻译成用户、方案、创新、实施、风险和展示证据，避免论文术语遮蔽评审重点。',grant:'基金模式：把研究缺口表达为科学问题，用研究目标、技术路线、前期基础和风险控制支撑可行性。'};
+    const select=document.getElementById('mode'), text=document.getElementById('modeText');
+    function update(){text.textContent=notes[select.value]} select.addEventListener('change',update); update();
+  </script>
+</body>
+</html>
