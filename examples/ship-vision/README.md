@@ -7,6 +7,7 @@
 ## 文件
 
 - `proposal.md`：申报书第一版正文，包含选题依据、研究问题、方法、案例、实验与实施计划。
+- `topic-selection.md`：聚焦船舶目标检测的选题文本，可直接作为申报书“选题依据/研究内容”章节底稿。
 - `workspace/concept/idea-card.json`：结构化选题卡，供自动研究和文档规划读取。
 - `workspace/ideas/evidence-ledger.json`：外部研究来源和核验状态。搜索摘要只作为线索，不作为最终结论。
 - `workspace/research/research-brief.json`：自动研究问题、方法分类、实验契约和待补证据。

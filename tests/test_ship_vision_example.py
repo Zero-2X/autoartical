@@ -8,6 +8,11 @@ EXAMPLE = ROOT / "examples" / "ship-vision"
 
 
 class ShipVisionExampleTests(unittest.TestCase):
+    def test_topic_selection_text_covers_research_and_competition_chain(self):
+        text = (EXAMPLE / "topic-selection.md").read_text(encoding="utf-8")
+        for phrase in ["研究领域", "用户需求", "现有方法", "科学问题", "技术方案", "创新点", "实验设计", "实施安排", "参考文献"]:
+            self.assertIn(phrase, text)
+
     def test_proposal_contains_research_chain_and_experiment_contract(self):
         text = (EXAMPLE / "proposal.md").read_text(encoding="utf-8")
         for phrase in ["研究领域", "子领域", "科学问题", "现有方法", "案例研究", "benchmark", "基线", "指标", "风险", "参考文献"]:

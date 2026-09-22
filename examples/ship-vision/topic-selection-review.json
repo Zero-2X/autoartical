@@ -1,0 +1,39 @@
+{
+  "document": "examples\\ship-vision\\topic-selection.md",
+  "generated_checks": {
+    "heading_count": 24,
+    "paragraph_count": 65,
+    "table_line_count": 0,
+    "citation_count": 11,
+    "has_mermaid": false,
+    "has_embedded_image": false,
+    "table_quality": {
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": false
+    },
+    "generic_phrase_counts": {},
+    "repeated_paragraphs": []
+  },
+  "rubric": {
+    "论文": {
+      "问题与贡献": true,
+      "方法与验证": true,
+      "引用可追溯": true
+    },
+    "竞赛说明书": {
+      "需求覆盖": true,
+      "方案闭环": true,
+      "评审友好": false
+    },
+    "基金申报书": {
+      "科学问题": true,
+      "技术路线": false,
+      "可行性与风险": true
+    }
+  },
+  "coverage_score": 0.778,
+  "ai_style_risks": {},
+  "verdict": "pass",
+  "missing_sections": []
+}
