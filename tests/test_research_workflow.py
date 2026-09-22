@@ -39,6 +39,13 @@ class ResearchWorkflowTests(unittest.TestCase):
         brief["experiment_plan"].update({"benchmarks": ["B"], "baselines": ["M"], "success_criteria": ["C"]})
         self.assertEqual(gate(brief)["verdict"], "pass")
 
+    def test_unverified_source_summary_blocks_gate(self):
+        brief = derive_brief(Path("topic"), {"project_name": "主题", "problem": "问题", "core_innovations": ["机制"]}, [])
+        brief["evidence_summary"] = {"unverified_sources": 1}
+        result = gate(brief)
+        self.assertEqual(result["verdict"], "needs_research")
+        self.assertIn("evidence.fulltext_verification", result["missing"])
+
 
 if __name__ == "__main__":
     unittest.main()

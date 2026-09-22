@@ -79,13 +79,16 @@ def derive_brief(topic_dir: Path, idea: dict[str, Any], items: list[dict[str, An
         "design_rationale": [{"design": clean(x), "rationale": "待映射到已核验缺陷", "testable_prediction": "", "evidence_ids": []} for x in idea.get("core_innovations", [])[:4]],
         "case_study": {"title": clean(case.get("title")), "timeline": case.get("timeline", []), "purpose": "验证机制在具体情境中的行为与失败边界", "status": "planned" if case else "needs_case_material"},
         "experiment_plan": {"benchmarks": [], "baselines": [], "metrics": idea.get("validation_support_pack", {}).get("metric_summary", []) or [], "questions": [{"id": "Q1", "purpose": "主方法相对强基线的有效性"}, {"id": "Q2", "purpose": "关键组件贡献"}, {"id": "Q3", "purpose": "鲁棒性、效率或边界"}, {"id": "Q4", "purpose": "案例解释机制与失败模式"}], "success_criteria": [], "status": "needs_protocol"},
-        "evidence_summary": {"total_candidates": len(items), "usable_sources": len(sources), "reviewed_sources": len(reviewed), "external_research_sources": len(external)},
+        "evidence_summary": {"total_candidates": len(items), "usable_sources": len(sources), "reviewed_sources": len(reviewed), "unverified_sources": max(0, len(sources) - len(reviewed)), "external_research_sources": len(external)},
         "research_questions": build_questions(topic, subdomain),
     }
 
 
 def gate(brief: dict[str, Any]) -> dict[str, Any]:
     missing = []
+    evidence_summary = brief.get("evidence_summary", {}) or {}
+    if evidence_summary.get("unverified_sources", 0) > 0:
+        missing.append("evidence.fulltext_verification")
     if not brief["domain"]["why_research"]: missing.append("domain.why_research")
     if not brief["subdomain"]["name"]: missing.append("subdomain.name")
     if not brief["domain"]["evidence_ids"]: missing.append("domain.evidence_ids")

@@ -40,6 +40,7 @@
     "questions": ["Q1：联合方案相对强基线是否改善遮挡与低能见度子集？", "Q2：每个组件是否有独立贡献？", "Q3：性能提升是否以不可接受的延迟和资源为代价？", "Q4：失败案例是否能被证据卡准确暴露，而不是被平均指标掩盖？"],
     "success_criteria": ["遮挡子集IDF1相对最强基线提升且95%置信区间不跨零（以固定随机种子和序列划分计算）", "风险事件误报率在固定召回目标下下降，提前量不低于基线", "端到端延迟满足赛事演示设备的实时约束，具体阈值由硬件实测确定", "所有结论均能回链到数据划分、日志、指标脚本和失败案例"]
   },
+  "evidence_summary": {"total_candidates": 6, "usable_sources": 6, "reviewed_sources": 1, "unverified_sources": 5, "external_research_sources": 5},
   "status": "draft_research_seed",
   "next_evidence": ["核验E1/E3/E4/E5全文和版本", "完成桥区视频采集、脱敏、切片和标注协议", "锁定硬件与实时阈值", "补齐风险事件定义和人工复核协议"]
 }
