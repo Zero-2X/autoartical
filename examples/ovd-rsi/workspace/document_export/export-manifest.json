@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T19:29:31+00:00",
+  "generated_at": "2026-09-23T05:56:31+00:00",
   "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
   "formats": {
     "markdown": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.md",
@@ -13,47 +13,47 @@
       {
         "heading": "一、作品概述与问题定义",
         "minimum": 2400,
-        "prose_units": 2764,
+        "prose_units": 4919,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "二、作品设计与总体架构",
         "minimum": 1300,
-        "prose_units": 1450,
+        "prose_units": 3010,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "三、核心创新与关键技术",
         "minimum": 1450,
-        "prose_units": 1504,
+        "prose_units": 3619,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "四、作品实现与运行闭环",
         "minimum": 2500,
-        "prose_units": 2663,
+        "prose_units": 4117,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "五、测试与效果分析",
         "minimum": 4000,
-        "prose_units": 4298,
+        "prose_units": 6758,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "六、应用前景与落地价值",
         "minimum": 1100,
-        "prose_units": 1240,
+        "prose_units": 2841,
         "duplicate_paragraph_groups": 0
       },
       {
         "heading": "七、总结与展望",
         "minimum": 11250,
-        "prose_units": 11355,
+        "prose_units": 13035,
         "duplicate_paragraph_groups": 0
       }
     ],
-    "prose_units": 25274,
+    "prose_units": 38299,
     "duplicate_paragraph_groups": 0,
     "contract": {
       "target_pages": [
@@ -124,7 +124,7 @@
     "requested_ids": [],
     "missing_ids": [],
     "uncited_labels": [],
-    "tables_in_draft": 11,
+    "tables_in_draft": 18,
     "table_quality": {
       "has_units": true,
       "has_sources": true,
@@ -149,39 +149,65 @@
     "verified": true,
     "renderer_available": true,
     "backend": "pymupdf",
-    "page_count": 44,
+    "page_count": 42,
     "page_range": [
       40,
       50
     ],
-    "visual_qa": "pass",
-    "report_path": "workspace\\document_export\\render-report.json",
-    "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。",
     "embedded_image_count": 21,
     "raster_qa_samples": [
       {
         "page": 1,
-        "png": "tmp/ovd/page1-01.png",
-        "result": "pass",
-        "note": "标题、摘要与正文段落清晰"
+        "occupancy_ratio": 0.767,
+        "embedded_images": 0,
+        "result": "pass"
       },
       {
         "page": 6,
-        "png": "tmp/ovd/page6-06.png",
-        "result": "pass",
-        "note": "三幅流程图嵌入，图中文字与版面可读"
+        "occupancy_ratio": 0.771,
+        "embedded_images": 3,
+        "result": "pass"
       },
       {
         "page": 20,
-        "png": "tmp/ovd/page20-20.png",
-        "result": "pass",
-        "note": "实验论证页无溢出或截断"
+        "occupancy_ratio": 0.763,
+        "embedded_images": 0,
+        "result": "pass"
       },
       {
-        "page": 44,
-        "png": "tmp/ovd/page44-44.png",
-        "result": "pass",
-        "note": "末页正文与交付记录完整"
+        "page": 42,
+        "occupancy_ratio": 0.767,
+        "embedded_images": 0,
+        "result": "pass"
+      }
+    ],
+    "visual_qa": "pass",
+    "report_path": "workspace\\document_export\\render-report.json",
+    "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。",
+    "density_samples": [
+      {
+        "page": 1,
+        "occupancy_ratio": 0.767,
+        "embedded_images": 0,
+        "result": "pass"
+      },
+      {
+        "page": 6,
+        "occupancy_ratio": 0.771,
+        "embedded_images": 3,
+        "result": "pass"
+      },
+      {
+        "page": 20,
+        "occupancy_ratio": 0.763,
+        "embedded_images": 0,
+        "result": "pass"
+      },
+      {
+        "page": 42,
+        "occupancy_ratio": 0.767,
+        "embedded_images": 0,
+        "result": "pass"
       }
     ]
   },

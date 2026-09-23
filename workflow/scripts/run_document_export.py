@@ -112,7 +112,7 @@ def _markdown_units(line: str) -> int:
     return len(re.findall(r"[\u3400-\u4dbf\u4e00-\u9fff]|[A-Za-z0-9]+(?:[-_/][A-Za-z0-9]+)*", line))
 
 
-def _split_render_chunks(markdown: str, target_units: int = 600) -> list[str]:
+def _split_render_chunks(markdown: str, target_units: int = 1000) -> list[str]:
     """Split at paragraph/table boundaries so PyMuPDF can render stable pages."""
     chunks: list[str] = []
     current: list[str] = []
@@ -146,7 +146,7 @@ def render_with_pymupdf(markdown: str, title: str, pdf_path: Path) -> dict:
     document = fitz.open()
     page_rect = fitz.paper_rect("a4")
     margin = 42
-    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:10.5pt;line-height:1.48;color:#172033;}h1{font-size:20pt;margin:0 0 14pt;}h2{font-size:16pt;margin:0 0 12pt;}h3{font-size:13pt;margin:0 0 10pt;}h4{font-size:11.5pt;margin:0 0 8pt;}p{margin:0 0 8pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:8.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{max-width:480pt;max-height:220pt;width:auto;height:auto;}figcaption{font-size:8.5pt;color:#526174;}</style>"
+    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:13pt;line-height:1.55;color:#172033;}h1{font-size:22pt;margin:0 0 16pt;}h2{font-size:18pt;margin:0 0 14pt;}h3{font-size:15pt;margin:0 0 11pt;}h4{font-size:12.5pt;margin:0 0 9pt;}p{margin:0 0 9pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:9.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{max-width:480pt;max-height:220pt;width:auto;height:auto;}figcaption{font-size:8.5pt;color:#526174;}</style>"
     for chunk in chunks:
         full = markdown_to_html(chunk, title, Path.cwd())
         body = full.split("<body>", 1)[1].rsplit("</body>", 1)[0]

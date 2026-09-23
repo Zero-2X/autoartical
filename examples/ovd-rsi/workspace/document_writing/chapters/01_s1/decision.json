@@ -41,7 +41,7 @@
     },
     "heading_structure": {
       "status": "pass",
-      "notes": "required_h3=3, actual_h3=9, required_h4>=9, actual_h4=11",
+      "notes": "required_h3=3, actual_h3=16, required_h4>=9, actual_h4=11",
       "evidence": [
         "研究简报",
         "章节草稿",
@@ -77,7 +77,7 @@
     },
     "length_budget": {
       "status": "pass",
-      "notes": "章节长度达标：actual=2764, required>=2400",
+      "notes": "章节长度达标：actual=4919, required>=2400",
       "evidence": [
         "研究简报",
         "章节草稿",
@@ -119,7 +119,7 @@
     "budget_upper": 3200,
     "min_ratio": 1.0,
     "min_required": 2400,
-    "actual_count": 2764,
+    "actual_count": 4919,
     "enforceable": true,
     "status": "passed",
     "passed": true
@@ -129,7 +129,7 @@
     "status": "passed",
     "passed": true,
     "required_second_level_count": 3,
-    "actual_second_level_count": 9,
+    "actual_second_level_count": 16,
     "required_second_level_titles": [
       "背景与赛题价值",
       "目标用户与问题场景",
@@ -144,6 +144,13 @@
       "为什么选择 RSI 子领域",
       "子领域的通用挑战及影响",
       "Current methods 的类别与取舍",
+      "研究边界与概念拆解",
+      "影响链与用户需求",
+      "研究假设与可证伪条件",
+      "文献演化与研究位置",
+      "选题决策记录",
+      "相关工作比较的统一维度",
+      "研究对象的层级关系",
       "图形证据"
     ],
     "required_third_level_total_min": 9,
@@ -202,7 +209,7 @@
         "missing_third_level_titles": []
       }
     ],
-    "notes": "required_h3=3, actual_h3=9, required_h4>=9, actual_h4=11"
+    "notes": "required_h3=3, actual_h3=16, required_h4>=9, actual_h4=11"
   },
   "missing_materials_gate": {
     "status": "pending",

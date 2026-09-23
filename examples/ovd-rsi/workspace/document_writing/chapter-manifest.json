@@ -370,7 +370,7 @@
         "budget_upper": 3200,
         "min_ratio": 1.0,
         "min_required": 2400,
-        "actual_count": 2764,
+        "actual_count": 4919,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -380,7 +380,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 3,
-        "actual_second_level_count": 9,
+        "actual_second_level_count": 16,
         "required_second_level_titles": [
           "背景与赛题价值",
           "目标用户与问题场景",
@@ -395,6 +395,13 @@
           "为什么选择 RSI 子领域",
           "子领域的通用挑战及影响",
           "Current methods 的类别与取舍",
+          "研究边界与概念拆解",
+          "影响链与用户需求",
+          "研究假设与可证伪条件",
+          "文献演化与研究位置",
+          "选题决策记录",
+          "相关工作比较的统一维度",
+          "研究对象的层级关系",
           "图形证据"
         ],
         "required_third_level_total_min": 9,
@@ -453,7 +460,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=3, actual_h3=9, required_h4>=9, actual_h4=11"
+        "notes": "required_h3=3, actual_h3=16, required_h4>=9, actual_h4=11"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -488,7 +495,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=9, required_h4>=9, actual_h4=11",
+          "notes": "required_h3=3, actual_h3=16, required_h4>=9, actual_h4=11",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -524,7 +531,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=2764, required>=2400",
+          "notes": "章节长度达标：actual=4919, required>=2400",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -963,7 +970,7 @@
         "budget_upper": 1733,
         "min_ratio": 1.0,
         "min_required": 1300,
-        "actual_count": 1450,
+        "actual_count": 3010,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -973,7 +980,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 3,
-        "actual_second_level_count": 4,
+        "actual_second_level_count": 11,
         "required_second_level_titles": [
           "总体目标与设计原则",
           "系统总体架构",
@@ -983,6 +990,13 @@
           "总体目标与设计原则",
           "系统总体架构",
           "输入-处理-输出闭环",
+          "任务形式化与接口契约",
+          "数据流与状态机",
+          "资源预算与可替换边界",
+          "安全与数据治理",
+          "接口字段的可审计约束",
+          "计算复杂度分析",
+          "失败路由矩阵",
           "图形证据"
         ],
         "required_third_level_total_min": 9,
@@ -1039,7 +1053,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=3, actual_h3=4, required_h4>=9, actual_h4=9"
+        "notes": "required_h3=3, actual_h3=11, required_h4>=9, actual_h4=9"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -1074,7 +1088,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=4, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=11, required_h4>=9, actual_h4=9",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -1110,7 +1124,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1450, required>=1300",
+          "notes": "章节长度达标：actual=3010, required>=1300",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -1577,7 +1591,7 @@
         "budget_upper": 1933,
         "min_ratio": 1.0,
         "min_required": 1450,
-        "actual_count": 1504,
+        "actual_count": 3619,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -1587,7 +1601,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 5,
-        "actual_second_level_count": 6,
+        "actual_second_level_count": 16,
         "required_second_level_titles": [
           "创新点总览",
           "创新一 · 遥感域词汇原型适配",
@@ -1601,6 +1615,16 @@
           "创新二 · 多尺度旋转候选协同",
           "创新三 · 可靠语义校准",
           "创新与技术层映射",
+          "统一评分函数与训练目标",
+          "遥感域语义原型适配",
+          "多尺度切片与旋转候选协同",
+          "候选融合与冲突处理",
+          "可靠性校准与拒识",
+          "消融假设与可归因性",
+          "语义、几何和可靠性的联合学习",
+          "查询扰动与稳定性测试",
+          "细粒度混淆图",
+          "阈值选择与部署策略",
           "图形证据"
         ],
         "required_third_level_total_min": 12,
@@ -1683,7 +1707,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=5, actual_h3=6, required_h4>=12, actual_h4=12"
+        "notes": "required_h3=5, actual_h3=16, required_h4>=12, actual_h4=12"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -1718,7 +1742,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=5, actual_h3=6, required_h4>=12, actual_h4=12",
+          "notes": "required_h3=5, actual_h3=16, required_h4>=12, actual_h4=12",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -1754,7 +1778,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1504, required>=1450",
+          "notes": "章节长度达标：actual=3619, required>=1450",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -2219,7 +2243,7 @@
         "budget_upper": 3333,
         "min_ratio": 1.0,
         "min_required": 2500,
-        "actual_count": 2663,
+        "actual_count": 4117,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -2229,7 +2253,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 3,
-        "actual_second_level_count": 12,
+        "actual_second_level_count": 19,
         "required_second_level_titles": [
           "模块实现说明",
           "运行流程",
@@ -2247,6 +2271,13 @@
           "图示如何承担解释任务",
           "内容质量检测的含义",
           "现场故障处理",
+          "数据处理与版本控制",
+          "训练与推理流水线",
+          "日志、监控与异常回放",
+          "计算资源与部署分层",
+          "可复现实验包",
+          "质量检查与持续集成",
+          "证据卡的字段设计",
           "图形证据"
         ],
         "required_third_level_total_min": 9,
@@ -2303,7 +2334,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=3, actual_h3=12, required_h4>=9, actual_h4=9"
+        "notes": "required_h3=3, actual_h3=19, required_h4>=9, actual_h4=9"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -2338,7 +2369,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=12, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=19, required_h4>=9, actual_h4=9",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -2374,7 +2405,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=2663, required>=2500",
+          "notes": "章节长度达标：actual=4117, required>=2500",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -2981,7 +3012,7 @@
         "budget_upper": 5333,
         "min_ratio": 1.0,
         "min_required": 4000,
-        "actual_count": 4298,
+        "actual_count": 6758,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -2991,7 +3022,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 5,
-        "actual_second_level_count": 21,
+        "actual_second_level_count": 33,
         "required_second_level_titles": [
           "评测协议与数据划分",
           "Current methods 基线对比",
@@ -3020,6 +3051,18 @@
           "运行后检查",
           "统计与误差分析",
           "版本比较",
+          "数据集卡与划分原则",
+          "评价指标的测量对象",
+          "主实验矩阵",
+          "误差分类与人工标注",
+          "统计与显著性",
+          "负结果与停止规则",
+          "复现实验清单",
+          "数据集之间的可比性限制",
+          "结果表与图形解读",
+          "鲁棒性网格",
+          "人工评估协议",
+          "统计功效与样本量",
           "图形证据"
         ],
         "required_third_level_total_min": 10,
@@ -3098,7 +3141,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=5, actual_h3=21, required_h4>=10, actual_h4=10"
+        "notes": "required_h3=5, actual_h3=33, required_h4>=10, actual_h4=10"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -3133,7 +3176,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=5, actual_h3=21, required_h4>=10, actual_h4=10",
+          "notes": "required_h3=5, actual_h3=33, required_h4>=10, actual_h4=10",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -3169,7 +3212,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=4298, required>=4000",
+          "notes": "章节长度达标：actual=6758, required>=4000",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -3552,7 +3595,7 @@
         "budget_upper": 1467,
         "min_ratio": 1.0,
         "min_required": 1100,
-        "actual_count": 1240,
+        "actual_count": 2841,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -3562,7 +3605,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 3,
-        "actual_second_level_count": 4,
+        "actual_second_level_count": 12,
         "required_second_level_titles": [
           "目标用户与典型场景",
           "业务收益与竞争优势",
@@ -3572,6 +3615,14 @@
           "目标用户与典型场景",
           "业务收益与竞争优势",
           "比赛展示价值",
+          "用户角色与任务链",
+          "价值测量与人机协同",
+          "比赛展示脚本",
+          "部署成本与收益边界",
+          "应用扩展路径",
+          "评审视角的证据组织",
+          "价值指标的解释",
+          "用户反馈闭环",
           "图形证据"
         ],
         "required_third_level_total_min": 9,
@@ -3628,7 +3679,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=3, actual_h3=4, required_h4>=9, actual_h4=9"
+        "notes": "required_h3=3, actual_h3=12, required_h4>=9, actual_h4=9"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -3663,7 +3714,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=4, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=12, required_h4>=9, actual_h4=9",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -3699,7 +3750,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=1240, required>=1100",
+          "notes": "章节长度达标：actual=2841, required>=1100",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -4115,7 +4166,7 @@
         "budget_upper": 15000,
         "min_ratio": 1.0,
         "min_required": 11250,
-        "actual_count": 11355,
+        "actual_count": 13035,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -4125,7 +4176,7 @@
         "status": "passed",
         "passed": true,
         "required_second_level_count": 3,
-        "actual_second_level_count": 57,
+        "actual_second_level_count": 65,
         "required_second_level_titles": [
           "作品完成情况",
           "系统特色与应用价值",
@@ -4187,6 +4238,14 @@
           "交付前签核字段",
           "可追踪性说明",
           "版本封存",
+          "研究主线的完整回收",
+          "可迁移性与外部效度",
+          "研究风险与替代路线",
+          "预期贡献与不作承诺的部分",
+          "后续研究问题",
+          "研究结论的证据等级",
+          "研究资料与代码复用边界",
+          "交付后的审计与维护",
           "图形证据",
           "竞赛答辩与持续迭代"
         ],
@@ -4244,7 +4303,7 @@
             "missing_third_level_titles": []
           }
         ],
-        "notes": "required_h3=3, actual_h3=57, required_h4>=9, actual_h4=9"
+        "notes": "required_h3=3, actual_h3=65, required_h4>=9, actual_h4=9"
       },
       "verdict_rationale": "正文按主题证据、结构合同、实验协议和视觉规划完成；内容 Gate 将再次复核。",
       "blocking_reason_category": "",
@@ -4279,7 +4338,7 @@
         },
         "heading_structure": {
           "status": "pass",
-          "notes": "required_h3=3, actual_h3=57, required_h4>=9, actual_h4=9",
+          "notes": "required_h3=3, actual_h3=65, required_h4>=9, actual_h4=9",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -4315,7 +4374,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=11355, required>=11250",
+          "notes": "章节长度达标：actual=13035, required>=11250",
           "evidence": [
             "研究简报",
             "章节草稿",
@@ -4675,7 +4734,7 @@
         "budget_upper": 1400,
         "min_ratio": 1.0,
         "min_required": 800,
-        "actual_count": 801,
+        "actual_count": 1638,
         "enforceable": true,
         "status": "passed",
         "passed": true
@@ -4761,7 +4820,7 @@
         },
         "length_budget": {
           "status": "pass",
-          "notes": "章节长度达标：actual=801, required>=800",
+          "notes": "章节长度达标：actual=1638, required>=800",
           "evidence": [
             "研究简报",
             "章节草稿",
