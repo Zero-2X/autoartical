@@ -1,12 +1,11 @@
 {
   "figure_id": "s2_visual_1",
   "visual_type": "figure",
+  "label": "图2-1",
   "title": "总体架构图",
   "purpose": "说明系统由哪些模块组成，以及模块之间如何协同。",
-  "content": "标题：总体架构图；放置小节：总体目标与设计原则；正文目的：说明系统由哪些模块组成，以及模块之间如何协同。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：总体架构图；放置小节：总体目标与设计原则；正文目的：说明系统由哪些模块组成，以及模块之间如何协同。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "总体目标与设计原则",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
@@ -15,12 +14,47 @@
     "ev_9ca3b5c76b",
     "ev_c00e228bb3"
   ],
-  "asset_candidates": [
-    "figures/s2_visual_1.png",
-    "figures/s2_visual_1.pdf",
-    "workspace/document_export/assets/visuals/s2_visual_1.png",
-    "workspace/document_export/assets/visuals/s2_visual_1.pdf"
+  "article_understanding": {
+    "section_heading": "总体目标与设计原则",
+    "context_excerpt": "目标一是降低新增目标类别的进入成本：用户只需提供类别词或短语，系统即可生成可审计候选，而不是先为每个类别完成全量框标注。目标二是提高遥感域的可用性：语义先验要来自遥感图文或域内检测数据，定位模块要显式处理多尺度和方向。目标三是把可靠性放在输出层：每个结果都要能解释为何被接受、为何需要复核或为何被拒识。\n系统不训练一个声称覆盖所有地球目标的万能模型，而是提供从通用开放词汇基线到遥感域校准模块的可替换链路。对于没有公开真值的真实区域，系统只输出候选和复核状态，不把候选框当作事实；对于没有许可证确认的模型权重，实验记录只引用接口和公开结果，不将其直接打包分发。\n第一条原则是证据优先：任何性能结论都绑定数据、类别划分、提示词、阈值和版本。第二条原则是问题可归因：每个组件必须有对应缺陷和 testable prediction，消融实验不能只去掉模块名称而不改变输入。第三条原则是失败可见：高置信假阳性、同义查询漂移、跨区域退化和延迟超限都要进入报告。第四条原则是演示可重复：系统保存查询、模型、数据切片、随机种子和输出摘要，使现场演示与离线实验可以互相核对。",
+    "key_message": "系统由影像与查询接入、视觉语言对齐、候选检测与校准、证据交互四层构成，数据和版本信息贯穿各层。",
+    "visual_elements": [
+      "影像及自然语言双输入",
+      "文本原型与视觉特征对齐",
+      "多尺度旋转候选和风险校准",
+      "可回放的证据卡与用户界面"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "出版级分层系统架构剖面图，四层有不同材质和色块，主数据流清晰向右推进，版本与证据轨迹以细线贯穿；模块关系要多于装饰，不能呈现未经证实的运行结果。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图2-1 总体架构图, placed in the section 总体目标与设计原则. The one claim this figure must convey is: 系统由影像与查询接入、视觉语言对齐、候选检测与校准、证据交互四层构成，数据和版本信息贯穿各层。 Depict these exact objects and relationships, not generic interchangeable boxes: 影像及自然语言双输入；文本原型与视觉特征对齐；多尺度旋转候选和风险校准；可回放的证据卡与用户界面. Article-specific visual concept and composition: 出版级分层系统架构剖面图，四层有不同材质和色块，主数据流清晰向右推进，版本与证据轨迹以细线贯穿；模块关系要多于装饰，不能呈现未经证实的运行结果。 Use the nearby manuscript as semantic grounding: 目标一是降低新增目标类别的进入成本：用户只需提供类别词或短语，系统即可生成可审计候选，而不是先为每个类别完成全量框标注。目标二是提高遥感域的可用性：语义先验要来自遥感图文或域内检测数据，定位模块要显式处理多尺度和方向。目标三是把可靠性放在输出层：每个结果都要能解释为何被接受、为何需要复核或为何被拒识。\n系统不训练一个声称覆盖所有地球目标的万能模型，而是提供从通用开放词汇基线到遥感域校准模块的可替换链路。对于没有公开真值的真实区域，系统只输出候选和复核状态，不把候选框当作事实；对于没有许可证确认的模型权重，实验记录只引用接口和公开结果，不将其直接打包分发。\n第一条原则是证据优先：任何性能结论都绑定数据、类别划分、提示词、阈值和版本。第二条原则是问题可归因：每个组件必须有对应缺陷和 testable prediction，消融实验不能只去掉模块名称而不改变输入。第三条原则是失败可见：高置信假阳性、同义查询漂移、跨区域退化和延迟超限都要进入报告。第四条原则是演示可重复：系统保存查询、模型、数据切片、随机种子和输出摘要，使现场演示与离线实验可以互相核对。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-a6b86463-34dc-490b-9d32-78df9fc5d49b.png",
+    "prompt_sha256": "1be0ef07d0d8f6a2c7acb83e11b5bb5d3be22af914876a7a007f14123562ca18",
+    "asset_sha256": "dcedd94834cc91d6ae022214286a724b3e76f798d655e87ceeea698d92837e70",
+    "generated_at": "2026-09-23T13:47:52+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看四层总体架构：影像与查询、语义对齐、候选校准、证据交互分层明确，数据轨迹连续，没有错误的性能承诺。",
+    "reviewed_at": "2026-09-23T13:47:52+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

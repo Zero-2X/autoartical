@@ -31,7 +31,7 @@
 1. 撰写者逐节核对问题是否回答充分、事实是否有来源定位、方法是否可复现。
 2. 审查者逐段查证据与主张是否匹配，检查跨章重复、数字口径、术语一致性、反例和限制；关键结论不得只凭关键词通过。
 3. 运行逐章长度检查和 run_document_review.py 的 content_depth_gate；任何正文不足或重复均退回。脚本只识别部分形式问题，不能自动证明精确、真实或无废话。
-   同时运行 `run_visual_assets.py` 生成素材请求和视觉台账；最终导出前必须检查视觉规格、实际资产、正文引用和图注。
+   章节正文形成后运行 `run_visual_assets.py` 生成逐图上下文请求；先完成文章理解，再写详细 Prompt、调用 Codex 内置 ImageGen、登记与审查资产。最终导出前必须检查视觉规格、生成来源、正文引用和图注，见 [逐图 ImageGen 工作法](imagegen-figures.md)。
 4. 使用正式模板生成 DOCX/PDF，核对实际正文页码区间，逐页检查稀疏页、孤立标题、表格断裂、图文错位，并记录渲染工具版本和页数。content_depth_gate 中的 render_verification 在未渲染时始终是 pending。
 5. 内容不足回到对应小节补资料、机制或分析；内容超过页数先删冗余、将必要明细移至附录，不能缩小到难以阅读。把实际渲染结果写入 `workspace/document_export/render-report.json`，其中 `page_count` 必须落在 40–50、`visual_qa` 必须为 `pass`、`verified` 才能为 `true`。内容审查与版式核验都通过才可称为最终完成。
 

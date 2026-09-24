@@ -2,6 +2,9 @@
 from __future__ import annotations
 
 import re
+import hashlib
+import json
+import struct
 from pathlib import Path
 from typing import Any
 
@@ -48,6 +51,69 @@ def _asset_candidates(topic_dir: Path, spec: dict[str, Any]) -> list[Path]:
     return list(dict.fromkeys(candidates))
 
 
+def _imagegen_record(topic_dir: Path, visual_id: str, draft: str) -> tuple[bool, str, str]:
+    """Validate the actual image, manuscript link, prompt provenance and visual review."""
+    figures = topic_dir / "workspace" / "document_assets" / "figures"
+    asset = figures / f"{visual_id}.png"
+    request_path = figures / f"{visual_id}.request.json"
+    if not request_path.exists():
+        return False, "缺少逐图理解与 Prompt 记录", ""
+    try:
+        request = json.loads(request_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False, "逐图记录无法读取", ""
+    understanding = request.get("article_understanding", {})
+    if request.get("status") != "reviewed":
+        return False, "该图尚未完成 ImageGen 生成与目视审查", ""
+    if draft:
+        from visual_prompting import manuscript_sha256
+        if request.get("source_draft_sha256") != manuscript_sha256(draft):
+            return False, "文章正文已变化，图像理解和 Prompt 需要重新审查", ""
+    if not isinstance(understanding, dict) or not all(
+        [len(str(understanding.get("context_excerpt", ""))) >= 60,
+         len(str(understanding.get("key_message", ""))) >= 15,
+         len(str(understanding.get("evidence_boundary", ""))) >= 15,
+         len(understanding.get("visual_elements", [])) >= 3]
+    ):
+        return False, "缺少从正文提炼的图意、元素或证据边界", ""
+    prompt = str(request.get("prompt", ""))
+    if len(prompt) < 400:
+        return False, "ImageGen Prompt 不够完整（至少 400 字符）", ""
+    required_prompt_content = [
+        str(understanding.get("key_message", "")),
+        str(understanding.get("evidence_boundary", "")),
+        str(understanding.get("visual_direction", "")),
+        *(str(item) for item in understanding.get("visual_elements", [])),
+    ]
+    if any(not item or item not in prompt for item in required_prompt_content):
+        return False, "完整 Prompt 未采用该图的文章主张、视觉元素、边界和构图", ""
+    generation = request.get("generation", {})
+    if (request.get("route") != "Codex built-in image_gen" or
+            generation.get("tool") != "image_gen.imagegen" or
+            "generated_images" not in str(generation.get("source_path", "")) or
+            generation.get("prompt_sha256") != hashlib.sha256(prompt.encode("utf-8")).hexdigest()):
+        return False, "缺少 Codex 内置 ImageGen 生成来源或提示词校验", ""
+    if not asset.exists() or asset.stat().st_size < 100_000:
+        return False, "缺少有效 ImageGen PNG", ""
+    data = asset.read_bytes()
+    if not data.startswith(b"\x89PNG\r\n\x1a\n") or len(data) < 24:
+        return False, "资产不是有效 PNG", ""
+    width, height = struct.unpack(">II", data[16:24])
+    if width < 1000 or height < 500:
+        return False, "ImageGen 图片分辨率不足", ""
+    image_hash = hashlib.sha256(data).hexdigest()
+    if generation.get("asset_sha256") != image_hash:
+        return False, "图片与生成记录的散列不一致", ""
+    review = request.get("visual_review", {})
+    if (request.get("status") != "reviewed" or review.get("status") != "pass" or
+            not all(review.get(key) is True for key in ("semantic_fidelity", "legibility", "uniqueness", "no_fabrication")) or
+            len(str(review.get("note", ""))) < 20):
+        return False, "缺少逐图语义、可读性、独特性和事实审查", ""
+    if draft and not any(visual_id + ".png" in line for line in draft.splitlines() if line.lstrip().startswith("![")):
+        return False, "正文未嵌入该 ImageGen PNG", ""
+    return True, "", image_hash
+
+
 def _is_table(spec: dict[str, Any]) -> bool:
     return str(spec.get("visual_type", "")).lower() == "table" or "表" in str(spec.get("title", ""))
 
@@ -90,13 +156,27 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
     available: list[str] = []
     requested: list[str] = []
     missing: list[str] = []
+    invalid_assets: dict[str, str] = {}
+    seen_hashes: dict[str, str] = {}
+    seen_prompts: dict[str, str] = {}
     for spec in external:
         visual_id = str(spec.get("visual_id", ""))
-        if any(path.exists() and path.stat().st_size > 0 for path in _asset_candidates(topic_dir, spec)):
+        valid, reason, image_hash = _imagegen_record(topic_dir, visual_id, draft)
+        request_path = topic_dir / "workspace" / "document_assets" / "figures" / f"{visual_id}.request.json"
+        if valid:
+            request_data = json.loads(request_path.read_text(encoding="utf-8"))
+            prompt_hash = hashlib.sha256(str(request_data.get("prompt", "")).encode("utf-8")).hexdigest()
+            if prompt_hash in seen_prompts:
+                valid, reason = False, f"与 {seen_prompts[prompt_hash]} 复用了同一 Prompt"
+        if valid and image_hash in seen_hashes:
+            valid, reason = False, f"与 {seen_hashes[image_hash]} 重复使用同一图片"
+        if valid:
             available.append(visual_id)
+            seen_hashes[image_hash] = visual_id
+            seen_prompts[prompt_hash] = visual_id
         else:
-            request = topic_dir / "workspace" / "document_assets" / "figures" / f"{visual_id}.request.json"
-            (requested if request.exists() else missing).append(visual_id)
+            (requested if request_path.exists() else missing).append(visual_id)
+            invalid_assets[visual_id] = reason
 
     labels = [str(item.get("label", "")).strip() for item in required if item.get("label")]
     references = set(re.findall(r"[图表]\s*\d+(?:[-.．]\d+)+", draft))
@@ -114,6 +194,8 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
         failures.append(f"可用外部视觉资产不足：{len(available)} < {required_assets_min}")
     if ratio < float(contract.get("required_asset_ratio", 1.0) or 1.0):
         failures.append(f"外部视觉资产完成率不足：{ratio:.2f} < {contract.get('required_asset_ratio', 1.0)}")
+    if invalid_assets:
+        failures.append("ImageGen 逐图记录或资产未通过：" + "；".join(f"{key}: {value}" for key, value in list(invalid_assets.items())[:12]))
     if tables_in_draft < int(contract.get("required_tables_min", 0) or 0):
         failures.append(f"正文表格不足：{tables_in_draft} < {contract.get('required_tables_min', 0)}")
     if tables_in_draft and int(contract.get("required_tables_min", 0) or 0):
@@ -137,6 +219,7 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
         "available_ids": available,
         "requested_ids": requested,
         "missing_ids": missing,
+        "invalid_assets": invalid_assets,
         "uncited_labels": uncited,
         "tables_in_draft": tables_in_draft,
         "table_quality": table_quality,

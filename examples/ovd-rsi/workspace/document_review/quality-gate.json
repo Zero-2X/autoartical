@@ -1291,7 +1291,7 @@
     ],
     "total_actual": 40569,
     "total_required": 25400,
-    "assembled_count": 45132,
+    "assembled_count": 45077,
     "passed": true
   },
   "evidence_gate_summary": {
@@ -1638,6 +1638,7 @@
     ],
     "requested_ids": [],
     "missing_ids": [],
+    "invalid_assets": {},
     "uncited_labels": [],
     "tables_in_draft": 18,
     "table_quality": {

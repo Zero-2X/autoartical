@@ -1,24 +1,58 @@
 {
   "figure_id": "s1_visual_4",
   "visual_type": "figure",
+  "label": "图1-4",
   "title": "问题链路图",
   "purpose": "问题链路图",
-  "content": "标题：问题链路图；放置小节：业务痛点拆解；正文目的：问题链路图。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：问题链路图；放置小节：业务痛点拆解；正文目的：问题链路图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "业务痛点拆解",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
     "ev_84bd681099",
     "ev_9ca3b5c76b"
   ],
-  "asset_candidates": [
-    "figures/s1_visual_4.png",
-    "figures/s1_visual_4.pdf",
-    "workspace/document_export/assets/visuals/s1_visual_4.png",
-    "workspace/document_export/assets/visuals/s1_visual_4.pdf"
+  "article_understanding": {
+    "section_heading": "业务痛点拆解",
+    "context_excerpt": "固定类别检测器在新目标出现时需要新增框标注、重新训练和再次验收，流程长且成本高；通用开放词汇模型虽然可以输入文本，但训练数据多来自自然场景，直接迁移到遥感域会遇到俯视视角、尺度跨度和背景共现问题。弱监督或图像级监督扩大词汇覆盖，却不必然提供准确的实例位置；实时模型降低延迟，却可能把轻量化损失转移到 novel recall 和小目标定位。\n一个新类别从查询到业务使用要经过语义对齐、候选生成、框合并、类别排序和阈值决策。任一环节出错都会在后面放大：文本原型偏移会让正确目标没有候选，切片不足会造成小目标漏检，水平框合并会污染类别匹配，未校准的分数会让背景纹理成为高置信假阳性。若系统只显示最终框而不保存中间候选和拒识原因，用户无法判断错误来自词汇、定位还是置信度。\n对自然资源部门，错误的候选会增加人工复核量，漏检则可能延迟巡查；对应急团队，无法快速定义新目标会失去灾后早期信息窗口；对数据服务企业，固定标签体系会限制产品覆盖范围。比赛展示中，如果只展示一张精心挑选的成功案例，评委看不到系统面对同义词、跨区域、密集目标和背景干扰时的边界。因此，本项目把失败样例、拒识样例和查询扰动一并纳入交付证据。\n表1-3 目标用户与问题响应\n表格解释：数值单位由具体实验配置冻结；数据来源为 DIOR、DOTA、FAIR1M 或明确标注的外测集；统计口径使用固定随机种子和图像级划分；缺失值以 NA 标记并说明原因。\n图1-1 问题场景图、图1-2 目标用户动作图、图1-4 风险放大链路图分别说明场景、用户动作和错误传播；这些视觉项服务于问题定义，不承担实验结果证明。",
+    "key_message": "开放词汇遥感检测的失效会从词义偏移传导到候选框遗漏或误框，最后放大成高置信错误决策。",
+    "visual_elements": [
+      "用户查询与域内语义偏移",
+      "小而密集的俯视目标",
+      "遗漏与重叠的旋转候选框",
+      "带人工复核分支的最终风险"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "左到右的因果叙事图，沿同一港区局部影像推进三个特写；以琥珀和珊瑚色标出失败传播，末端表现证据卡和人工复核，避免普通四个等宽框。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图1-4 问题链路图, placed in the section 业务痛点拆解. The one claim this figure must convey is: 开放词汇遥感检测的失效会从词义偏移传导到候选框遗漏或误框，最后放大成高置信错误决策。 Depict these exact objects and relationships, not generic interchangeable boxes: 用户查询与域内语义偏移；小而密集的俯视目标；遗漏与重叠的旋转候选框；带人工复核分支的最终风险. Article-specific visual concept and composition: 左到右的因果叙事图，沿同一港区局部影像推进三个特写；以琥珀和珊瑚色标出失败传播，末端表现证据卡和人工复核，避免普通四个等宽框。 Use the nearby manuscript as semantic grounding: 固定类别检测器在新目标出现时需要新增框标注、重新训练和再次验收，流程长且成本高；通用开放词汇模型虽然可以输入文本，但训练数据多来自自然场景，直接迁移到遥感域会遇到俯视视角、尺度跨度和背景共现问题。弱监督或图像级监督扩大词汇覆盖，却不必然提供准确的实例位置；实时模型降低延迟，却可能把轻量化损失转移到 novel recall 和小目标定位。\n一个新类别从查询到业务使用要经过语义对齐、候选生成、框合并、类别排序和阈值决策。任一环节出错都会在后面放大：文本原型偏移会让正确目标没有候选，切片不足会造成小目标漏检，水平框合并会污染类别匹配，未校准的分数会让背景纹理成为高置信假阳性。若系统只显示最终框而不保存中间候选和拒识原因，用户无法判断错误来自词汇、定位还是置信度。\n对自然资源部门，错误的候选会增加人工复核量，漏检则可能延迟巡查；对应急团队，无法快速定义新目标会失去灾后早期信息窗口；对数据服务企业，固定标签体系会限制产品覆盖范围。比赛展示中，如果只展示一张精心挑选的成功案例，评委看不到系统面对同义词、跨区域、密集目标和背景干扰时的边界。因此，本项目把失败样例、拒识样例和查询扰动一并纳入交付证据。\n表1-3 目标用户与问题响应\n表格解释：数值单位由具体实验配置冻结；数据来源为 DIOR、DOTA、FAIR1M 或明确标注的外测集；统计口径使用固定随机种子和图像级划分；缺失值以 NA 标记并说明原因。\n图1-1 问题场景图、图1-2 目标用户动作图、图1-4 风险放大链路图分别说明场景、用户动作和错误传播；这些视觉项服务于问题定义，不承担实验结果证明。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-f91cc1aa-17f0-406d-bec9-8d0224b45bea.png",
+    "prompt_sha256": "7be0d6ccfb9ad6ca8e0038342747b1faaebbb5b2c359b2e8cf427245196a69c1",
+    "asset_sha256": "09f342256058b10d458ef15b4a4b308abca533735290ecbecdbcd20e91d6a30a",
+    "generated_at": "2026-09-23T13:47:52+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看因果链图：从查询语义到密集船舶漏检，再到高置信错误与人工复核的传播关系清楚；没有虚构的指标数值。",
+    "reviewed_at": "2026-09-23T13:47:52+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

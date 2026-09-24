@@ -1,23 +1,57 @@
 {
   "figure_id": "s5_visual_5",
   "visual_type": "figure",
-  "title": "答辩展示页示意",
+  "label": "图6-5",
+  "title": "竞赛答辩演示界面板",
   "purpose": "价值闭环图",
-  "content": "标题：答辩展示页示意；放置小节：比赛展示价值；正文目的：价值闭环图。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：答辩展示页示意；放置小节：比赛展示价值；正文目的：价值闭环图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "比赛展示价值",
   "source_refs": [
     "ev_84bd681099",
     "ev_9ca3b5c76b",
     "ev_c00e228bb3"
   ],
-  "asset_candidates": [
-    "figures/s5_visual_5.png",
-    "figures/s5_visual_5.pdf",
-    "workspace/document_export/assets/visuals/s5_visual_5.png",
-    "workspace/document_export/assets/visuals/s5_visual_5.pdf"
+  "article_understanding": {
+    "section_heading": "比赛展示价值",
+    "context_excerpt": "现场展示沿着“提出新词—检索候选—解释不确定性—人工复核—导出证据”展开。第一屏展示一张港口或海岸遥感影像，第二屏输入未在闭集标签中出现的词汇，第三屏对比原始分数和校准结果，第四屏回放一个误报和一个拒识样例，最后导出结果表与证据卡。评委可以看到问题、方案、创新和验证之间的连续关系。\n网页端提供交互查询和结果叠加，命令行端提供批量评测，报告端提供章节、表格和图表，日志端提供运行与数据版本。四种呈现共享同一任务编号和 schema，现场切换不会改变结果口径。图6-3 端到端演示路径、图6-4 用户角色与证据流、图6-5 竞赛答辩展示板分别对应操作、用户和叙事层。\n演示不把待实测数字伪装成结果，而是展示已冻结的评测协议、可追溯的结果位和可复核的失败处理。若现场网络或显卡受限，可以回放离线任务；若评委输入新词，系统仍能生成候选和拒识解释。这样展示的是可重复的工作流能力，而非一次偶然的截图。\n表6-1 用户与价值映射\n表格解释：用户收益以一次任务为统计单位；延迟以毫秒记录，显存以 GB 记录，比例均注明分母；无法观测的字段写 NA 并给出原因；数据来源绑定任务日志、实验 manifest 和人工复核记录。\n图6-3 端到端演示路径、图6-4 用户角色与证据流、图6-5 竞赛答辩展示板。\n表6-2 竞赛展示任务与评审关注点。",
+    "key_message": "竞赛答辩演示应按新目标出现、语言查询、多尺度候选、同义词稳定性、错误查询拒识和证据导出的顺序证明方案可审计。",
+    "visual_elements": [
+      "遥感图像与新目标",
+      "查询输入和多尺度候选",
+      "同义词扰动对照",
+      "拒识提示与证据卡导出"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "一页六幕的高保真演示分镜板，每幕拥有不同的功能焦点和一致的视觉系统；这是概念演示，不得出现假 benchmark 分数或已部署标志。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图6-5 竞赛答辩演示界面板, placed in the section 比赛展示价值. The one claim this figure must convey is: 竞赛答辩演示应按新目标出现、语言查询、多尺度候选、同义词稳定性、错误查询拒识和证据导出的顺序证明方案可审计。 Depict these exact objects and relationships, not generic interchangeable boxes: 遥感图像与新目标；查询输入和多尺度候选；同义词扰动对照；拒识提示与证据卡导出. Article-specific visual concept and composition: 一页六幕的高保真演示分镜板，每幕拥有不同的功能焦点和一致的视觉系统；这是概念演示，不得出现假 benchmark 分数或已部署标志。 Use the nearby manuscript as semantic grounding: 现场展示沿着“提出新词—检索候选—解释不确定性—人工复核—导出证据”展开。第一屏展示一张港口或海岸遥感影像，第二屏输入未在闭集标签中出现的词汇，第三屏对比原始分数和校准结果，第四屏回放一个误报和一个拒识样例，最后导出结果表与证据卡。评委可以看到问题、方案、创新和验证之间的连续关系。\n网页端提供交互查询和结果叠加，命令行端提供批量评测，报告端提供章节、表格和图表，日志端提供运行与数据版本。四种呈现共享同一任务编号和 schema，现场切换不会改变结果口径。图6-3 端到端演示路径、图6-4 用户角色与证据流、图6-5 竞赛答辩展示板分别对应操作、用户和叙事层。\n演示不把待实测数字伪装成结果，而是展示已冻结的评测协议、可追溯的结果位和可复核的失败处理。若现场网络或显卡受限，可以回放离线任务；若评委输入新词，系统仍能生成候选和拒识解释。这样展示的是可重复的工作流能力，而非一次偶然的截图。\n表6-1 用户与价值映射\n表格解释：用户收益以一次任务为统计单位；延迟以毫秒记录，显存以 GB 记录，比例均注明分母；无法观测的字段写 NA 并给出原因；数据来源绑定任务日志、实验 manifest 和人工复核记录。\n图6-3 端到端演示路径、图6-4 用户角色与证据流、图6-5 竞赛答辩展示板。\n表6-2 竞赛展示任务与评审关注点。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-871b31cb-409d-4dbd-ba10-092c45d9c856.png",
+    "prompt_sha256": "237dee4413a1de347c73408653827d5aa11aaf3e8a10f20c02e6fe96e1e7cb03",
+    "asset_sha256": "7796908ee5b9b83b216cc5216ed2124bd79a84983df0b60e28dc7ecc19509240",
+    "generated_at": "2026-09-23T15:16:32+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已目视检查：六幕由影像发现、新词查询、候选比较、错误/拒识回放到证据导出连贯排列；底部展示共享任务编号的网页、日志、报告和评估界面。图中没有可读的伪标签或 benchmark 数值，作为竞赛演示概念板适用。",
+    "reviewed_at": "2026-09-23T15:16:32+00:00"
+  }
 }

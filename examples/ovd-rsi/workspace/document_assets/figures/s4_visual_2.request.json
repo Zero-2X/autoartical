@@ -1,23 +1,57 @@
 {
   "figure_id": "s4_visual_2",
   "visual_type": "figure",
+  "label": "图4-2",
   "title": "运行流程图",
   "purpose": "说明系统运行步骤、数据流向或业务闭环。",
-  "content": "标题：运行流程图；放置小节：运行流程；正文目的：说明系统运行步骤、数据流向或业务闭环。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：运行流程图；放置小节：运行流程；正文目的：说明系统运行步骤、数据流向或业务闭环。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "运行流程",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
     "ev_9662694342"
   ],
-  "asset_candidates": [
-    "figures/s4_visual_2.png",
-    "figures/s4_visual_2.pdf",
-    "workspace/document_export/assets/visuals/s4_visual_2.png",
-    "workspace/document_export/assets/visuals/s4_visual_2.pdf"
+  "article_understanding": {
+    "section_heading": "运行流程",
+    "context_excerpt": "用户上传影像或选择影像索引，输入类别词、属性短语和可选空间范围。系统先检查文件哈希、分辨率、坐标范围和影像是否可读，再生成任务编号。若影像元数据缺失，系统仍可推理，但在证据卡中显示元数据缺失，不把缺失信息补写成估计值。\n任务进入切片队列后，系统并行执行候选生成和文本原型编码；词汇缓存命中时只复用已冻结的编码，不命中时产生新版本。跨切片合并之后，区域一致性、背景对照、同义查询稳定性和温度校准依次执行。任何一步异常都会生成可读错误，例如“候选为空”“区域证据不足”或“校准集不匹配”。\n结果页面按接受、复核、拒识和失败四类显示。用户可以点击候选查看原图、局部图、旋转框、文本相似度、校准概率、来源切片和相邻候选；也可以复制查询并修改同义词，比较两个任务的框集合和排序变化。最终导出包括结果表、证据卡、任务日志和模型配置，保证演示结束后仍能解释结果。",
+    "key_message": "运行状态机依次准备、候选、融合、校准、复核与导出，每一步都保存可回放字段和异常降级状态。",
+    "visual_elements": [
+      "准备时的 query 与影像切片",
+      "候选及融合状态",
+      "校准与复核分支",
+      "导出证据包和失败回退"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "工程运行路径图，以一条贯穿的连续轨道呈现六个状态，局部展示输入输出对象与异常回退小支线；避免等大矩形串联。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图4-2 运行流程图, placed in the section 运行流程. The one claim this figure must convey is: 运行状态机依次准备、候选、融合、校准、复核与导出，每一步都保存可回放字段和异常降级状态。 Depict these exact objects and relationships, not generic interchangeable boxes: 准备时的 query 与影像切片；候选及融合状态；校准与复核分支；导出证据包和失败回退. Article-specific visual concept and composition: 工程运行路径图，以一条贯穿的连续轨道呈现六个状态，局部展示输入输出对象与异常回退小支线；避免等大矩形串联。 Use the nearby manuscript as semantic grounding: 用户上传影像或选择影像索引，输入类别词、属性短语和可选空间范围。系统先检查文件哈希、分辨率、坐标范围和影像是否可读，再生成任务编号。若影像元数据缺失，系统仍可推理，但在证据卡中显示元数据缺失，不把缺失信息补写成估计值。\n任务进入切片队列后，系统并行执行候选生成和文本原型编码；词汇缓存命中时只复用已冻结的编码，不命中时产生新版本。跨切片合并之后，区域一致性、背景对照、同义查询稳定性和温度校准依次执行。任何一步异常都会生成可读错误，例如“候选为空”“区域证据不足”或“校准集不匹配”。\n结果页面按接受、复核、拒识和失败四类显示。用户可以点击候选查看原图、局部图、旋转框、文本相似度、校准概率、来源切片和相邻候选；也可以复制查询并修改同义词，比较两个任务的框集合和排序变化。最终导出包括结果表、证据卡、任务日志和模型配置，保证演示结束后仍能解释结果。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-bb37eaee-5f05-4c9c-b9aa-a3efccb8c2c4.png",
+    "prompt_sha256": "66ff3845146e3195a5fbfecfcb04d32837c48f68f6b4df369b643a29a0dacc9c",
+    "asset_sha256": "292be4486e8ad8baf486c71ac34e4a38909b11e4dec3ff9145c2a7e6f4dd719e",
+    "generated_at": "2026-09-23T14:25:20+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看运行状态机图：准备、候选、融合、校准、复核、导出的主轨和异常回退轨迹清楚，记录字段与正文一致。",
+    "reviewed_at": "2026-09-23T14:25:20+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

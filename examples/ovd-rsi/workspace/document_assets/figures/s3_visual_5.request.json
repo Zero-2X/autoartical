@@ -1,22 +1,56 @@
 {
   "figure_id": "s3_visual_5",
   "visual_type": "figure",
+  "label": "图3-5",
   "title": "关键技术分层图",
   "purpose": "说明系统由哪些模块组成，以及模块之间如何协同。",
-  "content": "标题：关键技术分层图；放置小节：创新与技术层映射；正文目的：说明系统由哪些模块组成，以及模块之间如何协同。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：关键技术分层图；放置小节：创新与技术层映射；正文目的：说明系统由哪些模块组成，以及模块之间如何协同。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "创新与技术层映射",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a"
   ],
-  "asset_candidates": [
-    "figures/s3_visual_5.png",
-    "figures/s3_visual_5.pdf",
-    "workspace/document_export/assets/visuals/s3_visual_5.png",
-    "workspace/document_export/assets/visuals/s3_visual_5.pdf"
+  "article_understanding": {
+    "section_heading": "创新与技术层映射",
+    "context_excerpt": "创新一落在文本原型缓存、域内图文对齐和同义词版本管理；创新二落在切片索引、多尺度候选、旋转框解码和坐标回写；创新三落在区域一致性、背景对照、温度校准和拒识策略。三个创新都提供独立配置开关，便于开展逐组件消融。\n创新一由 DIOR-OV、FAIR1M-FG 的 novel recall 和查询一致性验证；创新二由 DOTA-OVB 的 OBB mAP、AR 和密集小目标分层结果验证；创新三由 ECE、Brier、高置信假阳性率和人工复核命中率验证。每个验证锚点都写入实验表和证据卡，不用系统总分替代组件归因。\n图3-2 创新一示意图展示通用词汇到遥感域原型的映射；图3-3 创新二示意图展示多尺度切片、旋转候选和跨切片合并；图3-4 创新三示意图展示区域证据、背景对照、校准和拒识；图3-5 关键技术分层图将三项创新与四层架构对齐；图3-6 创新模块证据映射表列出每个组件的输入、输出、缺陷来源和实验指标。\n表3-1 创新点—痛点对照表\n表格解释：单位为百分比、百分点或毫秒时必须在实验报告中明示；数据来源为公开基准或外测集；统计口径固定随机种子、类别划分和查询模板；缺失值说明写为 NA 并附原因。\n表3-6 创新消融与验证映射。",
+    "key_message": "语义原型、几何候选和风险校准不是互换模块，而是在高召回候选、分层重排和最终决策中各自解决一种缺陷。",
+    "visual_elements": [
+      "词汇原型及查询稳定性",
+      "多尺度旋转候选",
+      "分层重排",
+      "最终风险校准与证据卡"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "纵深分层的技术栈，前三项形成主链，缺陷到预测的关系用细辅助线表示；色彩克制、模块层级高密度但留白清晰，与总体架构图构图不同。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图3-5 关键技术分层图, placed in the section 创新与技术层映射. The one claim this figure must convey is: 语义原型、几何候选和风险校准不是互换模块，而是在高召回候选、分层重排和最终决策中各自解决一种缺陷。 Depict these exact objects and relationships, not generic interchangeable boxes: 词汇原型及查询稳定性；多尺度旋转候选；分层重排；最终风险校准与证据卡. Article-specific visual concept and composition: 纵深分层的技术栈，前三项形成主链，缺陷到预测的关系用细辅助线表示；色彩克制、模块层级高密度但留白清晰，与总体架构图构图不同。 Use the nearby manuscript as semantic grounding: 创新一落在文本原型缓存、域内图文对齐和同义词版本管理；创新二落在切片索引、多尺度候选、旋转框解码和坐标回写；创新三落在区域一致性、背景对照、温度校准和拒识策略。三个创新都提供独立配置开关，便于开展逐组件消融。\n创新一由 DIOR-OV、FAIR1M-FG 的 novel recall 和查询一致性验证；创新二由 DOTA-OVB 的 OBB mAP、AR 和密集小目标分层结果验证；创新三由 ECE、Brier、高置信假阳性率和人工复核命中率验证。每个验证锚点都写入实验表和证据卡，不用系统总分替代组件归因。\n图3-2 创新一示意图展示通用词汇到遥感域原型的映射；图3-3 创新二示意图展示多尺度切片、旋转候选和跨切片合并；图3-4 创新三示意图展示区域证据、背景对照、校准和拒识；图3-5 关键技术分层图将三项创新与四层架构对齐；图3-6 创新模块证据映射表列出每个组件的输入、输出、缺陷来源和实验指标。\n表3-1 创新点—痛点对照表\n表格解释：单位为百分比、百分点或毫秒时必须在实验报告中明示；数据来源为公开基准或外测集；统计口径固定随机种子、类别划分和查询模板；缺失值说明写为 NA 并附原因。\n表3-6 创新消融与验证映射。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-4a702eb8-db29-4500-92d5-2c959e0baf9c.png",
+    "prompt_sha256": "a692a40c1b43a8b9cf97e3ff4671e4a3202ee38d02440bab0c9691f5f0ae1cfe",
+    "asset_sha256": "d67c987fd50b1c79c670ade752c86589faaddae2e7a038dd54ce8123ef86a861",
+    "generated_at": "2026-09-23T14:20:56+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看关键技术分层图：词汇原型、旋转候选、风险证据与输出分层明确，画面不同于总体架构图，未出现虚构性能结果。",
+    "reviewed_at": "2026-09-23T14:20:56+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

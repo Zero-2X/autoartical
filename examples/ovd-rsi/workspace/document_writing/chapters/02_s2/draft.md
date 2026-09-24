@@ -102,14 +102,14 @@ OpenRSI-Calibrator 分为四层。第一层是影像和查询接入层，负责�
 
 ### 图形证据
 
-![图2-1 总体架构图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_1.svg)
+![图2-1 总体架构图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_1.png)
 
-![图2-2 模块职责分层图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_2.svg)
+![图2-2 模块职责分层图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_2.png)
 
-![图2-3 输入-处理-输出闭环图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_3.svg)
+![图2-3 输入-处理-输出闭环图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_3.png)
 
-![图2-4 多端联动部署图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_4.svg)
+![图2-4 多端联动部署图](examples/ovd-rsi/workspace/document_assets/figures/s2_visual_4.png)
 
-![图2-5 最小可行范围 范围边界图](examples/ovd-rsi/workspace/document_assets/figures/s2_最小可行范围.svg)
+![图2-5 最小可行范围 范围边界图](examples/ovd-rsi/workspace/document_assets/figures/s2_mvp.png)
 
 工程约束需要在方法落地前被显式化。候选框数量、查询词数量和切片重叠率共同决定显存峰值；因此实现采用固定上限、批内复用文本向量和可回放的候选缓存。这样做的目的不是追求单一硬件上的最快时间，而是让同一组查询在不同区域、不同批次和不同审计轮次中保持可比较。

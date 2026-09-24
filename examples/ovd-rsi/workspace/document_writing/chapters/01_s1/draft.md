@@ -136,8 +136,8 @@ RSI 在本文中指 remote-sensing imagery，即遥感影像。研究对象包�
 
 ### 图形证据
 
-![图1-1 问题场景图](examples/ovd-rsi/workspace/document_assets/figures/s1_visual_1.svg)
+![图1-1 问题场景图](examples/ovd-rsi/workspace/document_assets/figures/s1_visual_1.png)
 
-![图1-2 背景趋势图](examples/ovd-rsi/workspace/document_assets/figures/s1_visual_2.svg)
+![图1-2 背景趋势图](examples/ovd-rsi/workspace/document_assets/figures/s1_visual_2.png)
 
-![图1-4 问题链路图](examples/ovd-rsi/workspace/document_assets/figures/s1_visual_4.svg)
+![图1-4 问题链路图](examples/ovd-rsi/workspace/document_assets/figures/s1_visual_4.png)

@@ -1,22 +1,56 @@
 {
   "figure_id": "s3_visual_3",
   "visual_type": "figure",
+  "label": "图3-3",
   "title": "创新二 · 多尺度旋转候选协同示意图",
   "purpose": "原理流程图",
-  "content": "标题：创新二 · 多尺度旋转候选协同示意图；放置小节：创新二 · 多尺度旋转候选协同；正文目的：原理流程图。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：创新二 · 多尺度旋转候选协同示意图；放置小节：创新二 · 多尺度旋转候选协同；正文目的：原理流程图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "创新二 · 多尺度旋转候选协同",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a"
   ],
-  "asset_candidates": [
-    "figures/s3_visual_3.png",
-    "figures/s3_visual_3.pdf",
-    "workspace/document_export/assets/visuals/s3_visual_3.png",
-    "workspace/document_export/assets/visuals/s3_visual_3.pdf"
+  "article_understanding": {
+    "section_heading": "创新二 · 多尺度旋转候选协同",
+    "context_excerpt": "系统把大图切片、尺度金字塔和旋转框候选放在同一条推理链中。切片阶段保留空间索引和重叠区域，候选阶段同时保留水平框和旋转框，合并阶段根据几何重叠、类别相似度和来源切片进行去重。对小目标，系统不简单放大图像，而是记录放大比例和原始坐标变换，保证证据卡上的框可以回到原图。\n候选融合采用两步策略：先在切片内部完成区域级筛选，再在原图坐标系中完成跨切片匹配。旋转框以中心、宽高和角度保存，同时生成最小外接水平框用于兼容通用基线。对于密集目标，系统优先保留互相独立且区域证据足够的候选；对于角度不稳定但类别稳定的候选，降级为“需复核”而不是直接接受。\nDOTA 的任意方向四边形和 FAIR1M 的细粒度有向目标说明空间表达会影响类别和实例判断[2][3]。本组件的预测不是“所有旋转框都更好”，而是旋转目标和相邻目标分层指标应改善，小目标召回应比普通水平框基线更稳定；如果收益只出现在大目标或单一数据集，申报书将把它记录为边界而不是泛化结论。",
+    "key_message": "多尺度切片与旋转候选协同改善细长、小尺度和斜置目标的几何表达，同时保留来源切片以消除重复框。",
+    "visual_elements": [
+      "多尺度重叠切片",
+      "斜置船舶与狭长码头目标",
+      "水平框和旋转框对比",
+      "跨切片重复候选的融合"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "俯视港区的技术显微图，中央展示一艘斜置船舶从大图到局部切片的层层放大，附带清楚的旋转框和合并轨迹；几何准确优先于装饰。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图3-3 创新二 · 多尺度旋转候选协同示意图, placed in the section 创新二 · 多尺度旋转候选协同. The one claim this figure must convey is: 多尺度切片与旋转候选协同改善细长、小尺度和斜置目标的几何表达，同时保留来源切片以消除重复框。 Depict these exact objects and relationships, not generic interchangeable boxes: 多尺度重叠切片；斜置船舶与狭长码头目标；水平框和旋转框对比；跨切片重复候选的融合. Article-specific visual concept and composition: 俯视港区的技术显微图，中央展示一艘斜置船舶从大图到局部切片的层层放大，附带清楚的旋转框和合并轨迹；几何准确优先于装饰。 Use the nearby manuscript as semantic grounding: 系统把大图切片、尺度金字塔和旋转框候选放在同一条推理链中。切片阶段保留空间索引和重叠区域，候选阶段同时保留水平框和旋转框，合并阶段根据几何重叠、类别相似度和来源切片进行去重。对小目标，系统不简单放大图像，而是记录放大比例和原始坐标变换，保证证据卡上的框可以回到原图。\n候选融合采用两步策略：先在切片内部完成区域级筛选，再在原图坐标系中完成跨切片匹配。旋转框以中心、宽高和角度保存，同时生成最小外接水平框用于兼容通用基线。对于密集目标，系统优先保留互相独立且区域证据足够的候选；对于角度不稳定但类别稳定的候选，降级为“需复核”而不是直接接受。\nDOTA 的任意方向四边形和 FAIR1M 的细粒度有向目标说明空间表达会影响类别和实例判断[2][3]。本组件的预测不是“所有旋转框都更好”，而是旋转目标和相邻目标分层指标应改善，小目标召回应比普通水平框基线更稳定；如果收益只出现在大目标或单一数据集，申报书将把它记录为边界而不是泛化结论。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-00f20cd5-88ae-4d76-8460-7d4f807a19c1.png",
+    "prompt_sha256": "494534f492d7f8b85c8783f5d9594610c0dd5bcf0e223971d332b8e306255a36",
+    "asset_sha256": "43bcbb4b8b0fe4b5b47af784aefeef4bb575225e022d091275567702e650b101",
+    "generated_at": "2026-09-23T14:17:42+00:00",
+    "dimensions": [
+      1672,
+      940
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看多尺度旋转候选图：整图切片、斜置船舶局部放大、水平与旋转框差异、跨切片框融合都清晰且符合本节机制。",
+    "reviewed_at": "2026-09-23T14:17:42+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

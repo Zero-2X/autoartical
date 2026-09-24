@@ -1,12 +1,11 @@
 {
   "figure_id": "s2_visual_2",
   "visual_type": "figure",
+  "label": "图2-2",
   "title": "模块职责分层图",
   "purpose": "说明系统由哪些模块组成，以及模块之间如何协同。",
-  "content": "标题：模块职责分层图；放置小节：系统总体架构；正文目的：说明系统由哪些模块组成，以及模块之间如何协同。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：模块职责分层图；放置小节：系统总体架构；正文目的：说明系统由哪些模块组成，以及模块之间如何协同。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "系统总体架构",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
@@ -15,12 +14,47 @@
     "ev_9ca3b5c76b",
     "ev_c00e228bb3"
   ],
-  "asset_candidates": [
-    "figures/s2_visual_2.png",
-    "figures/s2_visual_2.pdf",
-    "workspace/document_export/assets/visuals/s2_visual_2.png",
-    "workspace/document_export/assets/visuals/s2_visual_2.pdf"
+  "article_understanding": {
+    "section_heading": "系统总体架构",
+    "context_excerpt": "OpenRSI-Calibrator 分为四层。第一层是影像和查询接入层，负责读取大图、空间参考、分辨率、时间和用户短语；第二层是视觉—语言对齐层，生成通用文本嵌入与遥感域原型，并保存词汇版本；第三层是候选检测与可靠性层，执行多尺度切片、水平/旋转框预测、重叠合并、区域一致性计算和温度校准；第四层是证据与交互层，把框坐标、查询、来源切片、置信区间、拒识原因和复核动作组织成可回放结果。\n接入层不改变原始影像，只产生可追溯的切片索引；对齐层不直接产生检测结果，避免把分类相似度误读为定位；检测层输出候选和中间分数，校准层再进行决策分级；证据层不重新推理，只记录前述模块的版本化输出。模块边界使错误分析可以回答“是候选没找到、类别错了、框错了还是分数不可信”，并可在比赛展示中逐层展开。\n离线实验端保存完整数据和中间结果，用于可重复评测；交互工作台端只加载索引、词汇缓存和候选结果，用于同义词查询、局部放大和证据回放；边缘演示端采用轻量检测器和有限词汇缓存，明确显示其与离线强模型的差异。三端共享统一的结果 schema，避免为了演示重新定义指标或隐去失败样例。",
+    "key_message": "各模块职责可拆开归因：接入保留坐标，对齐形成词汇原型，检测产生候选，校准决定风险，证据层只记录版本化输出。",
+    "visual_elements": [
+      "保持坐标的切片索引",
+      "可替换的文本与视觉适配器",
+      "候选、原始分数、校准概率的不同数据对象",
+      "只读证据存档"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "爆炸视图式模块职责图，五个半透明水平层之间用不同形状的信息包连接，明确检测与校准边界；留足图注区域，不写难辨的中文伪文字。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图2-2 模块职责分层图, placed in the section 系统总体架构. The one claim this figure must convey is: 各模块职责可拆开归因：接入保留坐标，对齐形成词汇原型，检测产生候选，校准决定风险，证据层只记录版本化输出。 Depict these exact objects and relationships, not generic interchangeable boxes: 保持坐标的切片索引；可替换的文本与视觉适配器；候选、原始分数、校准概率的不同数据对象；只读证据存档. Article-specific visual concept and composition: 爆炸视图式模块职责图，五个半透明水平层之间用不同形状的信息包连接，明确检测与校准边界；留足图注区域，不写难辨的中文伪文字。 Use the nearby manuscript as semantic grounding: OpenRSI-Calibrator 分为四层。第一层是影像和查询接入层，负责读取大图、空间参考、分辨率、时间和用户短语；第二层是视觉—语言对齐层，生成通用文本嵌入与遥感域原型，并保存词汇版本；第三层是候选检测与可靠性层，执行多尺度切片、水平/旋转框预测、重叠合并、区域一致性计算和温度校准；第四层是证据与交互层，把框坐标、查询、来源切片、置信区间、拒识原因和复核动作组织成可回放结果。\n接入层不改变原始影像，只产生可追溯的切片索引；对齐层不直接产生检测结果，避免把分类相似度误读为定位；检测层输出候选和中间分数，校准层再进行决策分级；证据层不重新推理，只记录前述模块的版本化输出。模块边界使错误分析可以回答“是候选没找到、类别错了、框错了还是分数不可信”，并可在比赛展示中逐层展开。\n离线实验端保存完整数据和中间结果，用于可重复评测；交互工作台端只加载索引、词汇缓存和候选结果，用于同义词查询、局部放大和证据回放；边缘演示端采用轻量检测器和有限词汇缓存，明确显示其与离线强模型的差异。三端共享统一的结果 schema，避免为了演示重新定义指标或隐去失败样例。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-97870959-37ad-4427-8017-ee10f8d81879.png",
+    "prompt_sha256": "745d9ebd816991884085aafa89707808ad22684681eb7f49895816a57029c277",
+    "asset_sha256": "f8923152528f197ccaaefd7f6c96400c51125ec660bac00e429cc4dcf9f674a6",
+    "generated_at": "2026-09-23T13:47:52+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看模块职责图：切片索引、词汇对齐、检测候选、校准与证据的边界较清晰，构图细节不同于总体架构。",
+    "reviewed_at": "2026-09-23T13:47:52+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

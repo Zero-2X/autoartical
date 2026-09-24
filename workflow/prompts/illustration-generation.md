@@ -23,6 +23,8 @@ Generate the paper's core explanatory illustrations only after the relevant sect
 7. Generate a `framework illustration` that reflects the real method steps rather than a generic diagram.
 8. Insert the framework illustration near the beginning of the Methodology with a concise caption, usually two to three sentences.
 
+Before steps 2 and 6, read the full corresponding section and the evidence that supports its claims. Record the one claim, concrete visual elements, evidence boundary, and a figure-specific visual direction. Write a detailed prompt from that interpretation, including composition, objects and their relations, style, aspect, text policy, forbidden invented results, and how this figure differs from the other figures. Pass that exact prompt to Codex's built-in ImageGen; a generic template prompt does not satisfy the required sequence.
+
 ## Backend policy
 
 - Use only Codex's built-in `image_gen` capability for both default figures.

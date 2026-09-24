@@ -1,22 +1,56 @@
 {
   "figure_id": "s3_visual_4",
   "visual_type": "figure",
+  "label": "图3-4",
   "title": "创新三 · 可靠语义校准示意图",
   "purpose": "原理流程图",
-  "content": "标题：创新三 · 可靠语义校准示意图；放置小节：创新三 · 可靠语义校准；正文目的：原理流程图。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：创新三 · 可靠语义校准示意图；放置小节：创新三 · 可靠语义校准；正文目的：原理流程图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "创新三 · 可靠语义校准",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a"
   ],
-  "asset_candidates": [
-    "figures/s3_visual_4.png",
-    "figures/s3_visual_4.pdf",
-    "workspace/document_export/assets/visuals/s3_visual_4.png",
-    "workspace/document_export/assets/visuals/s3_visual_4.pdf"
+  "article_understanding": {
+    "section_heading": "创新三 · 可靠语义校准",
+    "context_excerpt": "开放词汇模型容易把背景纹理、共现物体或提示词偏置转成高置信候选。本项目以类别—区域一致性为主线，将候选内部的语义证据、候选边界外的背景对照、同义查询的一致性和模型原始分数组合成校准特征；温度缩放只在独立校准集上拟合，拒识阈值依据风险容忍度设置。\nDetic 和 GLIP 展示了扩大类别空间与使用图像级/图文数据的价值，也提醒弱监督和伪框会引入空间噪声[7][8]。系统把置信度分为原始分数和校准后概率，并输出 ECE、Brier score、高置信假阳性率和拒识覆盖率。用户看到的“0.86”不是最终结论，只有在对应校准集、类别划分和阈值记录齐全时才有解释意义。",
+    "key_message": "原始语义相似度不是可靠概率；区域一致性、背景对照与温度校准使候选进入接受、复核或拒识分支。",
+    "visual_elements": [
+      "目标区域与周围背景对照",
+      "原始相似度与校准后风险的分离",
+      "同义查询一致性",
+      "接受、人工复核和拒识三分支"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "科学决策可视化，上方局部遥感目标，下方透明的证据层、风险过滤层和三分支；不画虚构可靠性曲线、不写未经实验得到的概率数字。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图3-4 创新三 · 可靠语义校准示意图, placed in the section 创新三 · 可靠语义校准. The one claim this figure must convey is: 原始语义相似度不是可靠概率；区域一致性、背景对照与温度校准使候选进入接受、复核或拒识分支。 Depict these exact objects and relationships, not generic interchangeable boxes: 目标区域与周围背景对照；原始相似度与校准后风险的分离；同义查询一致性；接受、人工复核和拒识三分支. Article-specific visual concept and composition: 科学决策可视化，上方局部遥感目标，下方透明的证据层、风险过滤层和三分支；不画虚构可靠性曲线、不写未经实验得到的概率数字。 Use the nearby manuscript as semantic grounding: 开放词汇模型容易把背景纹理、共现物体或提示词偏置转成高置信候选。本项目以类别—区域一致性为主线，将候选内部的语义证据、候选边界外的背景对照、同义查询的一致性和模型原始分数组合成校准特征；温度缩放只在独立校准集上拟合，拒识阈值依据风险容忍度设置。\nDetic 和 GLIP 展示了扩大类别空间与使用图像级/图文数据的价值，也提醒弱监督和伪框会引入空间噪声[7][8]。系统把置信度分为原始分数和校准后概率，并输出 ECE、Brier score、高置信假阳性率和拒识覆盖率。用户看到的“0.86”不是最终结论，只有在对应校准集、类别划分和阈值记录齐全时才有解释意义。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-02538487-7a03-4b34-b261-6ecd2bd7cca4.png",
+    "prompt_sha256": "2287a333638428465d1e1840efb9a60bcabc3a2996e08f93ab381b94c6fb1a5e",
+    "asset_sha256": "5f588432f31f7283792536b11cacde80dafa4f6671ffbef70415fac368cee4de",
+    "generated_at": "2026-09-23T14:20:56+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看语义校准图：候选目标与背景证据分开，最终接受、人工复核、拒识三分支清楚，没有把原始相似度画成真实概率。",
+    "reviewed_at": "2026-09-23T14:20:56+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

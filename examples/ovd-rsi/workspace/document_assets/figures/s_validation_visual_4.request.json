@@ -1,23 +1,57 @@
 {
   "figure_id": "s_validation_visual_4",
   "visual_type": "figure",
+  "label": "图5-4",
   "title": "案例回放时序图",
   "purpose": "说明系统运行步骤、数据流向或业务闭环。",
-  "content": "标题：案例回放时序图；放置小节：可靠性校准与查询稳定性；正文目的：说明系统运行步骤、数据流向或业务闭环。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：案例回放时序图；放置小节：可靠性校准与查询稳定性；正文目的：说明系统运行步骤、数据流向或业务闭环。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "可靠性校准与查询稳定性",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
     "ev_9662694342"
   ],
-  "asset_candidates": [
-    "figures/s_validation_visual_4.png",
-    "figures/s_validation_visual_4.pdf",
-    "workspace/document_export/assets/visuals/s_validation_visual_4.png",
-    "workspace/document_export/assets/visuals/s_validation_visual_4.pdf"
+  "article_understanding": {
+    "section_heading": "可靠性校准与查询稳定性",
+    "context_excerpt": "校准集与测试集严格分离，温度参数、拒识阈值和背景对照权重只在校准集拟合。查询集合包含原始类别名、上位词、下位词、同义词和带属性短语；每个查询记录语言、模板和版本。系统计算同一目标在不同查询下的框重叠、类别排序和接受/复核决策一致性，并把查询敏感度作为独立结果。\nECE 和 Brier score 用于判断分数是否具有概率意义，高置信假阳性率用于判断类别幻觉是否减少，拒识覆盖率用于判断系统是否能在证据不足时停下来。一个可靠系统不一定让每个分数都更高，而是让接受、复核和拒识的边界更稳定。对于同义查询出现明显漂移的样例，系统应展示原型差异和候选来源，而不是用后处理强行合并。",
+    "key_message": "案例回放不是漂亮截图，而是沿时间核对 query、切片来源、候选变化、阈值版本、人工决定和导出结果。",
+    "visual_elements": [
+      "原始查询与同义替换",
+      "目标候选位置变化",
+      "阈值及模型版本证据",
+      "人工确认和可回放记录"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "取证时间线风格的案例回放示意，把同一遥感局部目标的数次状态并列，底部是审计证据轨迹；避免表现尚不存在的成功率曲线。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图5-4 案例回放时序图, placed in the section 可靠性校准与查询稳定性. The one claim this figure must convey is: 案例回放不是漂亮截图，而是沿时间核对 query、切片来源、候选变化、阈值版本、人工决定和导出结果。 Depict these exact objects and relationships, not generic interchangeable boxes: 原始查询与同义替换；目标候选位置变化；阈值及模型版本证据；人工确认和可回放记录. Article-specific visual concept and composition: 取证时间线风格的案例回放示意，把同一遥感局部目标的数次状态并列，底部是审计证据轨迹；避免表现尚不存在的成功率曲线。 Use the nearby manuscript as semantic grounding: 校准集与测试集严格分离，温度参数、拒识阈值和背景对照权重只在校准集拟合。查询集合包含原始类别名、上位词、下位词、同义词和带属性短语；每个查询记录语言、模板和版本。系统计算同一目标在不同查询下的框重叠、类别排序和接受/复核决策一致性，并把查询敏感度作为独立结果。\nECE 和 Brier score 用于判断分数是否具有概率意义，高置信假阳性率用于判断类别幻觉是否减少，拒识覆盖率用于判断系统是否能在证据不足时停下来。一个可靠系统不一定让每个分数都更高，而是让接受、复核和拒识的边界更稳定。对于同义查询出现明显漂移的样例，系统应展示原型差异和候选来源，而不是用后处理强行合并。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-a9792b12-a903-42a3-a0d9-6096688e91d1.png",
+    "prompt_sha256": "8e19ca2de402503c2c973547c673720ae91bcf16311d5aa018bca573cd92859c",
+    "asset_sha256": "40a852acce31cdb837676f13a72a3eb1d5b98f054b0f0389afebab47ae8d102f",
+    "generated_at": "2026-09-23T14:29:50+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看案例回放时序图：同一遥感目标的候选变化、版本证据、复核动作和导出轨迹清楚，没有虚构实验对比数值。",
+    "reviewed_at": "2026-09-23T14:29:50+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

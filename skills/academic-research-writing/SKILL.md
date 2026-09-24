@@ -56,7 +56,7 @@ python workflow/scripts/run_research.py ./my-topic
 
 ## 交付门禁
 
-进入 `document_plan` 前：研究 Gate 必须通过。进入正文审查前：每章必须通过结构、证据、篇幅和待确认项检查。40–50 页是默认交付合同，正文、图表、案例、流程图和界面视觉从计划阶段一起分配；标题、表格、代码、图片和重复段落不能凑量。正文体量统计明确排除附录和参考文献，附录内容应在方法、实验、案例或实现章节中承担相应的论证任务。正式交付前必须运行 `run_visual_assets.py` 和 `run_document_export.py`，用 Pandoc/Typst/LibreOffice 或用户指定模板渲染，并记录页数、字体、图表断页、嵌入图形数量、栅格化抽检和引用结果；内容 Gate、视觉 Gate 与版式 Gate 都通过才算完成。
+进入 `document_plan` 前：研究 Gate 必须通过。进入正文审查前：每章必须通过结构、证据、篇幅和待确认项检查。40–50 页是默认交付合同，正文、图表、案例、流程图和界面视觉从计划阶段一起分配；标题、表格、代码、图片和重复段落不能凑量。正文体量统计明确排除附录和参考文献，附录内容应在方法、实验、案例或实现章节中承担相应的论证任务。正文形成后运行 `run_visual_assets.py`，按 `document-writing` 的 [逐图 ImageGen 工作法](../../workflow/references/imagegen-figures.md) 先理解文稿、后写详细 Prompt、再调用 Codex 内置 `image_gen` 生成并审查所有计划配图；不得用自动摘录或旧模板图冒充。正式交付前运行 `run_document_export.py`，对 PDF 全部页面栅格化并要求每页内容边界占比至少 0.55，抽检字体、图注、断页、页码和裁切；记录嵌入图形数量、页数与视觉审查结论。内容 Gate、视觉 Gate 与版式 Gate 都通过才算完成。
 
 ## 外部项目的吸收边界
 

@@ -1,14 +1,11 @@
 {
-  "generated_at": "2026-09-22T19:24:48+00:00",
+  "generated_at": "2026-09-24T04:18:12+00:00",
   "required_specs": 34,
   "request_files_created": 0,
   "generation_route": "Codex built-in image_gen for figures; evidence-backed markdown tables for tables",
-  "gate_before_writing": {
-    "passed": false,
-    "failures": [
-      "正文表格不足：0 < 5",
-      "正文未引用全部必需视觉项：图1-1、图1-2、表1-3、图1-4、图2-1、图2-2、图2-3、图2-4、图2-5、表3-1、图3-2、图3-3"
-    ],
+  "gate_before_generation": {
+    "passed": true,
+    "failures": [],
     "required_specs": 34,
     "external_specs": 22,
     "available_assets": 22,
@@ -40,48 +37,14 @@
     ],
     "requested_ids": [],
     "missing_ids": [],
-    "uncited_labels": [
-      "图1-1",
-      "图1-2",
-      "表1-3",
-      "图1-4",
-      "图2-1",
-      "图2-2",
-      "图2-3",
-      "图2-4",
-      "图2-5",
-      "表3-1",
-      "图3-2",
-      "图3-3",
-      "图3-4",
-      "图3-5",
-      "表3-6",
-      "表4-1",
-      "图4-2",
-      "图4-3",
-      "表4-4",
-      "图4-5",
-      "图4-6",
-      "表5-1",
-      "表5-2",
-      "表5-3",
-      "图5-4",
-      "表5-5",
-      "表6-1",
-      "表6-2",
-      "图6-3",
-      "图6-4",
-      "图6-5",
-      "表7-1",
-      "图7-2",
-      "图7-3"
-    ],
-    "tables_in_draft": 0,
+    "invalid_assets": {},
+    "uncited_labels": [],
+    "tables_in_draft": 18,
     "table_quality": {
-      "has_units": false,
-      "has_sources": false,
-      "has_statistical_basis": false,
-      "has_missing_value_rule": false
+      "has_units": true,
+      "has_sources": true,
+      "has_statistical_basis": true,
+      "has_missing_value_rule": true
     },
     "diagram_specs": 25,
     "case_or_ui_specs": 4,
@@ -97,5 +60,5 @@
       "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
     }
   },
-  "rule": "请求文件不是视觉资产；最终导出前必须有真实生成文件或明确可审计的表格来源。"
+  "rule": "必须先理解正文并写完整逐图 Prompt，再调用内置 ImageGen；请求和旧 SVG 均不能替代带生成记录及视觉审查的 PNG。"
 }

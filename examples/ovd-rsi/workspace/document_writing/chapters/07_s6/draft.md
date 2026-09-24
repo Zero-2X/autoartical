@@ -378,9 +378,9 @@ FAIR1M 一类细粒度数据说明，遥感类别之间常只有纹理、尺寸�
 
 ### 图形证据
 
-![图7-2 系统价值闭环图](examples/ovd-rsi/workspace/document_assets/figures/s6_visual_2.svg)
+![图7-2 系统价值闭环图](examples/ovd-rsi/workspace/document_assets/figures/s6_visual_2.png)
 
-![图7-3 优化方向图](examples/ovd-rsi/workspace/document_assets/figures/s6_visual_3.svg)
+![图7-3 优化方向图](examples/ovd-rsi/workspace/document_assets/figures/s6_visual_3.png)
 
 ### 竞赛答辩与持续迭代
 

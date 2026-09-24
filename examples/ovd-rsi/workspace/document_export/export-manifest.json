@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-23T05:56:31+00:00",
+  "generated_at": "2026-09-24T04:18:16+00:00",
   "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
   "formats": {
-    "markdown": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.md",
-    "html": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.html",
-    "pdf": "output\\作品书_OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准.pdf"
+    "markdown": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.md",
+    "html": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.html",
+    "pdf": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.pdf"
   },
   "content_gate": {
     "passed": true,
@@ -123,6 +123,7 @@
     ],
     "requested_ids": [],
     "missing_ids": [],
+    "invalid_assets": {},
     "uncited_labels": [],
     "tables_in_draft": 18,
     "table_quality": {
@@ -149,67 +150,47 @@
     "verified": true,
     "renderer_available": true,
     "backend": "pymupdf",
-    "page_count": 42,
+    "page_count": 48,
     "page_range": [
       40,
       50
     ],
-    "embedded_image_count": 21,
+    "embedded_image_count": 22,
     "raster_qa_samples": [
       {
         "page": 1,
-        "occupancy_ratio": 0.767,
-        "embedded_images": 0,
-        "result": "pass"
+        "image": "workspace/document_export/qa_samples/page-01.png"
       },
       {
-        "page": 6,
-        "occupancy_ratio": 0.771,
-        "embedded_images": 3,
-        "result": "pass"
+        "page": 3,
+        "image": "workspace/document_export/qa_samples/page-03.png"
       },
       {
-        "page": 20,
-        "occupancy_ratio": 0.763,
-        "embedded_images": 0,
-        "result": "pass"
+        "page": 7,
+        "image": "workspace/document_export/qa_samples/page-07.png"
       },
       {
-        "page": 42,
-        "occupancy_ratio": 0.767,
-        "embedded_images": 0,
-        "result": "pass"
+        "page": 11,
+        "image": "workspace/document_export/qa_samples/page-11.png"
+      },
+      {
+        "page": 16,
+        "image": "workspace/document_export/qa_samples/page-16.png"
+      },
+      {
+        "page": 33,
+        "image": "workspace/document_export/qa_samples/page-33.png"
+      },
+      {
+        "page": 48,
+        "image": "workspace/document_export/qa_samples/page-48.png"
       }
     ],
+    "density_check": "pass",
+    "minimum_page_occupancy": 0.781,
     "visual_qa": "pass",
     "report_path": "workspace\\document_export\\render-report.json",
-    "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。",
-    "density_samples": [
-      {
-        "page": 1,
-        "occupancy_ratio": 0.767,
-        "embedded_images": 0,
-        "result": "pass"
-      },
-      {
-        "page": 6,
-        "occupancy_ratio": 0.771,
-        "embedded_images": 3,
-        "result": "pass"
-      },
-      {
-        "page": 20,
-        "occupancy_ratio": 0.763,
-        "embedded_images": 0,
-        "result": "pass"
-      },
-      {
-        "page": 42,
-        "occupancy_ratio": 0.767,
-        "embedded_images": 0,
-        "result": "pass"
-      }
-    ]
+    "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。"
   },
   "review_verdict": "pass",
   "final_verdict": "pass",

@@ -186,7 +186,7 @@ def main() -> int:
         workspace / "document_plan" / "score-coverage.json",
         {"dimensions": [], "covered": [], "gaps": []},
     )
-    write_text(workspace / "document_writing" / "作品书草稿.md", "# 作品书草稿\n\n")
+    write_text(workspace / "document_writing" / "作品书草稿.md", "# 竞赛申报书\n\n")
     (workspace / "document_writing" / "chapters").mkdir(parents=True, exist_ok=True)
     write_json(workspace / "document_writing" / "agent-runtime.json", load_json_template("document-writing-agent-runtime.template.json"))
     write_json(workspace / "document_writing" / "chapter-manifest.json", load_json_template("chapter-manifest.template.json"))

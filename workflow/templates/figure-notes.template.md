@@ -1,30 +1,40 @@
-# Figure Notes
+# ImageGen Figure Record
 
-## Global Illustration Style
+Use one record per planned figure. Read the manuscript first and complete the article-understanding fields before drafting the prompt.
 
-- backend policy: Codex built-in `image_gen` only; no API, CLI, local-model, SVG, or mock fallback
-- reference image pool: `assets/autofigure-reference-images/framework-template/`
-- style fusion: adaptive use of the illustration style profile
-- generation owner: Codex host `image_gen` tool
-- default image size hint: `4K`
-- blocked-call policy: repair or retry the same built-in record, then stop with a blocker report
+## Figure identity
 
-## Problem Illustration
+- figure id:
+- label and title:
+- manuscript section:
+- narrative purpose:
+- evidence ids:
+- manuscript excerpt:
+- manuscript SHA-256 (figure embed lines excluded):
 
-- status: pending
-- source section: `sections/introduction.tex`
-- backend: builtin_image_gen
-- preferred aspect ratio: `3:1` to `2.5:1`
-- reference images used: TBD
-- insertion status: pending
-- caption status: pending
+## Article understanding
 
-## Framework Illustration
+- one claim the reader should take away:
+- exact visual objects and relations (at least three):
+- evidence boundary (established fact / design / illustration / pending validation):
+- figure-specific composition and visual direction:
+- how this image differs from neighboring figures:
 
-- status: pending
-- source section: `sections/methodology.tex`
-- backend: builtin_image_gen
-- preferred aspect ratio: `2:1` to `1.7:1`
-- reference images used: TBD
-- insertion status: pending
-- caption status: pending
+## Prompt and generation
+
+- backend: Codex built-in `image_gen.imagegen` only
+- final detailed prompt (400+ characters; preserve verbatim):
+- prompt SHA-256:
+- generated source under `generated_images/`:
+- project PNG path:
+- image SHA-256 and pixel dimensions:
+
+## Visual review
+
+- semantic fidelity:
+- legibility at printed-page size:
+- unique composition:
+- no invented data, unsupported claims, false UI, or fake text:
+- reviewer note (specific observations):
+- status: pending / revise / pass
+- final manuscript embed and caption checked:

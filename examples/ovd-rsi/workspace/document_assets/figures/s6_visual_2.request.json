@@ -1,12 +1,11 @@
 {
   "figure_id": "s6_visual_2",
   "visual_type": "figure",
+  "label": "图7-2",
   "title": "系统价值闭环图",
   "purpose": "说明系统运行步骤、数据流向或业务闭环。",
-  "content": "标题：系统价值闭环图；放置小节：系统特色与应用价值；正文目的：说明系统运行步骤、数据流向或业务闭环。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：系统价值闭环图；放置小节：系统特色与应用价值；正文目的：说明系统运行步骤、数据流向或业务闭环。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "系统特色与应用价值",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
@@ -14,12 +13,47 @@
     "ev_84bd681099",
     "ev_9ca3b5c76b"
   ],
-  "asset_candidates": [
-    "figures/s6_visual_2.png",
-    "figures/s6_visual_2.pdf",
-    "workspace/document_export/assets/visuals/s6_visual_2.png",
-    "workspace/document_export/assets/visuals/s6_visual_2.pdf"
+  "article_understanding": {
+    "section_heading": "系统特色与应用价值",
+    "context_excerpt": "系统把“能否找到”与“是否值得相信”分开测量。开放词汇模块扩大检索范围，旋转定位模块提供遥感对象的几何表达，校准模块把原始相似度转成可复核的决策信号，证据卡把模型输出与影像、词汇、时间和人工操作连起来。这种分层使任何一个模块替换时仍能保持实验和交付口径。\n在灾害评估、港区巡检、海岸变化观察和新兴目标发现中，类别词往往先于标注集出现。系统允许用户先提出问题，再以有限样本和可解释候选支持后续标注与决策；对于不确定结果，系统明确要求复核，不把模型猜测直接包装成结论。\n成熟度由三类证据支撑：结构证据证明正文覆盖问题、方案、创新、实施和风险；实验协议证据证明数据、基线、指标和成功标准已冻结；运行证据证明请求、候选、校准和导出可回放。当前申报阶段的性能表保留待实测字段，实测完成后再转为最终结果。",
+    "key_message": "系统研究贡献是把开放词汇能力延伸为可解释候选、可控风险和可复现实验三条互相支撑的价值链。",
+    "visual_elements": [
+      "可解释的开放查询候选",
+      "风险校准和人工复核",
+      "证据卡与实验 manifest",
+      "研究反馈链"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "总结页式三角价值结构，三个核心贡献分布在三角形顶点，中心是可审计的遥感目标发现；不复用业务价值循环或普通流程图。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图7-2 系统价值闭环图, placed in the section 系统特色与应用价值. The one claim this figure must convey is: 系统研究贡献是把开放词汇能力延伸为可解释候选、可控风险和可复现实验三条互相支撑的价值链。 Depict these exact objects and relationships, not generic interchangeable boxes: 可解释的开放查询候选；风险校准和人工复核；证据卡与实验 manifest；研究反馈链. Article-specific visual concept and composition: 总结页式三角价值结构，三个核心贡献分布在三角形顶点，中心是可审计的遥感目标发现；不复用业务价值循环或普通流程图。 Use the nearby manuscript as semantic grounding: 系统把“能否找到”与“是否值得相信”分开测量。开放词汇模块扩大检索范围，旋转定位模块提供遥感对象的几何表达，校准模块把原始相似度转成可复核的决策信号，证据卡把模型输出与影像、词汇、时间和人工操作连起来。这种分层使任何一个模块替换时仍能保持实验和交付口径。\n在灾害评估、港区巡检、海岸变化观察和新兴目标发现中，类别词往往先于标注集出现。系统允许用户先提出问题，再以有限样本和可解释候选支持后续标注与决策；对于不确定结果，系统明确要求复核，不把模型猜测直接包装成结论。\n成熟度由三类证据支撑：结构证据证明正文覆盖问题、方案、创新、实施和风险；实验协议证据证明数据、基线、指标和成功标准已冻结；运行证据证明请求、候选、校准和导出可回放。当前申报阶段的性能表保留待实测字段，实测完成后再转为最终结果。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-c5107108-1eb7-4351-a949-8fc62fc8d3e2.png",
+    "prompt_sha256": "e2202b2f6e139ab6184c749285abd98a09227490f30ac8f9173e9d1a9a7b7e4c",
+    "asset_sha256": "b5b1cb7b6e01a935dd01afb823ddd0064b5b755296fda98b6b81e96852a104de",
+    "generated_at": "2026-09-23T15:17:45+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已目视检查：三角式价值结构把开放查询候选、风险提示与人工判断、证据卡及实验配置联系到中心遥感发现任务；外围场景具备区分度。图像表达的是拟议系统概念，不含性能数字或已部署声明。",
+    "reviewed_at": "2026-09-23T15:17:45+00:00"
+  }
 }

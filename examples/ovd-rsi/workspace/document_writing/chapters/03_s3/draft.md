@@ -138,10 +138,10 @@ FAIR1M-FG 中相近类别的错误需要绘制混淆图，而不是只列一个�
 
 ### 图形证据
 
-![图3-2 创新一 · 遥感域词汇原型适配示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_2.svg)
+![图3-2 创新一 · 遥感域词汇原型适配示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_2.png)
 
-![图3-3 创新二 · 多尺度旋转候选协同示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_3.svg)
+![图3-3 创新二 · 多尺度旋转候选协同示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_3.png)
 
-![图3-4 创新三 · 可靠语义校准示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_4.svg)
+![图3-4 创新三 · 可靠语义校准示意图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_4.png)
 
-![图3-5 关键技术分层图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_5.svg)
+![图3-5 关键技术分层图](examples/ovd-rsi/workspace/document_assets/figures/s3_visual_5.png)

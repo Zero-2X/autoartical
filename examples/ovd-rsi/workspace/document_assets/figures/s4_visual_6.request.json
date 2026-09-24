@@ -1,23 +1,57 @@
 {
   "figure_id": "s4_visual_6",
   "visual_type": "figure",
+  "label": "图4-6",
   "title": "多端工作台示意",
   "purpose": "界面截图或模块接口表",
-  "content": "标题：多端工作台示意；放置小节：案例回放与人工复核；正文目的：界面截图或模块接口表。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：多端工作台示意；放置小节：案例回放与人工复核；正文目的：界面截图或模块接口表。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "案例回放与人工复核",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
     "ev_9662694342"
   ],
-  "asset_candidates": [
-    "figures/s4_visual_6.png",
-    "figures/s4_visual_6.pdf",
-    "workspace/document_export/assets/visuals/s4_visual_6.png",
-    "workspace/document_export/assets/visuals/s4_visual_6.pdf"
+  "article_understanding": {
+    "section_heading": "案例回放与人工复核",
+    "context_excerpt": "案例选取灾害后港口影像作为仿真场景，查询短语包括“受损码头”“临时帐篷”“救援车辆”。回放不只展示成功样例，还包含一个相似背景误报、一个小目标漏检和一个同义查询漂移案例。每个案例按照输入、候选、校准、人工决策和导出证据五个时间点展示，观众能看到系统如何从不确定走向复核。\n面板左侧显示原图和切片位置，中央显示水平框/旋转框和类别词，右侧显示原始分数、校准概率、区域一致性、背景对照、查询版本和拒识原因。用户可以选择接受、改为复核、标注错误类别或标记“数据不足”。人工操作不会直接修改模型分数，而是成为后续数据治理和错误统计的一部分。\n复核结论包含人员角色、时间、任务号和备注，系统保存修改前后的结果并计算人工修正比例。若同一类别持续出现相同误报，系统将其列入待补充样例清单；若跨区域结果显著退化，系统将任务标为域外风险，不自动合并到训练数据。图4-2 运行流程图、图4-3 评分与告警链路图、图4-5 案例流转时序图和图4-6 多端工作台示意共同展示这一闭环。\n表4-1 模块接口表\n表格解释：单位字段涉及像素、角度、毫秒和显存 GB；数据来源由任务日志绑定；统计口径遵守固定版本和随机种子；缺失值不得用 0 替代，统一使用 NA 并解释。\n表4-4 案例复核字段与责任边界。",
+    "key_message": "交互工作台应让影像、查询结果、同义词变化、风险提示与证据卡同时可见，降低人工定位错误的成本。",
+    "visual_elements": [
+      "主遥感影像地图视窗",
+      "旋转候选框与局部放大",
+      "查询和筛选侧栏",
+      "版本证据卡及复核控件"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "高保真概念桌面工作台界面，无品牌标志，深海蓝与浅灰双层 UI；所有图表与标签用抽象占位符，不伪装为已上线系统截图或真实实验结果。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图4-6 多端工作台示意, placed in the section 案例回放与人工复核. The one claim this figure must convey is: 交互工作台应让影像、查询结果、同义词变化、风险提示与证据卡同时可见，降低人工定位错误的成本。 Depict these exact objects and relationships, not generic interchangeable boxes: 主遥感影像地图视窗；旋转候选框与局部放大；查询和筛选侧栏；版本证据卡及复核控件. Article-specific visual concept and composition: 高保真概念桌面工作台界面，无品牌标志，深海蓝与浅灰双层 UI；所有图表与标签用抽象占位符，不伪装为已上线系统截图或真实实验结果。 Use the nearby manuscript as semantic grounding: 案例选取灾害后港口影像作为仿真场景，查询短语包括“受损码头”“临时帐篷”“救援车辆”。回放不只展示成功样例，还包含一个相似背景误报、一个小目标漏检和一个同义查询漂移案例。每个案例按照输入、候选、校准、人工决策和导出证据五个时间点展示，观众能看到系统如何从不确定走向复核。\n面板左侧显示原图和切片位置，中央显示水平框/旋转框和类别词，右侧显示原始分数、校准概率、区域一致性、背景对照、查询版本和拒识原因。用户可以选择接受、改为复核、标注错误类别或标记“数据不足”。人工操作不会直接修改模型分数，而是成为后续数据治理和错误统计的一部分。\n复核结论包含人员角色、时间、任务号和备注，系统保存修改前后的结果并计算人工修正比例。若同一类别持续出现相同误报，系统将其列入待补充样例清单；若跨区域结果显著退化，系统将任务标为域外风险，不自动合并到训练数据。图4-2 运行流程图、图4-3 评分与告警链路图、图4-5 案例流转时序图和图4-6 多端工作台示意共同展示这一闭环。\n表4-1 模块接口表\n表格解释：单位字段涉及像素、角度、毫秒和显存 GB；数据来源由任务日志绑定；统计口径遵守固定版本和随机种子；缺失值不得用 0 替代，统一使用 NA 并解释。\n表4-4 案例复核字段与责任边界。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-db94b277-ec5d-44d0-885f-edc411d42cc8.png",
+    "prompt_sha256": "394f07c4345d81ad814623a510c5b56495d37b2562f61957aa115e691e664b62",
+    "asset_sha256": "727f00a6f346e2c9ff8f6c1e79bcf1c87f2074d857b2679cf5aea0176180a068",
+    "generated_at": "2026-09-23T14:29:50+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看多端工作台概念图：主影像、查询筛选、局部放大、风险与复核卡片同时可见，文字保持抽象示意，不冒充真实产品截图。",
+    "reviewed_at": "2026-09-23T14:29:50+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

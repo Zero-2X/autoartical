@@ -1,24 +1,58 @@
 {
   "figure_id": "s1_visual_1",
   "visual_type": "figure",
+  "label": "图1-1",
   "title": "问题场景图",
   "purpose": "说明典型场景、目标用户或应用覆盖范围。",
-  "content": "标题：问题场景图；放置小节：背景与赛题价值；正文目的：说明典型场景、目标用户或应用覆盖范围。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：问题场景图；放置小节：背景与赛题价值；正文目的：说明典型场景、目标用户或应用覆盖范围。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "背景与赛题价值",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
     "ev_84bd681099",
     "ev_9ca3b5c76b"
   ],
-  "asset_candidates": [
-    "figures/s1_visual_1.png",
-    "figures/s1_visual_1.pdf",
-    "workspace/document_export/assets/visuals/s1_visual_1.png",
-    "workspace/document_export/assets/visuals/s1_visual_1.pdf"
+  "article_understanding": {
+    "section_heading": "背景与赛题价值",
+    "context_excerpt": "地球观测影像的价值不只在于把已有类别分得更准，更在于当灾害、工程和生态场景出现新的目标组合时，解译人员可以快速提出问题并得到候选位置。DIOR 以多类别、尺度变化、成像条件变化和类内差异构成遥感检测基准，DOTA 则用任意方向标注强调俯视影像中的旋转与密集目标问题[1][2]。这些基准共同说明，遥感检测的难点不是简单把自然图像检测器换一批数据，而是需要同时处理空间几何、尺度和域变化。\n开放词汇检测把类别集合从固定分类头扩展为自然语言接口，Grounding DINO、Detic、GLIP 和 YOLO-World 分别代表文本条件、图像级监督、跨模态预训练和实时部署路线[6][7][8][9]。LAE 工作进一步把遥感开放词汇检测组织为 Locate Anything on Earth，并用大规模遥感数据和动态词汇构建说明域内数据的重要性[5]。对比赛而言，单纯展示一个能画框的模型很难体现完整度；把查询、定位、校准、案例复核和部署约束组织为一条可讲清的链路，才能同时回应创新性、实现质量和应用价值。\n传统遥感检测的类别边界在数据集发布时已经固定，模型只能在预先定义的标签集合中选择。零样本或开放词汇方法虽然能接受新词汇，但“识别新词”至少包含四个不同问题：文本是否与遥感域目标对齐，候选框是否覆盖目标，类别是否与区域证据一致，置信度是否足以支持决策。若只报告总体 mAP，模型可以通过已知类别表现掩盖 novel 类别召回不足；若只展示案例图，又无法排除提示词挑选和后处理阈值带来的偶然性。\n本作品把比赛评审中的创意、技术实现、应用价值和讲解表现转成可检查对象。评委可以在同一张案例证据卡中看到用户输入的查询、原始遥感影像、候选框、旋转角、置信度、拒识原因和复核结论；可以在实验表中对照不同方法、不同类别划分和不同提示词；也可以通过延迟面板判断系统是否具有可运行的演示边界。作品将“开放”解释为可查询、可评测、可复核，而不是无边界承诺。",
+    "key_message": "在灾后港口等俯视遥感场景，用户需要用新词检索尚未列入固定标签的细小目标，开放查询与旋转定位必须协同。",
+    "visual_elements": [
+      "俯视港口与受损设施",
+      "船舶及临时救援目标",
+      "少量旋转候选框",
+      "查询目标与复杂背景的关系"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "真实卫星影像质感的港口场景，画面以空间尺度与目标密度建立问题，不要做抽象方框流程图。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图1-1 问题场景图, placed in the section 背景与赛题价值. The one claim this figure must convey is: 在灾后港口等俯视遥感场景，用户需要用新词检索尚未列入固定标签的细小目标，开放查询与旋转定位必须协同。 Depict these exact objects and relationships, not generic interchangeable boxes: 俯视港口与受损设施；船舶及临时救援目标；少量旋转候选框；查询目标与复杂背景的关系. Article-specific visual concept and composition: 真实卫星影像质感的港口场景，画面以空间尺度与目标密度建立问题，不要做抽象方框流程图。 Use the nearby manuscript as semantic grounding: 地球观测影像的价值不只在于把已有类别分得更准，更在于当灾害、工程和生态场景出现新的目标组合时，解译人员可以快速提出问题并得到候选位置。DIOR 以多类别、尺度变化、成像条件变化和类内差异构成遥感检测基准，DOTA 则用任意方向标注强调俯视影像中的旋转与密集目标问题[1][2]。这些基准共同说明，遥感检测的难点不是简单把自然图像检测器换一批数据，而是需要同时处理空间几何、尺度和域变化。\n开放词汇检测把类别集合从固定分类头扩展为自然语言接口，Grounding DINO、Detic、GLIP 和 YOLO-World 分别代表文本条件、图像级监督、跨模态预训练和实时部署路线[6][7][8][9]。LAE 工作进一步把遥感开放词汇检测组织为 Locate Anything on Earth，并用大规模遥感数据和动态词汇构建说明域内数据的重要性[5]。对比赛而言，单纯展示一个能画框的模型很难体现完整度；把查询、定位、校准、案例复核和部署约束组织为一条可讲清的链路，才能同时回应创新性、实现质量和应用价值。\n传统遥感检测的类别边界在数据集发布时已经固定，模型只能在预先定义的标签集合中选择。零样本或开放词汇方法虽然能接受新词汇，但“识别新词”至少包含四个不同问题：文本是否与遥感域目标对齐，候选框是否覆盖目标，类别是否与区域证据一致，置信度是否足以支持决策。若只报告总体 mAP，模型可以通过已知类别表现掩盖 novel 类别召回不足；若只展示案例图，又无法排除提示词挑选和后处理阈值带来的偶然性。\n本作品把比赛评审中的创意、技术实现、应用价值和讲解表现转成可检查对象。评委可以在同一张案例证据卡中看到用户输入的查询、原始遥感影像、候选框、旋转角、置信度、拒识原因和复核结论；可以在实验表中对照不同方法、不同类别划分和不同提示词；也可以通过延迟面板判断系统是否具有可运行的演示边界。作品将“开放”解释为可查询、可评测、可复核，而不是无边界承诺。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-b33edb6c-2463-433f-9251-28fa7ab3ae4c.png",
+    "prompt_sha256": "000597b233191bfec5a5bd7d54d29bbaf03791c85d700a8deeb7053b598e84c6",
+    "asset_sha256": "a6cc9d1cb389f41adf8f4fa093ff8a58ba9b6768ba238fecc235f4fb06dd131c",
+    "generated_at": "2026-09-23T13:41:08+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看灾后港口俯视场景：新目标查询、复杂背景、旋转候选框和局部放大均可辨认；与趋势三幕图构图不同，没有实验数值或机构标记。",
+    "reviewed_at": "2026-09-23T13:41:08+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

@@ -1,4 +1,6 @@
-# Optional adapters for evidence ingestion. The core workflow remains dependency-light.
+# Optional adapters for evidence ingestion and PDF page rendering/QA.
 pypdf>=5.0
+PyMuPDF>=1.24
+Pillow>=10.0
 trafilatura>=2.0
 markitdown[docx,pptx,xlsx]>=0.1.0

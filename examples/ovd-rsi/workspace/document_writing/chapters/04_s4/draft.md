@@ -167,10 +167,10 @@
 
 ### 图形证据
 
-![图4-2 运行流程图](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_2.svg)
+![图4-2 运行流程图](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_2.png)
 
-![图4-3 评分与告警链路图](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_3.svg)
+![图4-3 评分与告警链路图](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_3.png)
 
-![图4-5 案例流转时序图](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_5.svg)
+![图4-5 案例流转时序图](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_5.png)
 
-![图4-6 多端工作台示意](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_6.svg)
+![图4-6 多端工作台示意](examples/ovd-rsi/workspace/document_assets/figures/s4_visual_6.png)

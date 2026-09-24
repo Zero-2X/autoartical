@@ -1,23 +1,57 @@
 {
   "figure_id": "s5_visual_3",
   "visual_type": "figure",
+  "label": "图6-3",
   "title": "预警工单联动流程图",
   "purpose": "说明系统运行步骤、数据流向或业务闭环。",
-  "content": "标题：预警工单联动流程图；放置小节：业务收益与竞争优势；正文目的：说明系统运行步骤、数据流向或业务闭环。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：预警工单联动流程图；放置小节：业务收益与竞争优势；正文目的：说明系统运行步骤、数据流向或业务闭环。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "业务收益与竞争优势",
   "source_refs": [
     "ev_84bd681099",
     "ev_9ca3b5c76b",
     "ev_c00e228bb3"
   ],
-  "asset_candidates": [
-    "figures/s5_visual_3.png",
-    "figures/s5_visual_3.pdf",
-    "workspace/document_export/assets/visuals/s5_visual_3.png",
-    "workspace/document_export/assets/visuals/s5_visual_3.pdf"
+  "article_understanding": {
+    "section_heading": "业务收益与竞争优势",
+    "context_excerpt": "开放词汇能力减少为每个新类别重新标注和训练的等待时间，可靠校准减少把低证据候选直接交给业务人员的风险，旋转框和局部证据减少人工在密集港区影像中的定位成本。收益通过可审计指标表达：新类别检索时间、人工复核比例、高置信假阳性率、查询一致性和证据导出完整率。\n系统采用“强模型离线建库、轻模型在线筛选、校准模块统一决策”的分层策略。常用词汇和影像切片缓存后，重复查询只执行增量步骤；大图不需要整体缩放到低分辨率，而是保留切片坐标和合并轨迹。这样既降低显存压力，也让结果可以回放。\n与只展示一个类别框的演示相比，本作品同时解决词汇、定位和信任三个问题；与只追求速度的开放检测相比，本作品把拒识和人工复核作为正式输出；与只写算法指标的方案相比，本作品提供数据许可、运行日志、证据卡和可复现实验配置。优势来自闭环设计，不能由单个模型名称替代。",
+    "key_message": "只有通过可靠性分级的目标线索才能进入预警工单；不确定候选进入人工复核，结果回写用于后续误差分析。",
+    "visual_elements": [
+      "遥感异常候选",
+      "风险分级闸门",
+      "人工复核工单",
+      "结果回写与审计日志"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "以业务工单为中心的流程场景图，左右分别是地图分析端和任务处置端，中间有明确的风险闸门及反馈回路；与技术评分图区分。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图6-3 预警工单联动流程图, placed in the section 业务收益与竞争优势. The one claim this figure must convey is: 只有通过可靠性分级的目标线索才能进入预警工单；不确定候选进入人工复核，结果回写用于后续误差分析。 Depict these exact objects and relationships, not generic interchangeable boxes: 遥感异常候选；风险分级闸门；人工复核工单；结果回写与审计日志. Article-specific visual concept and composition: 以业务工单为中心的流程场景图，左右分别是地图分析端和任务处置端，中间有明确的风险闸门及反馈回路；与技术评分图区分。 Use the nearby manuscript as semantic grounding: 开放词汇能力减少为每个新类别重新标注和训练的等待时间，可靠校准减少把低证据候选直接交给业务人员的风险，旋转框和局部证据减少人工在密集港区影像中的定位成本。收益通过可审计指标表达：新类别检索时间、人工复核比例、高置信假阳性率、查询一致性和证据导出完整率。\n系统采用“强模型离线建库、轻模型在线筛选、校准模块统一决策”的分层策略。常用词汇和影像切片缓存后，重复查询只执行增量步骤；大图不需要整体缩放到低分辨率，而是保留切片坐标和合并轨迹。这样既降低显存压力，也让结果可以回放。\n与只展示一个类别框的演示相比，本作品同时解决词汇、定位和信任三个问题；与只追求速度的开放检测相比，本作品把拒识和人工复核作为正式输出；与只写算法指标的方案相比，本作品提供数据许可、运行日志、证据卡和可复现实验配置。优势来自闭环设计，不能由单个模型名称替代。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-b9be2c78-f7e1-4b43-b969-274a3e5b4028.png",
+    "prompt_sha256": "8b29647d4e5f8d707551df35e3e8896ed29572fcbba25f337e26b56c346fb106",
+    "asset_sha256": "7741c267e22cc363d0308c888e00db960e29b140bc73ef6f421247b14a34befa",
+    "generated_at": "2026-09-23T14:29:50+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看预警工单联动图：遥感线索通过风险闸门进入人工处置，结果再回写日志，业务流程和技术评分图区分明显。",
+    "reviewed_at": "2026-09-23T14:29:50+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

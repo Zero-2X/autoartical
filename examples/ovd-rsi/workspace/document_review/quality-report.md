@@ -16,7 +16,7 @@
 - 结语: status=approved, round=1, verdict=approved, block=none, decision=workspace\document_writing\chapters\09_conclusion\decision.json
 
 ## Length Gate Summary
-- Full Book: assembled=45132, required>=25400, passed=True
+- Full Book: assembled=45077, required>=25400, passed=True
 - 摘要: actual=632, required>=600, status=passed, passed=True
 - 一、作品概述与问题定义: actual=4919, required>=2400, status=passed, passed=True
 - 二、作品设计与总体架构: actual=3010, required>=1300, status=passed, passed=True

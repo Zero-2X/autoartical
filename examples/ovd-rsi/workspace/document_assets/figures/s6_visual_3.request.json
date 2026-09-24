@@ -1,12 +1,11 @@
 {
   "figure_id": "s6_visual_3",
   "visual_type": "figure",
+  "label": "图7-3",
   "title": "优化方向图",
   "purpose": "优化方向图",
-  "content": "标题：优化方向图；放置小节：不足与后续优化；正文目的：优化方向图。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：优化方向图；放置小节：不足与后续优化；正文目的：优化方向图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "不足与后续优化",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
@@ -14,12 +13,47 @@
     "ev_84bd681099",
     "ev_9ca3b5c76b"
   ],
-  "asset_candidates": [
-    "figures/s6_visual_3.png",
-    "figures/s6_visual_3.pdf",
-    "workspace/document_export/assets/visuals/s6_visual_3.png",
-    "workspace/document_export/assets/visuals/s6_visual_3.pdf"
+  "article_understanding": {
+    "section_heading": "不足与后续优化",
+    "context_excerpt": "开放词汇检测受文本歧义、遥感视角变化和细粒度类别标注限制；旋转框标注在不同数据集之间并不完全一致；外测集的许可、覆盖范围和标签粒度需要单独审查；大模型或高分辨率切片可能带来显存和延迟压力。上述限制会写入报告，不通过增加修辞掩盖。\n后续迭代优先补充跨区域和跨季节样本，建立类别层级和同义词版本库，引入主动学习把高价值误报送入标注队列，扩展旋转框与多尺度候选的联合消歧，并用分布外检测和 conformal 风险控制完善拒识阈值。每一项优化都需要新增消融项和失败案例。\n当基础闭环稳定后，可扩展到视频时序、三维地理坐标、跨模态检索和多语言查询；也可以把证据卡接入应急平台或科研数据湖。扩展必须保持数据许可、来源、模型版本和人工责任字段，不能因为增加模态而失去可审计性。\n表7-1 交付物与质量 Gate 对照\n表格解释：状态只反映当前流水线检查，不代表主实验已经完成；“待实测”是明确的研究任务而不是零值；质量 Gate 的证据文件必须能追溯到对应脚本和输入。\n图7-2 交付物与验证 Gate 映射；图7-3 端到端质量闭环。",
+    "key_message": "后续研究沿区域条件化词汇原型、时间序列变化检测、多传感器融合和主动学习扩展，并保留当前方案的验证边界。",
+    "visual_elements": [
+      "不同地区成像条件",
+      "同一区域多时相影像",
+      "光学与其他传感器的信息融合",
+      "由人工复核难例驱动的主动学习"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "研究路线图，四个不同视觉场景汇向未来实验设计，使用逐渐明亮的配色但不暗示已经取得实验突破；每项方向都表现需要验证的对象。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图7-3 优化方向图, placed in the section 不足与后续优化. The one claim this figure must convey is: 后续研究沿区域条件化词汇原型、时间序列变化检测、多传感器融合和主动学习扩展，并保留当前方案的验证边界。 Depict these exact objects and relationships, not generic interchangeable boxes: 不同地区成像条件；同一区域多时相影像；光学与其他传感器的信息融合；由人工复核难例驱动的主动学习. Article-specific visual concept and composition: 研究路线图，四个不同视觉场景汇向未来实验设计，使用逐渐明亮的配色但不暗示已经取得实验突破；每项方向都表现需要验证的对象。 Use the nearby manuscript as semantic grounding: 开放词汇检测受文本歧义、遥感视角变化和细粒度类别标注限制；旋转框标注在不同数据集之间并不完全一致；外测集的许可、覆盖范围和标签粒度需要单独审查；大模型或高分辨率切片可能带来显存和延迟压力。上述限制会写入报告，不通过增加修辞掩盖。\n后续迭代优先补充跨区域和跨季节样本，建立类别层级和同义词版本库，引入主动学习把高价值误报送入标注队列，扩展旋转框与多尺度候选的联合消歧，并用分布外检测和 conformal 风险控制完善拒识阈值。每一项优化都需要新增消融项和失败案例。\n当基础闭环稳定后，可扩展到视频时序、三维地理坐标、跨模态检索和多语言查询；也可以把证据卡接入应急平台或科研数据湖。扩展必须保持数据许可、来源、模型版本和人工责任字段，不能因为增加模态而失去可审计性。\n表7-1 交付物与质量 Gate 对照\n表格解释：状态只反映当前流水线检查，不代表主实验已经完成；“待实测”是明确的研究任务而不是零值；质量 Gate 的证据文件必须能追溯到对应脚本和输入。\n图7-2 交付物与验证 Gate 映射；图7-3 端到端质量闭环。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297",
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-77ffda9e-7eed-43bd-a2a0-1cf7505ae02a.png",
+    "prompt_sha256": "cc37b0c037dddae709e84c097bb587a55446ed0fa22c9a38dfe84d50cd3429bc",
+    "asset_sha256": "5c4c85400a8db6a05ce05063293436fd1ad4d24d9bfa8fa356259728b2f3ceb1",
+    "generated_at": "2026-09-23T15:19:03+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已目视检查：四条可区分的后续研究路径分别体现跨区域成像、多时相变化、多传感器融合和人工复核驱动的主动学习；整体汇入待验证的研究路线，使用概念图像而未宣称已获得性能提升。",
+    "reviewed_at": "2026-09-23T15:19:03+00:00"
+  }
 }

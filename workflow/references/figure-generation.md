@@ -2,6 +2,8 @@
 
 Use this guide during writing.1 after core section drafting has stabilized.
 
+For the AutoArtical proposal workflow, also follow the mandatory [article-understanding to ImageGen contract](imagegen-figures.md). Read the complete relevant manuscript section before prompting; record one claim, concrete visual elements, evidence boundary, and an individual composition for each figure. The final prompt must use those fields, exceed 400 characters, and be sent verbatim to Codex's built-in ImageGen. Generic title-only prompts and duplicated figure prompts fail the delivery gate.
+
 ## Goal
 
 Generate paper-ready visual artifacts that are structurally aligned with the manuscript rather than visually disconnected from it.

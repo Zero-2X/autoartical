@@ -1,12 +1,11 @@
 {
   "figure_id": "s2_visual_3",
   "visual_type": "figure",
+  "label": "图2-3",
   "title": "输入-处理-输出闭环图",
   "purpose": "说明系统运行步骤、数据流向或业务闭环。",
-  "content": "标题：输入-处理-输出闭环图；放置小节：输入-处理-输出闭环；正文目的：说明系统运行步骤、数据流向或业务闭环。。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：输入-处理-输出闭环图；放置小节：输入-处理-输出闭环；正文目的：说明系统运行步骤、数据流向或业务闭环。。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "输入-处理-输出闭环",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
@@ -15,12 +14,47 @@
     "ev_9ca3b5c76b",
     "ev_c00e228bb3"
   ],
-  "asset_candidates": [
-    "figures/s2_visual_3.png",
-    "figures/s2_visual_3.pdf",
-    "workspace/document_export/assets/visuals/s2_visual_3.png",
-    "workspace/document_export/assets/visuals/s2_visual_3.pdf"
+  "article_understanding": {
+    "section_heading": "输入-处理-输出闭环",
+    "context_excerpt": "输入包括影像文件、空间范围、影像元数据、文本查询、查询模板和实验配置。系统为每次任务生成 task_id，并把影像哈希、切片大小、重叠比例、文本原文、同义词候选、模型版本和阈值写入任务日志。用户可选择“严格查询”或“扩展查询”：严格查询只使用原词，扩展查询允许层级词和同义词，但两者结果必须分开显示。\n影像先按尺度生成重叠切片，检测器输出候选区域、类别相似度、框类型和来源切片。候选合并阶段记录每个框来自哪些切片，区域一致性阶段比较候选框内部与周边背景的语义差异，背景对照阶段检查分数是否主要由纹理或共现物体驱动。温度校准和拒识阈值只在校准集上确定，外测集不允许再次调参。\n系统输出四类结果：接受候选、需要人工复核、拒识候选和查询失败。每个结果包含水平框或旋转框、类别词、置信度、校准后概率、来源切片、同义查询一致性、模型版本和处理时间。证据卡可以导出 Markdown、HTML 和结构化 JSON；交互面板支持按类别、置信区间、区域和复核状态过滤，形成从查询到审计的闭环。\n图2-1 系统总体架构图展示四层模块和数据流；图2-2 模块职责分层图展示各层输入、输出与可替换边界；图2-3 输入—处理—输出闭环图展示任务日志、候选、校准和证据卡的串联；图2-4 数据与查询流转图展示影像切片、文本原型和证据回放之间的关系；图2-5 最小可行范围边界图标明离线批处理、交互工作台和暂不覆盖的在线卫星流。",
+    "key_message": "一次任务从影像和查询输入，经切片、候选融合、语义校准与拒识，输出四类状态及证据卡，任务日志闭合回放。",
+    "visual_elements": [
+      "影像与文本查询两条输入",
+      "切片和候选融合",
+      "接受、复核、拒识、查询失败四个输出状态",
+      "贯穿全链路的任务日志"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "宽幅输入处理输出闭环示意，主流程居中向右，任务日志沿底部回流到审计入口；四类结果用独立形态和克制色彩区分，避免简单矩形列表。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图2-3 输入-处理-输出闭环图, placed in the section 输入-处理-输出闭环. The one claim this figure must convey is: 一次任务从影像和查询输入，经切片、候选融合、语义校准与拒识，输出四类状态及证据卡，任务日志闭合回放。 Depict these exact objects and relationships, not generic interchangeable boxes: 影像与文本查询两条输入；切片和候选融合；接受、复核、拒识、查询失败四个输出状态；贯穿全链路的任务日志. Article-specific visual concept and composition: 宽幅输入处理输出闭环示意，主流程居中向右，任务日志沿底部回流到审计入口；四类结果用独立形态和克制色彩区分，避免简单矩形列表。 Use the nearby manuscript as semantic grounding: 输入包括影像文件、空间范围、影像元数据、文本查询、查询模板和实验配置。系统为每次任务生成 task_id，并把影像哈希、切片大小、重叠比例、文本原文、同义词候选、模型版本和阈值写入任务日志。用户可选择“严格查询”或“扩展查询”：严格查询只使用原词，扩展查询允许层级词和同义词，但两者结果必须分开显示。\n影像先按尺度生成重叠切片，检测器输出候选区域、类别相似度、框类型和来源切片。候选合并阶段记录每个框来自哪些切片，区域一致性阶段比较候选框内部与周边背景的语义差异，背景对照阶段检查分数是否主要由纹理或共现物体驱动。温度校准和拒识阈值只在校准集上确定，外测集不允许再次调参。\n系统输出四类结果：接受候选、需要人工复核、拒识候选和查询失败。每个结果包含水平框或旋转框、类别词、置信度、校准后概率、来源切片、同义查询一致性、模型版本和处理时间。证据卡可以导出 Markdown、HTML 和结构化 JSON；交互面板支持按类别、置信区间、区域和复核状态过滤，形成从查询到审计的闭环。\n图2-1 系统总体架构图展示四层模块和数据流；图2-2 模块职责分层图展示各层输入、输出与可替换边界；图2-3 输入—处理—输出闭环图展示任务日志、候选、校准和证据卡的串联；图2-4 数据与查询流转图展示影像切片、文本原型和证据回放之间的关系；图2-5 最小可行范围边界图标明离线批处理、交互工作台和暂不覆盖的在线卫星流。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-f8a8739e-f7bf-4911-8ceb-f3b9430ea997.png",
+    "prompt_sha256": "98f5cdeafa35e2a5cb8d6b9aa848458f778a6428147fbed566f7c574586c3050",
+    "asset_sha256": "fa23148a73c6121df12edf1fed9ec6f0ce912d9b12ca256ca42efe0a59517085",
+    "generated_at": "2026-09-23T13:55:02+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看输入处理输出图：影像和查询双输入、切片与融合、四类结果以及底部回放日志均可辨认，未出现虚构性能指标。",
+    "reviewed_at": "2026-09-23T13:55:02+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

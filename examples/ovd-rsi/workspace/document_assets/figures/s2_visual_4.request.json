@@ -1,12 +1,11 @@
 {
   "figure_id": "s2_visual_4",
   "visual_type": "figure",
+  "label": "图2-4",
   "title": "多端联动部署图",
   "purpose": "部署拓扑图",
-  "content": "标题：多端联动部署图；放置小节：系统总体架构；正文目的：部署拓扑图。",
-  "aspect": "16:9",
-  "route": "Codex built-in image_gen",
-  "prompt": "为研究申报书生成信息图。标题：多端联动部署图；放置小节：系统总体架构；正文目的：部署拓扑图。 只使用已有术语和来源，不创造实验数据、数值、机构标志或虚构引用；图中文字保持简洁，适合正式中文文档，输出清晰的流程、结构或机制解释。",
+  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "suggested_subsection": "系统总体架构",
   "source_refs": [
     "ev_d827045531",
     "ev_7f9521c71a",
@@ -15,12 +14,47 @@
     "ev_9ca3b5c76b",
     "ev_c00e228bb3"
   ],
-  "asset_candidates": [
-    "figures/s2_visual_4.png",
-    "figures/s2_visual_4.pdf",
-    "workspace/document_export/assets/visuals/s2_visual_4.png",
-    "workspace/document_export/assets/visuals/s2_visual_4.pdf"
+  "article_understanding": {
+    "section_heading": "系统总体架构",
+    "context_excerpt": "OpenRSI-Calibrator 分为四层。第一层是影像和查询接入层，负责读取大图、空间参考、分辨率、时间和用户短语；第二层是视觉—语言对齐层，生成通用文本嵌入与遥感域原型，并保存词汇版本；第三层是候选检测与可靠性层，执行多尺度切片、水平/旋转框预测、重叠合并、区域一致性计算和温度校准；第四层是证据与交互层，把框坐标、查询、来源切片、置信区间、拒识原因和复核动作组织成可回放结果。\n接入层不改变原始影像，只产生可追溯的切片索引；对齐层不直接产生检测结果，避免把分类相似度误读为定位；检测层输出候选和中间分数，校准层再进行决策分级；证据层不重新推理，只记录前述模块的版本化输出。模块边界使错误分析可以回答“是候选没找到、类别错了、框错了还是分数不可信”，并可在比赛展示中逐层展开。\n离线实验端保存完整数据和中间结果，用于可重复评测；交互工作台端只加载索引、词汇缓存和候选结果，用于同义词查询、局部放大和证据回放；边缘演示端采用轻量检测器和有限词汇缓存，明确显示其与离线强模型的差异。三端共享统一的结果 schema，避免为了演示重新定义指标或隐去失败样例。",
+    "key_message": "离线实验端、交互工作台和受限边缘演示端共享统一结果 schema，但保存的信息与计算能力不同。",
+    "visual_elements": [
+      "完整离线实验与大图数据",
+      "交互工作台的查询和证据卡",
+      "轻量边缘终端",
+      "共享 schema 与受控同步"
+    ],
+    "evidence_boundary": "本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。",
+    "visual_direction": "三端部署拓扑，左侧安全数据中心、中央桌面工作台、右侧边缘设备；体现受控数据流和不同算力，不画成真实产品已部署的照片。"
+  },
+  "prompt": "Use case: scientific-educational; asset type: a publication-quality 16:9 figure for a Chinese competition research proposal. Project: OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准. Figure 图2-4 多端联动部署图, placed in the section 系统总体架构. The one claim this figure must convey is: 离线实验端、交互工作台和受限边缘演示端共享统一结果 schema，但保存的信息与计算能力不同。 Depict these exact objects and relationships, not generic interchangeable boxes: 完整离线实验与大图数据；交互工作台的查询和证据卡；轻量边缘终端；共享 schema 与受控同步. Article-specific visual concept and composition: 三端部署拓扑，左侧安全数据中心、中央桌面工作台、右侧边缘设备；体现受控数据流和不同算力，不画成真实产品已部署的照片。 Use the nearby manuscript as semantic grounding: OpenRSI-Calibrator 分为四层。第一层是影像和查询接入层，负责读取大图、空间参考、分辨率、时间和用户短语；第二层是视觉—语言对齐层，生成通用文本嵌入与遥感域原型，并保存词汇版本；第三层是候选检测与可靠性层，执行多尺度切片、水平/旋转框预测、重叠合并、区域一致性计算和温度校准；第四层是证据与交互层，把框坐标、查询、来源切片、置信区间、拒识原因和复核动作组织成可回放结果。\n接入层不改变原始影像，只产生可追溯的切片索引；对齐层不直接产生检测结果，避免把分类相似度误读为定位；检测层输出候选和中间分数，校准层再进行决策分级；证据层不重新推理，只记录前述模块的版本化输出。模块边界使错误分析可以回答“是候选没找到、类别错了、框错了还是分数不可信”，并可在比赛展示中逐层展开。\n离线实验端保存完整数据和中间结果，用于可重复评测；交互工作台端只加载索引、词汇缓存和候选结果，用于同义词查询、局部放大和证据回放；边缘演示端采用轻量检测器和有限词汇缓存，明确显示其与离线强模型的差异。三端共享统一的结果 schema，避免为了演示重新定义指标或隐去失败样例。 Evidence and status boundary: 本图用于解释已写明的研究问题或拟议系统机制，不代表实验已经完成；不得虚构 benchmark 数值、性能曲线、商业部署状态、具体地理坐标或可识别机构标识。 Create a coherent scientific editorial illustration with a clear visual reading order, distinct foreground/midground/background, precise remote-sensing geometry where relevant, generous but purposeful spacing, restrained navy/teal/coral accents, crisp high-resolution detail and strong contrast at printed-page size. Make this figure compositionally distinct from adjacent figures. No title in the artwork, no paragraphs, no fake Chinese or English labels, no numerical charts, no invented metric values, no unsupported performance claim, no institutional logo, no watermark, and no decorative repeated flowchart template. The printed caption outside the image will carry exact terminology and evidence attribution.",
+  "route": "Codex built-in image_gen",
+  "status": "reviewed",
+  "required_steps": [
+    "阅读完整小节和相邻正文，提炼本图唯一要证明的主张、实体关系及证据边界",
+    "填写 article_understanding，再据此撰写逐图、完整、详细的 ImageGen prompt",
+    "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
+    "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "created_at": "2026-09-22T17:18:24+00:00",
-  "status": "awaiting_generation"
+  "generation": {
+    "tool": "image_gen.imagegen",
+    "source_path": "generated_images/exec-5a86a0a1-6d67-42fb-9818-f2d8e0f2af42.png",
+    "prompt_sha256": "e0010be123d612e94cb72000666a1e84edca127d221f068bbeec9a2a2fd1cac2",
+    "asset_sha256": "3d60e06e73df8e8951a7fbcda202ec31ac4ab7b7eff75ef6e93e022e83c9add2",
+    "generated_at": "2026-09-23T13:58:50+00:00",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "visual_review": {
+    "status": "pass",
+    "semantic_fidelity": true,
+    "legibility": true,
+    "uniqueness": true,
+    "no_fabrication": true,
+    "note": "已查看三端部署图：离线数据中心、交互工作台和受限边缘设备的能力差异与受控同步清楚，未把概念图伪称成已部署系统。",
+    "reviewed_at": "2026-09-23T13:58:50+00:00"
+  },
+  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297"
 }

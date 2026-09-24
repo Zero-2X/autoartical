@@ -2198,7 +2198,7 @@ def enforce_subsection_structure(chapter: dict[str, Any], content: str) -> str:
 
 def assemble_approved_draft(idea_card: dict[str, Any], chapters: list[dict[str, Any]], topic_dir: Path) -> str:
     approved_chapters = [chapter for chapter in chapters if chapter.get("status") == "approved"]
-    lines = [f"# {idea_card.get('project_name', '')} 作品书草稿", ""]
+    lines = [f"# {idea_card.get('project_name', '')} 竞赛申报书", ""]
     if len(approved_chapters) != len(chapters):
         lines.extend(
             [

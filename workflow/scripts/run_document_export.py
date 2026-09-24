@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import base64
 import html
+import hashlib
 import json
 import re
 import shutil
@@ -136,6 +137,45 @@ def _split_render_chunks(markdown: str, target_units: int = 1000) -> list[str]:
     return chunks
 
 
+def _split_chunk_for_render(chunk: str) -> tuple[str, str] | None:
+    """Split an overfull page at Markdown block boundaries, keeping headings attached."""
+    blocks = [part.strip() for part in re.split(r"\n\s*\n", chunk.strip()) if part.strip()]
+    grouped: list[str] = []
+    index = 0
+    while index < len(blocks):
+        block = blocks[index]
+        if block.startswith("#") and index + 1 < len(blocks):
+            grouped.append(block + "\n\n" + blocks[index + 1])
+            index += 2
+        else:
+            grouped.append(block)
+            index += 1
+    if len(grouped) < 2:
+        return None
+
+    def weight(block: str) -> int:
+        units = _markdown_units(block)
+        images = sum(1 for line in block.splitlines() if line.startswith("!["))
+        table_rows = sum(1 for line in block.splitlines() if line.strip().startswith("|"))
+        return max(units, 1) + images * 360 + table_rows * 14
+
+    weights = [weight(block) for block in grouped]
+    midpoint = sum(weights) / 2
+    candidates = []
+    for split_at in range(1, len(grouped)):
+        left = "\n\n".join(grouped[:split_at])
+        right = "\n\n".join(grouped[split_at:])
+        left_units = _markdown_units(left)
+        right_units = _markdown_units(right)
+        if left_units < 40 or right_units < 40:
+            continue
+        candidates.append((abs(sum(weights[:split_at]) - midpoint), left, right))
+    if not candidates:
+        return None
+    _, left, right = min(candidates, key=lambda item: item[0])
+    return left, right
+
+
 def render_with_pymupdf(markdown: str, title: str, pdf_path: Path) -> dict:
     """Render an actual PDF when office/Typst binaries are unavailable."""
     try:
@@ -146,16 +186,34 @@ def render_with_pymupdf(markdown: str, title: str, pdf_path: Path) -> dict:
     document = fitz.open()
     page_rect = fitz.paper_rect("a4")
     margin = 42
-    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:13pt;line-height:1.55;color:#172033;}h1{font-size:22pt;margin:0 0 16pt;}h2{font-size:18pt;margin:0 0 14pt;}h3{font-size:15pt;margin:0 0 11pt;}h4{font-size:12.5pt;margin:0 0 9pt;}p{margin:0 0 9pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:9.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{max-width:480pt;max-height:220pt;width:auto;height:auto;}figcaption{font-size:8.5pt;color:#526174;}</style>"
-    for chunk in chunks:
+    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:13pt;line-height:1.55;color:#172033;}h1{font-size:22pt;margin:0 0 16pt;}h2{font-size:18pt;margin:0 0 14pt;}h3{font-size:15pt;margin:0 0 11pt;}h4{font-size:12.5pt;margin:0 0 9pt;}p{margin:0 0 9pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:9.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{width:auto;height:220pt;max-width:480pt;}figcaption{font-size:8.5pt;color:#526174;}</style>"
+    pending = list(chunks)
+    splits = 0
+    while pending:
+        chunk = pending.pop(0)
         full = markdown_to_html(chunk, title, Path.cwd())
         body = full.split("<body>", 1)[1].rsplit("</body>", 1)[0]
         page = document.new_page(width=page_rect.width, height=page_rect.height)
         result = page.insert_htmlbox(fitz.Rect(margin, margin, page_rect.width - margin, page_rect.height - margin), css_body + body)
-        if isinstance(result, tuple) and result[1] < 0.20:
-            raise RuntimeError(f"渲染页缩放过小：{result[1]:.2f}")
+        if isinstance(result, tuple) and result[1] < 0.55:
+            parts = _split_chunk_for_render(chunk)
+            if parts is None:
+                raise RuntimeError(f"渲染页无法在保持可读性的前提下排入页面：scale={result[1]:.2f}")
+            document.delete_page(-1)
+            pending[0:0] = [parts[0], parts[1]]
+            splits += 1
+            if splits > 32:
+                raise RuntimeError("页面自适应分块超过上限；需重新规划图文分页。")
+    page_total = len(document)
+    for page_number, page in enumerate(document, start=1):
+        footer_y = page_rect.height - 30
+        page.draw_line((margin, footer_y), (page_rect.width - margin, footer_y), color=(0.82, 0.86, 0.91), width=0.55)
+        page.insert_text((page_rect.width / 2 - 18, page_rect.height - 14), f"{page_number} / {page_total}",
+                         fontname="helv", fontsize=8.5, color=(0.28, 0.35, 0.45))
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
-    document.save(pdf_path)
+    # Dynamic split attempts leave superseded image objects in the document.
+    # Collect them and deflate streams so generated figures do not inflate the PDF.
+    document.save(pdf_path, garbage=4, deflate=True)
     document.close()
     check = fitz.open(pdf_path)
     page_text_lengths = [len(page.get_text().strip()) for page in check]
@@ -181,6 +239,7 @@ def main() -> int:
         raise SystemExit("缺少 section-plan、作品书草稿或 quality-gate，不能导出。")
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
     draft = draft_path.read_text(encoding="utf-8")
+    draft_hash = hashlib.sha256(draft.encode("utf-8")).hexdigest()
     review = json.loads(review_path.read_text(encoding="utf-8"))
     contract = plan.get("content_contract", DEFAULT_CONTRACT)
     content_gate = build_content_depth_gate(draft, plan.get("sections", []), contract)
@@ -196,27 +255,49 @@ def main() -> int:
     out_dir = topic_dir / "output"
     out_dir.mkdir(parents=True, exist_ok=True)
     project = plan.get("project_name", topic_dir.name) or topic_dir.name
-    pdf_out = out_dir / f"作品书_{project}.pdf"
-    if not renderer:
+    file_slug = re.sub(r"[^\w.-]+", "_", project, flags=re.UNICODE).strip("._") or topic_dir.name
+    pdf_out = out_dir / f"作品书_{file_slug}.pdf"
+    can_render = content_gate.get("passed", False) and visual_gate.get("passed", False) and review.get("verdict") == "pass"
+    existing_pdf_hash = hashlib.sha256(pdf_out.read_bytes()).hexdigest() if pdf_out.exists() else ""
+    render_is_current = (render_report.get("pdf_sha256") == existing_pdf_hash and bool(existing_pdf_hash) and
+                         render_report.get("draft_sha256") == draft_hash)
+    if not renderer and can_render and not render_is_current:
         try:
             rendered = render_with_pymupdf(draft, project, pdf_out)
+            pdf_hash = hashlib.sha256(pdf_out.read_bytes()).hexdigest()
+            previous_qa = render_report if render_report.get("pdf_sha256") == pdf_hash and render_report.get("draft_sha256") == draft_hash else {}
             render_report = {
-                "verified": True,
-                "visual_qa": "pass",
+                "verified": previous_qa.get("visual_qa") == "pass",
+                "visual_qa": previous_qa.get("visual_qa", "pending"),
                 "page_count": rendered["page_count"],
                 "backend": rendered["backend"],
                 "page_text_lengths": rendered["page_text_lengths"],
                 "image_count": rendered["image_count"],
+                "pdf_sha256": pdf_hash,
+                "draft_sha256": draft_hash,
+                "raster_qa_samples": previous_qa.get("raster_qa_samples", []),
+                "visual_qa_note": previous_qa.get("visual_qa_note", ""),
                 "qa_rule": "PDF 必须由实际渲染生成，且嵌入图形资产；随后使用 pdftoppm 栅格化并抽检页面。",
             }
             write_json(render_report_path, render_report)
             renderer = "pymupdf"
         except Exception as exc:  # pragma: no cover - environment dependent
             render_report = {"verified": False, "visual_qa": "failed", "backend": "pymupdf", "error": str(exc)}
+    elif not renderer and render_is_current:
+        renderer = render_report.get("backend", "pymupdf")
     page_count = render_report.get("page_count")
     target_pages = contract.get("target_pages", [40, 50])
     page_in_range = isinstance(page_count, int) and len(target_pages) == 2 and target_pages[0] <= page_count <= target_pages[1]
-    verified = bool(render_report.get("verified")) and page_in_range and render_report.get("visual_qa") == "pass"
+    page_occupancy = render_report.get("page_occupancy_ratios", [])
+    density_pass = (render_report.get("density_check") == "pass" and len(page_occupancy) == page_count and
+                    all(isinstance(value, (int, float)) and value >= 0.55 for value in page_occupancy))
+    current_pdf_hash = hashlib.sha256(pdf_out.read_bytes()).hexdigest() if pdf_out.exists() else ""
+    verified = (can_render and bool(render_report.get("verified")) and page_in_range and
+                render_report.get("visual_qa") == "pass" and
+                density_pass and
+                render_report.get("pdf_sha256") == current_pdf_hash and
+                render_report.get("draft_sha256") == draft_hash and
+                bool(render_report.get("raster_qa_samples")))
     render_gate = {
         "verified": verified,
         "renderer_available": bool(renderer),
@@ -225,6 +306,8 @@ def main() -> int:
         "page_range": target_pages,
         "embedded_image_count": render_report.get("image_count", 0),
         "raster_qa_samples": render_report.get("raster_qa_samples", []),
+        "density_check": render_report.get("density_check", "pending"),
+        "minimum_page_occupancy": min(page_occupancy) if page_occupancy else None,
         "visual_qa": render_report.get("visual_qa", "pending"),
         "report_path": str(render_report_path.relative_to(topic_dir)) if render_report_path.exists() else "",
         "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。",
@@ -239,8 +322,8 @@ def main() -> int:
             failures.append("未发现 Pandoc、Typst 或 LibreOffice 渲染器；不能宣称 40–50 页已核验")
         else:
             failures.append("缺少有效 render-report.json：必须记录 PDF/DOCX 页数在 40–50 页内且逐页视觉 QA 通过")
-    markdown_out = out_dir / f"作品书_{project}.md"
-    html_out = out_dir / f"作品书_{project}.html"
+    markdown_out = out_dir / f"作品书_{file_slug}.md"
+    html_out = out_dir / f"作品书_{file_slug}.html"
     markdown_out.write_text(draft, encoding="utf-8")
     html_out.write_text(markdown_to_html(draft, project, Path.cwd()), encoding="utf-8")
     manifest = {
@@ -249,7 +332,7 @@ def main() -> int:
         "formats": {
             "markdown": str(markdown_out.relative_to(topic_dir)),
             "html": str(html_out.relative_to(topic_dir)),
-            **({"pdf": str(pdf_out.relative_to(topic_dir))} if pdf_out.exists() else {}),
+            **({"pdf": str(pdf_out.relative_to(topic_dir))} if verified else {}),
         },
         "content_gate": content_gate,
         "visual_gate": visual_gate,

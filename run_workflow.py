@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -17,8 +18,8 @@ COMMANDS = [
     ("run_concept.py", "形成选题说明"),
     ("run_research.py", "自动研究与实验契约"),
     ("run_document_plan.py", "规划文档结构"),
-    ("run_visual_assets.py", "生成视觉资产请求与素材清单"),
     ("run_document_writing.py", "撰写文档"),
+    ("run_visual_assets.py", "从正文理解生成逐图 Prompt 请求"),
     ("run_document_review.py", "审查文档"),
     ("run_document_export.py", "导出并执行最终交付门禁"),
 ]
@@ -63,6 +64,19 @@ def main() -> int:
         if result.returncode != 0:
             print(f"工作流在“{label}”处停止，返回码 {result.returncode}", file=sys.stderr)
             return result.returncode
+        if name == "run_visual_assets.py":
+            manifest_path = topic / "workspace" / "document_assets" / "visual-manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {}
+            gate = manifest.get("gate_before_generation", {})
+            if not gate.get("passed", False):
+                pending = sorted(set(gate.get("requested_ids", [])) | set(gate.get("missing_ids", [])) | set(gate.get("invalid_assets", {})))
+                print("配图请求已准备，工作流暂停在 Codex 内置 ImageGen。")
+                print("逐图阅读正文、完成 article_understanding 与详细 Prompt、生成并审查 PNG 后登记：")
+                print(f"python workflow/scripts/register_imagegen_asset.py {topic} --figure-id <图号> --source <generated_images PNG> --review-note <逐图检查结论>")
+                print("全部必需配图通过后，从 document_review 恢复：")
+                print(f"python run_workflow.py {topic} --from-step run_document_review")
+                print("待处理图号: " + ", ".join(pending))
+                return 3
     if not args.dry_run:
         print(f"文档工作流完成，结果位于: {topic / 'output'}")
     return 0

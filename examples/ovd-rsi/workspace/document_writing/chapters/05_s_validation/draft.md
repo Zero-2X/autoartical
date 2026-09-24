@@ -256,4 +256,4 @@ DIOR、DOTA 和 FAIR1M 的类别体系、标注形式、影像尺度和区域分
 
 ### 图形证据
 
-![图5-4 案例回放时序图](examples/ovd-rsi/workspace/document_assets/figures/s_validation_visual_4.svg)
+![图5-4 案例回放时序图](examples/ovd-rsi/workspace/document_assets/figures/s_validation_visual_4.png)
