@@ -3801,7 +3801,8 @@
       "required_formats": [
         "markdown",
         "html",
-        "pdf_or_docx"
+        "docx",
+        "pdf"
       ],
       "render_verification": "required_before_delivery",
       "page_count_must_be_in_range": true,

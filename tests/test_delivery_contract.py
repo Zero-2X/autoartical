@@ -57,7 +57,19 @@ class DeliveryContractTests(unittest.TestCase):
             visual_id = "architecture"
             asset = figures / f"{visual_id}.png"
             asset.write_bytes(b"\x89PNG\r\n\x1a\n" + b"\0" * 8 + struct.pack(">II", 1672, 941) + b"x" * 100_001)
-            prompt = "Detailed article-grounded scientific illustration. " * 12
+            prompt = compose_prompt({
+                "project_name": "测试项目",
+                "label": "图1-1",
+                "title": "总体架构图",
+                "article_understanding": {
+                    "section_heading": "架构",
+                    "context_excerpt": "这段正文详细解释影像、查询、候选、校准和证据卡之间的关系及其边界。" * 3,
+                    "key_message": "四层架构把开放查询与风险校准连接起来，并保留可回放证据。",
+                    "visual_elements": ["影像", "文本查询", "旋转候选", "证据卡"],
+                    "evidence_boundary": "这是拟议架构的示意，不是已经获得的实验结果。",
+                    "visual_direction": "采用分层剖面和贯穿的数据流，而非通用方框模板。",
+                },
+            })
             draft = "如图1-1所示，输入通向校准。\n\n![图1-1 总体架构图](workspace/document_assets/figures/architecture.png)"
             request = {
                 "figure_id": visual_id,
@@ -100,7 +112,8 @@ class DeliveryContractTests(unittest.TestCase):
 
     def test_default_contract_makes_visual_and_export_requirements_explicit(self):
         self.assertGreaterEqual(DEFAULT_CONTRACT["visual_contract"]["required_specs_min"], 18)
-        self.assertIn("pdf_or_docx", DEFAULT_CONTRACT["export_contract"]["required_formats"])
+        self.assertIn("docx", DEFAULT_CONTRACT["export_contract"]["required_formats"])
+        self.assertIn("pdf", DEFAULT_CONTRACT["export_contract"]["required_formats"])
 
     def test_html_only_export_writes_manifest_without_claiming_rendered_pages(self):
         with tempfile.TemporaryDirectory() as tmp:

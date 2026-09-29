@@ -1593,7 +1593,8 @@
         "required_formats": [
           "markdown",
           "html",
-          "pdf_or_docx"
+          "docx",
+          "pdf"
         ],
         "render_verification": "required_before_delivery",
         "page_count_must_be_in_range": true,
@@ -1675,28 +1676,42 @@
   },
   "style_gate": {
     "passed": true,
-    "paragraph_count": 313,
+    "paragraph_count": 307,
+    "normalized_paragraph_count": 262,
+    "fragmentation": {
+      "raw_short_paragraph_count": 143,
+      "raw_short_paragraph_ratio": 0.466,
+      "normalized_short_paragraph_count": 78,
+      "normalized_short_paragraph_ratio": 0.298,
+      "passed": true,
+      "merge_rule": "同一标题范围内，短于 120 有效字元的连续正文段合并至 140–360，有图表、列表、引用和标题时停止。"
+    },
+    "empty_headings": {
+      "raw_count": 35,
+      "normalized_count": 0,
+      "passed": true,
+      "rule": "无正文、表格或图片的连续占位标题不进入交付副本。"
+    },
     "pattern_counts": {
       "模糊归因": 0,
       "泛化价值结论": 0,
       "段末总结套句": 0
     },
     "filler_counts": {},
-    "repeated_starts": {
-      "表格解释": 6
-    },
+    "repeated_starts": {},
     "rhythm": {
-      "sentence_count": 1400,
-      "mean_chars": 35.48,
+      "sentence_count": 1377,
+      "mean_chars": 35.71,
       "min_chars": 3,
       "max_chars": 1765,
-      "length_variation": 49.67
+      "length_variation": 49.34
     },
     "hard_failures": [],
     "warnings": [
-      "连续段落可能重复使用同一段首结构：表格解释×6"
+      "原稿短段落占比 47%；交付副本已按同一小节自动合并，合并后为 30%",
+      "原稿存在 35 个无正文标题；交付副本已删除连续占位标题，剩余 0 个需补证据"
     ],
-    "score": 95,
+    "score": 90,
     "disclaimer": "该 gate 评估专业化和模板化风险，不等同于任何商用 AI 检测器读数，也不用于规避检测。"
   }
 }

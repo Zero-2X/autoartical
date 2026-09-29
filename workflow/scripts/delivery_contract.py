@@ -82,9 +82,10 @@ def _imagegen_record(topic_dir: Path, visual_id: str, draft: str) -> tuple[bool,
     required_prompt_content = [
         str(understanding.get("key_message", "")),
         str(understanding.get("evidence_boundary", "")),
-        str(understanding.get("visual_direction", "")),
         *(str(item) for item in understanding.get("visual_elements", [])),
     ]
+    if understanding.get("visual_direction"):
+        required_prompt_content.append(str(understanding["visual_direction"]))
     if any(not item or item not in prompt for item in required_prompt_content):
         return False, "完整 Prompt 未采用该图的文章主张、视觉元素、边界和构图", ""
     generation = request.get("generation", {})

@@ -102,7 +102,7 @@ PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。配图�
 
 长文默认要求 **40–50 页实质正文**，从选题开始即进入合同。规划器分配 24000–32000 个中文字符／英文词元的起始预算，并同时分配视觉规格、素材请求和导出要求；逐章和全书检查排除标题、表格、代码、图片及重复段落。交付前必须通过内容、视觉、引用和实际渲染门禁；PDF 全页栅格密度下限为 0.55，不能以空白页凑页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
 
-正式文档默认使用 [博士论文式申报书版式契约](workflow/references/doctoral-thesis-format.md)：A4、上/下/左/右约 30/25/26/26 mm、12 pt 正文、首行缩进、章—节—小节层级、自动目录、页眉页脚和 GB/T 7714 顺序编码制。正文写作同时运行 [专业化与作者化写作契约](workflow/references/humanized-academic-writing.md) 和 `writing_style_gate.py`，只修复无信息的模板化表达，保留事实、引用、术语、条件和结论强度。
+正式文档默认使用 [博士论文式申报书版式契约](workflow/references/doctoral-thesis-format.md)：A4、上/下/左/右约 30/25/26/26 mm、宋体 12 pt 正文、英文数字 Times New Roman、黑体标题、固定值 20 pt 行距、首行缩进、显式章—节—小节编号、目录、页眉页脚和 GB/T 7714 顺序编码制。导出器同时生成可编辑 Word 和 PDF，并对两种格式分别渲染验收。正文写作同时运行 [专业化与作者化写作契约](workflow/references/humanized-academic-writing.md) 和 `writing_style_gate.py`，自动合并同一论证范围内的碎片段落，只修复无信息的模板化表达，保留事实、引用、术语、条件和结论强度。
 
 短选题卡不会被当作最终交付：`evaluate_document.py` 默认使用 `long_form_required`，有效正文不足 24000 个单位时直接退回修订，并同步检查段落密度、重复、引用及问题—机制—实验—边界语义覆盖。`--allow-short` 只用于显式标注的种子评审；`workflow/scripts/audit_workflow.py` 可检查仓库是否仍保留这些硬门禁。
 

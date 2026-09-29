@@ -22,7 +22,7 @@ DEFAULT_CONTRACT = {
         "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。",
     },
     "export_contract": {
-        "required_formats": ["markdown", "html", "pdf_or_docx"],
+        "required_formats": ["markdown", "html", "docx", "pdf"],
         "render_verification": "required_before_delivery",
         "page_count_must_be_in_range": True,
         "visual_qa_required": True,

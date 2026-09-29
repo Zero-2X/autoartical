@@ -33,7 +33,7 @@
     "调用 Codex 内置 image_gen；检查生成图；记录来源、提示词散列和视觉审查",
     "将 PNG 插入 Markdown、HTML、PDF 并重新运行全部门禁"
   ],
-  "source_draft_sha256": "2dc12f28a685f492d6613b28ee37f52729ec66059ce2b7aafb18629d6dea5297",
+  "source_draft_sha256": "6a011852003cdd46eec57a84ab241cb6f3160e73551d2325ac7cdc75372d4a34",
   "generation": {
     "tool": "image_gen.imagegen",
     "source_path": "generated_images/exec-871b31cb-409d-4dbd-ba10-092c45d9c856.png",

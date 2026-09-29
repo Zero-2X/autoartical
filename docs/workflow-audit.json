@@ -22,7 +22,8 @@
       "required_formats": [
         "markdown",
         "html",
-        "pdf_or_docx"
+        "docx",
+        "pdf"
       ],
       "render_verification": "required_before_delivery",
       "page_count_must_be_in_range": true,
@@ -49,12 +50,17 @@
   "sample_docs": [
     {
       "path": "examples\\bridge-risk\\proposal.md",
-      "prose_units": 2444,
+      "prose_units": 2318,
       "short_against_default_contract": true
     },
     {
       "path": "examples\\bridge-risk\\README.md",
       "prose_units": 28,
+      "short_against_default_contract": true
+    },
+    {
+      "path": "examples\\ovd-rsi\\authoring\\references.md",
+      "prose_units": 0,
       "short_against_default_contract": true
     },
     {
@@ -69,7 +75,7 @@
     },
     {
       "path": "examples\\ship-vision\\proposal.md",
-      "prose_units": 3870,
+      "prose_units": 3819,
       "short_against_default_contract": true
     },
     {
@@ -79,7 +85,7 @@
     },
     {
       "path": "examples\\ship-vision\\topic-selection.md",
-      "prose_units": 4067,
+      "prose_units": 4029,
       "short_against_default_contract": true
     }
   ],

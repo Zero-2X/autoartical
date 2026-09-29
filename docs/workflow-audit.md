@@ -25,13 +25,14 @@
 
 ## 当前仓库中短于完整交付合同的示例
 
-- `examples\bridge-risk\proposal.md`：2444 有效正文单位；短于 24000，不能作为最终长文。
+- `examples\bridge-risk\proposal.md`：2318 有效正文单位；短于 24000，不能作为最终长文。
 - `examples\bridge-risk\README.md`：28 有效正文单位；短于 24000，不能作为最终长文。
+- `examples\ovd-rsi\authoring\references.md`：0 有效正文单位；短于 24000，不能作为最终长文。
 - `examples\ovd-rsi\competition-rules.md`：449 有效正文单位；短于 24000，不能作为最终长文。
 - `examples\ovd-rsi\external_evidence\README.md`：45 有效正文单位；短于 24000，不能作为最终长文。
-- `examples\ship-vision\proposal.md`：3870 有效正文单位；短于 24000，不能作为最终长文。
+- `examples\ship-vision\proposal.md`：3819 有效正文单位；短于 24000，不能作为最终长文。
 - `examples\ship-vision\README.md`：443 有效正文单位；短于 24000，不能作为最终长文。
-- `examples\ship-vision\topic-selection.md`：4067 有效正文单位；短于 24000，不能作为最终长文。
+- `examples\ship-vision\topic-selection.md`：4029 有效正文单位；短于 24000，不能作为最终长文。
 
 ## 问题分析与修复状态
 

@@ -5,3 +5,7 @@ __pycache__/
 sample/
 examples/ovd-rsi/output/*.pdf
 examples/ovd-rsi/workspace/document_export/page-*.png
+examples/ovd-rsi/workspace/document_export/*_renders/
+examples/ovd-rsi/workspace/document_export/*-contact-sheet*.png
+examples/ovd-rsi/workspace/document_export/docx-word-contact*.png
+examples/ovd-rsi/workspace/document_export/docx_word_render.pdf

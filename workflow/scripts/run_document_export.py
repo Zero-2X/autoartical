@@ -7,6 +7,7 @@ import base64
 import html
 import hashlib
 import json
+import os
 import re
 import shutil
 from datetime import datetime, timezone
@@ -14,6 +15,8 @@ from pathlib import Path
 
 from content_depth import DEFAULT_CONTRACT, build_content_depth_gate
 from delivery_contract import build_visual_gate
+from document_formatting import drop_empty_headings, merge_fragmented_paragraphs, number_markdown_headings
+from docx_export import export_docx
 
 
 def write_json(path: Path, payload: dict) -> None:
@@ -21,8 +24,7 @@ def write_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def _image_data_uri(source: str, base_dir: Path | None = None) -> str:
-    """Inline a local figure so HTML/PDF renderers cannot silently drop it."""
+def _resolve_image_file(source: str, base_dir: Path | None = None) -> Path | None:
     raw = source.strip().strip("<>")
     path = Path(raw)
     candidates = [path]
@@ -30,7 +32,12 @@ def _image_data_uri(source: str, base_dir: Path | None = None) -> str:
         candidates.insert(0, base_dir / path)
     if not path.is_absolute():
         candidates.append(Path.cwd() / path)
-    resolved = next((item.resolve() for item in candidates if item.exists() and item.is_file()), None)
+    return next((item.resolve() for item in candidates if item.exists() and item.is_file()), None)
+
+
+def _image_data_uri(source: str, base_dir: Path | None = None) -> str:
+    """Inline a local figure so HTML/PDF renderers cannot silently drop it."""
+    resolved = _resolve_image_file(source, base_dir)
     if resolved is None:
         return ""
     suffix = resolved.suffix.lower()
@@ -49,17 +56,14 @@ def _image_data_uri(source: str, base_dir: Path | None = None) -> str:
 
 
 def build_doctoral_front_matter(markdown: str, title: str) -> str:
-    """Add compact dissertation-style front matter without changing the source draft."""
+    """Build the single delivery copy used by Markdown, HTML, PDF, and DOCX."""
     body_lines = markdown.splitlines()
     if body_lines and body_lines[0].startswith("# "):
         body_lines = body_lines[1:]
         while body_lines and not body_lines[0].strip():
             body_lines.pop(0)
-    body = "\n".join(body_lines)
-    chapter_titles = [line[3:].strip() for line in body.splitlines() if line.startswith("## ")]
-    toc = "\n".join(f"- {index}. {heading}" for index, heading in enumerate(chapter_titles, start=1))
-    return (
-        f"# {title}\n\n"
+    body = merge_fragmented_paragraphs(drop_empty_headings("\n".join(body_lines)))
+    combined = (
         "> 竞赛申报书（博士论文式排版）\n> 作者/单位/赛事：待填写\n> 版本：以当前交付 manifest 为准\n\n"
         "## 材料真实性与数据许可说明\n\n"
         "本文中的已完成结果必须能够回溯到实验 manifest 或原始日志；计划中的 benchmark、指标和结果统一标注“待实测”。图形、数据集、模型和外部代码遵循其许可证，正式提交前由负责人补齐作者、单位、赛事和授权字段。\n\n"
@@ -67,12 +71,16 @@ def build_doctoral_front_matter(markdown: str, title: str) -> str:
         "OpenRSI-Calibrator is an auditable workflow and prototype for open-vocabulary object detection in remote-sensing imagery. It combines remote-sensing visual-language prototype adaptation, multi-scale tiling with horizontal and oriented candidates, and reliability calibration based on query-region consistency and background controls. The proposal evaluates base, novel, and generalized settings with HBB/OBB localization, calibration, synonym-query consistency, cross-region transfer, and latency measures. Planned results remain marked as pending measurement until the frozen benchmark manifest and raw logs are available.\n\n"
         "**Keywords:** open-vocabulary detection; remote sensing imagery; vision-language model; oriented bounding box; reliability calibration.\n\n"
         "## 目录\n\n"
-        f"{toc}\n\n"
         + body
     )
+    numbered = number_markdown_headings(combined)
+    chapter_titles = [line[3:].strip() for line in numbered.splitlines() if line.startswith("## ")]
+    toc = "\n".join(f"- {index}. {heading}" for index, heading in enumerate(chapter_titles, start=1))
+    numbered = numbered.replace("## 0.3 目录\n\n", f"## 0.3 目录\n\n{toc}\n\n", 1)
+    return f"# {title}\n\n" + numbered
 
 
-def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None, *, include_front_matter: bool = True) -> str:
+def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None, *, include_front_matter: bool = True, inline_images: bool = True) -> str:
     if include_front_matter:
         markdown = build_doctoral_front_matter(markdown, title)
     styles = (
@@ -88,6 +96,13 @@ def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None, *,
         "</style>"
     )
     lines = ["<!doctype html>", '<html lang="zh-CN"><head><meta charset="utf-8">', f"<title>{html.escape(title)}</title>", styles, "</head><body>"]
+
+    def inline_markup(value: str) -> str:
+        escaped = html.escape(value)
+        escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
+        escaped = re.sub(r"__(.+?)__", r"<strong>\1</strong>", escaped)
+        return escaped
+
     in_table = False
     for raw in markdown.splitlines():
         line = raw.rstrip()
@@ -105,7 +120,7 @@ def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None, *,
         elif line.startswith("#### "):
             lines.append(f"<h4>{html.escape(line[5:].strip())}</h4>")
         elif line.startswith("> "):
-            lines.append(f"<blockquote>{html.escape(line[2:])}</blockquote>")
+            lines.append(f"<blockquote>{inline_markup(line[2:])}</blockquote>")
         elif line.startswith("|") and line.endswith("|"):
             cells = [cell.strip() for cell in line.strip("|").split("|")]
             if all(set(cell) <= set("-: ") for cell in cells):
@@ -113,22 +128,27 @@ def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None, *,
             if not in_table:
                 lines.append("<table>")
                 in_table = True
-                lines.append("<tr>" + "".join(f"<th>{html.escape(cell)}</th>" for cell in cells) + "</tr>")
+                lines.append("<tr>" + "".join(f"<th>{inline_markup(cell)}</th>" for cell in cells) + "</tr>")
             else:
-                lines.append("<tr>" + "".join(f"<td>{html.escape(cell)}</td>" for cell in cells) + "</tr>")
+                lines.append("<tr>" + "".join(f"<td>{inline_markup(cell)}</td>" for cell in cells) + "</tr>")
         elif re.match(r"!\[[^\]]*\]\([^)]*\)", line):
             match = re.match(r"!\[([^\]]*)\]\(([^)]+)\)", line)
             if match:
                 alt, source = match.groups()
-                uri = _image_data_uri(source, base_dir)
-                if uri:
-                    lines.append(f'<figure><img src="{uri}" alt="{html.escape(alt)}"><figcaption>{html.escape(alt)}</figcaption></figure>')
+                if inline_images:
+                    image_src = _image_data_uri(source, base_dir)
+                else:
+                    resolved = _resolve_image_file(source, base_dir)
+                    output_dir = (base_dir / "output") if base_dir else Path.cwd()
+                    image_src = re.sub(r"\\", "/", os.path.relpath(resolved, output_dir)) if resolved else ""
+                if image_src:
+                    lines.append(f'<figure><img src="{html.escape(image_src)}" alt="{html.escape(alt)}"><figcaption>{html.escape(alt)}</figcaption></figure>')
                 else:
                     lines.append(f"<p>{html.escape(alt)}（图形资产缺失）</p>")
         elif line.startswith("- "):
-            lines.append(f"<p>• {html.escape(line[2:])}</p>")
+            lines.append(f"<p>• {inline_markup(line[2:])}</p>")
         else:
-            lines.append(f"<p>{html.escape(line)}</p>")
+            lines.append(f"<p>{inline_markup(line)}</p>")
     if in_table:
         lines.append("</table>")
     lines.append("</body></html>")
@@ -292,6 +312,14 @@ def main() -> int:
     project = plan.get("project_name", topic_dir.name) or topic_dir.name
     file_slug = re.sub(r"[^\w.-]+", "_", project, flags=re.UNICODE).strip("._") or topic_dir.name
     pdf_out = out_dir / f"作品书_{file_slug}.pdf"
+    docx_out = out_dir / f"作品书_{file_slug}.docx"
+    docx_report_path = topic_dir / "workspace" / "document_export" / "docx-render-report.json"
+    docx_render_report = {}
+    if docx_report_path.exists():
+        try:
+            docx_render_report = json.loads(docx_report_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            docx_render_report = {}
     can_render = content_gate.get("passed", False) and visual_gate.get("passed", False) and review.get("verdict") == "pass"
     existing_pdf_hash = hashlib.sha256(pdf_out.read_bytes()).hexdigest() if pdf_out.exists() else ""
     render_is_current = (render_report.get("pdf_sha256") == existing_pdf_hash and bool(existing_pdf_hash) and
@@ -347,6 +375,55 @@ def main() -> int:
         "report_path": str(render_report_path.relative_to(topic_dir)) if render_report_path.exists() else "",
         "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。",
     }
+    formatted_markdown = build_doctoral_front_matter(draft, project)
+    formatted_hash = hashlib.sha256(formatted_markdown.encode("utf-8")).hexdigest()
+    docx_gate = {
+        "required": True,
+        "editable": False,
+        "path": str(docx_out.relative_to(topic_dir)),
+        "verified": False,
+        "page_count": docx_render_report.get("page_count"),
+        "page_range": target_pages,
+        "visual_qa": docx_render_report.get("visual_qa", "pending"),
+        "minimum_page_occupancy": docx_render_report.get("minimum_page_occupancy"),
+        "report_path": str(docx_report_path.relative_to(topic_dir)) if docx_report_path.exists() else "",
+        "page_count_policy": "Word reflow is engine-dependent; PDF enforces 40–50 pages, DOCX enforces full-content visual QA and >=40 pages.",
+    }
+    if can_render:
+        try:
+            if (
+                not docx_out.exists()
+                or docx_render_report.get("source_formatted_sha256") != formatted_hash
+            ):
+                export_docx(formatted_markdown, docx_out, title=project, base_dirs=(topic_dir, Path.cwd()))
+            docx_hash = hashlib.sha256(docx_out.read_bytes()).hexdigest()
+            docx_gate.update(
+                {
+                    "editable": True,
+                    "sha256": docx_hash,
+                    "source_formatted_sha256": formatted_hash,
+                    "verified": (
+                        docx_render_report.get("docx_sha256") == docx_hash
+                        and docx_render_report.get("visual_qa") == "pass"
+                        and isinstance(docx_render_report.get("page_count"), int)
+                        and len(target_pages) == 2
+                        # Editable tables and figures can reflow to more pages
+                        # in Word than in the PDF renderer.  The PDF is the
+                        # strict 40–50-page contract; DOCX must retain the
+                        # full content and meet the lower bound after QA.
+                        and docx_render_report["page_count"] >= target_pages[0]
+                        and docx_render_report.get("density_check") == "pass"
+                        and bool(docx_render_report.get("raster_qa_samples"))
+                    ),
+                    "page_count": docx_render_report.get("page_count"),
+                    "visual_qa": docx_render_report.get("visual_qa", "pending"),
+                }
+            )
+        except Exception as exc:  # pragma: no cover - environment dependent
+            docx_gate["error"] = str(exc)
+    elif docx_out.exists():
+        docx_hash = hashlib.sha256(docx_out.read_bytes()).hexdigest()
+        docx_gate.update({"editable": True, "sha256": docx_hash})
     failures = []
     if review.get("verdict") != "pass":
         failures.append(f"document_review 未通过：{review.get('verdict', 'missing')}")
@@ -357,17 +434,19 @@ def main() -> int:
             failures.append("未发现 Pandoc、Typst 或 LibreOffice 渲染器；不能宣称 40–50 页已核验")
         else:
             failures.append("缺少有效 render-report.json：必须记录 PDF/DOCX 页数在 40–50 页内且逐页视觉 QA 通过")
+    if not docx_gate["verified"] and not args.allow_html_only:
+        failures.append("Word 交付未通过实际渲染核验：必须生成可编辑 DOCX，并记录至少 40 页、逐页视觉 QA 和密度检查；PDF 继续执行 40–50 页范围。")
     markdown_out = out_dir / f"作品书_{file_slug}.md"
     html_out = out_dir / f"作品书_{file_slug}.html"
-    formatted_markdown = build_doctoral_front_matter(draft, project)
     markdown_out.write_text(formatted_markdown, encoding="utf-8")
-    html_out.write_text(markdown_to_html(draft, project, Path.cwd()), encoding="utf-8")
+    html_out.write_text(markdown_to_html(draft, project, topic_dir, inline_images=False), encoding="utf-8")
     manifest = {
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "project_name": project,
         "formats": {
             "markdown": str(markdown_out.relative_to(topic_dir)),
             "html": str(html_out.relative_to(topic_dir)),
+            "docx": str(docx_out.relative_to(topic_dir)) if docx_gate.get("editable") else "",
             **({"pdf": str(pdf_out.relative_to(topic_dir))} if verified else {}),
         },
         "content_gate": content_gate,
@@ -383,9 +462,19 @@ def main() -> int:
             "figure_table_numbering": "chapter-sequence",
             "reference_style": "GB/T 7714 顺序编码制",
             "source": "workflow/references/doctoral-thesis-format.md",
+            "heading_numbering": "explicit-text-numbering-all-h2-h6; front-matter=0.x; body=第N章/N.N/N.N.N",
+            "docx_styles": {
+                "body_font": "宋体 12pt",
+                "latin_font": "Times New Roman",
+                "heading_font": "黑体",
+                "line_spacing": "固定值 20pt",
+                "first_line_indent": "2字符",
+                "output": "editable DOCX",
+            },
         },
         "humanized_writing_gate": review.get("style_gate", {}),
         "render_gate": render_gate,
+        "docx_gate": docx_gate,
         "review_verdict": review.get("verdict", "missing"),
         "final_verdict": "pass" if not failures else "blocked",
         "failures": failures,
@@ -396,7 +485,7 @@ def main() -> int:
         "# 导出与交付记录\n\n" + "\n".join(f"- {item}" for item in failures or ["全部自动门禁通过，仍需保留最终渲染证据。"]) + "\n",
         encoding="utf-8",
     )
-    print(json.dumps({"verdict": manifest["final_verdict"], "failures": failures, "html": str(html_out)}, ensure_ascii=False, indent=2))
+    print(json.dumps({"verdict": manifest["final_verdict"], "failures": failures, "html": str(html_out), "docx": str(docx_out)}, ensure_ascii=False, indent=2))
     return 0 if not failures else 2
 
 
