@@ -19,11 +19,11 @@ class ExportRenderTests(unittest.TestCase):
         self.assertTrue(any("| 方法 | 指标 |" in chunk for chunk in chunks))
         self.assertTrue(all(chunk.strip() for chunk in chunks))
 
-    def test_local_svg_is_inlined_into_html(self):
-        svg = Path(__file__).resolve().parents[1] / "examples" / "ovd-rsi" / "workspace" / "document_assets" / "figures" / "s1_visual_1.svg"
-        uri = _image_data_uri(str(svg))
-        self.assertTrue(uri.startswith("data:image/png;base64,") or uri.startswith("data:image/svg+xml;base64,"))
-        rendered = markdown_to_html(f"![场景图]({svg})", "test")
+    def test_local_png_is_inlined_into_html(self):
+        image = Path(__file__).resolve().parents[1] / "examples" / "ovd-rsi" / "workspace" / "document_assets" / "figures" / "s_validation_visual_4.png"
+        uri = _image_data_uri(str(image))
+        self.assertTrue(uri.startswith("data:image/png;base64,"))
+        rendered = markdown_to_html(f"![场景图]({image})", "test")
         self.assertIn("<img", rendered)
         self.assertIn("data:image/", rendered)
 
