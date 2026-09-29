@@ -19,6 +19,7 @@ from proposal_workflow import (
 from writing_quality_rules import load_writing_quality_rules
 from content_depth import DEFAULT_CONTRACT, build_content_depth_gate
 from delivery_contract import build_visual_gate
+from writing_style_gate import build_style_gate
 
 PASSLIKE_DIMENSION_STATUSES = {"pass", "passed", "not_applicable", "n/a", "na"}
 WRITING_QUALITY_RULES = load_writing_quality_rules()
@@ -392,6 +393,7 @@ def main() -> int:
         draft, plan.get("sections", []), plan.get("content_contract", DEFAULT_CONTRACT)
     )
     visual_gate = build_visual_gate(topic_dir, plan, draft)
+    style_gate = build_style_gate(draft)
 
     payload = load_json_template("quality-gate.template.json")
     chapter_summary, major_issues, blocked = build_chapter_summary(manifest)
@@ -413,6 +415,7 @@ def main() -> int:
     major_issues.extend(collect_synthetic_flow_issues(manifest, topic_dir))
     major_issues.extend(final_draft_gate_summary["hard_failures"])
     major_issues.extend(final_draft_gate_summary["major_issues"])
+    major_issues.extend(f"专业化写作门禁：{item}" for item in style_gate["hard_failures"])
     minor_issues.extend(final_draft_gate_summary["minor_issues"])
 
     missing_headings = check_expected_headings(draft, manifest)
@@ -542,6 +545,7 @@ def main() -> int:
     payload["visual_gate"] = visual_gate
     payload["evidence_gate_summary"] = evidence_gate_summary
     payload["final_draft_gate_summary"] = final_draft_gate_summary
+    payload["style_gate"] = style_gate
     payload["coverage_score"] = coverage_score
     payload["major_issues"] = major_issues
     payload["minor_issues"] = minor_issues

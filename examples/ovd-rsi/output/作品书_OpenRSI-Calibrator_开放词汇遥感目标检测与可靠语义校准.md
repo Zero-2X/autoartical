@@ -1,4 +1,30 @@
-# OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准竞赛申报书
+# OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准
+
+> 竞赛申报书（博士论文式排版）
+> 作者/单位/赛事：待填写
+> 版本：以当前交付 manifest 为准
+
+## 材料真实性与数据许可说明
+
+本文中的已完成结果必须能够回溯到实验 manifest 或原始日志；计划中的 benchmark、指标和结果统一标注“待实测”。图形、数据集、模型和外部代码遵循其许可证，正式提交前由负责人补齐作者、单位、赛事和授权字段。
+
+## 英文摘要
+
+OpenRSI-Calibrator is an auditable workflow and prototype for open-vocabulary object detection in remote-sensing imagery. It combines remote-sensing visual-language prototype adaptation, multi-scale tiling with horizontal and oriented candidates, and reliability calibration based on query-region consistency and background controls. The proposal evaluates base, novel, and generalized settings with HBB/OBB localization, calibration, synonym-query consistency, cross-region transfer, and latency measures. Planned results remain marked as pending measurement until the frozen benchmark manifest and raw logs are available.
+
+**Keywords:** open-vocabulary detection; remote sensing imagery; vision-language model; oriented bounding box; reliability calibration.
+
+## 目录
+
+- 1. 摘要
+- 2. 一、作品概述与问题定义
+- 3. 二、作品设计与总体架构
+- 4. 三、核心创新与关键技术
+- 5. 四、作品实现与运行闭环
+- 6. 五、测试与效果分析
+- 7. 六、应用前景与落地价值
+- 8. 七、总结与展望
+- 9. 结语
 
 ## 摘要
 

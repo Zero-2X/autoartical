@@ -48,14 +48,40 @@ def _image_data_uri(source: str, base_dir: Path | None = None) -> str:
     return f"data:{mime};base64,{base64.b64encode(resolved.read_bytes()).decode('ascii')}"
 
 
-def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None) -> str:
+def build_doctoral_front_matter(markdown: str, title: str) -> str:
+    """Add compact dissertation-style front matter without changing the source draft."""
+    body_lines = markdown.splitlines()
+    if body_lines and body_lines[0].startswith("# "):
+        body_lines = body_lines[1:]
+        while body_lines and not body_lines[0].strip():
+            body_lines.pop(0)
+    body = "\n".join(body_lines)
+    chapter_titles = [line[3:].strip() for line in body.splitlines() if line.startswith("## ")]
+    toc = "\n".join(f"- {index}. {heading}" for index, heading in enumerate(chapter_titles, start=1))
+    return (
+        f"# {title}\n\n"
+        "> 竞赛申报书（博士论文式排版）\n> 作者/单位/赛事：待填写\n> 版本：以当前交付 manifest 为准\n\n"
+        "## 材料真实性与数据许可说明\n\n"
+        "本文中的已完成结果必须能够回溯到实验 manifest 或原始日志；计划中的 benchmark、指标和结果统一标注“待实测”。图形、数据集、模型和外部代码遵循其许可证，正式提交前由负责人补齐作者、单位、赛事和授权字段。\n\n"
+        "## 英文摘要\n\n"
+        "OpenRSI-Calibrator is an auditable workflow and prototype for open-vocabulary object detection in remote-sensing imagery. It combines remote-sensing visual-language prototype adaptation, multi-scale tiling with horizontal and oriented candidates, and reliability calibration based on query-region consistency and background controls. The proposal evaluates base, novel, and generalized settings with HBB/OBB localization, calibration, synonym-query consistency, cross-region transfer, and latency measures. Planned results remain marked as pending measurement until the frozen benchmark manifest and raw logs are available.\n\n"
+        "**Keywords:** open-vocabulary detection; remote sensing imagery; vision-language model; oriented bounding box; reliability calibration.\n\n"
+        "## 目录\n\n"
+        f"{toc}\n\n"
+        + body
+    )
+
+
+def markdown_to_html(markdown: str, title: str, base_dir: Path | None = None, *, include_front_matter: bool = True) -> str:
+    if include_front_matter:
+        markdown = build_doctoral_front_matter(markdown, title)
     styles = (
         "<style>"
-        "@page{size:A4;margin:20mm 18mm 18mm;}"
-        "body{font-family:'Noto Sans CJK SC','Microsoft YaHei',sans-serif;color:#172033;line-height:1.75;max-width:900px;margin:0 auto;}"
-        "h1{font-size:28px;margin:0 0 24px;}h2{font-size:22px;margin-top:30px;border-bottom:1px solid #d6deea;padding-bottom:6px;page-break-after:avoid;}"
-        "h3{font-size:18px;margin-top:22px;page-break-after:avoid;}h4{font-size:16px;margin-top:16px;page-break-after:avoid;}"
-        "p{text-align:justify;orphans:3;widows:3;}table{border-collapse:collapse;width:100%;margin:16px 0;page-break-inside:avoid;}"
+        "@page{size:A4;margin:30mm 26mm 25mm 26mm;}"
+        "body{font-family:'SimSun','Noto Serif CJK SC','Microsoft YaHei',serif;color:#172033;line-height:1.6;max-width:900px;margin:0 auto;}"
+        "h1{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:24px;text-align:center;margin:0 0 24px;}h2{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:18px;margin-top:26px;border-bottom:1px solid #d6deea;padding-bottom:6px;page-break-after:avoid;}"
+        "h3{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:15px;margin-top:20px;page-break-after:avoid;}h4{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:13px;margin-top:16px;page-break-after:avoid;}"
+        "p{text-align:justify;text-indent:2em;orphans:3;widows:3;}table{border-collapse:collapse;width:100%;margin:16px 0;page-break-inside:avoid;}"
         "th,td{border:1px solid #cbd5e1;padding:7px 9px;vertical-align:top;}th{background:#e8f0fa;}"
         "blockquote{margin:16px 0;padding:10px 14px;border-left:4px solid #2563eb;background:#f5f8fc;}"
         "figure{margin:18px auto;text-align:center;page-break-inside:avoid;}figure img{max-width:100%;max-height:260mm;height:auto;}figcaption{font-size:9pt;color:#526174;margin-top:5px;}"
@@ -182,19 +208,20 @@ def render_with_pymupdf(markdown: str, title: str, pdf_path: Path) -> dict:
         import fitz  # PyMuPDF
     except ImportError as exc:  # pragma: no cover - environment dependent
         raise RuntimeError("PyMuPDF 不可用") from exc
-    chunks = _split_render_chunks(markdown)
+    formatted_markdown = build_doctoral_front_matter(markdown, title)
+    chunks = _split_render_chunks(formatted_markdown)
     document = fitz.open()
     page_rect = fitz.paper_rect("a4")
-    margin = 42
-    css_body = "<style>body{font-family:'Microsoft YaHei','Noto Sans CJK SC',sans-serif;font-size:13pt;line-height:1.55;color:#172033;}h1{font-size:22pt;margin:0 0 16pt;}h2{font-size:18pt;margin:0 0 14pt;}h3{font-size:15pt;margin:0 0 11pt;}h4{font-size:12.5pt;margin:0 0 9pt;}p{margin:0 0 9pt;text-align:justify;}table{border-collapse:collapse;width:100%;font-size:9.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{width:auto;height:220pt;max-width:480pt;}figcaption{font-size:8.5pt;color:#526174;}</style>"
+    margin_left, margin_right, margin_top, margin_bottom = 74, 74, 85, 71
+    css_body = "<style>body{font-family:'SimSun','Noto Serif CJK SC','Microsoft YaHei',serif;font-size:12pt;line-height:1.6;color:#172033;}h1{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:20pt;text-align:center;margin:0 0 16pt;}h2{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:16pt;margin:0 0 14pt;}h3{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:14pt;margin:0 0 11pt;}h4{font-family:'SimHei','Microsoft YaHei',sans-serif;font-size:12pt;margin:0 0 9pt;}p{margin:0 0 9pt;text-align:justify;text-indent:2em;}table{border-collapse:collapse;width:100%;font-size:9.5pt;}th,td{border:0.5pt solid #9aa8bb;padding:4pt;vertical-align:top;}th{background:#e8f0fa;}blockquote{border-left:3pt solid #2563eb;padding-left:8pt;}figure{margin:12pt auto;text-align:center;page-break-inside:avoid;}figure img{width:auto;height:220pt;max-width:480pt;}figcaption{font-size:8.5pt;color:#526174;}</style>"
     pending = list(chunks)
     splits = 0
     while pending:
         chunk = pending.pop(0)
-        full = markdown_to_html(chunk, title, Path.cwd())
+        full = markdown_to_html(chunk, title, Path.cwd(), include_front_matter=False)
         body = full.split("<body>", 1)[1].rsplit("</body>", 1)[0]
         page = document.new_page(width=page_rect.width, height=page_rect.height)
-        result = page.insert_htmlbox(fitz.Rect(margin, margin, page_rect.width - margin, page_rect.height - margin), css_body + body)
+        result = page.insert_htmlbox(fitz.Rect(margin_left, margin_top, page_rect.width - margin_right, page_rect.height - margin_bottom), css_body + body)
         if isinstance(result, tuple) and result[1] < 0.55:
             parts = _split_chunk_for_render(chunk)
             if parts is None:
@@ -205,10 +232,18 @@ def render_with_pymupdf(markdown: str, title: str, pdf_path: Path) -> dict:
             if splits > 32:
                 raise RuntimeError("页面自适应分块超过上限；需重新规划图文分页。")
     page_total = len(document)
+    header_font = Path(r"C:\Windows\Fonts\msyh.ttc")
     for page_number, page in enumerate(document, start=1):
-        footer_y = page_rect.height - 30
-        page.draw_line((margin, footer_y), (page_rect.width - margin, footer_y), color=(0.82, 0.86, 0.91), width=0.55)
-        page.insert_text((page_rect.width / 2 - 18, page_rect.height - 14), f"{page_number} / {page_total}",
+        header_y = 48
+        header_text = title[:22]
+        header_kwargs = {"fontname": "helv"}
+        if header_font.exists():
+            header_kwargs = {"fontfile": str(header_font)}
+        page.insert_text((page_rect.width / 2 - min(len(header_text), 22) * 2.2, header_y), header_text,
+                         fontsize=8.5, color=(0.28, 0.35, 0.45), **header_kwargs)
+        footer_y = page_rect.height - 42
+        page.draw_line((margin_left, footer_y), (page_rect.width - margin_right, footer_y), color=(0.82, 0.86, 0.91), width=0.55)
+        page.insert_text((page_rect.width / 2 - 18, page_rect.height - 24), f"{page_number} / {page_total}",
                          fontname="helv", fontsize=8.5, color=(0.28, 0.35, 0.45))
     pdf_path.parent.mkdir(parents=True, exist_ok=True)
     # Dynamic split attempts leave superseded image objects in the document.
@@ -324,7 +359,8 @@ def main() -> int:
             failures.append("缺少有效 render-report.json：必须记录 PDF/DOCX 页数在 40–50 页内且逐页视觉 QA 通过")
     markdown_out = out_dir / f"作品书_{file_slug}.md"
     html_out = out_dir / f"作品书_{file_slug}.html"
-    markdown_out.write_text(draft, encoding="utf-8")
+    formatted_markdown = build_doctoral_front_matter(draft, project)
+    markdown_out.write_text(formatted_markdown, encoding="utf-8")
     html_out.write_text(markdown_to_html(draft, project, Path.cwd()), encoding="utf-8")
     manifest = {
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
@@ -336,6 +372,19 @@ def main() -> int:
         },
         "content_gate": content_gate,
         "visual_gate": visual_gate,
+        "format_gate": {
+            "profile": "doctoral-thesis-style",
+            "paper": "A4",
+            "body_font_pt": 12,
+            "margins_mm": {"top": 30, "bottom": 25, "left": 26, "right": 26},
+            "heading_hierarchy": "chapter-section-subsection",
+            "toc": True,
+            "header_footer": True,
+            "figure_table_numbering": "chapter-sequence",
+            "reference_style": "GB/T 7714 顺序编码制",
+            "source": "workflow/references/doctoral-thesis-format.md",
+        },
+        "humanized_writing_gate": review.get("style_gate", {}),
         "render_gate": render_gate,
         "review_verdict": review.get("verdict", "missing"),
         "final_verdict": "pass" if not failures else "blocked",

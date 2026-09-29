@@ -88,6 +88,8 @@ python workflow/scripts/iteration_memory.py examples/bridge-risk/iteration-memor
 - `workflow/templates/`：可机器读取的章节、引用、图表、审查和发布模板。
 - `skills/document-writing/SKILL.md`：可复用的 Codex 文档写作 skill。
 - `skills/academic-research-writing/SKILL.md`：可复用的文献研究、方法分类和论文写作 skill。
+- `skills/doctoral-thesis-format/SKILL.md`：中国高校博士论文式结构、A4 版心、目录、页眉页脚、图表和参考文献版式门禁。
+- `skills/humanized-academic-writing/SKILL.md`：事实保护、局部人工化改写、专业语域和可解释 style gate；不承诺规避任何 AI 检测器。
 - `examples/bridge-risk/`：一份已经经过三轮迭代的完整示例。
 
 可直接打开 [完整工作流 HTML 页面](docs/workflow.html) 查看流程、研究链路和质量门禁。
@@ -99,6 +101,8 @@ PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。配图�
 自动研究会先回答“领域是什么、为什么研究、子领域是什么、为什么选择、通用挑战及影响、Current methods 分类与优缺点、关键缺口、科学设计 rationale、case study、benchmark/baseline/metrics 与实验目的”，再允许进入正文规划。详见 [自动研究工作流](workflow/references/automatic-research.md)。
 
 长文默认要求 **40–50 页实质正文**，从选题开始即进入合同。规划器分配 24000–32000 个中文字符／英文词元的起始预算，并同时分配视觉规格、素材请求和导出要求；逐章和全书检查排除标题、表格、代码、图片及重复段落。交付前必须通过内容、视觉、引用和实际渲染门禁；PDF 全页栅格密度下限为 0.55，不能以空白页凑页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
+
+正式文档默认使用 [博士论文式申报书版式契约](workflow/references/doctoral-thesis-format.md)：A4、上/下/左/右约 30/25/26/26 mm、12 pt 正文、首行缩进、章—节—小节层级、自动目录、页眉页脚和 GB/T 7714 顺序编码制。正文写作同时运行 [专业化与作者化写作契约](workflow/references/humanized-academic-writing.md) 和 `writing_style_gate.py`，只修复无信息的模板化表达，保留事实、引用、术语、条件和结论强度。
 
 短选题卡不会被当作最终交付：`evaluate_document.py` 默认使用 `long_form_required`，有效正文不足 24000 个单位时直接退回修订，并同步检查段落密度、重复、引用及问题—机制—实验—边界语义覆盖。`--allow-short` 只用于显式标注的种子评审；`workflow/scripts/audit_workflow.py` 可检查仓库是否仍保留这些硬门禁。
 

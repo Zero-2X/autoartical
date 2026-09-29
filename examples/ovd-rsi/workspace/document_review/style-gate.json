@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "paragraph_count": 313,
+  "pattern_counts": {
+    "模糊归因": 0,
+    "泛化价值结论": 0,
+    "段末总结套句": 0
+  },
+  "filler_counts": {},
+  "repeated_starts": {
+    "表格解释": 6
+  },
+  "rhythm": {
+    "sentence_count": 1400,
+    "mean_chars": 35.48,
+    "min_chars": 3,
+    "max_chars": 1765,
+    "length_variation": 49.67
+  },
+  "hard_failures": [],
+  "warnings": [
+    "连续段落可能重复使用同一段首结构：表格解释×6"
+  ],
+  "score": 95,
+  "disclaimer": "该 gate 评估专业化和模板化风险，不等同于任何商用 AI 检测器读数，也不用于规避检测。"
+}

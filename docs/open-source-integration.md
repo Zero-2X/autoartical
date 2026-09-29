@@ -64,3 +64,16 @@ MIT/Apache 代码复用需保留各自许可与适用声明，并核对模型或
 本轮已实际落地 `workflow/scripts/source_ingestion.py`：PDF 改为全文逐页提取，HTML 可选 Trafilatura，Office 可选 MarkItDown；每份资料生成 SHA-256、解析引擎版本、定位片段、告警和缓存记录。`validate_evidence.py` 现在读取实际的 `evidence_items` 字段，并支持 `--strict`。可选依赖列在 `requirements-integrations.txt`，核心流程不因未安装这些依赖而改变 Markdown/TXT/JSON 的内置处理。
 
 不建议为此把通用 agent 平台整体搬入仓库；先补资料、内容质量与交付闭环，避免维护两套状态系统。本仓库已用开放词汇 RSI 作为完整验收样例：研究 Gate、章节审批、正文/视觉/引用检查和 PyMuPDF 实际渲染均通过，具体证据保存在 `examples/ovd-rsi/workspace/`。后续接入外部解析器或排版工具仍需按同一合同重新验收。
+
+## 专业化写作与“去模板化”补充调研（2026-09-29）
+
+本次检索没有找到一个既专门面向中文博士论文、又有大型社区和可验证检测效果的高星开源工具。高星项目更适合吸收写作方法，不能把星标或仓库自报的“AI 率”当成学术质量证明。
+
+| 项目 | 公开活跃度/定位 | 吸收方式 |
+|---|---|---|
+| [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh) | 页面显示约 18.7k stars，2026-09-23 更新；中文 Humanizer skill | 吸收语体识别、密度判断、事实/确定程度保护和“正常排比不机械删除”；不复制其提示词或代码 |
+| [blader/humanizer](https://github.com/blader/humanizer) | 页面显示 97 commits；MIT；面向多代理的模式清单 | 吸收“先定位结构问题、再局部重写、最后检查事实”的编辑闭环；明确以读者质量为目标 |
+| [zkrun/academic-humanizer-zh](https://github.com/zkrun/academic-humanizer-zh) | 中文学术文本的可解释表层评分与前后对照；MIT；仓库规模较小 | 吸收 S1–S7 风险报告、跳过标题/表格/公式、保护引用和重测思路；不采用其示例分数作为外部检测器结论 |
+| [NaeMyoAungKhing/humanizer](https://github.com/NaeMyoAungKhing/humanizer) | 学术写作的 authorial voice profile 与 smoothing detector | 吸收“作者声音档案”思想，作为未来可选的作者样本输入 |
+
+落地结果是 `skills/humanized-academic-writing/SKILL.md`、`workflow/references/humanized-academic-writing.md` 和 `workflow/scripts/writing_style_gate.py`。style gate 只检查空泛拔高、无出处归因、模板化段落和节奏风险，输出可解释报告，不承诺规避任何 AI 检测器；定稿仍以事实、证据、语体和人工审阅为准。
