@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T17:14:51+00:00",
+  "generated_at": "2026-09-29T17:39:37+00:00",
   "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
   "formats": {
     "markdown": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.md",
@@ -259,10 +259,10 @@
       50
     ],
     "visual_qa": "pass",
-    "minimum_page_occupancy": 0.5848,
+    "minimum_page_occupancy": 0.5857,
     "report_path": "workspace\\document_export\\docx-render-report.json",
     "page_count_policy": "Word reflow is engine-dependent; PDF enforces 40–50 pages, DOCX enforces full-content visual QA and >=40 pages.",
-    "sha256": "65d37874e7a6bf36d8c178cfee4fc607c21862c271dcaa6985daf2fc07429f34",
+    "sha256": "71b7a89ce4bfccedad32fe1b2e00b1b30955d11aa9d8d538ec6bb7d859eff5c9",
     "source_formatted_sha256": "42b2961735a2420ded290d88bc56e1c553167625decf659eb8984a6088024415"
   },
   "review_verdict": "pass",

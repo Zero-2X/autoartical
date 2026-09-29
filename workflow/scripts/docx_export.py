@@ -202,6 +202,7 @@ def _add_table(document, block: str) -> None:
 
 
 def _add_image(document, block: str, base_dirs: Iterable[Path]) -> bool:
+    from io import BytesIO
     from docx.shared import Cm, Pt
     from docx.enum.text import WD_ALIGN_PARAGRAPH
 
@@ -221,7 +222,25 @@ def _add_image(document, block: str, base_dirs: Iterable[Path]) -> bool:
     paragraph.paragraph_format.space_before = Pt(8)
     paragraph.paragraph_format.space_after = Pt(2)
     run = paragraph.add_run()
-    run.add_picture(str(path), width=Cm(11.5))
+    # ImageGen assets are retained as PNG in the evidence workspace.  Word
+    # copies those pixels into the DOCX; converting the editable copy to a
+    # high-quality JPEG keeps the document portable without changing the
+    # source asset or its ImageGen hash.  1,400 px is sufficient for the
+    # 11.5 cm printed figure width at normal office viewing distance.
+    try:
+        from PIL import Image
+
+        with Image.open(path) as source_image:
+            image = source_image.convert("RGB")
+            if image.width > 1400:
+                height = round(image.height * 1400 / image.width)
+                image = image.resize((1400, height), Image.Resampling.LANCZOS)
+            stream = BytesIO()
+            image.save(stream, format="JPEG", quality=92, optimize=True, progressive=True)
+            stream.seek(0)
+            run.add_picture(stream, width=Cm(11.5))
+    except Exception:
+        run.add_picture(str(path), width=Cm(11.5))
     _set_run_font(run, "宋体", 10.5)
     caption = document.add_paragraph()
     caption.alignment = WD_ALIGN_PARAGRAPH.CENTER

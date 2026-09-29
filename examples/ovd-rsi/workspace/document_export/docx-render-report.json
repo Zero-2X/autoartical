@@ -1,6 +1,6 @@
 {
   "docx": "output/作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.docx",
-  "docx_sha256": "65d37874e7a6bf36d8c178cfee4fc607c21862c271dcaa6985daf2fc07429f34",
+  "docx_sha256": "71b7a89ce4bfccedad32fe1b2e00b1b30955d11aa9d8d538ec6bb7d859eff5c9",
   "source_formatted_sha256": "42b2961735a2420ded290d88bc56e1c553167625decf659eb8984a6088024415",
   "page_count": 66,
   "raster_qa_samples": [
@@ -36,7 +36,7 @@
     0.6829,
     0.6792,
     0.6856,
-    0.5848,
+    0.5857,
     0.6774,
     0.6774,
     0.6792,
@@ -89,12 +89,12 @@
     0.6847,
     0.6847
   ],
-  "minimum_page_occupancy": 0.5848,
+  "minimum_page_occupancy": 0.5857,
   "density_threshold": 0.55,
   "density_check": "pass",
   "visual_qa": "pass",
   "verified": true,
-  "visual_qa_note": "使用 Microsoft Word 2021 固定版式导出后逐页检查 66 页栅格，复核首页标题编号与目录、图表密集页、正文中段和末页；正文宋体 12pt、标题黑体、英文数字 Times New Roman、固定行距与页眉页脚连续，表格保持可编辑单元格，图注未截断，最低内容占用率 0.5848。",
-  "visual_qa_at": "2026-09-29T17:01:31+00:00",
+  "visual_qa_note": "使用 Microsoft Word 2021 固定版式导出后逐页检查 66 页栅格，复核首页标题编号与目录、图表密集页、正文中段和末页；正文宋体 12pt、标题黑体、英文数字 Times New Roman、固定行距与页眉页脚连续，表格保持可编辑单元格，图注未截断，最低内容占用率 0.5857。",
+  "visual_qa_at": "2026-09-29T17:39:19+00:00",
   "rule": "DOCX 必须由 documents skill 实际渲染为全部页面 PNG，且逐页检查字体、段落密度、图表和分页。"
 }
