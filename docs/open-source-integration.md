@@ -77,3 +77,17 @@ MIT/Apache 代码复用需保留各自许可与适用声明，并核对模型或
 | [NaeMyoAungKhing/humanizer](https://github.com/NaeMyoAungKhing/humanizer) | 学术写作的 authorial voice profile 与 smoothing detector | 吸收“作者声音档案”思想，作为未来可选的作者样本输入 |
 
 落地结果是 `skills/humanized-academic-writing/SKILL.md`、`workflow/references/humanized-academic-writing.md` 和 `workflow/scripts/writing_style_gate.py`。style gate 只检查空泛拔高、无出处归因、模板化段落和节奏风险，输出可解释报告，不承诺规避任何 AI 检测器；定稿仍以事实、证据、语体和人工审阅为准。
+
+## nature-writing-studio 融合记录（2026-10-17）
+
+| 项目 | 状态 | 许可 | 吸收的方法 | 本仓库实现 |
+|---|---|---|---|---|
+| [mumdark/nature-writing-studio](https://github.com/mumdark/nature-writing-studio) v2.0.1 | 128★，最近 push 2026-08-29，未归档 | **未声明许可证**（GitHub API 返回 none，默认保留全部权利） | 改写后的回溯式防捏造验收；证据强度动词分档；跨节一致性规则（措辞强度不得升级、实体与缩写一致、首次出现展开缩写、章首承接、数字格式、各节引用密度）；三级 AI 套话表；逻辑线与改写摘要 | `revision_guard.py`（回溯检查）、`cross_section_audit.py`（跨节审计，接入 `manuscript_lint`）、`glossary.json`（术语表）、修订记录格式与分档措辞表（`humanized-academic-writing`） |
+
+未吸收的部分及原因：
+- 13 个 TSV 知识库（约 1.9 万条句式，含 Nature 论文原句与 DOI）与提示词：无许可证，且含期刊原文摘录，不复制进 MIT 仓库。
+- 以英文 Nature 生物医学论文为语料的句长统计、领域语域表：与本仓库的中文工程类长文不对口。
+- em dash 零容忍：只用于英文段落；中文“视觉—语言”一类连接号是规范用法，不检查。
+
+使用方式：写英文论文需要期刊式句式时，用户可在 Codex 或 Claude Code 中自行安装该 skill 做英文润色；润色结果必须再通过 `revision_guard.py`（对照润色前文本）和 `manuscript_lint.py`，引用仍以 `verify_references.py` 核验的条目为准。
+

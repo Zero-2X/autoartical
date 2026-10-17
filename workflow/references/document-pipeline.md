@@ -19,9 +19,10 @@
 |---|---|---|---|---|
 | 1 | 研究问题链：领域 → 子领域 → 挑战 → 方法路线 → 缺口 → 设计 → 假设 → 实验 | `run_research.py`，`research-brief.json` | research gate 通过 | 补检索，见 `academic-research-writing` |
 | 2 | 登记并核验文献（按正文首次引用顺序） | `evidence/references.json` → `verify_references.py` | 全部 verified；生成 GB/T 7714 条目 | 换正确的 arXiv 号/DOI；载体无依据就按预印本著录 |
-| 3 | 章节计划：每章目的与篇幅区间 | `document_plan/section-plan.json` | 方法与实验章最长；末章 ≤10% | 调整计划 |
+| 3 | 章节计划与术语表：每章目的、`logic_line`、篇幅区间；首选术语与禁用变体 | `document_plan/section-plan.json`、`document_plan/glossary.json` | 方法与实验章最长；末章 ≤10% | 调整计划 |
 | 4 | 逐章写作 | `document_writing/formal/NN_*.md` | 见 `humanized-academic-writing` | — |
 | 5 | 拼合正式稿并做结构检查 | 拼合为 `正式稿.md`；`manuscript_lint.py` | verdict pass | 按失败项改正文，不改检查规则 |
+| 5b | 每次润色/改写/翻译后的回溯检查 | `revision_guard.py 修改前 修改后 --allow-file …` | `untraceable_tokens` 为空 | 撤回无法回溯的改动；公共知识写入允许清单并注明理由 |
 | 6a | 数据图 | CSV + spec → `make_chart.py` | 生成 `provenance.json` | 无真实数据则不画 |
 | 6b | 示意图准备 | `run_visual_assets.py`；在 `request.json` 写 `article_understanding`；`compose_imagegen_prompt.py` | Prompt 完整，含图意与证据边界 | — |
 | 6c | **示意图生成（交给 Codex）** | Codex 调用 `image_gen` → `register_imagegen_asset.py` | 登记了 Prompt 哈希、图片哈希、目视审查 | 修改 Prompt 重生成 |

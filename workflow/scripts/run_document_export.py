@@ -145,7 +145,9 @@ def main() -> int:
     contract["target_pages"] = contract.get("target_pages") or [40, None]
     quality = topic / "workspace" / "quality"
 
-    lint_report = lint(draft)
+    from cross_section_audit import load_glossary
+
+    lint_report = lint(draft, glossary=load_glossary(topic / "workspace" / "document_plan" / "glossary.json"))
     write_json(quality / "manuscript-lint.json", lint_report)
     content_gate = build_content_depth_gate(draft, plan.get("sections", []), contract) if plan.get("sections") else {"passed": False, "failures": ["缺少 section-plan 章节计划"]}
     visual_gate = build_figure_table_gate(topic, draft, contract.get("visual_contract", {}))

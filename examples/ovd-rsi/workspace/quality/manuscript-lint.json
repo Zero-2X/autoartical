@@ -3,33 +3,45 @@
   "failures": [],
   "warnings": [
     "6 个短段落需确认是否承担独立论点",
-    "autocorrect 对 67 段给出中英文间距/标点建议"
+    "autocorrect 对 69 段给出中英文间距/标点建议"
   ],
   "stats": {
     "headings": 60,
     "heading_depth": 4,
     "paragraphs": 157,
-    "median_paragraph_chars": 170,
+    "median_paragraph_chars": 171,
     "references": 24,
     "citations_distinct": 24,
     "chapter_chars": {
-      "第1章 绪论": 3355,
-      "第2章 相关研究与研究缺口": 5099,
+      "第1章 绪论": 3363,
+      "第2章 相关研究与研究缺口": 5129,
       "第3章 研究设计与可证伪假设": 3633,
-      "第4章 OpenRSI-Calibrator 方法": 5370,
+      "第4章 OpenRSI-Calibrator 方法": 5421,
       "第5章 实验方案": 7638,
-      "第6章 系统实现与应用场景": 2677,
-      "第7章 结论与研究局限": 696
+      "第6章 系统实现与应用场景": 2684,
+      "第7章 结论与研究局限": 703
     }
   },
   "autocorrect": {
     "available": true,
-    "paragraphs_with_suggestions": 67,
+    "paragraphs_with_suggestions": 69,
     "samples": [
       "光学遥感影像目标检测的主流研究范式，是在一个预先定义的类别集合上训练检测器，并用",
       "在光学影像内部，本文还需要选择分辨率范围。分辨率过低时，车辆、小型船舶等目标只剩",
       "光学遥感目标检测本身已有几项公认难点，开放词汇设定会把它们与语义问题叠加。俯视视"
     ]
+  },
+  "cross_section": {
+    "abbreviations_first_use_missing": [],
+    "citations_per_1000_chars": {
+      "第1章 绪论": 2.38,
+      "第2章 相关研究与研究缺口": 7.99,
+      "第3章 研究设计与可证伪假设": 1.1,
+      "第4章 OpenRSI-Calibrator 方法": 1.29,
+      "第5章 实验方案": 1.57,
+      "第6章 系统实现与应用场景": 0.0,
+      "第7章 结论与研究局限": 2.84
+    }
   },
   "scope_note": "结构与引用一致性检查；不判断论证是否成立，语义审查另行记录。"
 }

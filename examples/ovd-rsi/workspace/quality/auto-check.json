@@ -1,8 +1,8 @@
 {
   "kind": "automatic-layout-check",
-  "generated_at": "2026-10-17T11:24:53+00:00",
+  "generated_at": "2026-10-17T12:24:54+00:00",
   "inputs": {
-    "source_markdown_sha256": "1d2ffb6a1ceadb551d018503e7c446c6e9d382cc57373988feffe4354614cfef",
+    "source_markdown_sha256": "22a44a3f5620bfc72052be8622da271fdd105cceb0645f541c274e572e8f3ba3",
     "assets": {
       "workspace/document_assets/figures/s1_visual_2.png": "19da9f5de70378fe60991ab3d2651131eb8988675715edb1417a118abd0d044a",
       "workspace/document_assets/charts/rs_benchmark_scale_chart.png": "c9295154dbc7c7d9ce8437d2a7d96cf6c6908c315009814a4ea0e9f8c9a148d4",
@@ -18,9 +18,9 @@
   },
   "outputs": {
     "docx": "作品书_OpenRSI-Calibrator.docx",
-    "docx_sha256": "40e8371c29e0b2075e68011e16981065ea80263b1557ca9e40e27045e8b81c1d",
+    "docx_sha256": "97ef378319289bee4873a146f2fe626052d7fdfc991ff6079a7c8af6bf11e8d0",
     "pdf": "作品书_OpenRSI-Calibrator.pdf",
-    "pdf_sha256": "2245b2b96c3f53417889bd2fa53d005a385c28bab59d1fc40403de0416636465",
+    "pdf_sha256": "818599470d7599d8a356e083d39ee9ddd96ab2c7a71c3c1725887e54fbbe8a73",
     "pdf_producer": "Microsoft Word ExportAsFixedFormat from the delivered DOCX"
   },
   "export": {
@@ -623,13 +623,13 @@
       },
       {
         "page": 7,
-        "fill": 0.912,
-        "chars": 1121,
+        "fill": 0.941,
+        "chars": 1161,
         "images": 0,
         "overflow": [],
         "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
         "render": "page-007.png",
-        "render_sha256": "64798afe04760d8c8a712ce9d6665a99ad7dfe617d3e201d5bc972f2f6da2379"
+        "render_sha256": "a46b2f321495b3a7efe6a5cc0cc2f98b6cf6321cb0168b105950f41de641316b"
       },
       {
         "page": 8,
@@ -673,13 +673,13 @@
       },
       {
         "page": 12,
-        "fill": 0.923,
-        "chars": 1057,
+        "fill": 0.952,
+        "chars": 1093,
         "images": 0,
         "overflow": [],
         "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
         "render": "page-012.png",
-        "render_sha256": "e3736264a4bff3e07f06ab25b0a2b82a584dc4958778017f43a66ac11fa4dde3"
+        "render_sha256": "a1eacd2b5d21e6ac1dd205f7831c59e30d01a1acd3e6d017779e6819a2e9cf49"
       },
       {
         "page": 13,
@@ -793,23 +793,23 @@
       },
       {
         "page": 24,
-        "fill": 0.959,
-        "chars": 786,
+        "fill": 0.987,
+        "chars": 807,
         "images": 1,
         "overflow": [],
         "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
         "render": "page-024.png",
-        "render_sha256": "b15ac39553411d266005d7da3ba7e5f407ad8a2046141297728a0b911361c4e1"
+        "render_sha256": "0e7384cd3dbcecfefe45a11d695e05226256e3a434578dc122552e3c9c587eba"
       },
       {
         "page": 25,
-        "fill": 0.825,
-        "chars": 952,
+        "fill": 0.854,
+        "chars": 991,
         "images": 0,
         "overflow": [],
         "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
         "render": "page-025.png",
-        "render_sha256": "279aaf36e76d57a90efb372e224141bb8eff61b8d3460f500f704a5624c772a2"
+        "render_sha256": "f71ff8f39786887375e9567ffc6cf790c891e472d420de38d05ba3980a16f787"
       },
       {
         "page": 26,
@@ -1013,23 +1013,23 @@
       },
       {
         "page": 46,
-        "fill": 0.319,
-        "chars": 392,
+        "fill": 0.348,
+        "chars": 405,
         "images": 0,
         "overflow": [],
         "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
         "render": "page-046.png",
-        "render_sha256": "7d11f55469ade013d44efbd3ef9ab297985bacfa1f04dd2a171af22c7b0f5247"
+        "render_sha256": "0294eda821d27b1111cbac72704117eb66f1a1fd4145c8e6a164228dd47e2722"
       },
       {
         "page": 47,
         "fill": 0.931,
-        "chars": 915,
+        "chars": 932,
         "images": 0,
         "overflow": [],
         "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
         "render": "page-047.png",
-        "render_sha256": "03ea31ec2d8b973d6e42f33177672228078dadfe13010262e6dac2a520f82b4f"
+        "render_sha256": "425bd6266147e1a375ce5322f3bd26adcfd94b7cdbc9ccbd847db7620b291dd9"
       },
       {
         "page": 48,

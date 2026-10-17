@@ -12,8 +12,9 @@ description: 从可靠资料和明确选题出发，生成、审查并迭代论�
 | 步骤 | 输入 | 输出 | 失败条件 | 修复后复检 |
 |---|---|---|---|---|
 | 1 研究与引用 | 选题、research brief | `evidence/references.json`、`citation-verification.json`、`references.gbt7714.md` | 任一文献无法程序化核验、标题不符、载体无依据 | 重跑 `verify_references.py` |
-| 2 章节计划 | 研究问题链 | `section-plan.json`（章节、目的、篇幅区间） | 末章承担技术论证；方法/实验篇幅低于背景 | — |
+| 2 章节计划与术语表 | 研究问题链 | `section-plan.json`（章节、目的、`logic_line`、篇幅区间），`glossary.json`（首选术语与禁用变体、专名、已知缩写） | 末章承担技术论证；方法/实验篇幅低于背景 | — |
 | 3 逐章写作 | 计划、证据 | `document_writing/formal/NN_*.md` → 拼合为 `正式稿.md` | 见下方写作规则 | `manuscript_lint.py` |
+| 3b 修订 | 修改前后两版 | `revision-guard-<日期>.json`、修订记录 | 出现无法回溯的数字/引用/专名 | `revision_guard.py` |
 | 4 图表 | 定稿段落 | 示意图（ImageGen）、数据图（`make_chart.py`）、三线表 | 见下方图表规则 | `build_figure_table_gate` |
 | 5 排版导出 | `正式稿.md` | DOCX，Word 导出的 PDF，`auto-check.json`，页面渲染 | 见 `doctoral-thesis-format` | `run_document_export.py` |
 | 6 人工审查 | 页面渲染、正文 | `human-review.json`（视觉 + 语义，分开） | 存在未关闭的 blocker/major，或语义项未判定 | `qa_ledger.py record` |

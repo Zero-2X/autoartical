@@ -24,10 +24,13 @@ separately in ``human-review.json``.
 from __future__ import annotations
 
 import argparse
+import sys
 import json
 import re
 from collections import Counter
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 GENERIC_HEADINGS = {
     "核心内容", "支撑说明", "图形证据", "背景与意义", "研究意义", "优势", "展望", "现实背景",
@@ -60,7 +63,7 @@ def body_paragraphs(text: str) -> list[str]:
     return out
 
 
-def lint(text: str) -> dict:
+def lint(text: str, *, glossary: dict | None = None) -> dict:
     failures: list[str] = []
     warnings: list[str] = []
     body, back = strip_back_matter(text)
@@ -182,6 +185,14 @@ def lint(text: str) -> dict:
         if last_size / total > 0.10:
             failures.append(f"末章“{last_title}”占正文 {last_size / total:.0%}，技术论证应放回相应章节")
 
+    # Cross-section audit (claim strength, background citations, glossary,
+    # abbreviations, transitions, numeric format, citation density, AI tells)
+    from cross_section_audit import audit as _cross_audit
+
+    cross = _cross_audit(text, body, refs, glossary=glossary)
+    failures.extend(cross["failures"])
+    warnings.extend(cross["warnings"])
+
     # Optional CJK typography lint -------------------------------------
     autocorrect = {"available": False}
     try:
@@ -209,6 +220,7 @@ def lint(text: str) -> dict:
                   "median_paragraph_chars": sorted(lengths)[len(lengths) // 2] if lengths else 0,
                   "references": len(refs), "citations_distinct": len(cited_order), "chapter_chars": sizes},
         "autocorrect": autocorrect,
+        "cross_section": cross["stats"],
         "scope_note": "结构与引用一致性检查；不判断论证是否成立，语义审查另行记录。",
     }
 
@@ -217,9 +229,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="正式稿结构、引用、图表与表达检查")
     parser.add_argument("markdown", type=Path)
     parser.add_argument("--out", type=Path)
+    parser.add_argument("--glossary", type=Path, help="术语表 JSON：terms{首选:{avoid:[...]}}、names、abbreviations_known")
     args = parser.parse_args()
     text = args.markdown.read_text(encoding="utf-8")
-    result = lint(text)
+    from cross_section_audit import load_glossary
+
+    result = lint(text, glossary=load_glossary(args.glossary))
     import hashlib
 
     result["source_sha256"] = hashlib.sha256(text.encode("utf-8")).hexdigest()

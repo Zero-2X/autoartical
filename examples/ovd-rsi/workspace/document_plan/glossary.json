@@ -1,0 +1,12 @@
+{
+  "terms": {
+    "旋转框": {"avoid": ["有向框", "定向框", "旋转边界框"], "note": "对应英文 oriented bounding box (OBB)"},
+    "水平框": {"avoid": ["水平边界框"], "note": "对应英文 horizontal bounding box (HBB)"},
+    "可靠程度": {"avoid": ["可靠度", "置信概率"], "note": "指校准后的 p_i，不等同于原始分数 s_i"},
+    "视觉—语言": {"avoid": ["视觉语言", "视觉-语言"], "note": "用中文破折号连接"},
+    "三态决策": {"avoid": ["三分类决策", "三级决策"], "note": "接受、复核、拒识"},
+    "证据卡": {"avoid": ["证据卡片"]}
+  },
+  "names": ["DIOR", "DOTA", "LAE", "FAIR1M", "LVIS", "COCO", "CastDet", "DescReg", "OpenRSD", "OVDEval", "OpenRSI"],
+  "abbreviations_known": ["RTX", "GPU", "FPS"]
+}

@@ -1,0 +1,7 @@
+{
+  "verdict": "pass",
+  "untraceable_tokens": [],
+  "dropped_tokens": [],
+  "english_em_dash_lines": [],
+  "rule": "改写后的数字、引用、图表式编号、专名/缩写必须能在原文中找到；被删掉的数字或引用需说明理由。"
+}

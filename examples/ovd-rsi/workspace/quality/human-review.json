@@ -1,9 +1,9 @@
 {
   "kind": "human-review",
   "reviewer": "Claude (Opus 5.5), 2026-10-17",
-  "recorded_at": "2026-10-17T11:27:57+00:00",
-  "pdf_sha256": "2245b2b96c3f53417889bd2fa53d005a385c28bab59d1fc40403de0416636465",
-  "docx_sha256": "40e8371c29e0b2075e68011e16981065ea80263b1557ca9e40e27045e8b81c1d",
+  "recorded_at": "2026-10-17T12:31:01+00:00",
+  "pdf_sha256": "818599470d7599d8a356e083d39ee9ddd96ab2c7a71c3c1725887e54fbbe8a73",
+  "docx_sha256": "97ef378319289bee4873a146f2fe626052d7fdfc991ff6079a7c8af6bf11e8d0",
   "visual": {
     "method": "full-page",
     "dpi": 110,
@@ -15,6 +15,22 @@
       {
         "page": 2,
         "render_sha256": "d880d6568f231c504dd16a8b559f71bff8cf9cf57546cddd94c498ebe52eb5f9"
+      },
+      {
+        "page": 7,
+        "render_sha256": "a46b2f321495b3a7efe6a5cc0cc2f98b6cf6321cb0168b105950f41de641316b"
+      },
+      {
+        "page": 12,
+        "render_sha256": "a1eacd2b5d21e6ac1dd205f7831c59e30d01a1acd3e6d017779e6819a2e9cf49"
+      },
+      {
+        "page": 24,
+        "render_sha256": "0e7384cd3dbcecfefe45a11d695e05226256e3a434578dc122552e3c9c587eba"
+      },
+      {
+        "page": 25,
+        "render_sha256": "f71ff8f39786887375e9567ffc6cf790c891e472d420de38d05ba3980a16f787"
       },
       {
         "page": 29,
@@ -86,10 +102,14 @@
       },
       {
         "page": 46,
-        "render_sha256": "7d11f55469ade013d44efbd3ef9ab297985bacfa1f04dd2a171af22c7b0f5247"
+        "render_sha256": "0294eda821d27b1111cbac72704117eb66f1a1fd4145c8e6a164228dd47e2722"
+      },
+      {
+        "page": 47,
+        "render_sha256": "425bd6266147e1a375ce5322f3bd26adcfd94b7cdbc9ccbd847db7620b291dd9"
       }
     ],
-    "coverage_claim": "full-page 方式查看 20/49 页（不得表述为逐页核验）"
+    "coverage_claim": "full-page 方式查看 25/49 页（不得表述为逐页核验）"
   },
   "semantic": {
     "argument_chain": {
@@ -147,6 +167,6 @@
       "status": "open"
     }
   ],
-  "note": "沿用本日对第 1–2、29–46 页的 110 dpi 全幅查看。因导出代码改为换行符无关的哈希而重新导出 PDF：重新导出后这 20 页的渲染图与当时查看的图像逐字节一致，全部 49 页的提取文本与审查版本逐页一致，PDF 仅文件元数据字节不同。更早一轮已对 49/49 页做过全幅逐页查看，其余 29 页与那一轮相比仅页眉一行不同。",
+  "note": "本轮正文改动 5 处（AP/mAP 释义、第2/4/7章首段承接句、GPL 全称），对应的第 7、12、24、25、46、47 页在 110 dpi 全幅渲染上重新查看，未见断页、孤立标题或图注分离。其余登记页的渲染图与上一轮审查时逐字节一致（哈希核对）。语义审查结论已对照本轮改动复核：改动只补充释义与承接，不改变论证与证据等级；revision_guard 回溯检查通过。",
   "rule": "人工记录只陈述实际查看的内容；自动检查结论不得复制为人工结论。"
 }

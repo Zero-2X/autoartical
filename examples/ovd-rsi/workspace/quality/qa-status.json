@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-17T11:29:40+00:00",
+  "verified_at": "2026-10-17T12:32:01+00:00",
   "auto_check": {
     "status": "pass",
     "stale_reasons": [],
@@ -18,7 +18,7 @@
     "open_blockers": 0,
     "missing_semantic": [],
     "failed_semantic": [],
-    "coverage": "full-page 方式查看 20/49 页（不得表述为逐页核验）"
+    "coverage": "full-page 方式查看 25/49 页（不得表述为逐页核验）"
   },
   "deliverable": "pass"
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T11:27:59+00:00",
+  "generated_at": "2026-10-17T12:31:04+00:00",
   "project_name": "OpenRSI-Calibrator",
   "source": "workspace/document_writing/正式稿.md",
   "formats": {
@@ -21,23 +21,23 @@
       "headings": 60,
       "heading_depth": 4,
       "paragraphs": 157,
-      "median_paragraph_chars": 170,
+      "median_paragraph_chars": 171,
       "references": 24,
       "citations_distinct": 24,
       "chapter_chars": {
-        "第1章 绪论": 3355,
-        "第2章 相关研究与研究缺口": 5099,
+        "第1章 绪论": 3363,
+        "第2章 相关研究与研究缺口": 5129,
         "第3章 研究设计与可证伪假设": 3633,
-        "第4章 OpenRSI-Calibrator 方法": 5370,
+        "第4章 OpenRSI-Calibrator 方法": 5421,
         "第5章 实验方案": 7638,
-        "第6章 系统实现与应用场景": 2677,
-        "第7章 结论与研究局限": 696
+        "第6章 系统实现与应用场景": 2684,
+        "第7章 结论与研究局限": 703
       }
     }
   },
   "content_gate": {
     "passed": true,
-    "prose_units": 24184,
+    "prose_units": 24298,
     "duplicate_paragraph_groups": 0
   },
   "visual_gate": {
@@ -202,7 +202,7 @@
     "open_blockers": 0,
     "missing_semantic": [],
     "failed_semantic": [],
-    "coverage": "full-page 方式查看 20/49 页（不得表述为逐页核验）"
+    "coverage": "full-page 方式查看 25/49 页（不得表述为逐页核验）"
   },
   "final_verdict": "pass",
   "failures": [],
