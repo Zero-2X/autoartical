@@ -51,7 +51,9 @@ def _sentences(text: str) -> list[str]:
 
 def build_style_gate(markdown: str) -> dict[str, Any]:
     paragraphs = _paragraphs(markdown)
-    normalized_markdown = merge_fragmented_paragraphs(drop_empty_headings(markdown))
+    # Judge the text as written: the delivery copy is no longer merged by
+    # length, so measuring a merged copy would hide real fragmentation.
+    normalized_markdown = markdown
     normalized_paragraphs = _paragraphs(normalized_markdown)
     raw_empty_headings = placeholder_heading_count(markdown)
     normalized_empty_headings = placeholder_heading_count(normalized_markdown)
@@ -98,20 +100,12 @@ def build_style_gate(markdown: str) -> dict[str, Any]:
     raw_ratio = round(len(short_paragraphs) / len(paragraphs), 3) if paragraphs else 0
     normalized_ratio = round(len(normalized_short_paragraphs) / len(normalized_paragraphs), 3) if normalized_paragraphs else 0
     fragmentation_passed = normalized_ratio <= 0.30
-    if raw_ratio > 0.35:
-        warnings.append(
-            f"原稿短段落占比 {raw_ratio:.0%}；交付副本已按同一小节自动合并，合并后为 {normalized_ratio:.0%}"
-        )
     if not fragmentation_passed:
         hard.append(
-            f"段落过碎：自动合并后短段落占比仍为 {normalized_ratio:.0%}，应补充同一论证链而非继续拆段"
-        )
-    if raw_empty_headings:
-        warnings.append(
-            f"原稿存在 {raw_empty_headings} 个无正文标题；交付副本已删除连续占位标题，剩余 {normalized_empty_headings} 个需补证据"
+            f"段落过碎：短段落占比 {normalized_ratio:.0%}；按语义合并同一论点的碎段或补足论证，不按字数拼接"
         )
     if normalized_empty_headings:
-        hard.append(f"交付副本仍有 {normalized_empty_headings} 个无正文标题，应补充论证或删除标题")
+        hard.append(f"存在 {normalized_empty_headings} 个无正文标题，应补充论证或删除标题")
 
     score = max(0, 100 - len(hard) * 25 - len(warnings) * 5)
     return {

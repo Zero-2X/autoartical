@@ -984,7 +984,7 @@ def render_chapter_brief(
         "## Section Dependencies",
     ]
     lines.extend([
-        "- 必须阅读 workflow/references/content-depth.md。40–50 页要求实质正文充足，不得通过留白、分页或重复改写凑数。",
+        "- 必须阅读 workflow/references/content-depth.md。正文不少于 40 页（不设上限）且须为实质论证，不得通过留白、分页或重复改写凑数；正文中不得出现门禁、manifest、Prompt 等工作流元信息。",
         "- 章节预算按有效正文计数；补充可核验事实、机制推导、设计取舍、实现细节、验证与边界。",
         "- 缺少证据时列入材料缺口，不能捏造实验结果；字数达标不代表内容审查通过。",
     ])

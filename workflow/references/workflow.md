@@ -1,5 +1,7 @@
 # Workflow
 
+> 长文文档（申报书、论文初稿、研究报告）请按 [document-pipeline.md](document-pipeline.md) 执行；本文件其余部分为研究实验循环与旧版幻灯片流程的参考。
+
 ## 0. Create isolated workspace and durable memory
 
 Goal: create a project workspace that can accumulate durable artifacts instead of leaking state across projects.

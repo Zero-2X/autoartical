@@ -8,6 +8,8 @@
 
 ## 工作流一览
 
+长文流程的权威步骤、Claude 与 Codex 的分工（示意图只能由 Codex 内置 `image_gen` 生成）见 [长文文档工作流运行手册](workflow/references/document-pipeline.md)。
+
 ```mermaid
 flowchart LR
  A[资料与要求] --> B[证据台账]

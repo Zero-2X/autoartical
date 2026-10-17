@@ -76,7 +76,7 @@ def render(report: dict) -> str:
     lines.extend(["", "## 问题分析与修复状态", ""])
     for item in report["findings"]:
         lines.append(f"- **{item['severity']} / {item['area']}**：{item['finding']}")
-    lines.extend(["", "## 完整交付判定", "", "必须同时满足：研究 Gate 通过、章节计划存在、每章正文和审计批准、有效正文达到 24000 最低单位、视觉规格和真实资产达标、所有图表在正文引用、实际渲染页数为 40–50、逐页视觉 QA 通过、export-manifest.json 为 pass。"])
+    lines.extend(["", "## 完整交付判定", "", "必须同时满足：研究 Gate 通过、章节计划存在、每章正文和审计批准、有效正文达到 24000 最低单位、每幅图有论证作用与可追溯来源、每张表有来源表注、Word 实排正文不少于 40 页且版式检查通过、人工视觉与语义审查已登记且与当前文件哈希一致、export-manifest.json 为 pass。"])
     return "\n".join(lines) + "\n"
 
 

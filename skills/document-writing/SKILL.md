@@ -5,7 +5,7 @@ description: 从可靠资料和明确选题出发，生成、审查并迭代论�
 
 # 文档写作技能
 
-从文献和选题开始时，先用 `skills/academic-research-writing/SKILL.md` 完成研究 brief 和引用核验；表达修订用 `humanized-academic-writing`；排版交付用 `doctoral-thesis-format`。本 skill 负责把它们串成一条可复检的流程。
+从文献和选题开始时，先用 `skills/academic-research-writing/SKILL.md` 完成研究 brief 和引用核验；表达修订用 `humanized-academic-writing`；排版交付用 `doctoral-thesis-format`。本 skill 负责把它们串成一条可复检的流程；完整运行顺序与 Claude/Codex 分工见 [长文文档工作流运行手册](../../workflow/references/document-pipeline.md)。
 
 ## 流程（每步的输入、输出、失败条件与复检）
 
