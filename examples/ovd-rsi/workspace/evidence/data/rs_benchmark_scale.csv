@@ -1,0 +1,5 @@
+dataset,categories,instances,images,annotation,source,note,lower_bound
+DOTA-v1.0,15,188282,2806,旋转框,xia2018dota,摘要原文数值,false
+DIOR,20,192472,23463,水平框,li2020dior,摘要原文数值,false
+DOTA-v2.0,18,1793658,11268,旋转框,ding2021dota2,摘要原文数值,false
+FAIR1M,37,1000000,15000,旋转框,sun2022fair1m,摘要仅给出下限：实例数超过100万、影像超过1.5万、37个子类,true

@@ -1,99 +1,143 @@
 #!/usr/bin/env python3
-"""Editable Word export for the doctoral-style manuscript delivery copy."""
+"""Editable Word export for the doctoral-style manuscript.
+
+The DOCX produced here is the single formal source: the PDF is exported from
+this file by Word itself (``word_pipeline.py``), so fonts, page breaks,
+numbering and figure placement in both files are identical.
+
+Markdown conventions understood by the exporter (see
+``workflow/references/doctoral-thesis-format.md``):
+
+* ``# 标题``                      document title (cover page)
+* ``## 摘要`` / ``## Abstract``    unnumbered front matter, Roman page numbers
+* ``[[TOC]]``                      Word TOC field (updated by Word on export)
+* ``## 第1章 …`` / ``### 1.1 …``  body headings, numbering written explicitly
+* ``## 参考文献`` / ``## 附录A …``  back matter, each starts on a new page
+* ``![图2-1 说明](path)``          figure, caption placed below
+* ``表2-1 说明`` followed by a pipe table, optional ``注：…`` line after it
+* ``$$ 公式 $$ (3-1)``             display equation with right-aligned number
+"""
 from __future__ import annotations
 
 import re
 from pathlib import Path
 from typing import Iterable
 
+W_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 
-def _set_east_asia_font(font, name: str) -> None:
-    font.name = name
-    element = font._element
-    rpr = element.get_or_add_rPr()
+BODY_FONT = "宋体"
+HEADING_FONT = "黑体"
+LATIN_FONT = "Times New Roman"
+BODY_PT = 12
+LINE_PT = 20
+TEXT_WIDTH_CM = 15.8
+MAX_FIGURE_WIDTH_CM = 14.0
+MAX_FIGURE_HEIGHT_CM = 9.5
+
+FRONT_HEADINGS = ("摘要", "Abstract", "ABSTRACT", "目录")
+BACK_PATTERN = re.compile(r"^(参考文献|附录|致谢)")
+CHAPTER_PATTERN = re.compile(r"^(第\s*\d+\s*章|[一二三四五六七八九十]+、)")
+
+
+def _set_fonts(font, east_asia: str, latin: str = LATIN_FONT) -> None:
+    font.name = latin
+    rpr = font._element.get_or_add_rPr()
     rfonts = rpr.rFonts
     if rfonts is None:
         from docx.oxml import OxmlElement
 
         rfonts = OxmlElement("w:rFonts")
         rpr.append(rfonts)
-    rfonts.set("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}eastAsia", name)
-    rfonts.set("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}ascii", "Times New Roman")
-    rfonts.set("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}hAnsi", "Times New Roman")
+    # Theme attributes (asciiTheme, eastAsiaTheme …) take precedence over the
+    # explicit names in Word, which is how Calibri/Cambria leaked into the PDF.
+    for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+        rfonts.attrib.pop(f"{W_NS}{attr}", None)
+    rfonts.set(f"{W_NS}eastAsia", east_asia)
+    rfonts.set(f"{W_NS}ascii", latin)
+    rfonts.set(f"{W_NS}hAnsi", latin)
+    rfonts.set(f"{W_NS}cs", latin)
 
 
-def _set_run_font(run, name: str = "宋体", size_pt: float = 12, bold: bool | None = None) -> None:
-    _set_east_asia_font(run.font, name)
+def _strip_theme_fonts(document) -> None:
+    """Remove theme font references from docDefaults and every style."""
+    root = document.styles.element
+    for rfonts in root.iter(f"{W_NS}rFonts"):
+        themed = any(f"{W_NS}{a}" in rfonts.attrib for a in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"))
+        for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+            rfonts.attrib.pop(f"{W_NS}{attr}", None)
+        if themed:
+            rfonts.set(f"{W_NS}ascii", LATIN_FONT)
+            rfonts.set(f"{W_NS}hAnsi", LATIN_FONT)
+            rfonts.set(f"{W_NS}cs", LATIN_FONT)
+            rfonts.set(f"{W_NS}eastAsia", BODY_FONT)
+
+
+def _run(paragraph, text: str, *, font: str = BODY_FONT, size: float = BODY_PT,
+         bold: bool | None = None, italic: bool | None = None, superscript: bool = False):
     from docx.shared import Pt
 
-    run.font.size = Pt(size_pt)
+    run = paragraph.add_run(text)
+    _set_fonts(run.font, font)
+    run.font.size = Pt(size)
     if bold is not None:
         run.bold = bold
+    if italic is not None:
+        run.italic = italic
+    if superscript:
+        run.font.superscript = True
+    return run
 
 
-def _configure_style(style, name: str, size_pt: float, *, bold: bool = False) -> None:
-    from docx.shared import Pt
-    from docx.enum.style import WD_STYLE_TYPE
+def _style(style, east_asia: str, size: float, *, bold: bool = False) -> None:
+    from docx.shared import Pt, RGBColor
 
-    if style.type == WD_STYLE_TYPE.PARAGRAPH:
-        style.font.bold = bold
-    _set_east_asia_font(style.font, name)
-    style.font.size = Pt(size_pt)
+    _set_fonts(style.font, east_asia)
+    style.font.size = Pt(size)
     style.font.bold = bold
     style.font.italic = False
-    style.font.underline = False
-    try:
-        from docx.shared import RGBColor
-
-        style.font.color.rgb = RGBColor(23, 32, 51)
-    except Exception:
-        pass
-
-
-def _clear_style_borders(style) -> None:
-    """Remove Word's default decorative title/heading borders and colors."""
+    style.font.color.rgb = RGBColor(0, 0, 0)
     p_pr = style._element.get_or_add_pPr()
     for child in list(p_pr):
         if child.tag.endswith("}pBdr"):
             p_pr.remove(child)
 
 
-def _set_cell_shading(cell, fill: str) -> None:
+def _paragraph_format(paragraph, *, indent: bool = True, align: str = "justify",
+                      line_pt: float = LINE_PT, before: float = 0, after: float = 0) -> None:
+    from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
+    from docx.shared import Pt
+
+    fmt = paragraph.paragraph_format
+    fmt.line_spacing = Pt(line_pt)
+    fmt.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+    fmt.space_before = Pt(before)
+    fmt.space_after = Pt(after)
+    fmt.first_line_indent = Pt(BODY_PT * 2) if indent else Pt(0)
+    fmt.widow_control = True
+    # No hanging punctuation: every glyph stays inside the type area.
     from docx.oxml import OxmlElement
-    from docx.oxml.ns import qn
 
-    tc_pr = cell._tc.get_or_add_tcPr()
-    shd = tc_pr.find(qn("w:shd"))
-    if shd is None:
-        shd = OxmlElement("w:shd")
-        tc_pr.append(shd)
-    shd.set(qn("w:fill"), fill)
-
-
-def _set_cell_margins(cell, top: int = 80, start: int = 100, bottom: int = 80, end: int = 100) -> None:
-    from docx.oxml import OxmlElement
-    from docx.oxml.ns import qn
-
-    tc = cell._tc
-    tc_pr = tc.get_or_add_tcPr()
-    tc_mar = tc_pr.first_child_found_in("w:tcMar")
-    if tc_mar is None:
-        tc_mar = OxmlElement("w:tcMar")
-        tc_pr.append(tc_mar)
-    for margin, value in (("top", top), ("start", start), ("bottom", bottom), ("end", end)):
-        node = tc_mar.find(qn(f"w:{margin}"))
-        if node is None:
-            node = OxmlElement(f"w:{margin}")
-            tc_mar.append(node)
-        node.set(qn("w:w"), str(value))
-        node.set(qn("w:type"), "dxa")
+    p_pr = paragraph._p.get_or_add_pPr()
+    if p_pr.find(f"{W_NS}overflowPunct") is None:
+        node = OxmlElement("w:overflowPunct")
+        node.set(f"{W_NS}val", "0")
+        p_pr.append(node)
+    paragraph.alignment = {
+        "justify": WD_ALIGN_PARAGRAPH.JUSTIFY,
+        "center": WD_ALIGN_PARAGRAPH.CENTER,
+        "left": WD_ALIGN_PARAGRAPH.LEFT,
+    }[align]
 
 
-def _add_field(paragraph, instruction: str) -> None:
+def _field(paragraph, instruction: str, placeholder: str = "1", size: float = 10.5) -> None:
     from docx.oxml import OxmlElement
     from docx.oxml.ns import qn
 
     run = paragraph.add_run()
+    _set_fonts(run.font, BODY_FONT)
+    from docx.shared import Pt
+
+    run.font.size = Pt(size)
     begin = OxmlElement("w:fldChar")
     begin.set(qn("w:fldCharType"), "begin")
     instr = OxmlElement("w:instrText")
@@ -102,281 +146,457 @@ def _add_field(paragraph, instruction: str) -> None:
     separate = OxmlElement("w:fldChar")
     separate.set(qn("w:fldCharType"), "separate")
     text = OxmlElement("w:t")
-    text.text = "1"
+    text.text = placeholder
     end = OxmlElement("w:fldChar")
     end.set(qn("w:fldCharType"), "end")
     run._r.extend([begin, instr, separate, text, end])
-    _set_run_font(run, "Times New Roman", 10.5)
 
 
-def _resolve_asset(source: str, base_dirs: Iterable[Path]) -> Path | None:
-    raw = source.strip().strip("<>")
-    path = Path(raw)
-    candidates = [path] if path.is_absolute() else []
-    candidates.extend(directory / path for directory in base_dirs)
-    candidates.append(Path.cwd() / path)
-    for candidate in candidates:
-        try:
-            resolved = candidate.resolve()
-        except OSError:
-            continue
-        if resolved.is_file():
-            return resolved
-    return None
+_INLINE = re.compile(r"(\*\*(.+?)\*\*|\$(.+?)\$|\[(\d+(?:[,，\-–]\d+)*)\])")
 
 
-def _plain_inline(text: str) -> str:
-    text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
-    return text.replace("**", "").replace("__", "").replace("`", "")
-
-
-def _add_inline_runs(paragraph, text: str, *, size_pt: float = 12, default_font: str = "宋体") -> None:
-    """Keep simple bold labels such as ``关键词`` while removing Markdown syntax."""
-    pattern = re.compile(r"(\*\*|__)(.+?)\1")
+def _inline(paragraph, text: str, *, size: float = BODY_PT, font: str = BODY_FONT) -> None:
+    """Bold, inline math (italic Latin) and GB/T 7714 superscript citations."""
+    text = re.sub(r"\[([^\]]+)\]\((?!\s*\))[^)]*\)", r"\1", text).replace("`", "")
     cursor = 0
-    for match in pattern.finditer(text):
+    for match in _INLINE.finditer(text):
         if match.start() > cursor:
-            run = paragraph.add_run(_plain_inline(text[cursor : match.start()]))
-            _set_run_font(run, default_font, size_pt)
-        run = paragraph.add_run(_plain_inline(match.group(2)))
-        _set_run_font(run, default_font, size_pt, bold=True)
+            _run(paragraph, text[cursor:match.start()], font=font, size=size)
+        if match.group(2) is not None:
+            _run(paragraph, match.group(2), font=font, size=size, bold=True)
+        elif match.group(3) is not None:
+            _math(paragraph, match.group(3), size=size, italic=True)
+        else:
+            _run(paragraph, f"[{match.group(4)}]", font=font, size=size, superscript=True)
         cursor = match.end()
     if cursor < len(text):
-        run = paragraph.add_run(_plain_inline(text[cursor:]))
-        _set_run_font(run, default_font, size_pt)
+        _run(paragraph, text[cursor:], font=font, size=size)
 
 
-def _set_paragraph_body(paragraph, *, indent: bool = True, space_after: float = 0) -> None:
-    from docx.shared import Pt
-    from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
+def _border(element, edges: dict[str, tuple[str, int]]) -> None:
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
 
-    fmt = paragraph.paragraph_format
-    fmt.line_spacing = Pt(20)
-    fmt.line_spacing_rule = WD_LINE_SPACING.EXACTLY
-    fmt.space_after = Pt(space_after)
-    fmt.space_before = Pt(0)
-    fmt.first_line_indent = Pt(24) if indent else Pt(0)
-    paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    paragraph.paragraph_format.widow_control = True
+    borders = element.find(qn("w:tcBorders"))
+    if borders is None:
+        borders = OxmlElement("w:tcBorders")
+        element.append(borders)
+    for edge, (value, size) in edges.items():
+        node = OxmlElement(f"w:{edge}")
+        node.set(qn("w:val"), value)
+        node.set(qn("w:sz"), str(size))
+        node.set(qn("w:space"), "0")
+        node.set(qn("w:color"), "000000")
+        borders.append(node)
 
 
 def _parse_table(block: str) -> list[list[str]]:
-    rows: list[list[str]] = []
+    rows = []
     for line in block.splitlines():
-        if not line.strip().startswith("|"):
+        stripped = line.strip()
+        if not stripped.startswith("|"):
             continue
-        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        cells = [cell.strip() for cell in stripped.strip("|").split("|")]
         if cells and all(set(cell) <= set("-: ") for cell in cells):
             continue
         rows.append(cells)
     return rows
 
 
-def _add_table(document, block: str) -> None:
-    from docx.shared import Pt
-    from docx.enum.table import WD_TABLE_ALIGNMENT, WD_CELL_VERTICAL_ALIGNMENT
+def _three_line_table(document, rows: list[list[str]], *, note_follows: bool = False) -> None:
+    """GB/T 7713-style three-line table: thick top/bottom, thin rule under header."""
+    from docx.enum.table import WD_TABLE_ALIGNMENT
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
 
-    rows = _parse_table(block)
-    if not rows:
-        return
     columns = max(len(row) for row in rows)
     table = document.add_table(rows=len(rows), cols=columns)
-    table.style = "Table Grid"
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     table.autofit = True
-    for row_index, row in enumerate(rows):
-        for col_index in range(columns):
-            cell = table.cell(row_index, col_index)
-            _set_cell_margins(cell)
-            cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
+    tbl_pr = table._tbl.tblPr
+    width = OxmlElement("w:tblW")
+    width.set(qn("w:w"), "5000")
+    width.set(qn("w:type"), "pct")
+    tbl_pr.append(width)
+    last = len(rows) - 1
+    for r, row in enumerate(rows):
+        tr_pr = table.rows[r]._tr.get_or_add_trPr()
+        cant = OxmlElement("w:cantSplit")
+        tr_pr.append(cant)
+        if r == 0:
+            header = OxmlElement("w:tblHeader")
+            tr_pr.append(header)
+        for c in range(columns):
+            cell = table.cell(r, c)
             cell.text = ""
             paragraph = cell.paragraphs[0]
-            _set_paragraph_body(paragraph, indent=False, space_after=0)
-            text = row[col_index] if col_index < len(row) else ""
-            run = paragraph.add_run(_plain_inline(text))
-            _set_run_font(run, "宋体", 10.5, bold=row_index == 0)
-            if row_index == 0:
-                _set_cell_shading(cell, "D9E5F2")
-    # Keep the table immediately adjacent to the following prose; the table's
-    # cell padding supplies the visual separation required for print.
+            numeric = bool(re.fullmatch(r"[\d.,%±\-–~ ]+|NA|待实测|—", row[c] if c < len(row) else ""))
+            _paragraph_format(paragraph, indent=False, align="center" if (r == 0 or numeric) else "left", line_pt=15)
+            # Short tables are kept on one page; long tables may break between
+            # rows and repeat their header row.
+            # The last row is bound to a following table note so they never part.
+            paragraph.paragraph_format.keep_with_next = (len(rows) <= 8 and r < last) or (r == last and note_follows)
+            _inline(paragraph, row[c] if c < len(row) else "", size=10.5)
+            if r == 0:
+                for run in paragraph.runs:
+                    run.bold = True
+            tc_pr = cell._tc.get_or_add_tcPr()
+            edges: dict[str, tuple[str, int]] = {"left": ("nil", 0), "right": ("nil", 0)}
+            edges["top"] = ("single", 12) if r == 0 else ("nil", 0)
+            edges["bottom"] = ("single", 12) if r == last else (("single", 6) if r == 0 else ("nil", 0))
+            _border(tc_pr, edges)
 
 
-def _add_image(document, block: str, base_dirs: Iterable[Path]) -> bool:
+def _caption(document, text: str, *, keep_with_next: bool) -> None:
+    paragraph = document.add_paragraph(style="Caption")
+    _paragraph_format(paragraph, indent=False, align="center", line_pt=16, before=3, after=3)
+    paragraph.paragraph_format.keep_with_next = keep_with_next
+    _inline(paragraph, text, size=10.5)
+
+
+def _figure(document, alt: str, source: str, base_dirs: Iterable[Path]) -> None:
     from io import BytesIO
-    from docx.shared import Cm, Pt
-    from docx.enum.text import WD_ALIGN_PARAGRAPH
 
-    match = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", block.strip())
-    if not match:
-        return False
-    alt, source = match.groups()
+    from docx.shared import Cm, Pt
+    from PIL import Image
+
     path = _resolve_asset(source, base_dirs)
     if path is None:
-        paragraph = document.add_paragraph()
-        _set_paragraph_body(paragraph, indent=False)
-        run = paragraph.add_run(f"{alt}（图形资产缺失：{source}）")
-        _set_run_font(run, "宋体", 10.5)
-        return True
+        raise FileNotFoundError(f"图形资产缺失：{source}")
     paragraph = document.add_paragraph()
-    paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    paragraph.paragraph_format.space_before = Pt(8)
-    paragraph.paragraph_format.space_after = Pt(2)
-    run = paragraph.add_run()
-    # ImageGen assets are retained as PNG in the evidence workspace.  Word
-    # copies those pixels into the DOCX; converting the editable copy to a
-    # high-quality JPEG keeps the document portable without changing the
-    # source asset or its ImageGen hash.  1,400 px is sufficient for the
-    # 11.5 cm printed figure width at normal office viewing distance.
-    try:
-        from PIL import Image
-
-        with Image.open(path) as source_image:
-            image = source_image.convert("RGB")
-            if image.width > 1400:
-                height = round(image.height * 1400 / image.width)
-                image = image.resize((1400, height), Image.Resampling.LANCZOS)
-            stream = BytesIO()
-            image.save(stream, format="JPEG", quality=92, optimize=True, progressive=True)
-            stream.seek(0)
-            run.add_picture(stream, width=Cm(11.5))
-    except Exception:
-        run.add_picture(str(path), width=Cm(11.5))
-    _set_run_font(run, "宋体", 10.5)
-    caption = document.add_paragraph()
-    caption.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    caption.paragraph_format.space_before = Pt(0)
-    caption.paragraph_format.space_after = Pt(2)
-    caption_run = caption.add_run(_plain_inline(alt))
-    _set_run_font(caption_run, "宋体", 10.5)
-    return True
+    _paragraph_format(paragraph, indent=False, align="center", line_pt=LINE_PT, before=6)
+    paragraph.paragraph_format.line_spacing = None  # single spacing so the picture is not clipped
+    paragraph.paragraph_format.keep_with_next = True
+    with Image.open(path) as source_image:
+        image = source_image.convert("RGB")
+        width_cm = MAX_FIGURE_WIDTH_CM
+        if image.height / image.width * width_cm > MAX_FIGURE_HEIGHT_CM:
+            width_cm = MAX_FIGURE_HEIGHT_CM * image.width / image.height
+        # 300 dpi at the printed width: enough for print, keeps DOCX portable.
+        target_px = int(width_cm / 2.54 * 300)
+        if image.width > target_px:
+            image = image.resize((target_px, round(image.height * target_px / image.width)), Image.Resampling.LANCZOS)
+        stream = BytesIO()
+        if path.suffix.lower() == ".png" and "chart" in path.stem:
+            image.save(stream, format="PNG", optimize=True)
+        else:
+            image.save(stream, format="JPEG", quality=90, optimize=True)
+        stream.seek(0)
+    paragraph.add_run().add_picture(stream, width=Cm(width_cm))
+    _caption(document, alt, keep_with_next=False)
+    document.paragraphs[-1].paragraph_format.space_after = Pt(6)
 
 
-def export_docx(markdown: str, output_path: Path, *, title: str = "", base_dirs: Iterable[Path] = ()) -> dict:
-    """Create a fully editable DOCX and return its basic export metadata."""
+def _resolve_asset(source: str, base_dirs: Iterable[Path]) -> Path | None:
+    raw = Path(source.strip().strip("<>"))
+    candidates = [raw] if raw.is_absolute() else [Path(d) / raw for d in base_dirs] + [Path.cwd() / raw]
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate.resolve()
+    return None
+
+
+def _equation(document, body: str, number: str) -> None:
+    from docx.enum.text import WD_TAB_ALIGNMENT
+    from docx.shared import Cm
+
+    paragraph = document.add_paragraph()
+    _paragraph_format(paragraph, indent=False, align="left", before=3, after=3)
+    stops = paragraph.paragraph_format.tab_stops
+    stops.add_tab_stop(Cm(TEXT_WIDTH_CM / 2), WD_TAB_ALIGNMENT.CENTER)
+    stops.add_tab_stop(Cm(TEXT_WIDTH_CM), WD_TAB_ALIGNMENT.RIGHT)
+    _run(paragraph, "\t")
+    _math(paragraph, body.strip(), size=BODY_PT, italic=False)
+    _run(paragraph, f"\t{number}")
+
+
+_TOKEN_STOP = set(" \t_^{}(),，·+−-=<>≥≤/|[]:")
+
+
+def _split_scripts(text: str) -> list[tuple[str, str]]:
+    """Split math text into ('', base) / ('_', sub) / ('^', sup) pieces.
+
+    Braced scripts may nest (``Σ_{k∈{attr,scene}}``, ``Σ_{τ∈T_k}``); a script
+    is the brace-balanced group, or the run of token characters after ``_``.
+    Underscores inside a script are flattened (``T_k`` → ``Tk``) because Word
+    runs support one level of sub/superscript.
+    """
+    pieces: list[tuple[str, str]] = []
+    buffer: list[str] = []
+    i = 0
+    while i < len(text):
+        ch = text[i]
+        if ch in "_^" and i + 1 < len(text):
+            if buffer:
+                pieces.append(("", "".join(buffer)))
+                buffer = []
+            j = i + 1
+            if text[j] == "{":
+                depth, k = 0, j
+                while k < len(text):
+                    depth += text[k] == "{"
+                    depth -= text[k] == "}"
+                    if depth == 0:
+                        break
+                    k += 1
+                script = text[j + 1:k]
+                i = k + 1
+            else:
+                k = j
+                while k < len(text) and text[k] not in _TOKEN_STOP:
+                    k += 1
+                script = text[j:k]
+                i = k
+            script = re.sub(r"_\{([^{}]*)\}", r"\1", script).replace("_", "")
+            pieces.append((ch, script))
+            continue
+        buffer.append(ch)
+        i += 1
+    if buffer:
+        pieces.append(("", "".join(buffer)))
+    return pieces
+
+
+def _math(paragraph, text: str, *, size: float, italic: bool) -> None:
+    """Render ``a_b`` / ``a_{bc}`` as subscripts and ``a^b`` as superscripts."""
+    for kind, piece in _split_scripts(text):
+        if not piece:
+            continue
+        run = _run(paragraph, piece, font=LATIN_FONT, size=size, italic=italic if not kind else False)
+        if kind == "_":
+            run.font.subscript = True
+        elif kind == "^":
+            run.font.superscript = True
+
+
+def _page_number_footer(section, fmt: str) -> None:
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
+
+    section.footer.is_linked_to_previous = False
+    footer = section.footer.paragraphs[0]
+    footer.text = ""
+    footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _field(footer, "PAGE")
+    sect_pr = section._sectPr
+    pg = sect_pr.find(qn("w:pgNumType"))
+    if pg is None:
+        pg = OxmlElement("w:pgNumType")
+        sect_pr.append(pg)
+    pg.set(qn("w:fmt"), fmt)
+    pg.set(qn("w:start"), "1")
+
+
+def _header(section, text: str) -> None:
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
+
+    section.header.is_linked_to_previous = False
+    header = section.header.paragraphs[0]
+    header.text = ""
+    header.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    _run(header, text, size=10.5)
+    p_pr = header._p.get_or_add_pPr()
+    borders = OxmlElement("w:pBdr")
+    bottom = OxmlElement("w:bottom")
+    for key, value in (("val", "single"), ("sz", "6"), ("space", "1"), ("color", "000000")):
+        bottom.set(qn(f"w:{key}"), value)
+    borders.append(bottom)
+    p_pr.append(borders)
+
+
+def _page_setup(section) -> None:
+    from docx.shared import Cm
+
+    section.page_width, section.page_height = Cm(21.0), Cm(29.7)
+    section.top_margin, section.bottom_margin = Cm(3.0), Cm(2.5)
+    section.left_margin = section.right_margin = Cm(2.6)
+    section.header_distance, section.footer_distance = Cm(2.0), Cm(1.5)
+
+
+def split_blocks(markdown: str) -> list[str]:
+    return [part.strip("\n") for part in re.split(r"\n\s*\n", markdown.strip()) if part.strip()]
+
+
+def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: str = "",
+                base_dirs: Iterable[Path] = ()) -> dict:
+    """Create an editable DOCX. Raises on missing assets instead of hiding them."""
     from docx import Document
     from docx.enum.section import WD_SECTION
-    from docx.enum.text import WD_ALIGN_PARAGRAPH
-    from docx.shared import Cm, Pt
+    from docx.enum.text import WD_BREAK
+    from docx.shared import Pt
 
+    base_dirs = list(base_dirs)
     document = Document()
-    section = document.sections[0]
-    section.page_width = Cm(21.0)
-    section.page_height = Cm(29.7)
-    section.top_margin = Cm(3.0)
-    section.bottom_margin = Cm(2.5)
-    section.left_margin = Cm(2.6)
-    section.right_margin = Cm(2.6)
-    section.header_distance = Cm(1.5)
-    section.footer_distance = Cm(1.3)
-
+    _page_setup(document.sections[0])
     styles = document.styles
-    _configure_style(styles["Normal"], "宋体", 12)
-    _configure_style(styles["Title"], "黑体", 18, bold=True)
-    for name, size in (("Heading 1", 16), ("Heading 2", 14), ("Heading 3", 12), ("Heading 4", 12)):
-        _configure_style(styles[name], "黑体", size, bold=True)
-        _clear_style_borders(styles[name])
-        styles[name].paragraph_format.keep_with_next = True
-        styles[name].paragraph_format.space_before = Pt(4 if name != "Heading 1" else 8)
-        styles[name].paragraph_format.space_after = Pt(3)
-    if "Caption" in styles:
-        _configure_style(styles["Caption"], "宋体", 10.5)
-    _clear_style_borders(styles["Title"])
+    _strip_theme_fonts(document)
+    _style(styles["Normal"], BODY_FONT, BODY_PT)
+    _style(styles["Title"], HEADING_FONT, 22, bold=True)
+    for name, size in (("Heading 1", 16), ("Heading 2", 14), ("Heading 3", 12)):
+        _style(styles[name], HEADING_FONT, size, bold=False)
+        fmt = styles[name].paragraph_format
+        fmt.keep_with_next = True
+        fmt.space_before = Pt({"Heading 1": 18, "Heading 2": 12, "Heading 3": 6}[name])
+        fmt.space_after = Pt({"Heading 1": 18, "Heading 2": 6, "Heading 3": 3}[name])
+    _style(styles["Caption"], BODY_FONT, 10.5)
+    for level in (1, 2, 3):
+        if f"TOC {level}" in [s.name for s in styles]:
+            _style(styles[f"TOC {level}"], BODY_FONT, 12)
 
-    header = section.header.paragraphs[0]
-    header.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    header_run = header.add_run(title[:48])
-    _set_run_font(header_run, "宋体", 10.5)
-    footer = section.footer.paragraphs[0]
-    footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    prefix = footer.add_run("— ")
-    _set_run_font(prefix, "Times New Roman", 10.5)
-    _add_field(footer, "PAGE")
-    separator = footer.add_run(" / ")
-    _set_run_font(separator, "Times New Roman", 10.5)
-    _add_field(footer, "NUMPAGES")
-    suffix = footer.add_run(" —")
-    _set_run_font(suffix, "Times New Roman", 10.5)
+    blocks = split_blocks(markdown)
+    title_text = title
+    if blocks and blocks[0].startswith("# "):
+        title_text = blocks.pop(0)[2:].strip()
 
-    blocks = [part.strip() for part in re.split(r"\n\s*\n", markdown.strip()) if part.strip()]
-    seen_title = False
-    for block_index, block in enumerate(blocks):
-        if _add_image(document, block, base_dirs):
+    # Cover page (no header/number).
+    cover = document.sections[0]
+    for _ in range(6):
+        document.add_paragraph()
+    paragraph = document.add_paragraph(style="Title")
+    _paragraph_format(paragraph, indent=False, align="center", line_pt=36)
+    # Break a "主标题：副标题" cover title after the colon instead of letting
+    # Word wrap inside a word.
+    head, sep, tail = title_text.partition("：")
+    _run(paragraph, head + sep, font=HEADING_FONT, size=22, bold=True)
+    if tail:
+        paragraph.add_run().add_break()
+        _run(paragraph, tail, font=HEADING_FONT, size=22, bold=True)
+    cover_lines = []
+    while blocks and blocks[0].startswith("> "):
+        cover_lines.extend(line[2:].strip() for line in blocks.pop(0).splitlines())
+    for _ in range(8):
+        document.add_paragraph()
+    for line in cover_lines:
+        p = document.add_paragraph()
+        _paragraph_format(p, indent=False, align="center", line_pt=28)
+        _inline(p, line, size=14)
+
+    state = "front"
+    section = document.add_section(WD_SECTION.NEW_PAGE)
+    _header(section, title or title_text)  # caller passes a short running title
+    _page_number_footer(section, "upperRoman")
+    cover.different_first_page_header_footer = False
+    first_in_section = True
+    pending_table_caption: str | None = None
+    counts = {"figures": 0, "tables": 0, "equations": 0, "headings": 0}
+
+    def new_page() -> None:
+        nonlocal first_in_section
+        if not first_in_section:
+            document.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
+            document.paragraphs[-1].paragraph_format.space_after = Pt(0)
+        first_in_section = False
+
+    for index, block in enumerate(blocks):
+        stripped = block.strip()
+        if stripped == "[[TOC]]":
+            new_page()
+            # Not a Heading style: the TOC title must not list itself.
+            p = document.add_paragraph()
+            _paragraph_format(p, indent=False, align="center", line_pt=24, before=18, after=18)
+            _run(p, "目　　录", font=HEADING_FONT, size=16)
+            toc = document.add_paragraph()
+            _field(toc, 'TOC \\o "1-3" \\h \\z \\u', "（目录由 Word 更新域生成）", size=12)
             continue
-        if all(line.strip().startswith("|") for line in block.splitlines() if line.strip()):
-            _add_table(document, block)
+        heading = re.match(r"^(#{2,4})\s+(.+)$", stripped)
+        if heading and "\n" not in stripped:
+            level = len(heading.group(1)) - 1
+            text = heading.group(2).strip()
+            counts["headings"] += 1
+            if level == 1:
+                if state == "front" and CHAPTER_PATTERN.match(text):
+                    state = "body"
+                    section = document.add_section(WD_SECTION.NEW_PAGE)
+                    _page_number_footer(section, "decimal")
+                    first_in_section = True
+                elif state == "body" and BACK_PATTERN.match(text):
+                    state = "back"
+                new_page()
+            p = document.add_paragraph(style=f"Heading {level}")
+            if level == 1:
+                p.alignment = 1
+            _run(p, text, font=HEADING_FONT, size={1: 16, 2: 14, 3: 12}[level])
             continue
-        lines = block.splitlines()
-        if len(lines) == 1:
-            line = lines[0].strip()
-            heading = re.match(r"^(#{1,6})\s+(.+)$", line)
-            if heading:
-                level = len(heading.group(1))
-                text = _plain_inline(heading.group(2).strip())
-                if level == 1:
-                    paragraph = document.add_paragraph(style="Title")
-                    paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    paragraph.paragraph_format.space_after = Pt(10)
-                    run = paragraph.add_run(text)
-                    _set_run_font(run, "黑体", 18, bold=True)
-                    seen_title = True
-                else:
-                    style_name = f"Heading {min(level, 4)}"
-                    paragraph = document.add_paragraph(style=style_name)
-                    next_block = blocks[block_index + 1] if block_index + 1 < len(blocks) else ""
-                    next_is_heading = bool(re.match(r"^#{1,6}\s+", next_block.strip()))
-                    # Keep a heading with its first body block, but do not let
-                    # a run of empty headings travel as one giant keep-together
-                    # chain onto a nearly blank page.
-                    paragraph.paragraph_format.keep_with_next = not next_is_heading
-                    run = paragraph.add_run(text)
-                    _set_run_font(run, "黑体", {2: 16, 3: 14, 4: 12}.get(level, 12), bold=True)
-                continue
-            if line.startswith("> "):
-                paragraph = document.add_paragraph()
-                _set_paragraph_body(paragraph, indent=False, space_after=2)
-                paragraph.paragraph_format.left_indent = Cm(0.5)
-                run = paragraph.add_run(_plain_inline(line[2:]))
-                _set_run_font(run, "宋体", 10.5)
-                continue
-            if line.startswith(("- ", "* ", "+ ")):
-                paragraph = document.add_paragraph(style="List Bullet")
-                _set_paragraph_body(paragraph, indent=False, space_after=2)
-                run = paragraph.add_run(_plain_inline(line[2:]))
-                _set_run_font(run, "宋体", 10.5)
-                continue
-
-        if all(line.strip().startswith("> ") for line in lines if line.strip()):
+        first_in_section = False
+        image = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", stripped)
+        if image:
+            _figure(document, image.group(1), image.group(2), base_dirs)
+            counts["figures"] += 1
+            continue
+        equation = re.fullmatch(r"\$\$(.+?)\$\$\s*(（?\(?\d+-\d+\)?）?)", stripped, re.S)
+        if equation:
+            _equation(document, equation.group(1), equation.group(2))
+            counts["equations"] += 1
+            continue
+        lines = [line for line in stripped.splitlines() if line.strip()]
+        if lines and re.match(r"^表\s*\d+-\d+", lines[0]) and len(lines) > 1 and lines[1].strip().startswith("|"):
+            _caption(document, lines[0].strip(), keep_with_next=True)
+            lines = lines[1:]
+            stripped = "\n".join(lines)
+        elif (len(lines) == 1 and re.match(r"^表\s*\d+-\d+", lines[0]) and index + 1 < len(blocks)
+              and blocks[index + 1].lstrip().startswith("|")):
+            pending_table_caption = lines[0]
+            continue
+        if all(line.strip().startswith("|") for line in lines):
+            if pending_table_caption:
+                _caption(document, pending_table_caption, keep_with_next=True)
+                pending_table_caption = None
+            rows = _parse_table(stripped)
+            if rows:
+                note_follows = index + 1 < len(blocks) and blocks[index + 1].lstrip().startswith("注：")
+                _three_line_table(document, rows, note_follows=note_follows)
+                counts["tables"] += 1
+            continue
+        if lines and lines[0].startswith("注："):
+            p = document.add_paragraph()
+            _paragraph_format(p, indent=False, align="justify", line_pt=16, before=2, after=6)
+            _inline(p, " ".join(line.strip() for line in lines), size=10.5)
+            continue
+        if all(line.startswith(("- ", "* ")) for line in lines):
             for line in lines:
-                paragraph = document.add_paragraph()
-                _set_paragraph_body(paragraph, indent=False, space_after=1)
-                paragraph.paragraph_format.left_indent = Cm(0.5)
-                run = paragraph.add_run(_plain_inline(line.strip()[2:]))
-                _set_run_font(run, "宋体", 10.5)
+                p = document.add_paragraph()
+                _paragraph_format(p, indent=True)
+                _inline(p, "· " + line[2:].strip())
             continue
-
-        if all(line.strip().startswith(("- ", "* ", "+ ")) for line in lines if line.strip()):
+        if all(re.match(r"^\d+[.、)]\s", line) for line in lines):
             for line in lines:
-                paragraph = document.add_paragraph(style="List Bullet")
-                _set_paragraph_body(paragraph, indent=False, space_after=2)
-                run = paragraph.add_run(_plain_inline(line.strip()[2:]))
-                _set_run_font(run, "宋体", 10.5)
+                p = document.add_paragraph()
+                _paragraph_format(p, indent=True)
+                _inline(p, line.strip())
             continue
+        if all(line.startswith("> ") for line in lines):
+            for line in lines:
+                p = document.add_paragraph()
+                _paragraph_format(p, indent=False)
+                _inline(p, line[2:])
+            continue
+        if state == "back" and re.match(r"^\[\d+\]", lines[0]):
+            for line in lines:
+                p = document.add_paragraph()
+                # Left-aligned: justified reference lines with long URLs open wide gaps.
+                _paragraph_format(p, indent=False, align="left", line_pt=18)
+                p.paragraph_format.left_indent = Pt(24)
+                p.paragraph_format.first_line_indent = Pt(-24)
+                _run(p, line.strip(), size=10.5)
+            continue
+        p = document.add_paragraph()
+        _paragraph_format(p)
+        _inline(p, "".join(line.strip() for line in lines))
 
-        paragraph = document.add_paragraph()
-        _set_paragraph_body(paragraph)
-        _add_inline_runs(paragraph, "".join(line.strip() for line in lines))
-
-    document.core_properties.title = title or "博士论文式竞赛申报书"
-    document.core_properties.subject = "开放词汇遥感目标检测与可靠语义校准"
-    document.core_properties.comments = "Generated by autoartical doctoral-thesis document workflow"
+    document.core_properties.title = title_text
+    document.core_properties.subject = subject
+    document.core_properties.comments = "Generated by autoartical docx_export (single formal source)"
     settings = document.settings.element
-    update_fields = settings.find("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}updateFields")
-    if update_fields is None:
+    update = settings.find(f"{W_NS}updateFields")
+    if update is None:
         from docx.oxml import OxmlElement
 
-        update_fields = OxmlElement("w:updateFields")
-        settings.append(update_fields)
-    update_fields.set("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}val", "true")
+        update = OxmlElement("w:updateFields")
+        settings.append(update)
+    update.set(f"{W_NS}val", "true")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     document.save(output_path)
-    return {"path": str(output_path), "format": "docx", "editable": True}
+    return {"path": str(output_path), "format": "docx", "editable": True, **counts}

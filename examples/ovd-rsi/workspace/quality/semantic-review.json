@@ -1,0 +1,8 @@
+{
+ "argument_chain": {"verdict": "pass", "note": "第1章领域—子领域—挑战，第2章路线假设与缺口，第3章假设与否证条件，第4章方法，第5章逐项检验，链条闭合；三个缺口在第3、4、5章均有对应。"},
+ "evidence_strength": {"verdict": "pass", "note": "引用数值均可回到 citation-verification.json 中的摘要原文；推断性陈述在表注中标为本文推断；第7章结论限定为设计层面判断。"},
+ "figures_match_text": {"verdict": "pass", "note": "5 幅示意图图注均标明示意图并与所在小节逐项对应；图2-1 由登记数据绘制，FAIR1M 下限值已在图中标注。"},
+ "tables_interpretable": {"verdict": "pass", "note": "22 张表均有编号、正文引用和表注；结果表全部为待实测，无估计值；原文数值不跨协议比较。"},
+ "terminology": {"verdict": "pass", "note": "新类/基础类、水平框/旋转框、可靠程度、三态决策等术语全文一致；英文仅用于方法名、数据集名和指标缩写。"},
+ "planned_vs_measured": {"verdict": "pass", "note": "全文无实测结果；所有阈值写明为预先设定的判定线；部署与成本分析标为推断。"}
+}

@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-17T07:20:26+00:00",
+  "auto_check": {
+    "status": "pass",
+    "stale_reasons": [],
+    "failures": [],
+    "warnings": [],
+    "page_counts": {
+      "front": 6,
+      "body": 41,
+      "references": 2,
+      "appendix": 0
+    }
+  },
+  "human_review": {
+    "status": "pass",
+    "stale_reasons": [],
+    "open_blockers": 0,
+    "missing_semantic": [],
+    "failed_semantic": [],
+    "coverage": "full-page 方式查看 20/49 页（不得表述为逐页核验）"
+  },
+  "deliverable": "pass"
+}

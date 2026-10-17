@@ -54,5 +54,14 @@
     "note": "已查看三幕递进图：固定词汇、文本查询、遥感风险审查的图意清楚，画面与首张港口问题场景图区别明显，未出现虚构指标。",
     "reviewed_at": "2026-09-23T13:38:54+00:00"
   },
-  "source_draft_sha256": "6a011852003cdd46eec57a84ab241cb6f3160e73551d2325ac7cdc75372d4a34"
+  "source_draft_sha256": "6a011852003cdd46eec57a84ab241cb6f3160e73551d2325ac7cdc75372d4a34",
+  "placement_review": {
+    "draft_sha256": "b4f173a5ba7f2907b67d7b128a338dfb37eb607390784283787520b0b8776687",
+    "verdict": "pass",
+    "argument_role": "framework",
+    "no_fabrication": true,
+    "fit_note": "图1-1，1.4 节。三栏依次对应固定类别、开放查询、分级决策，与正文描述一致；图中只有图标与框，无数值或伪造指标；图注已标明示意图。印刷宽度 14 cm 下各栏可辨。（复核：本轮正文仅修改表注，图所在小节文字未变，重新确认图意与正文一致）",
+    "reviewed_on": "2026-10-17",
+    "method": "Word 导出 PDF 后在 110 dpi 全页渲染中查看插图所在页"
+  }
 }

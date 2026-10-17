@@ -1,0 +1,30 @@
+[
+ {
+  "page": 36,
+  "severity": "minor",
+  "issue": "表5-9 整表移至下一页，正文第 30 页（PDF 第 36 页）底部约四成留白；自动检查版心填充率 0.75 刚好通过",
+  "action": "可在 5.10 节补充失败样例统计口径的说明以填补，不调版式",
+  "status": "open"
+ },
+ {
+  "page": 2,
+  "severity": "minor",
+  "issue": "页眉短标题“开放词汇遥感目标检测与可靠语义校准”与封面副标题措辞不同",
+  "action": "页眉改为默认使用封面题名（run_document_export 传入 running_title）",
+  "status": "resolved"
+ },
+ {
+  "page": 48,
+  "severity": "minor",
+  "issue": "DIOR[2]、FAIR1M[3]、Küppers[22] 已正式发表，当前按 arXiv 预印本著录为 [EB/OL]",
+  "action": "补充 DOI 并改为期刊/会议著录",
+  "status": "open"
+ },
+ {
+  "page": 20,
+  "severity": "minor",
+  "issue": "式 (4-2) 中 Σ 下标为 k∈{attr,scene}，下标在 Word 中为单层下标，可读但非标准公式排版",
+  "action": "需要时改用 Word 公式编辑器 (OMML)",
+  "status": "open"
+ }
+]

@@ -1,0 +1,152 @@
+{
+  "kind": "human-review",
+  "reviewer": "Claude (Opus 5.5), 2026-10-17",
+  "recorded_at": "2026-10-17T07:09:41+00:00",
+  "pdf_sha256": "282c79d74684bc09d6720f108c87763cb548608484a8607b28dfffcb11931695",
+  "docx_sha256": "abe07e566beab4cd5a20a5217ffb58fd1d37188aaeac58149c7ffd36e78faea9",
+  "visual": {
+    "method": "full-page",
+    "dpi": 110,
+    "pages_inspected": [
+      {
+        "page": 1,
+        "render_sha256": "4e414f46033e181f5f617e13a09aa73d541910c8e25b392166f558b86a1909a3"
+      },
+      {
+        "page": 2,
+        "render_sha256": "d880d6568f231c504dd16a8b559f71bff8cf9cf57546cddd94c498ebe52eb5f9"
+      },
+      {
+        "page": 29,
+        "render_sha256": "2461dbd86b55a68039df5e481772b8025374d6dc43cea3dcff14d09b60d2c1f0"
+      },
+      {
+        "page": 30,
+        "render_sha256": "89e2a6ac10b7f483ad5febb4db313ebf3f5cbc1a83efcd6784ec6beabe29c1b7"
+      },
+      {
+        "page": 31,
+        "render_sha256": "3545de849017e45a27ef269dac94969ec482d127bca2301424ab969ff4a71d5b"
+      },
+      {
+        "page": 32,
+        "render_sha256": "4febe6f7ae63e5fbd74eada6934580644552456cb3f20e73c20d0fe6977740f6"
+      },
+      {
+        "page": 33,
+        "render_sha256": "41d7d2e47c8e346144cf6d27b4e3b809809241b8ca67d7ab7f7ec3d653126b4e"
+      },
+      {
+        "page": 34,
+        "render_sha256": "b3fb9ab4385009425921aa7e4cdc911bf419044fa79add40a3bca8cd80fe9a3b"
+      },
+      {
+        "page": 35,
+        "render_sha256": "176ae4c1c805b4e3f16f2aa7d2c861fba58207ff17e78418840213a2267a98da"
+      },
+      {
+        "page": 36,
+        "render_sha256": "9d0593705b376d59538a5616600e7151e2a8fbbb26f5b37f4a5ec895a6f8393b"
+      },
+      {
+        "page": 37,
+        "render_sha256": "f655863dc90ad1aebf73ce446654cf4d0d052b277fc1df8e3540d88714ac2797"
+      },
+      {
+        "page": 38,
+        "render_sha256": "326ed00806f4d61aa2904176b3a3596f21d00005e8a988e4e170f01a6927e266"
+      },
+      {
+        "page": 39,
+        "render_sha256": "1852d1a5f3e45a82be330ac298f4c4f78ad6da3c508215ba061aa7bbdb0e62d9"
+      },
+      {
+        "page": 40,
+        "render_sha256": "db540ab129fe6e7b8deca6e41eed591b837a3d02e74d502fd6f5adf3986f7f52"
+      },
+      {
+        "page": 41,
+        "render_sha256": "ccfe2fbe0f748ab235b4faa884c55ac4e502d0b7888ca8f0490b8a19a61b882c"
+      },
+      {
+        "page": 42,
+        "render_sha256": "f03f06159fe7a6cbc3a8220eeecf8e49855a725197de7a0ab1c0340793eb3d4b"
+      },
+      {
+        "page": 43,
+        "render_sha256": "b6bd194d7c7fac19070352ce705b438d3401b7538fc33f558bc82511520ba93b"
+      },
+      {
+        "page": 44,
+        "render_sha256": "ad91407dd56d1165cb09f1af6dc3c7c2e453f656a52f8a6b309423ad76f5c2e7"
+      },
+      {
+        "page": 45,
+        "render_sha256": "3f1da5609de02b5afce3b0ecb23818f4eef53c85fb335e43bce2c0ad86b1671b"
+      },
+      {
+        "page": 46,
+        "render_sha256": "7d11f55469ade013d44efbd3ef9ab297985bacfa1f04dd2a171af22c7b0f5247"
+      }
+    ],
+    "coverage_claim": "full-page 方式查看 20/49 页（不得表述为逐页核验）"
+  },
+  "semantic": {
+    "argument_chain": {
+      "verdict": "pass",
+      "note": "第1章领域—子领域—挑战，第2章路线假设与缺口，第3章假设与否证条件，第4章方法，第5章逐项检验，链条闭合；三个缺口在第3、4、5章均有对应。"
+    },
+    "evidence_strength": {
+      "verdict": "pass",
+      "note": "引用数值均可回到 citation-verification.json 中的摘要原文；推断性陈述在表注中标为本文推断；第7章结论限定为设计层面判断。"
+    },
+    "figures_match_text": {
+      "verdict": "pass",
+      "note": "5 幅示意图图注均标明示意图并与所在小节逐项对应；图2-1 由登记数据绘制，FAIR1M 下限值已在图中标注。"
+    },
+    "tables_interpretable": {
+      "verdict": "pass",
+      "note": "22 张表均有编号、正文引用和表注；结果表全部为待实测，无估计值；原文数值不跨协议比较。"
+    },
+    "terminology": {
+      "verdict": "pass",
+      "note": "新类/基础类、水平框/旋转框、可靠程度、三态决策等术语全文一致；英文仅用于方法名、数据集名和指标缩写。"
+    },
+    "planned_vs_measured": {
+      "verdict": "pass",
+      "note": "全文无实测结果；所有阈值写明为预先设定的判定线；部署与成本分析标为推断。"
+    }
+  },
+  "findings": [
+    {
+      "page": 36,
+      "severity": "minor",
+      "issue": "表5-9 整表移至下一页，正文第 30 页（PDF 第 36 页）底部约四成留白；自动检查版心填充率 0.75 刚好通过",
+      "action": "可在 5.10 节补充失败样例统计口径的说明以填补，不调版式",
+      "status": "open"
+    },
+    {
+      "page": 2,
+      "severity": "minor",
+      "issue": "页眉短标题“开放词汇遥感目标检测与可靠语义校准”与封面副标题措辞不同",
+      "action": "页眉改为默认使用封面题名（run_document_export 传入 running_title）",
+      "status": "resolved"
+    },
+    {
+      "page": 48,
+      "severity": "minor",
+      "issue": "DIOR[2]、FAIR1M[3]、Küppers[22] 已正式发表，当前按 arXiv 预印本著录为 [EB/OL]",
+      "action": "补充 DOI 并改为期刊/会议著录",
+      "status": "open"
+    },
+    {
+      "page": 20,
+      "severity": "minor",
+      "issue": "式 (4-2) 中 Σ 下标为 k∈{attr,scene}，下标在 Word 中为单层下标，可读但非标准公式排版",
+      "action": "需要时改用 Word 公式编辑器 (OMML)",
+      "status": "open"
+    }
+  ],
+  "note": "本轮在 110 dpi 全幅渲染上查看第 1–2 页及第 29–46 页：这些页包含修改后的表注、页眉题名与受影响的分页。其余 29 页与上一轮（49/49 页全幅逐页查看的渲染）相比，经逐页文本比对，正文文字逐字相同，仅页眉一行不同，本轮未重新查看图像。语义审查结论沿用并已对照本轮改动复核。",
+  "rule": "人工记录只陈述实际查看的内容；自动检查结论不得复制为人工结论。"
+}

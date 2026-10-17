@@ -1,0 +1,8 @@
+# Quality records hash exporter code and sources byte-for-byte; keep LF on every platform.
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.docx binary
+*.pdf binary
+*.png binary

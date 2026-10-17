@@ -1,272 +1,210 @@
 {
-  "generated_at": "2026-09-29T17:39:37+00:00",
-  "project_name": "OpenRSI-Calibrator：开放词汇遥感目标检测与可靠语义校准",
+  "generated_at": "2026-10-17T07:09:43+00:00",
+  "project_name": "OpenRSI-Calibrator",
+  "source": "workspace/document_writing/正式稿.md",
   "formats": {
-    "markdown": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.md",
-    "html": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.html",
-    "docx": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.docx",
-    "pdf": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.pdf"
+    "docx": "作品书_OpenRSI-Calibrator.docx",
+    "pdf": "作品书_OpenRSI-Calibrator.pdf",
+    "html_preview": "作品书_OpenRSI-Calibrator.预览.html"
+  },
+  "pdf_producer": "Microsoft Word（由交付 DOCX 导出）",
+  "page_policy": "正文不少于 40 页，不设上限；超出部分必须是实质内容",
+  "page_counts": {
+    "front": 6,
+    "body": 41,
+    "references": 2,
+    "appendix": 0
+  },
+  "manuscript_lint": {
+    "verdict": "pass",
+    "stats": {
+      "headings": 60,
+      "heading_depth": 4,
+      "paragraphs": 157,
+      "median_paragraph_chars": 170,
+      "references": 24,
+      "citations_distinct": 24,
+      "chapter_chars": {
+        "第1章 绪论": 3355,
+        "第2章 相关研究与研究缺口": 5099,
+        "第3章 研究设计与可证伪假设": 3633,
+        "第4章 OpenRSI-Calibrator 方法": 5370,
+        "第5章 实验方案": 7638,
+        "第6章 系统实现与应用场景": 2677,
+        "第7章 结论与研究局限": 696
+      }
+    }
   },
   "content_gate": {
     "passed": true,
-    "failures": [],
-    "per_chapter": [
-      {
-        "heading": "一、作品概述与问题定义",
-        "minimum": 2400,
-        "prose_units": 4919,
-        "duplicate_paragraph_groups": 0
-      },
-      {
-        "heading": "二、作品设计与总体架构",
-        "minimum": 1300,
-        "prose_units": 3010,
-        "duplicate_paragraph_groups": 0
-      },
-      {
-        "heading": "三、核心创新与关键技术",
-        "minimum": 1450,
-        "prose_units": 3619,
-        "duplicate_paragraph_groups": 0
-      },
-      {
-        "heading": "四、作品实现与运行闭环",
-        "minimum": 2500,
-        "prose_units": 4117,
-        "duplicate_paragraph_groups": 0
-      },
-      {
-        "heading": "五、测试与效果分析",
-        "minimum": 4000,
-        "prose_units": 6758,
-        "duplicate_paragraph_groups": 0
-      },
-      {
-        "heading": "六、应用前景与落地价值",
-        "minimum": 1100,
-        "prose_units": 2841,
-        "duplicate_paragraph_groups": 0
-      },
-      {
-        "heading": "七、总结与展望",
-        "minimum": 11250,
-        "prose_units": 13035,
-        "duplicate_paragraph_groups": 0
-      }
-    ],
-    "prose_units": 38299,
-    "duplicate_paragraph_groups": 0,
-    "contract": {
-      "target_pages": [
-        40,
-        50
-      ],
-      "body_units_min": 24000,
-      "body_units_target": 32000,
-      "page_scope": "正文；不含封面、目录、参考文献及附录",
-      "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
-      "visual_contract": {
-        "required_specs_min": 18,
-        "required_external_assets_min": 12,
-        "required_tables_min": 5,
-        "required_diagrams_min": 8,
-        "required_case_or_ui_visuals_min": 4,
-        "required_asset_ratio": 1.0,
-        "all_visuals_must_be_cited": true,
-        "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
-      },
-      "export_contract": {
-        "required_formats": [
-          "markdown",
-          "html",
-          "docx",
-          "pdf"
-        ],
-        "render_verification": "required_before_delivery",
-        "page_count_must_be_in_range": true,
-        "visual_qa_required": true
-      },
-      "render_verification": "required_before_delivery"
-    },
-    "semantic_review": "required: evidence, specificity, nonredundancy",
-    "render_verification": "pending; prose volume does not establish page count"
+    "prose_units": 24184,
+    "duplicate_paragraph_groups": 0
   },
   "visual_gate": {
     "passed": true,
-    "failures": [],
-    "required_specs": 34,
-    "external_specs": 22,
-    "available_assets": 22,
-    "requested_assets": 0,
-    "missing_assets": 0,
-    "available_ids": [
-      "s1_visual_1",
-      "s1_visual_2",
-      "s1_visual_4",
-      "s2_visual_1",
-      "s2_visual_2",
-      "s2_visual_3",
-      "s2_visual_4",
-      "s2_mvp",
-      "s3_visual_2",
-      "s3_visual_3",
-      "s3_visual_4",
-      "s3_visual_5",
-      "s4_visual_2",
-      "s4_visual_3",
-      "s4_visual_5",
-      "s4_visual_6",
-      "s_validation_visual_4",
-      "s5_visual_3",
-      "s5_visual_4",
-      "s5_visual_5",
-      "s6_visual_2",
-      "s6_visual_3"
-    ],
-    "requested_ids": [],
-    "missing_ids": [],
-    "invalid_assets": {},
-    "uncited_labels": [],
-    "tables_in_draft": 18,
-    "table_quality": {
-      "has_units": true,
-      "has_sources": true,
-      "has_statistical_basis": true,
-      "has_missing_value_rule": true
-    },
-    "diagram_specs": 25,
-    "case_or_ui_specs": 4,
-    "asset_ratio": 1.0,
-    "contract": {
-      "required_specs_min": 18,
-      "required_external_assets_min": 12,
-      "required_tables_min": 5,
-      "required_diagrams_min": 8,
-      "required_case_or_ui_visuals_min": 4,
-      "required_asset_ratio": 1.0,
-      "all_visuals_must_be_cited": true,
-      "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
-    }
-  },
-  "format_gate": {
-    "profile": "doctoral-thesis-style",
-    "paper": "A4",
-    "body_font_pt": 12,
-    "margins_mm": {
-      "top": 30,
-      "bottom": 25,
-      "left": 26,
-      "right": 26
-    },
-    "heading_hierarchy": "chapter-section-subsection",
-    "toc": true,
-    "header_footer": true,
-    "figure_table_numbering": "chapter-sequence",
-    "reference_style": "GB/T 7714 顺序编码制",
-    "source": "workflow/references/doctoral-thesis-format.md",
-    "heading_numbering": "explicit-text-numbering-all-h2-h6; front-matter=0.x; body=第N章/N.N/N.N.N",
-    "docx_styles": {
-      "body_font": "宋体 12pt",
-      "latin_font": "Times New Roman",
-      "heading_font": "黑体",
-      "line_spacing": "固定值 20pt",
-      "first_line_indent": "2字符",
-      "output": "editable DOCX"
-    }
-  },
-  "humanized_writing_gate": {
-    "passed": true,
-    "paragraph_count": 307,
-    "normalized_paragraph_count": 262,
-    "fragmentation": {
-      "raw_short_paragraph_count": 143,
-      "raw_short_paragraph_ratio": 0.466,
-      "normalized_short_paragraph_count": 78,
-      "normalized_short_paragraph_ratio": 0.298,
-      "passed": true,
-      "merge_rule": "同一标题范围内，短于 120 有效字元的连续正文段合并至 140–360，有图表、列表、引用和标题时停止。"
-    },
-    "empty_headings": {
-      "raw_count": 35,
-      "normalized_count": 0,
-      "passed": true,
-      "rule": "无正文、表格或图片的连续占位标题不进入交付副本。"
-    },
-    "pattern_counts": {
-      "模糊归因": 0,
-      "泛化价值结论": 0,
-      "段末总结套句": 0
-    },
-    "filler_counts": {},
-    "repeated_starts": {},
-    "rhythm": {
-      "sentence_count": 1377,
-      "mean_chars": 35.71,
-      "min_chars": 3,
-      "max_chars": 1765,
-      "length_variation": 49.34
-    },
-    "hard_failures": [],
-    "warnings": [
-      "原稿短段落占比 47%；交付副本已按同一小节自动合并，合并后为 30%",
-      "原稿存在 35 个无正文标题；交付副本已删除连续占位标题，剩余 0 个需补证据"
-    ],
-    "score": 90,
-    "disclaimer": "该 gate 评估专业化和模板化风险，不等同于任何商用 AI 检测器读数，也不用于规避检测。"
-  },
-  "render_gate": {
-    "verified": true,
-    "renderer_available": true,
-    "backend": "pymupdf",
-    "page_count": 48,
-    "page_range": [
-      40,
-      50
-    ],
-    "embedded_image_count": 22,
-    "raster_qa_samples": [
+    "figures": [
       {
-        "page": 1,
-        "image": "workspace/document_export/qa_samples/page-01.png"
+        "label": "图1-1",
+        "kind": "imagegen",
+        "source": "workspace/document_assets/figures/s1_visual_2.png",
+        "passed": true,
+        "reason": ""
       },
       {
-        "page": 7,
-        "image": "workspace/document_export/qa_samples/page-07.png"
+        "label": "图2-1",
+        "kind": "data-chart",
+        "source": "workspace/document_assets/charts/rs_benchmark_scale_chart.png",
+        "passed": true,
+        "reason": ""
       },
       {
-        "page": 24,
-        "image": "workspace/document_export/qa_samples/page-24.png"
+        "label": "图4-1",
+        "kind": "imagegen",
+        "source": "workspace/document_assets/figures/s2_visual_2.png",
+        "passed": true,
+        "reason": ""
       },
       {
-        "page": 48,
-        "image": "workspace/document_export/qa_samples/page-48.png"
+        "label": "图4-2",
+        "kind": "imagegen",
+        "source": "workspace/document_assets/figures/s3_visual_2.png",
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "label": "图4-3",
+        "kind": "imagegen",
+        "source": "workspace/document_assets/figures/s3_visual_3.png",
+        "passed": true,
+        "reason": ""
+      },
+      {
+        "label": "图5-1",
+        "kind": "imagegen",
+        "source": "workspace/document_assets/figures/s_validation_visual_4.png",
+        "passed": true,
+        "reason": ""
       }
     ],
-    "density_check": "pass",
-    "minimum_page_occupancy": 0.6922,
-    "visual_qa": "pass",
-    "report_path": "workspace\\document_export\\render-report.json",
-    "note": "必须通过 PDF/DOCX 实际渲染逐页核验并写入 render-report.json；HTML 生成不等于页数核验。"
+    "tables": [
+      {
+        "label": "表1-1",
+        "rows": 4,
+        "problems": []
+      },
+      {
+        "label": "表2-1",
+        "rows": 4,
+        "problems": []
+      },
+      {
+        "label": "表2-2",
+        "rows": 4,
+        "problems": []
+      },
+      {
+        "label": "表2-3",
+        "rows": 5,
+        "problems": []
+      },
+      {
+        "label": "表3-1",
+        "rows": 5,
+        "problems": []
+      },
+      {
+        "label": "表3-2",
+        "rows": 4,
+        "problems": []
+      },
+      {
+        "label": "表4-1",
+        "rows": 3,
+        "problems": []
+      },
+      {
+        "label": "表4-2",
+        "rows": 6,
+        "problems": []
+      },
+      {
+        "label": "表5-1",
+        "rows": 6,
+        "problems": []
+      },
+      {
+        "label": "表5-2",
+        "rows": 4,
+        "problems": []
+      },
+      {
+        "label": "表5-3",
+        "rows": 4,
+        "problems": []
+      },
+      {
+        "label": "表5-4",
+        "rows": 10,
+        "problems": []
+      },
+      {
+        "label": "表5-5",
+        "rows": 7,
+        "problems": []
+      },
+      {
+        "label": "表5-6",
+        "rows": 5,
+        "problems": []
+      },
+      {
+        "label": "表5-7",
+        "rows": 5,
+        "problems": []
+      },
+      {
+        "label": "表5-8",
+        "rows": 5,
+        "problems": []
+      },
+      {
+        "label": "表5-9",
+        "rows": 7,
+        "problems": []
+      },
+      {
+        "label": "表6-1",
+        "rows": 7,
+        "problems": []
+      },
+      {
+        "label": "表6-2",
+        "rows": 3,
+        "problems": []
+      }
+    ]
   },
-  "docx_gate": {
-    "required": true,
-    "editable": true,
-    "path": "output\\作品书_OpenRSI-Calibrator_开放词汇遥感目标检测与可靠语义校准.docx",
-    "verified": true,
-    "page_count": 66,
-    "page_range": [
-      40,
-      50
-    ],
-    "visual_qa": "pass",
-    "minimum_page_occupancy": 0.5857,
-    "report_path": "workspace\\document_export\\docx-render-report.json",
-    "page_count_policy": "Word reflow is engine-dependent; PDF enforces 40–50 pages, DOCX enforces full-content visual QA and >=40 pages.",
-    "sha256": "71b7a89ce4bfccedad32fe1b2e00b1b30955d11aa9d8d538ec6bb7d859eff5c9",
-    "source_formatted_sha256": "42b2961735a2420ded290d88bc56e1c553167625decf659eb8984a6088024415"
+  "auto_check": {
+    "status": "pass",
+    "stale_reasons": [],
+    "failures": [],
+    "warnings": [],
+    "page_counts": {
+      "front": 6,
+      "body": 41,
+      "references": 2,
+      "appendix": 0
+    }
   },
-  "review_verdict": "pass",
+  "human_review": {
+    "status": "pass",
+    "stale_reasons": [],
+    "open_blockers": 0,
+    "missing_semantic": [],
+    "failed_semantic": [],
+    "coverage": "full-page 方式查看 20/49 页（不得表述为逐页核验）"
+  },
   "final_verdict": "pass",
   "failures": [],
-  "rule": "只有内容、视觉、引用、渲染和逐页视觉 QA 都通过，才能称为完整 40–50 页交付。"
+  "rule": "自动检查、人工审查与内容门禁分别记录；任一记录过期或未通过即 blocked。"
 }

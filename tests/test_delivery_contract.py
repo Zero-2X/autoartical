@@ -110,33 +110,37 @@ class DeliveryContractTests(unittest.TestCase):
                 "visual_direction": "采用分层剖面和贯穿的数据流，而非通用方框模板。"}}
         self.assertGreater(len(compose_prompt(request)), 400)
 
-    def test_default_contract_makes_visual_and_export_requirements_explicit(self):
-        self.assertGreaterEqual(DEFAULT_CONTRACT["visual_contract"]["required_specs_min"], 18)
+    def test_default_contract_is_minimum_pages_and_per_figure(self):
+        self.assertEqual(DEFAULT_CONTRACT["target_pages"][0], 40)
+        self.assertIsNone(DEFAULT_CONTRACT["target_pages"][1])  # no upper limit
+        self.assertGreaterEqual(DEFAULT_CONTRACT["visual_contract"]["required_figures_min"], 1)
+        self.assertNotIn("required_external_assets_min", DEFAULT_CONTRACT["visual_contract"])
         self.assertIn("docx", DEFAULT_CONTRACT["export_contract"]["required_formats"])
         self.assertIn("pdf", DEFAULT_CONTRACT["export_contract"]["required_formats"])
 
-    def test_html_only_export_writes_manifest_without_claiming_rendered_pages(self):
+    def test_export_without_word_is_blocked_and_unhashed_review_is_ignored(self):
+        # The old exporter returned "pass" for an HTML-only run and trusted a
+        # quality-gate "pass" that recorded no hash of the text it reviewed.
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root / "workspace" / "document_plan").mkdir(parents=True)
             (root / "workspace" / "document_writing").mkdir(parents=True)
             (root / "workspace" / "document_review").mkdir(parents=True)
-            plan = {
-                "project_name": "测试项目",
-                "content_contract": {"body_units_min": 1, "visual_contract": {"required_specs_min": 0, "required_external_assets_min": 0, "required_tables_min": 0, "required_diagrams_min": 0, "required_case_or_ui_visuals_min": 0, "required_asset_ratio": 1.0, "all_visuals_must_be_cited": True}},
-                "sections": [{"heading": "正文", "suggested_word_budget": "1-1"}],
-            }
+            plan = {"project_name": "测试项目", "content_contract": {"body_units_min": 1, "visual_contract": {"required_figures_min": 0}},
+                    "sections": [{"heading": "第1章 正文", "suggested_word_budget": "1-1"}]}
             (root / "workspace" / "document_plan" / "section-plan.json").write_text(json.dumps(plan, ensure_ascii=False), encoding="utf-8")
-            (root / "workspace" / "document_writing" / "作品书草稿.md").write_text("# 测试项目\n\n## 正文\n\n有效内容。\n", encoding="utf-8")
+            (root / "workspace" / "document_writing" / "正式稿.md").write_text("# 测试项目\n\n## 第1章 正文\n\n有效内容。\n", encoding="utf-8")
             (root / "workspace" / "document_review" / "quality-gate.json").write_text(json.dumps({"verdict": "pass"}), encoding="utf-8")
             script = Path(__file__).resolve().parents[1] / "workflow" / "scripts" / "run_document_export.py"
-            result = subprocess.run([sys.executable, str(script), str(root), "--allow-html-only"], text=True, encoding="utf-8", errors="replace", capture_output=True)
-            self.assertEqual(result.returncode, 0, result.stderr)
+            result = subprocess.run([sys.executable, str(script), str(root), "--skip-word"], text=True, encoding="utf-8", errors="replace", capture_output=True)
+            self.assertEqual(result.returncode, 2, result.stderr)
             manifest = json.loads((root / "workspace" / "document_export" / "export-manifest.json").read_text(encoding="utf-8"))
-            self.assertEqual(manifest["final_verdict"], "pass")
-            self.assertFalse(manifest["render_gate"]["verified"])
-            self.assertTrue((root / "output" / "作品书_测试项目.html").exists())
-
+            self.assertEqual(manifest["final_verdict"], "blocked")
+            joined = " ".join(manifest["failures"])
+            self.assertIn("未运行 Word 导出", joined)
+            self.assertIn("未绑定当前正式稿", joined)
+            self.assertEqual(manifest["pdf_producer"], "未生成")
+            self.assertTrue((root / "output" / "作品书_测试项目.预览.html").exists())
 
 if __name__ == "__main__":
     unittest.main()

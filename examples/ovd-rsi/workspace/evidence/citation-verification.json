@@ -1,0 +1,848 @@
+{
+  "verdict": "pass",
+  "failures": [],
+  "records": [
+    {
+      "index": 1,
+      "key": "xia2018dota",
+      "status": "verified",
+      "entry": {
+        "key": "xia2018dota",
+        "arxiv": "1711.10398",
+        "expected_title": "DOTA: A Large-scale Dataset for Object Detection in Aerial Images",
+        "type": "C",
+        "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+        "venue_evidence": "arXiv comment: Accepted to CVPR 2018",
+        "claims": [
+          "DOTA v1.0: 2806 images, 15 categories, 188,282 instances, arbitrary quadrilateral (OBB) labels"
+        ],
+        "venue_year": 2018
+      },
+      "fetched": {
+        "title": "DOTA: A Large-scale Dataset for Object Detection in Aerial Images",
+        "authors": [
+          "Xia, Gui-Song",
+          "Bai, Xiang",
+          "Ding, Jian",
+          "Zhu, Zhen",
+          "Belongie, Serge",
+          "Luo, Jiebo",
+          "Datcu, Mihai",
+          "Pelillo, Marcello",
+          "Zhang, Liangpei"
+        ],
+        "date": "2017/11/28",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/1711.10398",
+        "comment": "Accepted to CVPR 2018"
+      },
+      "claims_supported": [
+        "DOTA v1.0: 2806 images, 15 categories, 188,282 instances, arbitrary quadrilateral (OBB) labels"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 2,
+      "key": "li2020dior",
+      "status": "verified",
+      "entry": {
+        "key": "li2020dior",
+        "arxiv": "1909.00133",
+        "expected_title": "Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark",
+        "doi_note": "ISPRS J. Photogramm. Remote Sens., 2020",
+        "claims": [
+          "DIOR: 23,463 images, 192,472 instances, 20 classes; large size variation, high inter-class similarity"
+        ]
+      },
+      "fetched": {
+        "title": "Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark",
+        "authors": [
+          "Li, Ke",
+          "Wan, Gang",
+          "Cheng, Gong",
+          "Meng, Liqiu",
+          "Han, Junwei"
+        ],
+        "date": "2019/08/31",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/1909.00133",
+        "comment": ""
+      },
+      "claims_supported": [
+        "DIOR: 23,463 images, 192,472 instances, 20 classes; large size variation, high inter-class similarity"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 3,
+      "key": "sun2022fair1m",
+      "status": "verified",
+      "entry": {
+        "key": "sun2022fair1m",
+        "arxiv": "2103.05569",
+        "expected_title": "FAIR1M: A Benchmark Dataset for Fine-grained Object Recognition in High-Resolution Remote Sensing Imagery",
+        "claims": [
+          "FAIR1M: >1M instances, >15,000 images, 5 categories/37 sub-categories, OBB"
+        ]
+      },
+      "fetched": {
+        "title": "FAIR1M: A Benchmark Dataset for Fine-grained Object Recognition in High-Resolution Remote Sensing Imagery",
+        "authors": [
+          "Sun, Xian",
+          "Wang, Peijin",
+          "Yan, Zhiyuan",
+          "Xu, Feng",
+          "Wang, Ruiping",
+          "Diao, Wenhui",
+          "Chen, Jin",
+          "Li, Jihao",
+          "Feng, Yingchao",
+          "Xu, Tao",
+          "Weinmann, Martin",
+          "Hinz, Stefan",
+          "Wang, Cheng",
+          "Fu, Kun"
+        ],
+        "date": "2021/03/09",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2103.05569",
+        "comment": "19 pages, 13 figures"
+      },
+      "claims_supported": [
+        "FAIR1M: >1M instances, >15,000 images, 5 categories/37 sub-categories, OBB"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 4,
+      "key": "ding2021dota2",
+      "status": "verified",
+      "entry": {
+        "key": "ding2021dota2",
+        "arxiv": "2102.12219",
+        "expected_title": "Object Detection in Aerial Images: A Large-Scale Benchmark and Challenges",
+        "claims": [
+          "DOTA-v2.0: 11,268 images, 18 categories, 1,793,658 instances"
+        ]
+      },
+      "fetched": {
+        "title": "Object Detection in Aerial Images: A Large-Scale Benchmark and Challenges",
+        "authors": [
+          "Ding, Jian",
+          "Xue, Nan",
+          "Xia, Gui-Song",
+          "Bai, Xiang",
+          "Yang, Wen",
+          "Yang, Micheal Ying",
+          "Belongie, Serge",
+          "Luo, Jiebo",
+          "Datcu, Mihai",
+          "Pelillo, Marcello",
+          "Zhang, Liangpei"
+        ],
+        "date": "2021/02/24",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2102.12219",
+        "comment": "Accepted to IEEE TPAMI"
+      },
+      "claims_supported": [
+        "DOTA-v2.0: 11,268 images, 18 categories, 1,793,658 instances"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 5,
+      "key": "xie2021orcnn",
+      "status": "verified",
+      "entry": {
+        "key": "xie2021orcnn",
+        "arxiv": "2108.05699",
+        "expected_title": "Oriented R-CNN for Object Detection",
+        "type": "C",
+        "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+        "venue_evidence": "arXiv comment: ICCV 2021",
+        "claims": [
+          "two-stage oriented detector; representative closed-set OBB baseline"
+        ],
+        "venue_year": 2021
+      },
+      "fetched": {
+        "title": "Oriented R-CNN for Object Detection",
+        "authors": [
+          "Xie, Xingxing",
+          "Cheng, Gong",
+          "Wang, Jiabao",
+          "Yao, Xiwen",
+          "Han, Junwei"
+        ],
+        "date": "2021/08/12",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2108.05699",
+        "comment": "ICCV 2021"
+      },
+      "claims_supported": [
+        "two-stage oriented detector; representative closed-set OBB baseline"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 6,
+      "key": "gu2022vild",
+      "status": "verified",
+      "entry": {
+        "key": "gu2022vild",
+        "arxiv": "2104.13921",
+        "expected_title": "Open-vocabulary Object Detection via Vision and Language Knowledge Distillation",
+        "type": "C",
+        "venue": "International Conference on Learning Representations (ICLR)",
+        "venue_evidence": "arXiv comment: ICLR Camera Ready",
+        "claims": [
+          "distill CLIP region embeddings into detector; LVIS rare held out as novel; 16.1 mask APr R50"
+        ],
+        "venue_year": 2022
+      },
+      "fetched": {
+        "title": "Open-vocabulary Object Detection via Vision and Language Knowledge Distillation",
+        "authors": [
+          "Gu, Xiuye",
+          "Lin, Tsung-Yi",
+          "Kuo, Weicheng",
+          "Cui, Yin"
+        ],
+        "date": "2021/04/28",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2104.13921",
+        "comment": "ICLR Camera Ready"
+      },
+      "claims_supported": [
+        "distill CLIP region embeddings into detector; LVIS rare held out as novel; 16.1 mask APr R50"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 7,
+      "key": "zhong2022regionclip",
+      "status": "verified",
+      "entry": {
+        "key": "zhong2022regionclip",
+        "arxiv": "2112.09106",
+        "expected_title": "RegionCLIP: Region-based Language-Image Pretraining",
+        "claims": [
+          "region-text alignment pretraining"
+        ]
+      },
+      "fetched": {
+        "title": "RegionCLIP: Region-based Language-Image Pretraining",
+        "authors": [
+          "Zhong, Yiwu",
+          "Yang, Jianwei",
+          "Zhang, Pengchuan",
+          "Li, Chunyuan",
+          "Codella, Noel",
+          "Li, Liunian Harold",
+          "Zhou, Luowei",
+          "Dai, Xiyang",
+          "Yuan, Lu",
+          "Li, Yin",
+          "Gao, Jianfeng"
+        ],
+        "date": "2021/12/16",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2112.09106",
+        "comment": "Technical report"
+      },
+      "claims_supported": [
+        "region-text alignment pretraining"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 8,
+      "key": "zhou2022detic",
+      "status": "verified",
+      "entry": {
+        "key": "zhou2022detic",
+        "arxiv": "2201.02605",
+        "expected_title": "Detecting Twenty-thousand Classes using Image-level Supervision",
+        "type": "C",
+        "venue": "European Conference on Computer Vision (ECCV)",
+        "venue_evidence": "arXiv comment: ECCV 2022 camera ready",
+        "claims": [
+          "image-level supervision expands vocabulary of classifier"
+        ],
+        "venue_year": 2022
+      },
+      "fetched": {
+        "title": "Detecting Twenty-thousand Classes using Image-level Supervision",
+        "authors": [
+          "Zhou, Xingyi",
+          "Girdhar, Rohit",
+          "Joulin, Armand",
+          "Krähenbühl, Philipp",
+          "Misra, Ishan"
+        ],
+        "date": "2022/01/07",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2201.02605",
+        "comment": "ECCV 2022 camera ready. Code is available at this https URL"
+      },
+      "claims_supported": [
+        "image-level supervision expands vocabulary of classifier"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 9,
+      "key": "li2022glip",
+      "status": "verified",
+      "entry": {
+        "key": "li2022glip",
+        "arxiv": "2112.03857",
+        "expected_title": "Grounded Language-Image Pre-training",
+        "type": "C",
+        "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+        "venue_evidence": "arXiv comment: CVPR 2022",
+        "claims": [
+          "detection reformulated as phrase grounding"
+        ],
+        "venue_year": 2022
+      },
+      "fetched": {
+        "title": "Grounded Language-Image Pre-training",
+        "authors": [
+          "Li, Liunian Harold",
+          "Zhang, Pengchuan",
+          "Zhang, Haotian",
+          "Yang, Jianwei",
+          "Li, Chunyuan",
+          "Zhong, Yiwu",
+          "Wang, Lijuan",
+          "Yuan, Lu",
+          "Zhang, Lei",
+          "Hwang, Jenq-Neng",
+          "Chang, Kai-Wei",
+          "Gao, Jianfeng"
+        ],
+        "date": "2021/12/07",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2112.03857",
+        "comment": "CVPR 2022; updated visualizations; fixed hyper-parameters in Appendix C.1"
+      },
+      "claims_supported": [
+        "detection reformulated as phrase grounding"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 10,
+      "key": "liu2023gdino",
+      "status": "verified",
+      "entry": {
+        "key": "liu2023gdino",
+        "arxiv": "2303.05499",
+        "expected_title": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
+        "claims": [
+          "DETR-style open-set detector with grounded pretraining"
+        ]
+      },
+      "fetched": {
+        "title": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
+        "authors": [
+          "Liu, Shilong",
+          "Zeng, Zhaoyang",
+          "Ren, Tianhe",
+          "Li, Feng",
+          "Zhang, Hao",
+          "Yang, Jie",
+          "Jiang, Qing",
+          "Li, Chunyuan",
+          "Yang, Jianwei",
+          "Su, Hang",
+          "Zhu, Jun",
+          "Zhang, Lei"
+        ],
+        "date": "2023/03/09",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2303.05499",
+        "comment": "Code will be available at this https URL"
+      },
+      "claims_supported": [
+        "DETR-style open-set detector with grounded pretraining"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 11,
+      "key": "minderer2022owlvit",
+      "status": "verified",
+      "entry": {
+        "key": "minderer2022owlvit",
+        "arxiv": "2205.06230",
+        "expected_title": "Simple Open-Vocabulary Object Detection with Vision Transformers",
+        "type": "C",
+        "venue": "European Conference on Computer Vision (ECCV)",
+        "venue_evidence": "arXiv comment: ECCV 2022 camera-ready version",
+        "claims": [
+          "image-text pretrained ViT transferred to detection end to end"
+        ],
+        "venue_year": 2022
+      },
+      "fetched": {
+        "title": "Simple Open-Vocabulary Object Detection with Vision Transformers",
+        "authors": [
+          "Minderer, Matthias",
+          "Gritsenko, Alexey",
+          "Stone, Austin",
+          "Neumann, Maxim",
+          "Weissenborn, Dirk",
+          "Dosovitskiy, Alexey",
+          "Mahendran, Aravindh",
+          "Arnab, Anurag",
+          "Dehghani, Mostafa",
+          "Shen, Zhuoran",
+          "Wang, Xiao",
+          "Zhai, Xiaohua",
+          "Kipf, Thomas",
+          "Houlsby, Neil"
+        ],
+        "date": "2022/05/12",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2205.06230",
+        "comment": "ECCV 2022 camera-ready version"
+      },
+      "claims_supported": [
+        "image-text pretrained ViT transferred to detection end to end"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 12,
+      "key": "cheng2024yoloworld",
+      "status": "verified",
+      "entry": {
+        "key": "cheng2024yoloworld",
+        "arxiv": "2401.17270",
+        "expected_title": "YOLO-World: Real-Time Open-Vocabulary Object Detection",
+        "claims": [
+          "RepVL-PAN, region-text contrastive loss; 35.4 AP LVIS at 52.0 FPS on V100"
+        ]
+      },
+      "fetched": {
+        "title": "YOLO-World: Real-Time Open-Vocabulary Object Detection",
+        "authors": [
+          "Cheng, Tianheng",
+          "Song, Lin",
+          "Ge, Yixiao",
+          "Liu, Wenyu",
+          "Wang, Xinggang",
+          "Shan, Ying"
+        ],
+        "date": "2024/01/30",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2401.17270",
+        "comment": "Work still in progress. Code &amp; models are available at: this https URL"
+      },
+      "claims_supported": [
+        "RepVL-PAN, region-text contrastive loss; 35.4 AP LVIS at 52.0 FPS on V100"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 13,
+      "key": "liu2024remoteclip",
+      "status": "verified",
+      "entry": {
+        "key": "liu2024remoteclip",
+        "arxiv": "2306.11029",
+        "expected_title": "RemoteCLIP: A Vision Language Foundation Model for Remote Sensing",
+        "claims": [
+          "RS VLM; +6.39% avg zero-shot classification over CLIP on 12 datasets; TGRS"
+        ]
+      },
+      "fetched": {
+        "title": "RemoteCLIP: A Vision Language Foundation Model for Remote Sensing",
+        "authors": [
+          "Liu, Fan",
+          "Chen, Delong",
+          "Guan, Zhangqingyun",
+          "Zhou, Xiaocong",
+          "Zhu, Jiale",
+          "Ye, Qiaolin",
+          "Fu, Liyong",
+          "Zhou, Jun"
+        ],
+        "date": "2023/06/19",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2306.11029",
+        "comment": "Accepted by IEEE Transactions on Geoscience and Remote Sensing (TGRS)"
+      },
+      "claims_supported": [
+        "RS VLM; +6.39% avg zero-shot classification over CLIP on 12 datasets; TGRS"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 14,
+      "key": "zhang2023rs5m",
+      "status": "verified",
+      "entry": {
+        "key": "zhang2023rs5m",
+        "arxiv": "2306.11300",
+        "expected_title": "RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing",
+        "claims": [
+          "5M RS image-text pairs; GeoRSCLIP"
+        ]
+      },
+      "fetched": {
+        "title": "RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing",
+        "authors": [
+          "Zhang, Zilun",
+          "Zhao, Tiancheng",
+          "Guo, Yulong",
+          "Yin, Jianwei"
+        ],
+        "date": "2023/06/20",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2306.11300",
+        "comment": "RS5M dataset v5"
+      },
+      "claims_supported": [
+        "5M RS image-text pairs; GeoRSCLIP"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 15,
+      "key": "wang2024skyscript",
+      "status": "verified",
+      "entry": {
+        "key": "wang2024skyscript",
+        "arxiv": "2312.12856",
+        "expected_title": "SkyScript: A Large and Semantically Diverse Vision-Language Dataset for Remote Sensing",
+        "type": "C",
+        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+        "venue_evidence": "arXiv comment: Accepted by AAAI 2024",
+        "claims": [
+          "semantically diverse RS VL dataset"
+        ],
+        "venue_year": 2024
+      },
+      "fetched": {
+        "title": "SkyScript: A Large and Semantically Diverse Vision-Language Dataset for Remote Sensing",
+        "authors": [
+          "Wang, Zhecheng",
+          "Prabha, Rajanie",
+          "Huang, Tianyuan",
+          "Wu, Jiajun",
+          "Rajagopal, Ram"
+        ],
+        "date": "2023/12/20",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2312.12856",
+        "comment": "Accepted by AAAI 2024"
+      },
+      "claims_supported": [
+        "semantically diverse RS VL dataset"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 16,
+      "key": "zang2024descreg",
+      "status": "verified",
+      "entry": {
+        "key": "zang2024descreg",
+        "arxiv": "2402.18233",
+        "expected_title": "Zero-Shot Aerial Object Detection with Visual Description Regularization",
+        "claims": [
+          "weak semantic-visual correlation of aerial objects; +4.5 mAP unseen on DIOR, +8.1 HM"
+        ]
+      },
+      "fetched": {
+        "title": "Zero-Shot Aerial Object Detection with Visual Description Regularization",
+        "authors": [
+          "Zang, Zhengqing",
+          "Lin, Chenyu",
+          "Tang, Chenwei",
+          "Wang, Tao",
+          "Lv, Jiancheng"
+        ],
+        "date": "2024/02/28",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2402.18233",
+        "comment": "13 pages, 3 figures"
+      },
+      "claims_supported": [
+        "weak semantic-visual correlation of aerial objects; +4.5 mAP unseen on DIOR, +8.1 HM"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 17,
+      "key": "li2024castdet",
+      "status": "verified",
+      "entry": {
+        "key": "li2024castdet",
+        "arxiv": "2311.11646",
+        "expected_title": "Toward Open Vocabulary Aerial Object Detection with CLIP-Activated Student-Teacher Learning",
+        "type": "C",
+        "venue": "European Conference on Computer Vision (ECCV)",
+        "venue_evidence": "arXiv comment: Accepted by ECCV2024",
+        "claims": [
+          "RemoteCLIP teacher; 46.5% mAP VisDroneZSD novel, +21.0 over prior OVD"
+        ],
+        "venue_year": 2024
+      },
+      "fetched": {
+        "title": "Toward Open Vocabulary Aerial Object Detection with CLIP-Activated Student-Teacher Learning",
+        "authors": [
+          "Li, Yan",
+          "Guo, Weiwei",
+          "Yang, Xue",
+          "Liao, Ning",
+          "He, Dunyun",
+          "Zhou, Jiaqi",
+          "Yu, Wenxian"
+        ],
+        "date": "2023/11/20",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2311.11646",
+        "comment": "Accepted by ECCV2024"
+      },
+      "claims_supported": [
+        "RemoteCLIP teacher; 46.5% mAP VisDroneZSD novel, +21.0 over prior OVD"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 18,
+      "key": "pan2024lae",
+      "status": "verified",
+      "entry": {
+        "key": "pan2024lae",
+        "arxiv": "2408.09110",
+        "expected_title": "Locate Anything on Earth: Advancing Open-Vocabulary Object Detection for Remote Sensing Community",
+        "claims": [
+          "LAE-1M from up to 10 datasets auto-annotated; LAE-DINO with DVC and VisGT; DIOR, DOTAv2.0, LAE-80C; natural-image OVD struggles on RS due to domain gap"
+        ]
+      },
+      "fetched": {
+        "title": "Locate Anything on Earth: Advancing Open-Vocabulary Object Detection for Remote Sensing Community",
+        "authors": [
+          "Pan, Jiancheng",
+          "Liu, Yanxing",
+          "Fu, Yuqian",
+          "Ma, Muyuan",
+          "Li, Jiahao",
+          "Paudel, Danda Pani",
+          "Van Gool, Luc",
+          "Huang, Xiaomeng"
+        ],
+        "date": "2024/08/17",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2408.09110",
+        "comment": "15 pages, 11 figures"
+      },
+      "claims_supported": [
+        "LAE-1M from up to 10 datasets auto-annotated; LAE-DINO with DVC and VisGT; DIOR, DOTAv2.0, LAE-80C; natural-image OVD struggles on RS due to domain gap"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 19,
+      "key": "wei2024rtovad",
+      "status": "verified",
+      "entry": {
+        "key": "wei2024rtovad",
+        "arxiv": "2408.12246",
+        "expected_title": "RT-OVAD: Real-Time Open-Vocabulary Aerial Object Detection via Image-Text Collaboration",
+        "claims": [
+          "real-time aerial OVD"
+        ]
+      },
+      "fetched": {
+        "title": "RT-OVAD: Real-Time Open-Vocabulary Aerial Object Detection via Image-Text Collaboration",
+        "authors": [
+          "Wei, Guoting",
+          "Yuan, Xia",
+          "Liu, Yu",
+          "Shang, Zhenhao",
+          "Xue, Xizhe",
+          "Wang, Peng",
+          "Yao, Kelu",
+          "Zhao, Chunxia",
+          "Zhang, Haokui",
+          "Xiao, Rong"
+        ],
+        "date": "2024/08/22",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2408.12246",
+        "comment": ""
+      },
+      "claims_supported": [
+        "real-time aerial OVD"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 20,
+      "key": "huang2025openrsd",
+      "status": "verified",
+      "entry": {
+        "key": "huang2025openrsd",
+        "arxiv": "2503.06146",
+        "expected_title": "OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images",
+        "claims": [
+          "multimodal prompts, multi-task heads (OBB/HBB), 7 datasets; +8.7% AP vs YOLO-World, 20.8 FPS"
+        ]
+      },
+      "fetched": {
+        "title": "OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images",
+        "authors": [
+          "Huang, Ziyue",
+          "Feng, Yongchao",
+          "Yang, Shuai",
+          "Liu, Ziqi",
+          "Liu, Qingjie",
+          "Wang, Yunhong"
+        ],
+        "date": "2025/03/08",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2503.06146",
+        "comment": "11 pages, 4 figures"
+      },
+      "claims_supported": [
+        "multimodal prompts, multi-task heads (OBB/HBB), 7 datasets; +8.7% AP vs YOLO-World, 20.8 FPS"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 21,
+      "key": "guo2017calibration",
+      "status": "verified",
+      "entry": {
+        "key": "guo2017calibration",
+        "arxiv": "1706.04599",
+        "expected_title": "On Calibration of Modern Neural Networks",
+        "type": "C",
+        "venue": "International Conference on Machine Learning (ICML)",
+        "venue_evidence": "arXiv comment: ICML 2017",
+        "claims": [
+          "modern networks miscalibrated; temperature scaling"
+        ],
+        "venue_year": 2017
+      },
+      "fetched": {
+        "title": "On Calibration of Modern Neural Networks",
+        "authors": [
+          "Guo, Chuan",
+          "Pleiss, Geoff",
+          "Sun, Yu",
+          "Weinberger, Kilian Q."
+        ],
+        "date": "2017/06/14",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/1706.04599",
+        "comment": "ICML 2017"
+      },
+      "claims_supported": [
+        "modern networks miscalibrated; temperature scaling"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 22,
+      "key": "kuppers2020dece",
+      "status": "verified",
+      "entry": {
+        "key": "kuppers2020dece",
+        "arxiv": "2004.13546",
+        "expected_title": "Multivariate Confidence Calibration for Object Detection",
+        "claims": [
+          "D-ECE; calibration conditioned on box position/size"
+        ]
+      },
+      "fetched": {
+        "title": "Multivariate Confidence Calibration for Object Detection",
+        "authors": [
+          "Küppers, Fabian",
+          "Kronenberger, Jan",
+          "Shantia, Amirhossein",
+          "Haselhoff, Anselm"
+        ],
+        "date": "2020/04/28",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2004.13546",
+        "comment": "Accepted on CVPR 2020 Workshop: &#34;2nd Workshop on Safe Artificial Intelligence for Automated Driving (SAIAD)&#34;"
+      },
+      "claims_supported": [
+        "D-ECE; calibration conditioned on box position/size"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 23,
+      "key": "kuzucu2024calib",
+      "status": "verified",
+      "entry": {
+        "key": "kuzucu2024calib",
+        "arxiv": "2405.20459",
+        "expected_title": "On Calibration of Object Detectors: Pitfalls, Evaluation and Baselines",
+        "claims": [
+          "D-ECE+TS evaluation pitfalls; post-hoc Platt/isotonic outperform train-time calibration; >7 D-ECE on COCO vs Cal-DETR"
+        ]
+      },
+      "fetched": {
+        "title": "On Calibration of Object Detectors: Pitfalls, Evaluation and Baselines",
+        "authors": [
+          "Kuzucu, Selim",
+          "Oksuz, Kemal",
+          "Sadeghi, Jonathan",
+          "Dokania, Puneet K."
+        ],
+        "date": "2024/05/30",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2405.20459",
+        "comment": "31 pages, 8 figures"
+      },
+      "claims_supported": [
+        "D-ECE+TS evaluation pitfalls; post-hoc Platt/isotonic outperform train-time calibration; >7 D-ECE on COCO vs Cal-DETR"
+      ],
+      "checked_on": "2026-10-16"
+    },
+    {
+      "index": 24,
+      "key": "yao2023ovdeval",
+      "status": "verified",
+      "entry": {
+        "key": "yao2023ovdeval",
+        "arxiv": "2308.13177",
+        "expected_title": "How to Evaluate the Generalization of Detection? A Benchmark for Comprehensive Open-Vocabulary Detection",
+        "claims": [
+          "OVDEval 9 subtasks hard negatives; top OVD models fail except simple object types; AP deceptive, NMS-AP proposed"
+        ]
+      },
+      "fetched": {
+        "title": "How to Evaluate the Generalization of Detection? A Benchmark for Comprehensive Open-Vocabulary Detection",
+        "authors": [
+          "Yao, Yiyang",
+          "Liu, Peng",
+          "Zhao, Tiancheng",
+          "Zhang, Qianqian",
+          "Liao, Jiajia",
+          "Fang, Chunxin",
+          "Lee, Kyusong",
+          "Wang, Qing"
+        ],
+        "date": "2023/08/25",
+        "registry": "arXiv",
+        "url": "https://arxiv.org/abs/2308.13177",
+        "comment": "Long paper accepted at AAAI 2024"
+      },
+      "claims_supported": [
+        "OVDEval 9 subtasks hard negatives; top OVD models fail except simple object types; AP deceptive, NMS-AP proposed"
+      ],
+      "checked_on": "2026-10-16"
+    }
+  ]
+}

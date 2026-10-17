@@ -6,20 +6,16 @@ from collections import Counter
 
 
 DEFAULT_CONTRACT = {
-    "target_pages": [40, 50],
+    "target_pages": [40, None],
+    "page_policy": "正文不少于 40 页，不设上限；超出部分必须是实质内容而非重复或排版放大",
     "body_units_min": 24000,
     "body_units_target": 32000,
     "page_scope": "正文；不含封面、目录、参考文献及附录",
     "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
     "visual_contract": {
-        "required_specs_min": 18,
-        "required_external_assets_min": 12,
-        "required_tables_min": 5,
-        "required_diagrams_min": 8,
-        "required_case_or_ui_visuals_min": 4,
-        "required_asset_ratio": 1.0,
+        "required_figures_min": 6,
         "all_visuals_must_be_cited": True,
-        "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。",
+        "rule": "不设 ImageGen 数量配额。每幅图须承担机制、比较、数据、案例或框架之一的论证作用；数据图必须由登记数据可复现绘制；表格须有来源注。",
     },
     "export_contract": {
         "required_formats": ["markdown", "html", "docx", "pdf"],
@@ -71,7 +67,9 @@ def prose_paragraphs(text: str) -> list[str]:
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
     text = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", text)
     text = re.sub(r"https?://\S+", "", text)
-    text = re.sub(r"<[^>]+>", "", text)
+    # Real HTML tags only: "<[^>]+>" also ate everything between a "p < τ" in
+    # one chapter and the next ">" chapters later.
+    text = re.sub(r"</?[A-Za-z][A-Za-z0-9-]*(?:\s[^<>\n]*)?>", "", text)
     text = re.sub(r"(?m)^\s*(?:#{1,6}\s.*|\|.*|\[[^\]]+\]:.*)$", "", text)
     text = re.sub(r"`[^`]*`|\$[^$\n]+\$|\[\d+(?:[,，–-]\d+)*\]", "", text)
     return [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]

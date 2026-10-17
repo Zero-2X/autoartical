@@ -1,0 +1,231 @@
+[
+ {
+  "key": "xia2018dota",
+  "arxiv": "1711.10398",
+  "expected_title": "DOTA: A Large-scale Dataset for Object Detection in Aerial Images",
+  "type": "C",
+  "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "venue_evidence": "arXiv comment: Accepted to CVPR 2018",
+  "claims": [
+   "DOTA v1.0: 2806 images, 15 categories, 188,282 instances, arbitrary quadrilateral (OBB) labels"
+  ],
+  "venue_year": 2018
+ },
+ {
+  "key": "li2020dior",
+  "arxiv": "1909.00133",
+  "expected_title": "Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark",
+  "doi_note": "ISPRS J. Photogramm. Remote Sens., 2020",
+  "claims": [
+   "DIOR: 23,463 images, 192,472 instances, 20 classes; large size variation, high inter-class similarity"
+  ]
+ },
+ {
+  "key": "sun2022fair1m",
+  "arxiv": "2103.05569",
+  "expected_title": "FAIR1M: A Benchmark Dataset for Fine-grained Object Recognition in High-Resolution Remote Sensing Imagery",
+  "claims": [
+   "FAIR1M: >1M instances, >15,000 images, 5 categories/37 sub-categories, OBB"
+  ]
+ },
+ {
+  "key": "ding2021dota2",
+  "arxiv": "2102.12219",
+  "expected_title": "Object Detection in Aerial Images: A Large-Scale Benchmark and Challenges",
+  "claims": [
+   "DOTA-v2.0: 11,268 images, 18 categories, 1,793,658 instances"
+  ]
+ },
+ {
+  "key": "xie2021orcnn",
+  "arxiv": "2108.05699",
+  "expected_title": "Oriented R-CNN for Object Detection",
+  "type": "C",
+  "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+  "venue_evidence": "arXiv comment: ICCV 2021",
+  "claims": [
+   "two-stage oriented detector; representative closed-set OBB baseline"
+  ],
+  "venue_year": 2021
+ },
+ {
+  "key": "gu2022vild",
+  "arxiv": "2104.13921",
+  "expected_title": "Open-vocabulary Object Detection via Vision and Language Knowledge Distillation",
+  "type": "C",
+  "venue": "International Conference on Learning Representations (ICLR)",
+  "venue_evidence": "arXiv comment: ICLR Camera Ready",
+  "claims": [
+   "distill CLIP region embeddings into detector; LVIS rare held out as novel; 16.1 mask APr R50"
+  ],
+  "venue_year": 2022
+ },
+ {
+  "key": "zhong2022regionclip",
+  "arxiv": "2112.09106",
+  "expected_title": "RegionCLIP: Region-based Language-Image Pretraining",
+  "claims": [
+   "region-text alignment pretraining"
+  ]
+ },
+ {
+  "key": "zhou2022detic",
+  "arxiv": "2201.02605",
+  "expected_title": "Detecting Twenty-thousand Classes using Image-level Supervision",
+  "type": "C",
+  "venue": "European Conference on Computer Vision (ECCV)",
+  "venue_evidence": "arXiv comment: ECCV 2022 camera ready",
+  "claims": [
+   "image-level supervision expands vocabulary of classifier"
+  ],
+  "venue_year": 2022
+ },
+ {
+  "key": "li2022glip",
+  "arxiv": "2112.03857",
+  "expected_title": "Grounded Language-Image Pre-training",
+  "type": "C",
+  "venue": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "venue_evidence": "arXiv comment: CVPR 2022",
+  "claims": [
+   "detection reformulated as phrase grounding"
+  ],
+  "venue_year": 2022
+ },
+ {
+  "key": "liu2023gdino",
+  "arxiv": "2303.05499",
+  "expected_title": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
+  "claims": [
+   "DETR-style open-set detector with grounded pretraining"
+  ]
+ },
+ {
+  "key": "minderer2022owlvit",
+  "arxiv": "2205.06230",
+  "expected_title": "Simple Open-Vocabulary Object Detection with Vision Transformers",
+  "type": "C",
+  "venue": "European Conference on Computer Vision (ECCV)",
+  "venue_evidence": "arXiv comment: ECCV 2022 camera-ready version",
+  "claims": [
+   "image-text pretrained ViT transferred to detection end to end"
+  ],
+  "venue_year": 2022
+ },
+ {
+  "key": "cheng2024yoloworld",
+  "arxiv": "2401.17270",
+  "expected_title": "YOLO-World: Real-Time Open-Vocabulary Object Detection",
+  "claims": [
+   "RepVL-PAN, region-text contrastive loss; 35.4 AP LVIS at 52.0 FPS on V100"
+  ]
+ },
+ {
+  "key": "liu2024remoteclip",
+  "arxiv": "2306.11029",
+  "expected_title": "RemoteCLIP: A Vision Language Foundation Model for Remote Sensing",
+  "claims": [
+   "RS VLM; +6.39% avg zero-shot classification over CLIP on 12 datasets; TGRS"
+  ]
+ },
+ {
+  "key": "zhang2023rs5m",
+  "arxiv": "2306.11300",
+  "expected_title": "RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing",
+  "claims": [
+   "5M RS image-text pairs; GeoRSCLIP"
+  ]
+ },
+ {
+  "key": "wang2024skyscript",
+  "arxiv": "2312.12856",
+  "expected_title": "SkyScript: A Large and Semantically Diverse Vision-Language Dataset for Remote Sensing",
+  "type": "C",
+  "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "venue_evidence": "arXiv comment: Accepted by AAAI 2024",
+  "claims": [
+   "semantically diverse RS VL dataset"
+  ],
+  "venue_year": 2024
+ },
+ {
+  "key": "zang2024descreg",
+  "arxiv": "2402.18233",
+  "expected_title": "Zero-Shot Aerial Object Detection with Visual Description Regularization",
+  "claims": [
+   "weak semantic-visual correlation of aerial objects; +4.5 mAP unseen on DIOR, +8.1 HM"
+  ]
+ },
+ {
+  "key": "li2024castdet",
+  "arxiv": "2311.11646",
+  "expected_title": "Toward Open Vocabulary Aerial Object Detection with CLIP-Activated Student-Teacher Learning",
+  "type": "C",
+  "venue": "European Conference on Computer Vision (ECCV)",
+  "venue_evidence": "arXiv comment: Accepted by ECCV2024",
+  "claims": [
+   "RemoteCLIP teacher; 46.5% mAP VisDroneZSD novel, +21.0 over prior OVD"
+  ],
+  "venue_year": 2024
+ },
+ {
+  "key": "pan2024lae",
+  "arxiv": "2408.09110",
+  "expected_title": "Locate Anything on Earth: Advancing Open-Vocabulary Object Detection for Remote Sensing Community",
+  "claims": [
+   "LAE-1M from up to 10 datasets auto-annotated; LAE-DINO with DVC and VisGT; DIOR, DOTAv2.0, LAE-80C; natural-image OVD struggles on RS due to domain gap"
+  ]
+ },
+ {
+  "key": "wei2024rtovad",
+  "arxiv": "2408.12246",
+  "expected_title": "RT-OVAD: Real-Time Open-Vocabulary Aerial Object Detection via Image-Text Collaboration",
+  "claims": [
+   "image-to-text alignment loss replaces category regression; image-text collaboration encoder + text-guided decoder; DIOR 87.7 AP50, DOTA-v2.0 53.8 mAP, LAE-80C 23.7 mAP; 34 FPS RTX4090 vs LAE-DINO 10 FPS"
+  ]
+ },
+ {
+  "key": "huang2025openrsd",
+  "arxiv": "2503.06146",
+  "expected_title": "OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images",
+  "claims": [
+   "multimodal prompts, multi-task heads (OBB/HBB), 7 datasets; +8.7% AP vs YOLO-World, 20.8 FPS"
+  ]
+ },
+ {
+  "key": "guo2017calibration",
+  "arxiv": "1706.04599",
+  "expected_title": "On Calibration of Modern Neural Networks",
+  "type": "C",
+  "venue": "International Conference on Machine Learning (ICML)",
+  "venue_evidence": "arXiv comment: ICML 2017",
+  "claims": [
+   "modern networks miscalibrated; temperature scaling"
+  ],
+  "venue_year": 2017
+ },
+ {
+  "key": "kuppers2020dece",
+  "arxiv": "2004.13546",
+  "expected_title": "Multivariate Confidence Calibration for Object Detection",
+  "claims": [
+   "D-ECE; calibration conditioned on box position/size"
+  ]
+ },
+ {
+  "key": "kuzucu2024calib",
+  "arxiv": "2405.20459",
+  "expected_title": "On Calibration of Object Detectors: Pitfalls, Evaluation and Baselines",
+  "claims": [
+   "D-ECE+TS evaluation pitfalls; post-hoc Platt/isotonic outperform train-time calibration; >7 D-ECE on COCO vs Cal-DETR"
+  ]
+ },
+ {
+  "key": "yao2023ovdeval",
+  "arxiv": "2308.13177",
+  "expected_title": "How to Evaluate the Generalization of Detection? A Benchmark for Comprehensive Open-Vocabulary Detection",
+  "claims": [
+   "OVDEval 9 subtasks hard negatives; top OVD models fail except simple object types; AP deceptive, NMS-AP proposed"
+  ]
+ }
+]
