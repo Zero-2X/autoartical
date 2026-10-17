@@ -67,8 +67,14 @@ def _imagegen_record(topic_dir: Path, visual_id: str, draft: str) -> tuple[bool,
         return False, "该图尚未完成 ImageGen 生成与目视审查", ""
     if draft:
         from visual_prompting import manuscript_sha256
-        if request.get("source_draft_sha256") != manuscript_sha256(draft):
-            return False, "文章正文已变化，图像理解和 Prompt 需要重新审查", ""
+        current = manuscript_sha256(draft)
+        placement = request.get("placement_review", {})
+        # The prompt stays bound to the text it was written from; a later draft
+        # may reuse the image only after a fresh placement review of that draft.
+        if request.get("source_draft_sha256") != current and not (
+                placement.get("draft_sha256") == current and placement.get("verdict") == "pass"
+                and placement.get("no_fabrication") is True and len(str(placement.get("fit_note", ""))) >= 30):
+            return False, "正文已变化，需重新做该图与当前正文的放置审查（placement_review）", ""
     if not isinstance(understanding, dict) or not all(
         [len(str(understanding.get("context_excerpt", ""))) >= 60,
          len(str(understanding.get("key_message", ""))) >= 15,
@@ -229,3 +235,89 @@ def build_visual_gate(topic_dir: Path, plan: dict[str, Any], draft: str) -> dict
         "asset_ratio": ratio,
         "contract": contract,
     }
+
+
+ARGUMENT_ROLES = {"mechanism", "comparison", "data", "case", "framework"}
+
+
+def _chart_record(topic_dir: Path, path: Path) -> tuple[bool, str]:
+    """Data charts: reproducible from recorded data + script, never ImageGen."""
+    meta = path.with_suffix(".provenance.json")
+    if not meta.exists():
+        return False, "数据图缺少 provenance.json"
+    record = json.loads(meta.read_text(encoding="utf-8"))
+    for key in ("data", "script"):
+        target = topic_dir / record.get(key, "")
+        if not target.is_file():
+            return False, f"数据图缺少可复现输入：{key}"
+        if hashlib.sha256(target.read_bytes()).hexdigest() != record.get(f"{key}_sha256"):
+            return False, f"数据图的 {key} 已变化，需重新绘制"
+    if hashlib.sha256(path.read_bytes()).hexdigest() != record.get("image_sha256"):
+        return False, "数据图图片与绘制记录不一致"
+    if not record.get("sources"):
+        return False, "数据图未登记数据来源"
+    if record.get("argument_role") not in ARGUMENT_ROLES:
+        return False, "数据图未说明论证作用"
+    return True, ""
+
+
+def build_figure_table_gate(topic_dir: Path, draft: str, contract: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Per-figure/per-table checks replacing count quotas.
+
+    Every figure must be cited in prose, declare an argument role, and pass its
+    provenance check (ImageGen record or reproducible chart).  Every table must
+    have a numbered caption and a note stating source and, where relevant,
+    units/statistical basis/missing-value convention.
+    """
+    contract = contract or {}
+    failures: list[str] = []
+    figures = re.findall(r"(?m)^!\[(图\s*\d+-\d+)([^\]]*)\]\(([^)]+)\)", draft)
+    rows = []
+    hashes: dict[str, str] = {}
+    for label, caption, source in figures:
+        path = (topic_dir / source).resolve()
+        if not path.is_file():
+            failures.append(f"{label} 图片不存在：{source}")
+            continue
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest in hashes:
+            failures.append(f"{label} 与 {hashes[digest]} 使用同一图片")
+        hashes[digest] = label
+        if "charts" in path.parts:
+            ok, reason = _chart_record(topic_dir, path)
+            kind = "data-chart"
+        else:
+            ok, reason, _ = _imagegen_record(topic_dir, path.stem, draft)
+            request = path.with_name(path.stem + ".request.json")
+            role = json.loads(request.read_text(encoding="utf-8")).get("placement_review", {}).get("argument_role") if request.exists() else None
+            if ok and role not in ARGUMENT_ROLES:
+                ok, reason = False, "未说明该图在当前正文中的论证作用"
+            kind = "imagegen"
+        if not ok:
+            failures.append(f"{label}：{reason}")
+        rows.append({"label": label.replace(" ", ""), "kind": kind, "source": source, "passed": ok, "reason": reason})
+    # Blank lines between caption, table and note are normal Markdown; the
+    # previous pattern allowed none, so no table in the manuscript was checked.
+    tables = re.findall(r"(?m)^(表\s*\d+-\d+[^\n]*)\n(?:[ \t]*\n)*((?:\|.*\n?)+)(?:[ \t]*\n)*(注：[^\n]*)?", draft)
+    table_rows = []
+    for caption, body, note in tables:
+        label = re.match(r"表\s*\d+-\d+", caption).group(0)
+        problems = []
+        if not note:
+            problems.append("缺少表注")
+        elif not any(k in note for k in ("来源", "依据", "出处")):
+            problems.append("表注未说明来源或依据")
+        lines = [l for l in body.strip().splitlines() if l.strip()]
+        if len(lines) < 3:
+            problems.append("表格少于两行数据")
+        if problems:
+            failures.append(f"{label}：" + "、".join(problems))
+        table_rows.append({"label": label, "rows": len(lines) - 2, "problems": problems})
+    table_count = sum(1 for block in re.split(r"\n\s*\n", draft) if block.lstrip().startswith("|"))
+    if table_count != len(tables):
+        failures.append(f"正文有 {table_count} 张表，只有 {len(tables)} 张带“表N-M”表题，未带表题的表无法检查表注")
+    minimum_figures = int(contract.get("required_figures_min", 0) or 0)
+    if len(figures) < minimum_figures:
+        failures.append(f"图少于 {minimum_figures} 幅：关键论证缺少图示支撑")
+    return {"passed": not failures, "failures": failures, "figures": rows, "tables": table_rows,
+            "rule": "不设 ImageGen 数量配额；每幅图须承担明确论证作用，数据图须可复现，表格须有来源说明。"}

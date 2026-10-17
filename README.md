@@ -63,8 +63,12 @@ python workflow/scripts/register_imagegen_asset.py ./my-topic --figure-id <图�
 # 所有必需配图完成后继续联合审查和导出
 python run_workflow.py ./my-topic --from-step run_document_review
 
-# 没有 PDF/DOCX 渲染器时只生成 HTML 预览，不会宣称页数达标
-python run_workflow.py ./my-topic --from-step run_document_export --allow-html-only
+# 以 Word 为唯一正式源导出 DOCX，并由 Word 导出 PDF；无 Word 时用 --skip-word 只出预览（结果为 blocked）
+python workflow/scripts/run_document_export.py ./my-topic
+
+# 登记人工逐页/语义审查，并校验所有质量记录是否仍与当前文件哈希一致
+python workflow/scripts/qa_ledger.py record ./my-topic --reviewer 姓名 --method full-page --pages all --semantic semantic.json --note 查看说明
+python workflow/scripts/qa_ledger.py verify ./my-topic --source ./my-topic/workspace/document_writing/正式稿.md --docx <docx> --pdf <pdf>
 
 # 对已有文档做联合专业审查
 python workflow/scripts/evaluate_document.py examples/bridge-risk/proposal.md \
@@ -94,15 +98,15 @@ python workflow/scripts/iteration_memory.py examples/bridge-risk/iteration-memor
 
 可直接打开 [完整工作流 HTML 页面](docs/workflow.html) 查看流程、研究链路和质量门禁。
 
-PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。配图必须在章节正文形成后进行：先阅读对应小节并写逐图 `article_understanding`，再生成完整详细的 Prompt，逐张调用 Codex 内置 `image_gen`，目视审查后登记原图、Prompt 散列和来源。旧 SVG 或只有图片文件都不能通过视觉门禁。详见 [逐图 ImageGen 工作法](workflow/references/imagegen-figures.md)。
+PPT 组装、演示文稿和外部图像 API 不在本仓库范围内。示意图必须在章节正文形成后进行；有数值坐标轴的数据图改用 `make_chart.py` 从登记数据可复现绘制，不交给 ImageGen：先阅读对应小节并写逐图 `article_understanding`，再生成完整详细的 Prompt，逐张调用 Codex 内置 `image_gen`，目视审查后登记原图、Prompt 散列和来源。旧 SVG 或只有图片文件都不能通过视觉门禁。详见 [逐图 ImageGen 工作法](workflow/references/imagegen-figures.md)。
 
 ## 专业评审口径
 
 自动研究会先回答“领域是什么、为什么研究、子领域是什么、为什么选择、通用挑战及影响、Current methods 分类与优缺点、关键缺口、科学设计 rationale、case study、benchmark/baseline/metrics 与实验目的”，再允许进入正文规划。详见 [自动研究工作流](workflow/references/automatic-research.md)。
 
-长文默认要求 **40–50 页实质正文**，从选题开始即进入合同。规划器分配 24000–32000 个中文字符／英文词元的起始预算，并同时分配视觉规格、素材请求和导出要求；逐章和全书检查排除标题、表格、代码、图片及重复段落。交付前必须通过内容、视觉、引用和实际渲染门禁；PDF 全页栅格密度下限为 0.55，不能以空白页凑页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
+长文默认要求 **正文不少于 40 页的实质内容（不设上限）**，从选题开始即进入合同。规划器分配 24000–32000 个中文字符／英文词元的起始预算，并同时分配视觉规格、素材请求和导出要求；逐章和全书检查排除标题、表格、代码、图片及重复段落。交付前必须通过正文检查（`manuscript_lint.py`）、篇幅、逐图逐表来源检查和 Word 实排版式检查；正文非章末页的版心填充率不低于 0.75，不能以缩放、改边距或空白页凑页数。详见 [内容深度规范](workflow/references/content-depth.md) 和 [开源融合调研](docs/open-source-integration.md)。
 
-正式文档默认使用 [博士论文式申报书版式契约](workflow/references/doctoral-thesis-format.md)：A4、上/下/左/右约 30/25/26/26 mm、宋体 12 pt 正文、英文数字 Times New Roman、黑体标题、固定值 20 pt 行距、首行缩进、显式章—节—小节编号、目录、页眉页脚和 GB/T 7714 顺序编码制。导出器同时生成可编辑 Word 和 PDF，并对两种格式分别渲染验收。正文写作同时运行 [专业化与作者化写作契约](workflow/references/humanized-academic-writing.md) 和 `writing_style_gate.py`，自动合并同一论证范围内的碎片段落，只修复无信息的模板化表达，保留事实、引用、术语、条件和结论强度。
+正式文档默认使用 [博士论文式申报书版式契约](workflow/references/doctoral-thesis-format.md)：A4、上/下/左/右约 30/25/26/26 mm、宋体 12 pt 正文、英文数字 Times New Roman、黑体标题、固定值 20 pt 行距、首行缩进、显式章—节—小节编号、目录、页眉页脚和 GB/T 7714 顺序编码制。可编辑 Word 是唯一正式源，PDF 由 Word 从该 DOCX 导出，两者版式一致；自动检查与人工审查分别记录并绑定文件哈希。段落的合并与拆分按语义由作者决定，导出器不再按字数拼接段落，见 [学术表达技能](skills/humanized-academic-writing/SKILL.md)。2026-10 的审计与修复记录见 [docs/audit-2026-10.md](docs/audit-2026-10.md)。
 
 短选题卡不会被当作最终交付：`evaluate_document.py` 默认使用 `long_form_required`，有效正文不足 24000 个单位时直接退回修订，并同步检查段落密度、重复、引用及问题—机制—实验—边界语义覆盖。`--allow-short` 只用于显式标注的种子评审；`workflow/scripts/audit_workflow.py` 可检查仓库是否仍保留这些硬门禁。
 

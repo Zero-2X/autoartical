@@ -3,7 +3,12 @@ __pycache__/
 .venv/
 .env
 sample/
-examples/ovd-rsi/output/*.pdf
+examples/ovd-rsi/output/*_开放词汇遥感目标检测与可靠语义校准.pdf
+examples/ovd-rsi/output/~$*
+examples/*/workspace/quality/pages/
+examples/*/workspace/quality/after/
+.audit_tmp/
+.research/
 examples/ovd-rsi/workspace/document_export/page-*.png
 examples/ovd-rsi/workspace/document_export/*_renders/
 examples/ovd-rsi/workspace/document_export/*-contact-sheet*.png

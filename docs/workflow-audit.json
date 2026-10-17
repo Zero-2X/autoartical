@@ -2,21 +2,17 @@
   "contract": {
     "target_pages": [
       40,
-      50
+      null
     ],
+    "page_policy": "正文不少于 40 页，不设上限；超出部分必须是实质内容而非重复或排版放大",
     "body_units_min": 24000,
     "body_units_target": 32000,
     "page_scope": "正文；不含封面、目录、参考文献及附录",
     "count_rule": "中文字符与英文单词；不计标题、表格、代码、公式、图片及重复段落",
     "visual_contract": {
-      "required_specs_min": 18,
-      "required_external_assets_min": 12,
-      "required_tables_min": 5,
-      "required_diagrams_min": 8,
-      "required_case_or_ui_visuals_min": 4,
-      "required_asset_ratio": 1.0,
+      "required_figures_min": 6,
       "all_visuals_must_be_cited": true,
-      "rule": "图表、流程图、图标和界面素材必须服务于正文论证，不能用重复截图或空白占页。"
+      "rule": "不设 ImageGen 数量配额。每幅图须承担机制、比较、数据、案例或框架之一的论证作用；数据图必须由登记数据可复现绘制；表格须有来源注。"
     },
     "export_contract": {
       "required_formats": [
@@ -35,12 +31,12 @@
     "pipeline_has_research": true,
     "pipeline_has_visual_assets": true,
     "pipeline_has_export_gate": true,
-    "content_contract_has_40_50": true,
+    "content_contract_min_40_pages": true,
     "content_min_is_24000": true,
     "visual_contract_is_explicit": true,
     "review_checks_visual_gate": true,
-    "export_requires_render_report": true,
-    "table_metadata_gate_is_explicit": true,
+    "export_uses_word_and_hash_ledger": true,
+    "per_figure_and_table_note_gate": true,
     "evaluator_has_long_form_mode": true,
     "planner_carries_content_contract": true,
     "visual_script_writes_requests": true,
@@ -103,7 +99,7 @@
     {
       "severity": "fixed",
       "area": "导出",
-      "finding": "HTML 生成曾容易被误解为最终交付；现在必须提供 render-report.json，记录页数在 40–50、逐页 visual_qa=pass 和 verified=true。"
+      "finding": "PDF 曾由第二个排版引擎生成并允许缩放到 55%；现在 PDF 由 Word 从交付 DOCX 导出，版式检查与人工审查记录绑定文件哈希，详见 docs/audit-2026-10.md。"
     },
     {
       "severity": "fixed",

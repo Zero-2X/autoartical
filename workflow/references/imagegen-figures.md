@@ -9,7 +9,9 @@
 3. **先理解，后写 Prompt**。填写每图 `visual_direction` 后运行 `python workflow/scripts/compose_imagegen_prompt.py <topic_dir> --figure-id <id>`，审阅脚本生成的完整 Prompt 并按图意修订。Prompt 至少交代：文档类型及读者、图在该节的论证任务、要表现的确切对象与步骤、方向及层级关系、图形/界面/场景类型、构图和画幅、视觉风格及可读性、必须出现与必须避免的元素、事实边界、文字策略、与同章其他图的差异。不要套用统一的“信息图+标题”短句；`prompt` 至少 400 字符，必要时更长。若图中需要精确中文标签、数学符号或数字，先保证无字主视觉，标签在正文图注或后续可编辑层中处理；不得把 ImageGen 生成的伪文字当作准确标注。
 4. 将完整 `prompt` 原文传给 Codex 内置 `image_gen.imagegen`，每个不同图意单独生成，不复用、裁切或改名另一张图。禁用外部图像 API、CLI、本地模型、模板 SVG 与 mock 回退。工具不可用时记录阻塞，待其恢复后继续同一路径。
 5. 打开输出原图逐张审查：图意和章节主张一致、对象与关系无误、没有虚构实验结果或精确数据、图中文字可读或由图注承担、画面足够清晰、与其他图不重复。失败则修订 Prompt 并重生成，保留实际最终版 Prompt。通过后调用 `python workflow/scripts/register_imagegen_asset.py <topic_dir> --figure-id <id> --source <内置工具返回的 generated_images PNG> --review-note <不少于20字的实际检查记录>`。
-6. 把每图的 `<id>.png` 嵌入对应小节，图注解释“图展示什么、支持什么判断、哪些结果仍待验证”。重新生成 Markdown/HTML/PDF，运行全文内容、视觉和版式门禁，并用 `pdftoppm` 栅格化全部页面。自动计算每页内容边界占比，最低必须达到 0.55；低于门槛就调整分页和图文尺寸，不能靠空白页凑 40–50 页。人工抽检覆盖首页、至少两张含图页、表格页和末页，核对字体、图注、断页、页码和裁切。渲染报告起初为 `visual_qa=pending`；使用 `record_render_qa.py <topic_dir> --page-renders <全部页面 PNG 目录> --sample <页码:PNG路径> ... --note <检查结论>` 登记真实栅格和检查记录，脚本会将抽检页保存至 `workspace/document_export/qa_samples/`；完整页面 PNG 可留在临时目录。再运行导出门禁。旧 SVG、缺来源 PNG、短 Prompt、缺文章理解、图像散列不符、未在正文嵌入或未人工检查，都会被视觉门禁拒绝。
+6. 把每图的 `<id>.png` 嵌入对应小节，图注解释“图展示什么、支持什么判断、哪些部分是示意”。随后运行 `run_document_export.py`：图表门禁逐图核对生成来源与论证作用，版式检查在 Word 导出的 PDF 上测量图与图注是否同页，人工在全页渲染上确认图在印刷尺寸下可读。
+7. 正文修改后，原图的 Prompt 仍绑定其写作时的正文哈希。若继续沿用该图，必须在 `request.json` 中写入 `placement_review`：当前正文哈希、`argument_role`（mechanism/comparison/data/case/framework）、`no_fabrication`、不少于 30 字的逐项核对说明及查看方式。图意与新正文不再一致时，应重写 `article_understanding` 和 Prompt 并重新生成，而不是只补放置审查。
+8. 不具备 Codex 内置 `image_gen` 的代理（例如在本仓库中运行的 Claude）不得用其他 API、脚本或占位图替代，只能复用已登记图并做放置审查，或把新图的 Prompt 写好交由 Codex 生成。
 
 ## 每图 Prompt 写法
 

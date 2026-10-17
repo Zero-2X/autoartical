@@ -1,28 +1,45 @@
 ---
 name: document-writing
-description: 从可靠资料和明确选题出发，生成、审查并迭代论文、竞赛说明书、项目方案和基金风格研究文档；需要文档级引用、表格、配图和版本化改进记录时使用。
+description: 从可靠资料和明确选题出发，生成、审查并迭代论文、竞赛说明书、项目方案和基金风格研究文档；覆盖章节写作、图表制作、Word/PDF 交付与哈希绑定的质量验收。需要文档级引用、表格、配图和版本化改进记录时使用。
 ---
 
 # 文档写作技能
 
-需要从文献和选题开始时，先使用 `skills/academic-research-writing/SKILL.md` 完成研究 brief 和 research Gate，再回到本 skill 进行章节写作与审查。`document-writing` 负责表达与交付，不能替代领域研究、方法分类或实验协议。
+从文献和选题开始时，先用 `skills/academic-research-writing/SKILL.md` 完成研究 brief 和引用核验；表达修订用 `humanized-academic-writing`；排版交付用 `doctoral-thesis-format`。本 skill 负责把它们串成一条可复检的流程。
 
-40–50 页是长文工作流的默认交付目标，从选题规划开始就必须分配正文、图表、案例和附录预算；不能先生成短稿，再把“扩展到 40–50 页”当作后续可选工作。必须先读取 `workflow/references/content-depth.md`，执行正文总量、逐章预算、证据、视觉资产与去冗余审查。目标是内容充实精练；字数与页数都不能代替实质质量。未完成正式模板渲染、逐页视觉检查和导出门禁，不得宣称交付完成。
+## 流程（每步的输入、输出、失败条件与复检）
 
-每份候选正文都必须运行 `workflow/scripts/evaluate_document.py`。默认模式为 `long_form_required`：有效正文少于合同下限、段落过薄或重复、引用不足，或缺少问题/机制/实验/边界语义证据时只能得到 `revise`，不能被关键词命中误判为通过。`--allow-short` 仅用于选题卡、摘要等明确标记的短种子，不得用于最终文档；短种子必须在后续章节写作前转化为完整正文并重新审查。
+| 步骤 | 输入 | 输出 | 失败条件 | 修复后复检 |
+|---|---|---|---|---|
+| 1 研究与引用 | 选题、research brief | `evidence/references.json`、`citation-verification.json`、`references.gbt7714.md` | 任一文献无法程序化核验、标题不符、载体无依据 | 重跑 `verify_references.py` |
+| 2 章节计划 | 研究问题链 | `section-plan.json`（章节、目的、篇幅区间） | 末章承担技术论证；方法/实验篇幅低于背景 | — |
+| 3 逐章写作 | 计划、证据 | `document_writing/formal/NN_*.md` → 拼合为 `正式稿.md` | 见下方写作规则 | `manuscript_lint.py` |
+| 4 图表 | 定稿段落 | 示意图（ImageGen）、数据图（`make_chart.py`）、三线表 | 见下方图表规则 | `build_figure_table_gate` |
+| 5 排版导出 | `正式稿.md` | DOCX，Word 导出的 PDF，`auto-check.json`，页面渲染 | 见 `doctoral-thesis-format` | `run_document_export.py` |
+| 6 人工审查 | 页面渲染、正文 | `human-review.json`（视觉 + 语义，分开） | 存在未关闭的 blocker/major，或语义项未判定 | `qa_ledger.py record` |
+| 7 交付判定 | 以上全部 | `export-manifest.json`，`qa-status.json` | 任一记录过期或未通过 | `qa_ledger.py verify` |
 
-先读取主题目录中的资料、要求和已有证据，再生成选题候选并保留人工确认记录。写作前建立章节计划、主张清单和证据映射；每个关键事实都必须能回溯到来源，无法确认的内容标记为待核实。
+任何输入文件（正文、图片、导出代码）变化后，相关记录的哈希失配即自动失效；不得手工改记录让它重新“通过”。
 
-文档完成后，从三个维度审查：
+## 写作规则
 
-- 学术论文：问题定义、相关工作、方法、实验/验证、局限和引用可核验。
-- 竞赛说明书：需求覆盖、用户价值、方案闭环、创新点、实施路径和可评审性。
-- 基金申报书：科学问题、研究目标、技术路线、可行性、风险和预期贡献。
+吸收 Anthropic doc-coauthoring 的“读者测试”和 Orchestra ml-paper-writing 的叙事原则：
 
-使用 `workflow/references/` 中对应规范，使用 `workflow/templates/` 中的结构化模板。每轮审查都运行 `workflow/scripts/iteration_memory.py` 记录触发原因、优点、缺陷、改动和指标；下一轮先读取同一项目的历史记录，再决定改动范围。
+- 写之前先用一句话写出贡献；写不出来说明研究问题还没定。摘要按“做了什么—为什么难—怎么做—有什么证据—边界”组织，删去可以放在任何论文开头的句子。
+- 每个实验段落先说它检验哪个主张，再说设置与指标。
+- 段落、标题、证据等级的规则见 `humanized-academic-writing`。
+- **正文中不出现工作流元信息**（门禁、manifest、Prompt、签核、版本封存等），这些内容属于质量记录而非研究内容。
+- 初稿完成后做读者测试：让一个没有上下文的审阅者只读文档，回答“研究问题是什么、方法如何回答、什么结果会推翻它”；答不出或答错的地方就是需要改的地方。
 
-章节正文形成后，必须按 [逐图 ImageGen 工作法](../../workflow/references/imagegen-figures.md) 完成所有计划中的非表格视觉项：先阅读整节及相邻正文，写 `article_understanding`（唯一主张、具体元素、证据边界），再为该图写充分、具体、可执行的 Prompt，最后逐图调用 Codex 内置 `image_gen`。`run_visual_assets.py` 只生成正文上下文请求，不能把自动摘录当成文章理解，也不能用旧 SVG、模板图、外部 API、脚本绘图或另一张图的裁剪复制充数。逐图检查语义、清晰度、独特性与事实边界后，用 `register_imagegen_asset.py` 登记内置工具原图、Prompt 散列和审查记录，插入正文并重新导出。未完成任一步，视觉门禁必须失败。图负责解释结构、流程、机制或案例，不得创造数据或替代证据。表格必须给出单位、数据来源、统计口径和缺失值说明。
+## 图表规则
 
-正文计量必须排除“附录”“参考文献”“参考资料”及其嵌套标题；附录只能补充复现信息，不能承担正文最低量。视觉标签也不等于视觉资产：每个必需图示必须有内置 ImageGen 生成的 PNG、可追溯 Prompt 与审查记录，并在 Markdown、HTML 与最终 PDF 中嵌入。导出门禁必须统计 PDF 中的嵌入图形数量，用 `pdftoppm` 栅格化全部页面，并要求每页内容边界占比至少 0.55；低密度页必须调整分页，不能靠空白页凑页数。人工抽检首页、含图页、表格页和末页，检查字体、图注、页码和裁切；只检查可提取文字不能通过视觉门禁。
+吸收 K-Dense scientific-visualization 与 Orchestra academic-plotting 的做法：**有数值坐标轴的图用可复现脚本绘制，方框—箭头类机制图用 ImageGen**，二者不得互换。
 
-避免整齐重复的句式、空泛价值判断、未经证实的性能数字、伪造引用和“本文将……”式元话语。保留真实的不确定性和限制，优先做小范围可追踪修改。
+- 每幅图必须承担一种论证作用：机制、比较、数据、案例或框架之一，并在正文中先被引用、再出现；图注能独立说明图展示什么、支持什么判断、哪些部分是示意。
+- 数据图：数据写入 CSV（每行带来源键），图规格写入 JSON，运行 `python workflow/scripts/make_chart.py <spec> --topic <dir>`。规则：柱状图从零起；对数轴必须声明；Okabe-Ito 配色并配合标记或纹理，不只靠颜色区分；图内不放标题；只有下限的数据要在图上标明；生成 `provenance.json` 绑定数据、脚本与图片哈希。没有真实数据时不画数据图，不让 ImageGen 画曲线或数值。
+- 示意图：按 [逐图 ImageGen 工作法](../../workflow/references/imagegen-figures.md) 读正文 → 写图意与证据边界 → 写完整 Prompt → 调用 Codex 内置 `image_gen` → 检查 → 登记。正文改动后，沿用旧图必须在 `request.json` 中补写 `placement_review`（当前正文哈希、论证作用、与正文逐项核对的说明）。本仓库其他代理（如 Claude）无法调用 Codex `image_gen`，只能复用已登记图并做放置审查，新图须交给 Codex 生成。
+- 表格：表题“表N-M”在上，三线表，正文先引用；表注写明数据来源或设计依据、单位、统计口径与缺失值约定（如“待实测”）；表注与正文都要解释关键差异，不逐格复述。
+
+## 质量证据的口径
+
+自动检查只覆盖可测量的版式与结构事实；论证是否成立、图意是否准确由人工语义审查判断。人工审查记录写明查看方式与范围（`full-page`/`thumbnail`/`text-only`），只有全页查看全部页面才可写“逐页核验”。“门禁通过”不能单独作为质量达标的证据。

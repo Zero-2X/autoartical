@@ -30,6 +30,7 @@ from pathlib import Path
 CM = 72 / 2.54
 PAGE_W, PAGE_H = 21.0 * CM, 29.7 * CM
 MARGIN = {"top": 3.0 * CM, "bottom": 2.5 * CM, "left": 2.6 * CM, "right": 2.6 * CM}
+LINE_GAP_PT = 30  # 1.5 × 20pt line pitch: glyph boxes leave inter-line gaps that are not blank space
 ALLOWED_FONT_TOKENS = ("SimSun", "SimHei", "TimesNewRoman", "Times New Roman", "CambriaMath", "Symbol", "宋体", "黑体")
 EXPORTER_FILES = ("docx_export.py", "word_pipeline.py")
 
@@ -79,6 +80,10 @@ def word_update_and_export(docx: Path, pdf: Path) -> dict:
         doc.Fields.Update()
         for toc in doc.TablesOfContents:
             toc.Update()
+            # Word builds TOC entries with its own TOC styles (theme fonts);
+            # set them to the thesis fonts so no fallback font enters the PDF.
+            toc.Range.Font.Name = "Times New Roman"
+            toc.Range.Font.NameFarEast = "宋体"
         doc.Repaginate()
         doc.Save()
         WD_PAGE = 3  # wdActiveEndPageNumber
@@ -108,9 +113,13 @@ def word_update_and_export(docx: Path, pdf: Path) -> dict:
         for t in doc.Tables:
             first = t.Rows(1).Range.Information(WD_PAGE)
             last = t.Rows(t.Rows.Count).Range.Information(WD_PAGE)
-            tables.append({"rows": t.Rows.Count, "first_page": first, "last_page": last})
+            after = t.Range.Next(4, 1)  # wdParagraph: the paragraph right after the table
+            note_page = None
+            if after is not None and after.Text.strip().startswith("注："):
+                note_page = after.Characters.First.Information(WD_PAGE)
+            tables.append({"rows": t.Rows.Count, "first_page": first, "last_page": last, "note_page": note_page})
         facts.update({
-            "pages": doc.ComputeStatistics(2),
+            "pages": doc.Range().Information(4),  # wdNumberOfPagesInDocument
             "headings": headings,
             "figure_captions": captions,
             "tables": tables,
@@ -145,18 +154,26 @@ def analyse_pdf(pdf: Path, render_dir: Path | None = None, dpi: int = 110) -> di
                 rect = fitz.Rect(block["bbox"])
                 if rect.y1 <= content.y0 - 2 or rect.y0 >= content.y1 + 2:
                     continue  # header/footer band: not counted as content
-                if rect.x0 < content.x0 - 3 or rect.x1 > content.x1 + 3:
+                if block.get("type") == 1 and (rect.x0 < content.x0 - 3 or rect.x1 > content.x1 + 3):
                     overflow.append([round(v, 1) for v in rect])
                 blocks.append(rect & content)
                 for line in block.get("lines", []):
                     for span in line.get("spans", []):
                         if span["text"].strip():
                             sizes.extend([round(span["size"], 1)] * len(span["text"].strip()))
+            # Text overflow is judged on visible glyphs only: a trailing space
+            # at a justified line end has a box but no ink.
+            for block in page.get_text("rawdict")["blocks"]:
+                for line in block.get("lines", []):
+                    for span in line.get("spans", []):
+                        for char in span.get("chars", []):
+                            if char["c"].strip() and (char["bbox"][2] > content.x1 + 1.5 or char["bbox"][0] < content.x0 - 1.5):
+                                overflow.append([round(v, 1) for v in char["bbox"]])
             covered = 0.0
             intervals = sorted((b.y0, b.y1) for b in blocks if not b.is_empty)
             cur = None
             for y0, y1 in intervals:
-                if cur is None or y0 > cur[1]:
+                if cur is None or y0 > cur[1] + LINE_GAP_PT:
                     if cur:
                         covered += cur[1] - cur[0]
                     cur = [y0, y1]
@@ -214,10 +231,13 @@ def evaluate(facts: dict, pdf_info: dict, contract: dict) -> dict:
     if "error" in layout:
         failures.append(layout["error"])
         return {"failures": failures, "warnings": warnings, "layout": layout}
-    lo, hi = contract.get("target_pages", [40, 50])
+    lo, hi = (list(contract.get("target_pages", [40, None])) + [None])[:2]
     body_pages = layout["counts"]["body"]
-    if not lo <= body_pages <= hi:
-        failures.append(f"正文页数 {body_pages} 不在 {lo}–{hi} 页范围（前置 {layout['counts']['front']} 页、参考文献 {layout['counts']['references']} 页、附录 {layout['counts']['appendix']} 页另计）")
+    other = f"（前置 {layout['counts']['front']} 页、参考文献 {layout['counts']['references']} 页、附录 {layout['counts']['appendix']} 页另计）"
+    if body_pages < lo:
+        failures.append(f"正文页数 {body_pages} 低于下限 {lo} 页{other}；须补充实质内容，不得调版式凑页")
+    elif hi is not None and body_pages > hi:
+        failures.append(f"正文页数 {body_pages} 超过上限 {hi} 页{other}")
     if len(pdf_info["pages"]) != facts["pages"]:
         failures.append(f"Word 统计页数 {facts['pages']} 与导出 PDF 页数 {len(pdf_info['pages'])} 不一致")
     stranded = [h for h in facts["headings"] if h["next_block_page"] != h["page"]]
@@ -226,6 +246,9 @@ def evaluate(facts: dict, pdf_info: dict, contract: dict) -> dict:
     split_captions = [c for c in facts["figure_captions"] if c["page"] != c["figure_page"]]
     if split_captions:
         failures.append("图与图注分页：" + "；".join(f"{c['text']}" for c in split_captions))
+    split_notes = [t for t in facts["tables"] if t.get("note_page") and t["note_page"] != t["last_page"]]
+    if split_notes:
+        failures.append(f"{len(split_notes)} 个表格与表注分页：首页 {[t['first_page'] for t in split_notes]}")
     split_tables = [t for t in facts["tables"] if t["first_page"] != t["last_page"]]
     short_split = [t for t in split_tables if t["rows"] <= 8]
     if short_split:
@@ -264,7 +287,7 @@ def build(markdown_path: Path, docx_path: Path, pdf_path: Path, report_path: Pat
           render_dir: Path | None = None) -> dict:
     from docx_export import export_docx
 
-    contract = contract or {"target_pages": [40, 50], "min_body_fill": 0.75}
+    contract = contract or {"target_pages": [40, None], "min_body_fill": 0.75}
     markdown = markdown_path.read_text(encoding="utf-8")
     export_meta = export_docx(markdown, docx_path, title=title, subject=subject, base_dirs=(base,))
     facts = word_update_and_export(docx_path, pdf_path)
@@ -305,9 +328,10 @@ def main() -> int:
     parser.add_argument("--base", type=Path, required=True, help="解析图片相对路径的根目录")
     parser.add_argument("--title", default="")
     parser.add_argument("--render-dir", type=Path)
-    parser.add_argument("--pages", default="40,50")
+    parser.add_argument("--min-pages", type=int, default=40, help="正文最少页数；默认不设上限")
+    parser.add_argument("--max-pages", type=int, default=None)
     args = parser.parse_args()
-    lo, hi = (int(x) for x in args.pages.split(","))
+    lo, hi = args.min_pages, args.max_pages
     report = build(args.markdown, args.docx, args.pdf, args.report, base=args.base, title=args.title,
                    contract={"target_pages": [lo, hi], "min_body_fill": 0.75}, render_dir=args.render_dir)
     print(json.dumps({"verdict": report["verdict"], "failures": report["failures"],

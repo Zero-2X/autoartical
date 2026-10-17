@@ -34,7 +34,7 @@ def main() -> int:
     p.add_argument("--idea-seed", default="", help="候选生成的补充方向")
     p.add_argument("--from-step", dest="from_step", choices=[name[:-3] for name, _ in COMMANDS], default="init_workspace")
     p.add_argument("--dry-run", action="store_true", help="只显示将要执行的命令")
-    p.add_argument("--allow-html-only", action="store_true", help="允许只输出 HTML；不会宣称 PDF/DOCX 页数已核验")
+    p.add_argument("--skip-word", action="store_true", help="无 Microsoft Word 时只生成预览；结果为 blocked，不宣称 DOCX/PDF 已交付")
     args = p.parse_args()
     topic = Path(args.topic_dir).expanduser().resolve()
     if not topic.exists():
@@ -53,7 +53,7 @@ def main() -> int:
         "run_visual_assets.py": ([],),
         "run_document_writing.py": ([],),
         "run_document_review.py": ([],),
-        "run_document_export.py": ((["--allow-html-only"] if args.allow_html_only else []),),
+        "run_document_export.py": ((["--skip-word"] if args.skip_word else []),),
     }
     for name, label in COMMANDS[start:]:
         cmd = [sys.executable, str(SCRIPTS / name), *common, *extras[name][0]]

@@ -15,7 +15,7 @@ class WorkflowAuditTests(unittest.TestCase):
         self.assertEqual(report["verdict"], "pass")
         self.assertTrue(any(item["short_against_default_contract"] for item in report["sample_docs"]))
         self.assertTrue(report["checks"]["evaluator_has_long_form_mode"])
-        self.assertTrue(report["checks"]["export_requires_render_report"])
+        self.assertTrue(report["checks"]["export_uses_word_and_hash_ledger"])
 
 
 if __name__ == "__main__":

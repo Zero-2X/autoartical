@@ -48,10 +48,28 @@ def _set_fonts(font, east_asia: str, latin: str = LATIN_FONT) -> None:
 
         rfonts = OxmlElement("w:rFonts")
         rpr.append(rfonts)
+    # Theme attributes (asciiTheme, eastAsiaTheme …) take precedence over the
+    # explicit names in Word, which is how Calibri/Cambria leaked into the PDF.
+    for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+        rfonts.attrib.pop(f"{W_NS}{attr}", None)
     rfonts.set(f"{W_NS}eastAsia", east_asia)
     rfonts.set(f"{W_NS}ascii", latin)
     rfonts.set(f"{W_NS}hAnsi", latin)
     rfonts.set(f"{W_NS}cs", latin)
+
+
+def _strip_theme_fonts(document) -> None:
+    """Remove theme font references from docDefaults and every style."""
+    root = document.styles.element
+    for rfonts in root.iter(f"{W_NS}rFonts"):
+        themed = any(f"{W_NS}{a}" in rfonts.attrib for a in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"))
+        for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+            rfonts.attrib.pop(f"{W_NS}{attr}", None)
+        if themed:
+            rfonts.set(f"{W_NS}ascii", LATIN_FONT)
+            rfonts.set(f"{W_NS}hAnsi", LATIN_FONT)
+            rfonts.set(f"{W_NS}cs", LATIN_FONT)
+            rfonts.set(f"{W_NS}eastAsia", BODY_FONT)
 
 
 def _run(paragraph, text: str, *, font: str = BODY_FONT, size: float = BODY_PT,
@@ -96,6 +114,14 @@ def _paragraph_format(paragraph, *, indent: bool = True, align: str = "justify",
     fmt.space_after = Pt(after)
     fmt.first_line_indent = Pt(BODY_PT * 2) if indent else Pt(0)
     fmt.widow_control = True
+    # No hanging punctuation: every glyph stays inside the type area.
+    from docx.oxml import OxmlElement
+
+    p_pr = paragraph._p.get_or_add_pPr()
+    if p_pr.find(f"{W_NS}overflowPunct") is None:
+        node = OxmlElement("w:overflowPunct")
+        node.set(f"{W_NS}val", "0")
+        p_pr.append(node)
     paragraph.alignment = {
         "justify": WD_ALIGN_PARAGRAPH.JUSTIFY,
         "center": WD_ALIGN_PARAGRAPH.CENTER,
@@ -139,7 +165,7 @@ def _inline(paragraph, text: str, *, size: float = BODY_PT, font: str = BODY_FON
         if match.group(2) is not None:
             _run(paragraph, match.group(2), font=font, size=size, bold=True)
         elif match.group(3) is not None:
-            _run(paragraph, match.group(3), font=font, size=size, italic=True)
+            _math(paragraph, match.group(3), size=size, italic=True)
         else:
             _run(paragraph, f"[{match.group(4)}]", font=font, size=size, superscript=True)
         cursor = match.end()
@@ -177,7 +203,7 @@ def _parse_table(block: str) -> list[list[str]]:
     return rows
 
 
-def _three_line_table(document, rows: list[list[str]]) -> None:
+def _three_line_table(document, rows: list[list[str]], *, note_follows: bool = False) -> None:
     """GB/T 7713-style three-line table: thick top/bottom, thin rule under header."""
     from docx.enum.table import WD_TABLE_ALIGNMENT
     from docx.oxml import OxmlElement
@@ -206,6 +232,10 @@ def _three_line_table(document, rows: list[list[str]]) -> None:
             paragraph = cell.paragraphs[0]
             numeric = bool(re.fullmatch(r"[\d.,%±\-–~ ]+|NA|待实测|—", row[c] if c < len(row) else ""))
             _paragraph_format(paragraph, indent=False, align="center" if (r == 0 or numeric) else "left", line_pt=15)
+            # Short tables are kept on one page; long tables may break between
+            # rows and repeat their header row.
+            # The last row is bound to a following table note so they never part.
+            paragraph.paragraph_format.keep_with_next = (len(rows) <= 8 and r < last) or (r == last and note_follows)
             _inline(paragraph, row[c] if c < len(row) else "", size=10.5)
             if r == 0:
                 for run in paragraph.runs:
@@ -276,8 +306,67 @@ def _equation(document, body: str, number: str) -> None:
     stops.add_tab_stop(Cm(TEXT_WIDTH_CM / 2), WD_TAB_ALIGNMENT.CENTER)
     stops.add_tab_stop(Cm(TEXT_WIDTH_CM), WD_TAB_ALIGNMENT.RIGHT)
     _run(paragraph, "\t")
-    _run(paragraph, body.strip(), font=LATIN_FONT, italic=False)
+    _math(paragraph, body.strip(), size=BODY_PT, italic=False)
     _run(paragraph, f"\t{number}")
+
+
+_TOKEN_STOP = set(" \t_^{}(),，·+−-=<>≥≤/|[]:")
+
+
+def _split_scripts(text: str) -> list[tuple[str, str]]:
+    """Split math text into ('', base) / ('_', sub) / ('^', sup) pieces.
+
+    Braced scripts may nest (``Σ_{k∈{attr,scene}}``, ``Σ_{τ∈T_k}``); a script
+    is the brace-balanced group, or the run of token characters after ``_``.
+    Underscores inside a script are flattened (``T_k`` → ``Tk``) because Word
+    runs support one level of sub/superscript.
+    """
+    pieces: list[tuple[str, str]] = []
+    buffer: list[str] = []
+    i = 0
+    while i < len(text):
+        ch = text[i]
+        if ch in "_^" and i + 1 < len(text):
+            if buffer:
+                pieces.append(("", "".join(buffer)))
+                buffer = []
+            j = i + 1
+            if text[j] == "{":
+                depth, k = 0, j
+                while k < len(text):
+                    depth += text[k] == "{"
+                    depth -= text[k] == "}"
+                    if depth == 0:
+                        break
+                    k += 1
+                script = text[j + 1:k]
+                i = k + 1
+            else:
+                k = j
+                while k < len(text) and text[k] not in _TOKEN_STOP:
+                    k += 1
+                script = text[j:k]
+                i = k
+            script = re.sub(r"_\{([^{}]*)\}", r"\1", script).replace("_", "")
+            pieces.append((ch, script))
+            continue
+        buffer.append(ch)
+        i += 1
+    if buffer:
+        pieces.append(("", "".join(buffer)))
+    return pieces
+
+
+def _math(paragraph, text: str, *, size: float, italic: bool) -> None:
+    """Render ``a_b`` / ``a_{bc}`` as subscripts and ``a^b`` as superscripts."""
+    for kind, piece in _split_scripts(text):
+        if not piece:
+            continue
+        run = _run(paragraph, piece, font=LATIN_FONT, size=size, italic=italic if not kind else False)
+        if kind == "_":
+            run.font.subscript = True
+        elif kind == "^":
+            run.font.superscript = True
 
 
 def _page_number_footer(section, fmt: str) -> None:
@@ -343,6 +432,7 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
     document = Document()
     _page_setup(document.sections[0])
     styles = document.styles
+    _strip_theme_fonts(document)
     _style(styles["Normal"], BODY_FONT, BODY_PT)
     _style(styles["Title"], HEADING_FONT, 22, bold=True)
     for name, size in (("Heading 1", 16), ("Heading 2", 14), ("Heading 3", 12)):
@@ -367,7 +457,13 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
         document.add_paragraph()
     paragraph = document.add_paragraph(style="Title")
     _paragraph_format(paragraph, indent=False, align="center", line_pt=36)
-    _run(paragraph, title_text, font=HEADING_FONT, size=22, bold=True)
+    # Break a "主标题：副标题" cover title after the colon instead of letting
+    # Word wrap inside a word.
+    head, sep, tail = title_text.partition("：")
+    _run(paragraph, head + sep, font=HEADING_FONT, size=22, bold=True)
+    if tail:
+        paragraph.add_run().add_break()
+        _run(paragraph, tail, font=HEADING_FONT, size=22, bold=True)
     cover_lines = []
     while blocks and blocks[0].startswith("> "):
         cover_lines.extend(line[2:].strip() for line in blocks.pop(0).splitlines())
@@ -380,7 +476,7 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
 
     state = "front"
     section = document.add_section(WD_SECTION.NEW_PAGE)
-    _header(section, title_text[:40])
+    _header(section, title or title_text)  # caller passes a short running title
     _page_number_footer(section, "upperRoman")
     cover.different_first_page_header_footer = False
     first_in_section = True
@@ -398,8 +494,9 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
         stripped = block.strip()
         if stripped == "[[TOC]]":
             new_page()
-            p = document.add_paragraph(style="Heading 1")
-            p.alignment = 1
+            # Not a Heading style: the TOC title must not list itself.
+            p = document.add_paragraph()
+            _paragraph_format(p, indent=False, align="center", line_pt=24, before=18, after=18)
             _run(p, "目　　录", font=HEADING_FONT, size=16)
             toc = document.add_paragraph()
             _field(toc, 'TOC \\o "1-3" \\h \\z \\u', "（目录由 Word 更新域生成）", size=12)
@@ -439,7 +536,8 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
             _caption(document, lines[0].strip(), keep_with_next=True)
             lines = lines[1:]
             stripped = "\n".join(lines)
-        elif len(lines) == 1 and re.match(r"^表\s*\d+-\d+", lines[0]):
+        elif (len(lines) == 1 and re.match(r"^表\s*\d+-\d+", lines[0]) and index + 1 < len(blocks)
+              and blocks[index + 1].lstrip().startswith("|")):
             pending_table_caption = lines[0]
             continue
         if all(line.strip().startswith("|") for line in lines):
@@ -448,7 +546,8 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
                 pending_table_caption = None
             rows = _parse_table(stripped)
             if rows:
-                _three_line_table(document, rows)
+                note_follows = index + 1 < len(blocks) and blocks[index + 1].lstrip().startswith("注：")
+                _three_line_table(document, rows, note_follows=note_follows)
                 counts["tables"] += 1
             continue
         if lines and lines[0].startswith("注："):
@@ -477,7 +576,8 @@ def export_docx(markdown: str, output_path: Path, *, title: str = "", subject: s
         if state == "back" and re.match(r"^\[\d+\]", lines[0]):
             for line in lines:
                 p = document.add_paragraph()
-                _paragraph_format(p, indent=False, line_pt=18)
+                # Left-aligned: justified reference lines with long URLs open wide gaps.
+                _paragraph_format(p, indent=False, align="left", line_pt=18)
                 p.paragraph_format.left_indent = Pt(24)
                 p.paragraph_format.first_line_indent = Pt(-24)
                 _run(p, line.strip(), size=10.5)

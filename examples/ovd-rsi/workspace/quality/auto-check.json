@@ -1,0 +1,1111 @@
+{
+  "kind": "automatic-layout-check",
+  "generated_at": "2026-10-17T07:05:52+00:00",
+  "inputs": {
+    "source_markdown_sha256": "1d2ffb6a1ceadb551d018503e7c446c6e9d382cc57373988feffe4354614cfef",
+    "assets": {
+      "workspace/document_assets/figures/s1_visual_2.png": "19da9f5de70378fe60991ab3d2651131eb8988675715edb1417a118abd0d044a",
+      "workspace/document_assets/charts/rs_benchmark_scale_chart.png": "c9295154dbc7c7d9ce8437d2a7d96cf6c6908c315009814a4ea0e9f8c9a148d4",
+      "workspace/document_assets/figures/s2_visual_2.png": "f8923152528f197ccaaefd7f6c96400c51125ec660bac00e429cc4dcf9f674a6",
+      "workspace/document_assets/figures/s3_visual_2.png": "f09d026d29a14e4616146b6be12cd6479f4283c0a4e1808b165d06d760dee896",
+      "workspace/document_assets/figures/s3_visual_3.png": "43bcbb4b8b0fe4b5b47af784aefeef4bb575225e022d091275567702e650b101",
+      "workspace/document_assets/figures/s_validation_visual_4.png": "40a852acce31cdb837676f13a72a3eb1d5b98f054b0f0389afebab47ae8d102f"
+    },
+    "exporter_code": {
+      "docx_export.py": "78576e6549c9424efc86f18a496a8f2389c1cd1e67a16c6bf44ae2bd9008b2b7",
+      "word_pipeline.py": "2880af0ef08e54bce5da9871885b37a22fa5b8e1c08254c6febd7ff20d4d0a4e"
+    }
+  },
+  "outputs": {
+    "docx": "作品书_OpenRSI-Calibrator.docx",
+    "docx_sha256": "abe07e566beab4cd5a20a5217ffb58fd1d37188aaeac58149c7ffd36e78faea9",
+    "pdf": "作品书_OpenRSI-Calibrator.pdf",
+    "pdf_sha256": "282c79d74684bc09d6720f108c87763cb548608484a8607b28dfffcb11931695",
+    "pdf_producer": "Microsoft Word ExportAsFixedFormat from the delivered DOCX"
+  },
+  "export": {
+    "path": "D:\\autoartical\\examples\\ovd-rsi\\output\\作品书_OpenRSI-Calibrator.docx",
+    "format": "docx",
+    "editable": true,
+    "figures": 6,
+    "tables": 19,
+    "equations": 12,
+    "headings": 61
+  },
+  "word": {
+    "word_version": "16.0",
+    "pages": 49,
+    "figure_captions": [
+      {
+        "text": "图1-1 从固定类别检测到开放查询与分级决策的任务演变（示意图，不代表实测结果）",
+        "page": 10,
+        "figure_page": 10
+      },
+      {
+        "text": "图2-1 主要遥感检测基准的类别数与实例数（纵轴为对数坐标；FAIR1M 为原文",
+        "page": 13,
+        "figure_page": 13
+      },
+      {
+        "text": "图4-1 OpenRSI-Calibrator 的五层框架：输入切片与查询、视觉",
+        "page": 24,
+        "figure_page": 24
+      },
+      {
+        "text": "图4-2 遥感域三层词汇原型示意：左侧文本描述经编码进入原型空间，彩色簇对应对象",
+        "page": 26,
+        "figure_page": 26
+      },
+      {
+        "text": "图4-3 多尺度重叠切片与旋转候选协同：左为切片网格及相邻切片的重叠区域，中为同",
+        "page": 28,
+        "figure_page": 28
+      },
+      {
+        "text": "图5-1 同义查询一致性案例的记录方式：五种问法下的候选与局部放大、问法间一致性",
+        "page": 41,
+        "figure_page": 41
+      }
+    ],
+    "tables": [
+      {
+        "rows": 5,
+        "first_page": 9,
+        "last_page": 9,
+        "note_page": 9
+      },
+      {
+        "rows": 5,
+        "first_page": 12,
+        "last_page": 12,
+        "note_page": 12
+      },
+      {
+        "rows": 5,
+        "first_page": 14,
+        "last_page": 14,
+        "note_page": 14
+      },
+      {
+        "rows": 6,
+        "first_page": 16,
+        "last_page": 16,
+        "note_page": 16
+      },
+      {
+        "rows": 6,
+        "first_page": 20,
+        "last_page": 20,
+        "note_page": 20
+      },
+      {
+        "rows": 5,
+        "first_page": 22,
+        "last_page": 22,
+        "note_page": 22
+      },
+      {
+        "rows": 4,
+        "first_page": 30,
+        "last_page": 30,
+        "note_page": 30
+      },
+      {
+        "rows": 7,
+        "first_page": 31,
+        "last_page": 31,
+        "note_page": 31
+      },
+      {
+        "rows": 7,
+        "first_page": 32,
+        "last_page": 32,
+        "note_page": 32
+      },
+      {
+        "rows": 5,
+        "first_page": 33,
+        "last_page": 33,
+        "note_page": 33
+      },
+      {
+        "rows": 5,
+        "first_page": 34,
+        "last_page": 34,
+        "note_page": 34
+      },
+      {
+        "rows": 11,
+        "first_page": 35,
+        "last_page": 35,
+        "note_page": 35
+      },
+      {
+        "rows": 8,
+        "first_page": 37,
+        "last_page": 37,
+        "note_page": 37
+      },
+      {
+        "rows": 6,
+        "first_page": 37,
+        "last_page": 37,
+        "note_page": 37
+      },
+      {
+        "rows": 6,
+        "first_page": 38,
+        "last_page": 38,
+        "note_page": 38
+      },
+      {
+        "rows": 6,
+        "first_page": 39,
+        "last_page": 39,
+        "note_page": 39
+      },
+      {
+        "rows": 8,
+        "first_page": 42,
+        "last_page": 42,
+        "note_page": 42
+      },
+      {
+        "rows": 8,
+        "first_page": 44,
+        "last_page": 44,
+        "note_page": 44
+      },
+      {
+        "rows": 4,
+        "first_page": 45,
+        "last_page": 45,
+        "note_page": 45
+      }
+    ],
+    "inline_shapes": 6
+  },
+  "headings": [
+    {
+      "text": "OpenRSI-Calibrator：\u000b面向光学遥感影像的开放词汇目标检测与可靠语义校准",
+      "level": "题",
+      "page": 1,
+      "next_block_page": 1
+    },
+    {
+      "text": "摘要",
+      "level": "1",
+      "page": 2,
+      "next_block_page": 2
+    },
+    {
+      "text": "Abstract",
+      "level": "1",
+      "page": 3,
+      "next_block_page": 3
+    },
+    {
+      "text": "第1章 绪论",
+      "level": "1",
+      "page": 7,
+      "next_block_page": 7
+    },
+    {
+      "text": "1.1 遥感解译从固定类别走向开放查询",
+      "level": "2",
+      "page": 7,
+      "next_block_page": 7
+    },
+    {
+      "text": "1.2 选择光学遥感目标检测作为研究子领域的理由",
+      "level": "2",
+      "page": 8,
+      "next_block_page": 8
+    },
+    {
+      "text": "1.3 共性挑战及其对决策的影响",
+      "level": "2",
+      "page": 8,
+      "next_block_page": 8
+    },
+    {
+      "text": "1.4 研究问题链与本文工作边界",
+      "level": "2",
+      "page": 9,
+      "next_block_page": 9
+    },
+    {
+      "text": "1.5 本文结构",
+      "level": "2",
+      "page": 10,
+      "next_block_page": 10
+    },
+    {
+      "text": "第2章 相关研究与研究缺口",
+      "level": "1",
+      "page": 12,
+      "next_block_page": 12
+    },
+    {
+      "text": "2.1 遥感检测基准与旋转框检测",
+      "level": "2",
+      "page": 12,
+      "next_block_page": 12
+    },
+    {
+      "text": "2.2 通用开放词汇检测的四条技术路线",
+      "level": "2",
+      "page": 13,
+      "next_block_page": 13
+    },
+    {
+      "text": "2.3 遥感视觉—语言表示的进展与边界",
+      "level": "2",
+      "page": 15,
+      "next_block_page": 15
+    },
+    {
+      "text": "2.4 遥感开放词汇检测的代表性工作",
+      "level": "2",
+      "page": 15,
+      "next_block_page": 15
+    },
+    {
+      "text": "2.5 置信度校准与开放词汇评测中的负面证据",
+      "level": "2",
+      "page": 17,
+      "next_block_page": 17
+    },
+    {
+      "text": "2.6 尚未解决的关键问题",
+      "level": "2",
+      "page": 17,
+      "next_block_page": 17
+    },
+    {
+      "text": "第3章 研究设计与可证伪假设",
+      "level": "1",
+      "page": 19,
+      "next_block_page": 19
+    },
+    {
+      "text": "3.1 任务定义与符号",
+      "level": "2",
+      "page": 19,
+      "next_block_page": 19
+    },
+    {
+      "text": "3.2 设计原则与取舍依据",
+      "level": "2",
+      "page": 20,
+      "next_block_page": 20
+    },
+    {
+      "text": "3.3 四项研究假设及其否证条件",
+      "level": "2",
+      "page": 21,
+      "next_block_page": 21
+    },
+    {
+      "text": "3.4 研究边界与不作承诺的部分",
+      "level": "2",
+      "page": 22,
+      "next_block_page": 22
+    },
+    {
+      "text": "第4章 OpenRSI-Calibrator 方法",
+      "level": "1",
+      "page": 24,
+      "next_block_page": 24
+    },
+    {
+      "text": "4.1 总体框架",
+      "level": "2",
+      "page": 24,
+      "next_block_page": 24
+    },
+    {
+      "text": "4.2 遥感域词汇原型适配",
+      "level": "2",
+      "page": 25,
+      "next_block_page": 25
+    },
+    {
+      "text": "4.2.1 三层原型的构成",
+      "level": "3",
+      "page": 25,
+      "next_block_page": 25
+    },
+    {
+      "text": "4.2.2 负向描述与背景原型",
+      "level": "3",
+      "page": 25,
+      "next_block_page": 25
+    },
+    {
+      "text": "4.2.3 投影层的训练目标",
+      "level": "3",
+      "page": 26,
+      "next_block_page": 26
+    },
+    {
+      "text": "4.2.4 原型来源与版本管理",
+      "level": "3",
+      "page": 27,
+      "next_block_page": 27
+    },
+    {
+      "text": "4.3 多尺度切片与旋转候选协同",
+      "level": "2",
+      "page": 27,
+      "next_block_page": 27
+    },
+    {
+      "text": "4.3.1 多尺度重叠切片",
+      "level": "3",
+      "page": 27,
+      "next_block_page": 27
+    },
+    {
+      "text": "4.3.2 水平框与旋转框的协同",
+      "level": "3",
+      "page": 28,
+      "next_block_page": 28
+    },
+    {
+      "text": "4.4 跨切片融合与冲突记录",
+      "level": "2",
+      "page": 29,
+      "next_block_page": 29
+    },
+    {
+      "text": "4.5 可靠性校准与三态决策",
+      "level": "2",
+      "page": 29,
+      "next_block_page": 29
+    },
+    {
+      "text": "4.5.1 查询稳定性分数",
+      "level": "3",
+      "page": 29,
+      "next_block_page": 29
+    },
+    {
+      "text": "4.5.2 校准方法",
+      "level": "3",
+      "page": 30,
+      "next_block_page": 30
+    },
+    {
+      "text": "4.5.3 三态决策规则",
+      "level": "3",
+      "page": 30,
+      "next_block_page": 30
+    },
+    {
+      "text": "4.5.4 拒识的解释",
+      "level": "3",
+      "page": 31,
+      "next_block_page": 31
+    },
+    {
+      "text": "4.6 计算复杂度与部署成本",
+      "level": "2",
+      "page": 31,
+      "next_block_page": 31
+    },
+    {
+      "text": "第5章 实验方案",
+      "level": "1",
+      "page": 32,
+      "next_block_page": 32
+    },
+    {
+      "text": "5.1 实验总览",
+      "level": "2",
+      "page": 32,
+      "next_block_page": 32
+    },
+    {
+      "text": "5.2 数据集、类别划分与泄漏控制",
+      "level": "2",
+      "page": 32,
+      "next_block_page": 32
+    },
+    {
+      "text": "5.2.1 基础类与新类划分",
+      "level": "3",
+      "page": 32,
+      "next_block_page": 32
+    },
+    {
+      "text": "5.2.2 信息泄漏的来源与控制",
+      "level": "3",
+      "page": 33,
+      "next_block_page": 33
+    },
+    {
+      "text": "5.3 对照方法与公平比较规则",
+      "level": "2",
+      "page": 34,
+      "next_block_page": 34
+    },
+    {
+      "text": "5.4 评价指标及其能支持的结论",
+      "level": "2",
+      "page": 35,
+      "next_block_page": 35
+    },
+    {
+      "text": "5.5 主实验设计",
+      "level": "2",
+      "page": 36,
+      "next_block_page": 36
+    },
+    {
+      "text": "5.6 消融实验",
+      "level": "2",
+      "page": 38,
+      "next_block_page": 38
+    },
+    {
+      "text": "5.7 鲁棒性与跨域测试",
+      "level": "2",
+      "page": 38,
+      "next_block_page": 38
+    },
+    {
+      "text": "5.8 统计不确定性与多重比较",
+      "level": "2",
+      "page": 39,
+      "next_block_page": 39
+    },
+    {
+      "text": "5.9 案例研究：同义查询下的一致性",
+      "level": "2",
+      "page": 40,
+      "next_block_page": 40
+    },
+    {
+      "text": "5.10 失败分析与停止规则",
+      "level": "2",
+      "page": 41,
+      "next_block_page": 41
+    },
+    {
+      "text": "第6章 系统实现与应用场景",
+      "level": "1",
+      "page": 43,
+      "next_block_page": 43
+    },
+    {
+      "text": "6.1 系统组成与数据流",
+      "level": "2",
+      "page": 43,
+      "next_block_page": 43
+    },
+    {
+      "text": "6.2 证据卡与人工复核",
+      "level": "2",
+      "page": 43,
+      "next_block_page": 43
+    },
+    {
+      "text": "6.3 应用场景与用户任务",
+      "level": "2",
+      "page": 44,
+      "next_block_page": 44
+    },
+    {
+      "text": "6.4 部署形态与成本边界",
+      "level": "2",
+      "page": 45,
+      "next_block_page": 45
+    },
+    {
+      "text": "6.5 风险、许可与数据治理",
+      "level": "2",
+      "page": 46,
+      "next_block_page": 46
+    },
+    {
+      "text": "第7章 结论与研究局限",
+      "level": "1",
+      "page": 47,
+      "next_block_page": 47
+    },
+    {
+      "text": "7.1 主要结论",
+      "level": "2",
+      "page": 47,
+      "next_block_page": 47
+    },
+    {
+      "text": "7.2 研究局限",
+      "level": "2",
+      "page": 47,
+      "next_block_page": 47
+    },
+    {
+      "text": "7.3 后续工作",
+      "level": "2",
+      "page": 47,
+      "next_block_page": 47
+    },
+    {
+      "text": "参考文献",
+      "level": "1",
+      "page": 48,
+      "next_block_page": 48
+    }
+  ],
+  "pdf": {
+    "pages": [
+      {
+        "page": 1,
+        "fill": 0.803,
+        "chars": 100,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：  面向光学遥感影像的开放词汇目标检测与可",
+        "render": "page-001.png",
+        "render_sha256": "4e414f46033e181f5f617e13a09aa73d541910c8e25b392166f558b86a1909a3"
+      },
+      {
+        "page": 2,
+        "fill": 0.691,
+        "chars": 810,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-002.png",
+        "render_sha256": "d880d6568f231c504dd16a8b559f71bff8cf9cf57546cddd94c498ebe52eb5f9"
+      },
+      {
+        "page": 3,
+        "fill": 0.747,
+        "chars": 1863,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-003.png",
+        "render_sha256": "b2ed752b07172d6c2983af7399c12bb31f16b43997ea299ce9f674d905f8beb1"
+      },
+      {
+        "page": 4,
+        "fill": 0.966,
+        "chars": 2624,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-004.png",
+        "render_sha256": "df07999df78961711931f5bf69d95873fb03cd242194e31a77411013e76e2bc2"
+      },
+      {
+        "page": 5,
+        "fill": 0.995,
+        "chars": 2829,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-005.png",
+        "render_sha256": "e0fbbd1d9cd5d6757a8d4d17a2a6b6a9c555da34658b2dbbad8f6f103399ad2d"
+      },
+      {
+        "page": 6,
+        "fill": 0.547,
+        "chars": 1582,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-006.png",
+        "render_sha256": "f0a7b7f398be61687c3d33146ada6bd895a5dea4a7a634889c3d81e75f4b76fc"
+      },
+      {
+        "page": 7,
+        "fill": 0.912,
+        "chars": 1121,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-007.png",
+        "render_sha256": "64798afe04760d8c8a712ce9d6665a99ad7dfe617d3e201d5bc972f2f6da2379"
+      },
+      {
+        "page": 8,
+        "fill": 0.995,
+        "chars": 1193,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-008.png",
+        "render_sha256": "a12f3c1a704f3eca35d3ef9266b29ec1a053c2e52d839a465072266030002585"
+      },
+      {
+        "page": 9,
+        "fill": 0.943,
+        "chars": 1126,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-009.png",
+        "render_sha256": "e20bddea315f620cb17d6795d45f506db732f7daded145ea4cdfc26c3a927c85"
+      },
+      {
+        "page": 10,
+        "fill": 0.975,
+        "chars": 742,
+        "images": 1,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-010.png",
+        "render_sha256": "4a4e18c49e5cb682a9d88f7fd9ff9787be89cb03691bfe4f41abc8ec6bae1a2b"
+      },
+      {
+        "page": 11,
+        "fill": 0.129,
+        "chars": 198,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-011.png",
+        "render_sha256": "83c6c7693947a2f08d3d0f309058c7eb58c26f44f56351639e57edca8add07b5"
+      },
+      {
+        "page": 12,
+        "fill": 0.923,
+        "chars": 1057,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-012.png",
+        "render_sha256": "e3736264a4bff3e07f06ab25b0a2b82a584dc4958778017f43a66ac11fa4dde3"
+      },
+      {
+        "page": 13,
+        "fill": 0.946,
+        "chars": 845,
+        "images": 1,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-013.png",
+        "render_sha256": "bebec49777390d39a88f09b6d7b3e14757cfe57fe214ff63e623b7b31dd2d846"
+      },
+      {
+        "page": 14,
+        "fill": 0.975,
+        "chars": 1310,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-014.png",
+        "render_sha256": "205389ab76c9be99e7cd0b561dc51db8fadf3a5e5c5831fb0eaabb9ba9a5b342"
+      },
+      {
+        "page": 15,
+        "fill": 0.978,
+        "chars": 1224,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-015.png",
+        "render_sha256": "35252ef66bd6b541850498f2dedcadaa81d0fe2022131b7d95611d521f5fdca3"
+      },
+      {
+        "page": 16,
+        "fill": 0.94,
+        "chars": 1263,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-016.png",
+        "render_sha256": "29a5c47206e1549c3651d1e2379700428f5d1ae28575eb7aa41a2a56da98be5f"
+      },
+      {
+        "page": 17,
+        "fill": 0.994,
+        "chars": 1259,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-017.png",
+        "render_sha256": "4f3c5ea0d179aad00b2757d4bc3a16102407f60a916cb196c9f0bb875b1bf7ad"
+      },
+      {
+        "page": 18,
+        "fill": 0.595,
+        "chars": 730,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-018.png",
+        "render_sha256": "c6464a0939f8b16fbfaca0aa65d3d00a37d252e0c8a03f0d32500c9c5438c3b9"
+      },
+      {
+        "page": 19,
+        "fill": 0.967,
+        "chars": 1181,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-019.png",
+        "render_sha256": "5286199e06a9e2595eb3bf41f5ec11c42d95ecb0559e1bb77385fef64468042d"
+      },
+      {
+        "page": 20,
+        "fill": 0.98,
+        "chars": 1176,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-020.png",
+        "render_sha256": "400e0baaf69eb145e0b80b566ae4bfb2462da44d1090bfb98d8ea7106fd08bfb"
+      },
+      {
+        "page": 21,
+        "fill": 0.979,
+        "chars": 1182,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-021.png",
+        "render_sha256": "b7bff8bad0e8284f6b1811eeefdf95161dfc58942451ce44d62f44c9dcf00d44"
+      },
+      {
+        "page": 22,
+        "fill": 0.987,
+        "chars": 1205,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-022.png",
+        "render_sha256": "7a0a3afcbdf883d6f54b22d6940e419092e110c26fa4d84cd3a9a40ecc461296"
+      },
+      {
+        "page": 23,
+        "fill": 0.216,
+        "chars": 292,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-023.png",
+        "render_sha256": "e15f0392925025f9cbe5ad436a4be944ba09223c5fce62a2abc36118e65227a3"
+      },
+      {
+        "page": 24,
+        "fill": 0.959,
+        "chars": 786,
+        "images": 1,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-024.png",
+        "render_sha256": "b15ac39553411d266005d7da3ba7e5f407ad8a2046141297728a0b911361c4e1"
+      },
+      {
+        "page": 25,
+        "fill": 0.825,
+        "chars": 952,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-025.png",
+        "render_sha256": "279aaf36e76d57a90efb372e224141bb8eff61b8d3460f500f704a5624c772a2"
+      },
+      {
+        "page": 26,
+        "fill": 0.964,
+        "chars": 916,
+        "images": 1,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-026.png",
+        "render_sha256": "b0205d32f9ffc622d44dea646ae65fec7e1d2c12cb98255a85d55d067461552c"
+      },
+      {
+        "page": 27,
+        "fill": 0.933,
+        "chars": 1077,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-027.png",
+        "render_sha256": "aede8353650c78fdeb3f443aecf0df60e5b1ab5fa44f0f434b24310f06e454fb"
+      },
+      {
+        "page": 28,
+        "fill": 0.978,
+        "chars": 839,
+        "images": 1,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-028.png",
+        "render_sha256": "dc3376412be3cb94cd741b8f90b105c728f558bc4a07cca845204eb5c0117a88"
+      },
+      {
+        "page": 29,
+        "fill": 0.93,
+        "chars": 1111,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-029.png",
+        "render_sha256": "2461dbd86b55a68039df5e481772b8025374d6dc43cea3dcff14d09b60d2c1f0"
+      },
+      {
+        "page": 30,
+        "fill": 0.947,
+        "chars": 1134,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-030.png",
+        "render_sha256": "89e2a6ac10b7f483ad5febb4db313ebf3f5cbc1a83efcd6784ec6beabe29c1b7"
+      },
+      {
+        "page": 31,
+        "fill": 0.984,
+        "chars": 1137,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-031.png",
+        "render_sha256": "3545de849017e45a27ef269dac94969ec482d127bca2301424ab969ff4a71d5b"
+      },
+      {
+        "page": 32,
+        "fill": 0.984,
+        "chars": 1046,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-032.png",
+        "render_sha256": "4febe6f7ae63e5fbd74eada6934580644552456cb3f20e73c20d0fe6977740f6"
+      },
+      {
+        "page": 33,
+        "fill": 0.971,
+        "chars": 1161,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-033.png",
+        "render_sha256": "41d7d2e47c8e346144cf6d27b4e3b809809241b8ca67d7ab7f7ec3d653126b4e"
+      },
+      {
+        "page": 34,
+        "fill": 0.944,
+        "chars": 1117,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-034.png",
+        "render_sha256": "b3fb9ab4385009425921aa7e4cdc911bf419044fa79add40a3bca8cd80fe9a3b"
+      },
+      {
+        "page": 35,
+        "fill": 0.988,
+        "chars": 1208,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-035.png",
+        "render_sha256": "176ae4c1c805b4e3f16f2aa7d2c861fba58207ff17e78418840213a2267a98da"
+      },
+      {
+        "page": 36,
+        "fill": 0.935,
+        "chars": 1229,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-036.png",
+        "render_sha256": "9d0593705b376d59538a5616600e7151e2a8fbbb26f5b37f4a5ec895a6f8393b"
+      },
+      {
+        "page": 37,
+        "fill": 0.985,
+        "chars": 1191,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-037.png",
+        "render_sha256": "f655863dc90ad1aebf73ce446654cf4d0d052b277fc1df8e3540d88714ac2797"
+      },
+      {
+        "page": 38,
+        "fill": 0.995,
+        "chars": 1016,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-038.png",
+        "render_sha256": "326ed00806f4d61aa2904176b3a3596f21d00005e8a988e4e170f01a6927e266"
+      },
+      {
+        "page": 39,
+        "fill": 0.958,
+        "chars": 1074,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-039.png",
+        "render_sha256": "1852d1a5f3e45a82be330ac298f4c4f78ad6da3c508215ba061aa7bbdb0e62d9"
+      },
+      {
+        "page": 40,
+        "fill": 0.951,
+        "chars": 1159,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-040.png",
+        "render_sha256": "db540ab129fe6e7b8deca6e41eed591b837a3d02e74d502fd6f5adf3986f7f52"
+      },
+      {
+        "page": 41,
+        "fill": 0.842,
+        "chars": 649,
+        "images": 1,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-041.png",
+        "render_sha256": "ccfe2fbe0f748ab235b4faa884c55ac4e502d0b7888ca8f0490b8a19a61b882c"
+      },
+      {
+        "page": 42,
+        "fill": 0.478,
+        "chars": 551,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-042.png",
+        "render_sha256": "f03f06159fe7a6cbc3a8220eeecf8e49855a725197de7a0ab1c0340793eb3d4b"
+      },
+      {
+        "page": 43,
+        "fill": 0.91,
+        "chars": 965,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-043.png",
+        "render_sha256": "b6bd194d7c7fac19070352ce705b438d3401b7538fc33f558bc82511520ba93b"
+      },
+      {
+        "page": 44,
+        "fill": 0.936,
+        "chars": 1012,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-044.png",
+        "render_sha256": "ad91407dd56d1165cb09f1af6dc3c7c2e453f656a52f8a6b309423ad76f5c2e7"
+      },
+      {
+        "page": 45,
+        "fill": 0.928,
+        "chars": 1104,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-045.png",
+        "render_sha256": "3f1da5609de02b5afce3b0ecb23818f4eef53c85fb335e43bce2c0ad86b1671b"
+      },
+      {
+        "page": 46,
+        "fill": 0.319,
+        "chars": 392,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-046.png",
+        "render_sha256": "7d11f55469ade013d44efbd3ef9ab297985bacfa1f04dd2a171af22c7b0f5247"
+      },
+      {
+        "page": 47,
+        "fill": 0.931,
+        "chars": 915,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-047.png",
+        "render_sha256": "03ea31ec2d8b973d6e42f33177672228078dadfe13010262e6dac2a520f82b4f"
+      },
+      {
+        "page": 48,
+        "fill": 0.923,
+        "chars": 2472,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-048.png",
+        "render_sha256": "59abc0238b976eeccad7957f7eb818870d4ac60948bf0cd32b3792ee0f2ad38a"
+      },
+      {
+        "page": 49,
+        "fill": 0.674,
+        "chars": 2112,
+        "images": 0,
+        "overflow": [],
+        "head": "OpenRSI-Calibrator：面向光学遥感影像的开放词汇目标检测与可靠语",
+        "render": "page-049.png",
+        "render_sha256": "eeb16f99dd552d893b2925f6ed8174e752deccf951c47bf01376e7edd1a54bb5"
+      }
+    ],
+    "fonts": {
+      "TimesNewRomanPSMT": 91,
+      "TimesNewRomanPS-BoldMT": 7,
+      "SimHei": 39,
+      "SimSun": 49,
+      "TimesNewRomanPS-ItalicMT": 22,
+      "CambriaMath": 5
+    },
+    "dominant_font_size_pt": 12.0
+  },
+  "contract": {
+    "target_pages": [
+      40,
+      null
+    ],
+    "min_body_fill": 0.75
+  },
+  "failures": [],
+  "warnings": [],
+  "layout": {
+    "ranges": {
+      "front": [
+        1,
+        6
+      ],
+      "body": [
+        7,
+        47
+      ],
+      "references": [
+        48,
+        49
+      ],
+      "appendix": null
+    },
+    "counts": {
+      "front": 6,
+      "body": 41,
+      "references": 2,
+      "appendix": 0
+    },
+    "chapter_last_pages": [
+      2,
+      6,
+      11,
+      18,
+      23,
+      31,
+      42,
+      46,
+      47,
+      49
+    ]
+  },
+  "verdict": "pass",
+  "scope_note": "自动检查只覆盖可测量的版式事实；语义质量、图意与逐页视觉判断见 human-review.json，二者不能互相替代。"
+}

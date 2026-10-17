@@ -1,0 +1,18 @@
+{
+  "kind": "data-chart",
+  "argument_role": "data",
+  "claim": "公开遥感检测基准的实例规模跨越约一个数量级，但类别数仍停留在 15～37 个，扩大标注规模没有带来相应的词汇覆盖。",
+  "data": "workspace/evidence/data/rs_benchmark_scale.csv",
+  "data_sha256": "ed00f87157dd736cc7a48c64c3ee0bb7ffb56d816f4a1509250f0b82cc2e4bda",
+  "script": "../../workflow/scripts/make_chart.py",
+  "script_sha256": "6a44c22a4b94e1408639b51fee291ac6941dcbbe685e6e4dc9457e3efcf1ef95",
+  "spec_sha256": "6b9da103d89d1ca973e2de256ba1477834b099722d521db8dae23dd547a8bcc8",
+  "image_sha256": "c9295154dbc7c7d9ce8437d2a7d96cf6c6908c315009814a4ea0e9f8c9a148d4",
+  "sources": [
+    "xia2018dota",
+    "li2020dior",
+    "ding2021dota2",
+    "sun2022fair1m"
+  ],
+  "encoding_rules": "零基线柱状图/声明对数轴；Okabe-Ito 配色并配合纹理或标记；图内不放标题。"
+}

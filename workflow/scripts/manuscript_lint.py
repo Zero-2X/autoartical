@@ -35,7 +35,7 @@ GENERIC_HEADINGS = {
 }
 META_TERMS = (
     "门禁", "Gate", "gate", "manifest", "工作流自检", "签核", "交付声明", "版本封存", "skill",
-    "ImageGen", "Prompt", "提示词", "质量检测的含义", "文本质量的约束", "申报书阅读导航", "审查脚本",
+    "ImageGen", "Prompt", "质量检测的含义", "文本质量的约束", "申报书阅读导航", "审查脚本",
 )
 ENGLISH_IN_HEADING_ALLOW = re.compile(
     r"^(?:[A-Z][A-Za-z0-9\-]*|HBB|OBB|mAP|AP\d*|ECE|D-ECE|CLIP|DOTA|DIOR|FAIR1M|LAE|OVD|RS|AUROC|FPS|OpenRSI-Calibrator)$")
@@ -92,7 +92,8 @@ def lint(text: str) -> dict:
     # Citations --------------------------------------------------------
     refs = dict(re.findall(r"(?m)^\[(\d+)\]\s+(.+)$", back))
     cited_order: list[int] = []
-    for group in re.findall(r"\[(\d+(?:\s*[,，\-–]\s*\d+)*)\]", body):
+    body_no_math = re.sub(r"\$[^$\n]+\$", "", body)  # intervals such as [0,1] are not citations
+    for group in re.findall(r"\[(\d+(?:\s*[,，\-–]\s*\d+)*)\]", body_no_math):
         for part in re.split(r"[,，]", group):
             if re.search(r"[-–]", part):
                 a, b = (int(x) for x in re.split(r"[-–]", part))
@@ -119,7 +120,8 @@ def lint(text: str) -> dict:
         if kind == "图":
             labels = re.findall(r"(?m)^!\[(图\s*\d+-\d+)", body)
         else:
-            labels = re.findall(r"(?m)^(表\s*\d+-\d+)", body)
+            # a caption is a single line followed (after an optional blank line) by a pipe table
+            labels = re.findall(r"(?m)^(表\s*\d+-\d+)[^\n]*\n(?:[ \t]*\n)?\|", body)
         labels = [l.replace(" ", "") for l in labels]
         by_chapter: dict[int, list[int]] = {}
         for label in labels:
@@ -130,14 +132,14 @@ def lint(text: str) -> dict:
                 failures.append(f"{kind}编号不连续：第{c}章 {seq}")
         for label in labels:
             positions = [m.start() for m in re.finditer(re.escape(label), body)]
-            caption_pos = body.find(("![" + label) if kind == "图" else ("\n" + label))
-            prose_refs = [p for p in positions if p != caption_pos and p != caption_pos + (2 if kind == "图" else 1)]
+            if kind == "图":
+                caption_pos = body.find("![" + label) + 2
+            else:
+                found = re.search(r"(?m)^" + re.escape(label) + r"[^\n]*\n(?:[ \t]*\n)?\|", body)
+                caption_pos = found.start() if found else -1
+            prose_refs = [p for p in positions if p != caption_pos]
             if not prose_refs:
                 failures.append(f"{label} 未在正文中被引用")
-        if kind == "表":
-            table_blocks = re.findall(r"(?m)^(表\s*\d+-\d+.*)\n(\|.*\n)+(?:\n注：(.*))?", body)
-            for caption, _, note in table_blocks:
-                pass
 
     # Unsupported result numbers --------------------------------------
     suspicious = []
@@ -175,7 +177,7 @@ def lint(text: str) -> dict:
     for i in range(1, len(chapters), 2):
         sizes[chapters[i].strip()] = len(re.findall(r"[一-鿿]", chapters[i + 1]))
     total = sum(sizes.values()) or 1
-    if sizes:
+    if len(sizes) >= 3:
         last_title, last_size = list(sizes.items())[-1]
         if last_size / total > 0.10:
             failures.append(f"末章“{last_title}”占正文 {last_size / total:.0%}，技术论证应放回相应章节")

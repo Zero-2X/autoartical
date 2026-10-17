@@ -1,0 +1,44 @@
+{
+ "data": "workspace/evidence/data/rs_benchmark_scale.csv",
+ "output": "workspace/document_assets/charts/rs_benchmark_scale_chart.png",
+ "kind": "scatter",
+ "x": "categories",
+ "y": "instances",
+ "label": "dataset",
+ "group": "annotation",
+ "x_label": "标注类别数",
+ "y_label": "标注实例数",
+ "log": true,
+ "size_cm": [
+  14,
+  7.2
+ ],
+ "legend_loc": "upper left",
+ "sources": [
+  "xia2018dota",
+  "li2020dior",
+  "ding2021dota2",
+  "sun2022fair1m"
+ ],
+ "argument_role": "data",
+ "claim": "公开遥感检测基准的实例规模跨越约一个数量级，但类别数仍停留在 15～37 个，扩大标注规模没有带来相应的词汇覆盖。",
+ "x_lim": [
+  0,
+  42
+ ],
+ "y_lim": [
+  100000.0,
+  5000000.0
+ ],
+ "y_ticks": [
+  100000.0,
+  200000.0,
+  500000.0,
+  1000000.0,
+  2000000.0,
+  5000000.0
+ ],
+ "label_left": [
+  "DOTA-v1.0"
+ ]
+}
