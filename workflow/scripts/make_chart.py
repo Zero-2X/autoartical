@@ -32,6 +32,11 @@ def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def sha_text(path: Path) -> str:
+    """Line-ending-independent hash for CSV/script inputs."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="从登记数据可复现地绘制数据图")
     parser.add_argument("spec", type=Path)
@@ -128,9 +133,9 @@ def main() -> int:
         "argument_role": spec["argument_role"],
         "claim": spec["claim"],
         "data": str(data_path.relative_to(topic)).replace("\\", "/"),
-        "data_sha256": sha(data_path),
+        "data_sha256": sha_text(data_path),
         "script": Path(__import__("os").path.relpath(script, topic)).as_posix(),
-        "script_sha256": sha(script),
+        "script_sha256": sha_text(script),
         "spec_sha256": sha(args.spec),
         "image_sha256": sha(out),
         "sources": spec["sources"],

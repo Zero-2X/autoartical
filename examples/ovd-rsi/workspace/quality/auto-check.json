@@ -1,6 +1,6 @@
 {
   "kind": "automatic-layout-check",
-  "generated_at": "2026-10-17T07:05:52+00:00",
+  "generated_at": "2026-10-17T11:24:53+00:00",
   "inputs": {
     "source_markdown_sha256": "1d2ffb6a1ceadb551d018503e7c446c6e9d382cc57373988feffe4354614cfef",
     "assets": {
@@ -13,14 +13,14 @@
     },
     "exporter_code": {
       "docx_export.py": "78576e6549c9424efc86f18a496a8f2389c1cd1e67a16c6bf44ae2bd9008b2b7",
-      "word_pipeline.py": "2880af0ef08e54bce5da9871885b37a22fa5b8e1c08254c6febd7ff20d4d0a4e"
+      "word_pipeline.py": "b6f78bd162aec0c52a27d471887b8ee5e0574ee422a5a4efec80f8bf2223a2d9"
     }
   },
   "outputs": {
     "docx": "作品书_OpenRSI-Calibrator.docx",
-    "docx_sha256": "abe07e566beab4cd5a20a5217ffb58fd1d37188aaeac58149c7ffd36e78faea9",
+    "docx_sha256": "40e8371c29e0b2075e68011e16981065ea80263b1557ca9e40e27045e8b81c1d",
     "pdf": "作品书_OpenRSI-Calibrator.pdf",
-    "pdf_sha256": "282c79d74684bc09d6720f108c87763cb548608484a8607b28dfffcb11931695",
+    "pdf_sha256": "2245b2b96c3f53417889bd2fa53d005a385c28bab59d1fc40403de0416636465",
     "pdf_producer": "Microsoft Word ExportAsFixedFormat from the delivered DOCX"
   },
   "export": {

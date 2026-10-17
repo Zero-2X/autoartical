@@ -39,6 +39,12 @@ def sha256_file(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def sha256_code(path: Path) -> str:
+    """Hash source code independent of CRLF/LF: a checkout that only changes
+    line endings must not invalidate a layout check."""
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
 def sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
@@ -56,7 +62,7 @@ def input_fingerprint(markdown: str, base: Path) -> dict:
     return {
         "source_markdown_sha256": sha256_text(markdown),
         "assets": referenced_assets(markdown, base),
-        "exporter_code": {name: sha256_file(scripts / name) for name in EXPORTER_FILES},
+        "exporter_code": {name: sha256_code(scripts / name) for name in EXPORTER_FILES},
     }
 
 

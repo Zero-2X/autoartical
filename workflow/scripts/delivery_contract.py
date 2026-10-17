@@ -250,7 +250,8 @@ def _chart_record(topic_dir: Path, path: Path) -> tuple[bool, str]:
         target = topic_dir / record.get(key, "")
         if not target.is_file():
             return False, f"数据图缺少可复现输入：{key}"
-        if hashlib.sha256(target.read_bytes()).hexdigest() != record.get(f"{key}_sha256"):
+        # data and script are text: line-ending conversion is not a change
+        if hashlib.sha256(target.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != record.get(f"{key}_sha256"):
             return False, f"数据图的 {key} 已变化，需重新绘制"
     if hashlib.sha256(path.read_bytes()).hexdigest() != record.get("image_sha256"):
         return False, "数据图图片与绘制记录不一致"

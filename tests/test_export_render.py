@@ -140,6 +140,19 @@ class LayoutEvaluationTests(unittest.TestCase):
         self.assertEqual(layout["counts"], {"front": 5, "body": 41, "references": 2, "appendix": 2})
 
 
+class CodeHashTests(unittest.TestCase):
+    def test_code_hash_ignores_line_endings_but_not_content(self):
+        from word_pipeline import sha256_code
+
+        with tempfile.TemporaryDirectory() as tmp:
+            lf, crlf, edited = (Path(tmp) / n for n in ("a.py", "b.py", "c.py"))
+            lf.write_bytes(b"x = 1\ny = 2\n")
+            crlf.write_bytes(b"x = 1\r\ny = 2\r\n")
+            edited.write_bytes(b"x = 1\ny = 3\n")
+            self.assertEqual(sha256_code(lf), sha256_code(crlf))
+            self.assertNotEqual(sha256_code(lf), sha256_code(edited))
+
+
 class ExporterTests(unittest.TestCase):
     def test_nested_subscripts_parse(self):
         pieces = _split_scripts("Σ_{k∈{attr,scene}} g_k·cos(f_r, t_k)")
@@ -185,8 +198,9 @@ class FigureGateTests(unittest.TestCase):
             script = topic / "s.py"
             script.write_text("pass\n", encoding="utf-8")
             sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+            text_sha = lambda p: hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
             image.with_suffix(".provenance.json").write_text(json.dumps({
-                "data": "d.csv", "data_sha256": sha(data), "script": "s.py", "script_sha256": sha(script),
+                "data": "d.csv", "data_sha256": text_sha(data), "script": "s.py", "script_sha256": text_sha(script),
                 "image_sha256": sha(image), "sources": ["x"], "argument_role": "data"}), encoding="utf-8")
             self.assertTrue(build_figure_table_gate(topic, draft)["passed"])
             data.write_text("a,b\n1,3\n", encoding="utf-8")  # data changed -> chart stale
